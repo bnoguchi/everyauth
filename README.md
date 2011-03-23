@@ -56,9 +56,18 @@ authorization strategies but also a mix of other desired, rich authorization fea
       .facebook
         .appId('')
         .appSecret('')
-        .authTimeout(2000);
+        .authTimeout(2000)
+        .callbackUri('/auth/facebook/callback')
+        .autoFetchUser(true);
 
-    everyauth.facebook.on('authorize.succeed', function (req, res, token) {
+    everyauth.facebook.on('oauth.access-token', function (req, accessToken, refreshToken) {
+      console.log(accessToken);
+      console.log(refreshToken);
+      everyauth.facebook.oauth.getProtectedResource(everyauth.facebook._apiHost + '/me', accessToken, function (err, data, res) {
+      });
+    });
+    
+    everyauth.facebook.on('auth.succeed', function (req, res) {
       if (!req.loggedIn) {
         everyauth.facebook.emit('login', req, res, fbData);
       } else {
@@ -66,10 +75,10 @@ authorization strategies but also a mix of other desired, rich authorization fea
       }
     });
 
-    everyauth.facebook.on('authorize.fail', function (req, res, err) {
+    everyauth.facebook.on('auth.fail', function (req, res, err) {
     });
     
-    everyauth.facebook.on('authorize.timeout', function (req, res) {
+    everyauth.facebook.on('auth.timeout', function (req, res) {
     });
     
     everyauth.facebook.on('revoke', function (req, res, err) {
@@ -86,7 +95,7 @@ authorization strategies but also a mix of other desired, rich authorization fea
     everyauth.refresh(); // Refresh to load new route into app
 
 ## Password Auth
-    everyauth.password.on('authorize.succeed', function (req, res, accessToken) {
+    everyauth.password.on('auth.succeed', function (req, res) {
       if (!req.loggedIn) {
         everyauth.facebook.emit('login', req, res, fbData);
       } else {
@@ -94,7 +103,7 @@ authorization strategies but also a mix of other desired, rich authorization fea
       }
     });
 
-    everyauth.password.on('authorize.fail', function (req, res, err) {
+    everyauth.password.on('auth.fail', function (req, res, err) {
     });
     
     everyauth(app);
@@ -106,16 +115,18 @@ authorization strategies but also a mix of other desired, rich authorization fea
         .appSecret('')
         .authTimeout(2000);
 
-    everyauth.twitter.on('authorize.succeed', function (req, res, accessToken) {
+    everyauth.twitter.on('auth.succeed', function (req, res, accessToken) {
     });
 
-    everyauth.twitter.on('authorize.fail', function (req, res, err) {
+    everyauth.twitter.on('auth.fail', function (req, res, err) {
     });
     
-    everyauth.facebook.on('authorize.timeout', function (req, res) {
+    everyauth.facebook.on('auth.timeout', function (req, res) {
     });
     
     everyauth.facebook.on('revoke', function (req, res, err) {
     });
 
     everyauth(app);
+
+## Creating Your Own Custom Authentication Strategies
