@@ -39,7 +39,9 @@ authorization strategies but also a mix of other desired, rich authorization fea
 - Allowing the user to have rememberable sessions
 
 ## General Auth Events
-    everyauth.on('logout', function (req, res) {
+    everyauth.on('login', function (user) {
+    });
+    everyauth.on('logout', function (user) {
     });
 
 ## Facebook Auth
@@ -130,3 +132,11 @@ authorization strategies but also a mix of other desired, rich authorization fea
     everyauth(app);
 
 ## Creating Your Own Custom Authentication Strategies
+Creating your own authentication strategies is a straightforward process.
+You only need to:
+
+1. Instantiate a new EveryModule or EveryModule subclass.
+2. Define the routes required as part of your authentication strategy.
+3. Specify the events you want exposed and the ones that require
+   listeners.
+4. Add any methods to the module instance for configuration.
