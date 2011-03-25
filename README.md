@@ -12,6 +12,13 @@ Authentication and authorization (password, facebook, & more) for your node.js C
   events for you to empower you to handle these events exactly how you want to handle them.
 - *Simple* - If you want to peek under the hood at its implementation, it is
   straightforward to figure out what is going on.
+- *Easily Configurable* - everyauth was built with powerful configuration needs in mind. One
+  of the problems I found with existing `connect` solutions was that it offered configurability
+  from options, but if you wanted to do anything more you had to dig into source and fork the
+  codebase. `everyauth` allows you to over-ride specific hooks so that you can configure it to
+  your auth needs.
+- *Idiomatic* - The syntax for configuring and extending your authorization strategies are
+  idiomatic and chainable.
 
 ## Installation
     $ npm install everyauth
@@ -38,6 +45,11 @@ authorization strategies but also a mix of other desired, rich authorization fea
 - Tracking login activity
 - Allowing the user to have rememberable sessions
 
+In addition to adding routes and exposing events at the auth strategy level, at a global level
+`everyauth` adds helper methods to the incoming `request` to check the request auth status 
+(authorized, unauthorized, logged in, logged out) and to access the user associated with the
+request.
+
 ## General Auth Events
     everyauth.on('login', function (user) {
     });
@@ -48,19 +60,20 @@ authorization strategies but also a mix of other desired, rich authorization fea
     var everyauth = require('everyauth')
       , connect = require('connect');
 
-    var app = connect(
-        connect.bodyParser()
-      , connect.cookieParser()
-      , connect.session()
-    );
-
     everyauth
       .facebook
         .appId('')
         .appSecret('')
-        .authTimeout(2000)
-        .callbackUri('/auth/facebook/callback')
-        .autoFetchUser(true);
+        .myHostname('http://localhost:3000');
+
+    everyauth.facebook.pre('succeed', function (req, res, uid, credentials, info) {
+    });
+    
+    eveyauth.facebook.hook('succeed', function (req, res, uid, credentials, info) {
+    });
+
+    eveyauth.facebook.hook('fail', function (req, res, err) {
+    });
 
     everyauth.facebook.on('oauth.access-token', function (req, accessToken, refreshToken) {
       console.log(accessToken);
@@ -86,7 +99,12 @@ authorization strategies but also a mix of other desired, rich authorization fea
     everyauth.facebook.on('revoke', function (req, res, err) {
     });
 
-    everyauth(app);
+    var app = connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session()
+      , everyauth()
+    );
 
     // You can introspect everyauth modules to see what routes they have added or will add
     console.log(everyauth.facebook.routes);
@@ -95,6 +113,27 @@ authorization strategies but also a mix of other desired, rich authorization fea
     everyauth.facebook.routes['/some/new/path'] = function () {
     });
     everyauth.refresh(); // Refresh to load new route into app
+
+## OAuth Submodule Defaults
+
+The Facebook module is a submodule of the OAuth module, which
+comes with certain defaults. You can over-ride the following
+defaults.
+    everyauth.facebook
+      .authTimeout(3000)
+      .fetchOAuthUser(true);
+
+Moreover, the Facebook module itself has the following
+defaults, which you can also over-ride:
+    everyauth.facebook
+      .apiHost('https://graph.facebook.com')
+      .callbackUri('/auth/facebook/callback')
+      .get('/auth/facebook', function (req, res) {
+        var fb = everyauth.facebook
+          , authorizeUri = fb.oauth.getAuthorizeUrl({redirect_uri: fb._myHostname + fb._callbackUri, scope: 'email'});
+        res.writeHead(303, { 'Location': authorizeUri });
+        res.end();
+      });
 
 ## Password Auth
     everyauth.password.on('auth.succeed', function (req, res) {

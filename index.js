@@ -4,6 +4,7 @@ var everyauth = module.exports = function () {
   var app = connect(
       function (req, res, next) {
         req.isAuth = everyauth.isAuth;
+        req.logout = everyauth.logout;
         next();
       }
     , connect.router(function (app) {
@@ -20,11 +21,24 @@ var everyauth = module.exports = function () {
 
 everyauth.modules = {};
 ['facebook'].forEach( function(name) {
+  var mod =
   everyauth[name] =
   everyauth.modules[name] = require('./lib/' + name);
+
+  mod.everyauth = everyauth;
 });
 
 everyauth.isAuth = function () {
+  var req = this;
+  if (req.session.access_token) {
+    return true;
+  } else {
+    return false;
+  }
   // TODO
-  return false;
+};
+
+everyauth.logout = function () {
+  var req = this;
+  delete req.session.access_token;
 };
