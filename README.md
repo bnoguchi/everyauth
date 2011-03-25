@@ -93,9 +93,6 @@ request.
     everyauth.facebook.on('auth.fail', function (req, res, err) {
     });
     
-    everyauth.facebook.on('auth.timeout', function (req, res) {
-    });
-    
     everyauth.facebook.on('revoke', function (req, res, err) {
     });
 
@@ -120,7 +117,6 @@ The Facebook module is a submodule of the OAuth module, which
 comes with certain defaults. You can over-ride the following
 defaults.
     everyauth.facebook
-      .authTimeout(3000)
       .fetchOAuthUser(true);
 
 Moreover, the Facebook module itself has the following
@@ -153,16 +149,12 @@ defaults, which you can also over-ride:
     everyauth
       .twitter
         .appId('')
-        .appSecret('')
-        .authTimeout(2000);
+        .appSecret('');
 
     everyauth.twitter.on('auth.succeed', function (req, res, accessToken) {
     });
 
     everyauth.twitter.on('auth.fail', function (req, res, err) {
-    });
-    
-    everyauth.facebook.on('auth.timeout', function (req, res) {
     });
     
     everyauth.facebook.on('revoke', function (req, res, err) {
@@ -179,3 +171,5 @@ You only need to:
 3. Specify the events you want exposed and the ones that require
    listeners.
 4. Add any methods to the module instance for configuration.
+
+TODO Note differentiation between bound and descendant strategies when handling 'set.*' events
