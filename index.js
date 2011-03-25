@@ -13,6 +13,8 @@ var everyauth = module.exports = function () {
         for (var _name in modules) {
           _module = modules[_name];
           _module.routeApp(app);
+          if (_module._cachedPreFetchUser)
+            _module.pre('succeed', _module._cachedPreFetchUser);
         }
       })
   );
