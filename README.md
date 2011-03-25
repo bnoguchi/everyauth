@@ -60,56 +60,69 @@ request.
     var everyauth = require('everyauth')
       , connect = require('connect');
 
+    // Easy chainable interface
     everyauth
       .facebook
-        .appId('')
-        .appSecret('')
-        .myHostname('http://localhost:3000');
+        .appId('YOUR APP ID HERE')
+        .appSecret('YOUR APP SECRET HERE')
+        .myHostname('http://localhost:3000'); // Note no trailing slash '/'
 
-    everyauth.facebook.pre('succeed', function (req, res, uid, credentials, info) {
-    });
-    
-    eveyauth.facebook.hook('succeed', function (req, res, uid, credentials, info) {
-    });
-
-    eveyauth.facebook.hook('fail', function (req, res, err) {
-    });
-
-    everyauth.facebook.on('oauth.access-token', function (req, accessToken, refreshToken) {
-      console.log(accessToken);
-      console.log(refreshToken);
-      everyauth.facebook.oauth.getProtectedResource(everyauth.facebook._apiHost + '/me', accessToken, function (err, data, res) {
-      });
-    });
-    
-    everyauth.facebook.on('auth.succeed', function (req, res) {
+    // This anonymous function is invoked when Facebook OAuth succeeds
+    eveyauth.facebook.hook('succeed', function (req, res, user, credentials, fbUserMetadata) {
+      console.log(user); // The user retrieved from your database
+      console.log(credentials.accessToken);
+      console.log(credentials.refreshToken);
+      console.log(fbUserMetadata);
+      
       if (!req.loggedIn) {
-        everyauth.facebook.emit('login', req, res, fbData);
+        if (user) {
+          // The user may not be logged in from a prior auth strategy (e.g., Twitter)
+          res.writeHead(303, { Location: '/invite-facebook-friends' });
+        } else {
+          // The visitor has registered for the first time for your app via Facebook OAuth
+          res.writeHead(303, { Location: '/app-tutorial' });
+        }
       } else {
-        res.redirect('/invite-facebook-friends');
+        // Or the user may already be logged in via another auth strategy
+        res.writeHead(303, { Location: '/invite-facebook-friends' });
       }
+      res.end();
     });
 
-    everyauth.facebook.on('auth.fail', function (req, res, err) {
+    // This anonymous function is invoked when Facebook OAuth fails
+    eveyauth.facebook.hook('fail', function (req, res, err) {
+      // You can write err to a flash notice if you want
+      // or log it somewhere
+      console.warn(err);
+      res.writeHead(303, { Location: '/' });
+      res.end();
     });
-    
-    everyauth.facebook.on('revoke', function (req, res, err) {
+   
+    // [Unimplemented] This anonymous function gets invoked when a user revokes
+    // authorization for your app 
+    everyauth.facebook.hook('revoke', function (req, res, err) {
     });
 
     var app = connect(
         connect.bodyParser()
       , connect.cookieParser()
       , connect.session()
-      , everyauth()
+      , everyauth.connect() // everyauth gets inserted as connect middleware here
     );
 
     // You can introspect everyauth modules to see what routes they have added or will add
     console.log(everyauth.facebook.routes);
 
-    // You can use introspection to add routes to a module, too
+
+### Facebook Hooks
+
+### Adding Routes
+
+    // You can use introspection to remove routes to a module, too
     everyauth.facebook.routes['/some/new/path'] = function () {
     });
-    everyauth.refresh(); // Refresh to load new route into app
+
+## Module Introspection
 
 ## OAuth Submodule Defaults
 
@@ -166,10 +179,10 @@ defaults, which you can also over-ride:
 Creating your own authentication strategies is a straightforward process.
 You only need to:
 
-1. Instantiate a new EveryModule or EveryModule subclass.
+1. Instantiate a new auth submodule.
 2. Define the routes required as part of your authentication strategy.
-3. Specify the events you want exposed and the ones that require
-   listeners.
-4. Add any methods to the module instance for configuration.
+3. Specify the relevant hooks that correspond to the steps of and state changes for
+   the given authentication strategy.
+4. Add any methods to the submodule configuration.
 
 TODO Note differentiation between bound and descendant strategies when handling 'set.*' events
