@@ -1,6 +1,11 @@
-var connect = require('connect');
+var connect = require('connect')
+  , hooks = require('hooks');
 
-var everyauth = module.exports = function () {
+var everyauth = module.exports = {};
+for (var k in hooks) {
+  everyauth[k] = hooks[k];
+}
+everyauth.connect = function () {
   var app = connect(
       function (req, res, next) {
         req.isAuth = everyauth.isAuth;
@@ -13,8 +18,7 @@ var everyauth = module.exports = function () {
         for (var _name in modules) {
           _module = modules[_name];
           _module.routeApp(app);
-          if (_module._fetchOAuthUser)
-            _module.pre('succeed', _module._fetchOAuthUserFn);
+          _module.emit('start', _module);
         }
       })
   );
@@ -32,7 +36,7 @@ everyauth.modules = {};
 
 everyauth.isAuth = function () {
   var req = this;
-  if (req.session.access_token) {
+  if (req.session.auth && req.session.auth.loggedIn) {
     return true;
   } else {
     return false;
@@ -42,5 +46,5 @@ everyauth.isAuth = function () {
 
 everyauth.logout = function () {
   var req = this;
-  delete req.session.access_token;
+  delete req.session.auth;
 };

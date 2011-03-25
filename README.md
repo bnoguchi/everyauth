@@ -124,7 +124,7 @@ defaults, which you can also over-ride:
     everyauth.facebook
       .apiHost('https://graph.facebook.com')
       .callbackUri('/auth/facebook/callback')
-      .get('/auth/facebook', function (req, res) {
+      .GET('/auth/facebook', function (req, res) {
         var fb = everyauth.facebook
           , authorizeUri = fb.oauth.getAuthorizeUrl({redirect_uri: fb._myHostname + fb._callbackUri, scope: 'email'});
         res.writeHead(303, { 'Location': authorizeUri });
