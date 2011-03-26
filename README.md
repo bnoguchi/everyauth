@@ -65,7 +65,8 @@ request.
       .facebook
         .appId('YOUR APP ID HERE')
         .appSecret('YOUR APP SECRET HERE')
-        .myHostname('http://localhost:3000'); // Note no trailing slash '/'
+        .myHostname('http://localhost:3000') // Note no trailing slash '/'
+        .scope('email'); // Configurable scope
 
     // This anonymous function is invoked when Facebook OAuth succeeds
     eveyauth.facebook.hook('succeed', function (req, res, user, credentials, fbUserMetadata) {
@@ -121,6 +122,7 @@ request.
 ### Facebook Hooks
 
 ### Configuring Routes
+
 By default, the facebook module comes with the following routes:
 
 -   GET '/auth/facebook'
@@ -158,7 +160,20 @@ By default, the facebook module comes with the following routes:
     everyauth.facebook.routes['/some/new/path'] = function () {
     });
 
-## Adding 
+### Configuring Facebook Permissions Dynamically
+
+It is recommended by Facebook that you only request
+the permissions that you need at the time. So you may
+start off requesting the default permissions and then
+at a later point request more permissions. This implies
+scope configuration that should vary dynamically based
+on the current request session. Therefore, you can
+specify a function that returns the appropriate scope
+based on the current request:
+    everyauth.facebook.scope( function (req) {
+      if (req.session.additionalScopes)
+        return req.session.additionalScopes;
+    });
 
 ## Module Introspection
 
