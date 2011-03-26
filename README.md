@@ -120,11 +120,45 @@ request.
 
 ### Facebook Hooks
 
-### Adding Routes
+### Configuring Routes
+By default, the facebook module comes with the following routes:
+
+-   GET '/auth/facebook'
+    When you click on a "Login with Facebook" link, it will take you to
+    this uri. `everyauth` already has implemented the OAuth logic
+    that happens after you GET '/auth/facebook'. If you would like
+    to change the URI, you can do so via:
+    
+        var handler = everyauth.fb.routes.get['/auth/facebook'];
+        delete everyauth.fb.routes.get['/auth/facebook'];
+        everyauth.fb.GET('/some/new/uri/for/fb', handler);
+    
+    If you would like to change only the handler, you can do so via:
+    
+        everyauth.fb.GET('/auth/facebook', function (req, res) {
+          // Your own custom logic here
+        });
+    
+    If you would like to change the URI and the handler, then:
+    
+        delete everyauth.fb.routes.get['/auth/facebook'];
+        everyauth.fb.GET('/some/new/uri/for/fb', function (req, res) {
+        });
+
+-   GET '/auth/facebook/callback'
+    This is the callback URI that you provide to Facebook OAuth. When
+    facebook is done with its OAuth logic, it redirects the user
+    back to this callback.
+    
+    If you would like to change the URI, you can do so via:
+    
+        everyauth.fb.callbackUri('/auth/facebook/new_callback');
 
     // You can use introspection to remove routes to a module, too
     everyauth.facebook.routes['/some/new/path'] = function () {
     });
+
+## Adding 
 
 ## Module Introspection
 
