@@ -73,6 +73,10 @@ request.
       console.log(credentials.accessToken);
       console.log(credentials.refreshToken);
       console.log(fbUserMetadata);
+
+      // You will want to save some of the function
+      // parameters to the session. How you want to do it
+      // is up to you.
       
       if (!req.loggedIn) {
         if (user) {
