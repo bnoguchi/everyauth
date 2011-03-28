@@ -50,6 +50,23 @@ In addition to adding routes and exposing events at the auth strategy level, at 
 (authorized, unauthorized, logged in, logged out) and to access the user associated with the
 request.
 
+The basic flow of events is:
+
+1. Request authentication
+2. Authentication strategy calls back to the app via
+   - `succeed`
+   - `fail`
+3. If `succeed`, then the strategy calls back to the app with
+   credentials and possibly 3rd party user metadata (if configured, see below)
+   and possibly the found or created user (if configured, see below).
+    It is up to the app to decide what it wants to do with this information.
+    Likely, you will want to store this information in a session.
+4. If `fail`, then the strategy calls back to the app with the error.
+
+Within an OAuth submodule, there are additional events relative to
+`succeed`.
+    fetchOAuthUserStep -> findOrCreateUserStep -> succeed
+
 ## General Auth Events
     everyauth.on('login', function (user) {
     });
@@ -112,7 +129,7 @@ request.
         connect.bodyParser()
       , connect.cookieParser()
       , connect.session()
-      , everyauth.connect() // everyauth gets inserted as connect middleware here
+      , everyauth.middleware() // everyauth gets inserted as connect middleware here
     );
 
     // You can introspect everyauth modules to see what routes they have added or will add
@@ -239,3 +256,7 @@ You only need to:
 4. Add any methods to the submodule configuration.
 
 TODO Note differentiation between bound and descendant strategies when handling 'set.*' events
+
+##
+
+module.succeed -> everyauth.succeed

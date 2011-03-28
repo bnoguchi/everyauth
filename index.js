@@ -15,13 +15,15 @@ for (var k in hooks) {
 //         connect.bodyParser()
 //       , connect.cookieParser()
 //       , connect.session({secret: 'oreo'})
-//       , everyauth.connect()
+//       , everyauth.middleware()
 //     )
-everyauth.connect = function () {
+everyauth.middleware = function () {
+  var middleware = [
+  ];
   var app = connect(
       function (req, res, next) {
-        var methods = everyauth._req._methods
-          , getters = everyauth._req._getters;
+        var methods = everyauth._req._sync._methods
+          , getters = everyauth._req._sync._getters;
         for (var name in methods) {
           req[name] = methods[name];
         }
@@ -46,16 +48,22 @@ everyauth.connect = function () {
 };
 
 everyauth._req = {
-    _methods: {}
-  , _getters: {}
+    _sync: {
+        _methods: {}
+      , _getters: {}
+    }
+  , _async: {
+        _methods: {}
+      , _getters: {}
+    }
 };
-everyauth.addRequestMethod = function (name, fn) {
-  this._req._methods[name] = fn;
+everyauth.addRequestMethod = function (name, fn, isAsync) {
+  this._req['_' + (isAsync ? 'a' : '') + 'sync']._methods[name] = fn;
   return this;
 };
 
-everyauth.addRequestGetter = function (name, fn) {
-  this._req._getters[name] = fn;
+everyauth.addRequestGetter = function (name, fn, isAsync) {
+  this._req['_' + (isAsync ? 'a' : '') + 'sync']._getters[name] = fn;
   return this;
 };
 
