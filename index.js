@@ -82,7 +82,7 @@ everyauth
   });
 
 everyauth.modules = {};
-['facebook'].forEach( function(name) {
+['oauth', 'facebook'].forEach( function(name) {
   var mod =
   everyauth[name] =
   everyauth.modules[name] = require('./lib/' + name);
