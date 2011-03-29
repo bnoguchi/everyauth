@@ -1,0 +1,23 @@
+{
+  "name": "everyauth",
+  "description": "Auth solution (password, facebook, & more) for your node.js Connect & Express apps",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bnoguchi/everyauth/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bnoguchi/everyauth.git"
+  },
+  "author": "Brian Noguchi <brian.noguchi@gmail.com> (https://github.com/bnoguchi/)",
+  "main": "./index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": ">=0.4.3"
+  }
+}
