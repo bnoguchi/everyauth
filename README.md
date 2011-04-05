@@ -55,8 +55,8 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       , connect = require('connect');
     
     everyauth.password
-      .loginPath('/login') // Page with the login form
-      .authPath('/login') // What you POST to
+      .getLoginPath('/login') // Page with the login form
+      .postLoginPath('/login') // What you POST to
       .loginView('a string of html; OR the name of the jade/etc-view-engine view')
       .redirectPath('/') // Where to redirect to after a login
       .findUser( function (didSucceed, login) {
