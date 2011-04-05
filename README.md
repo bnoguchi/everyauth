@@ -10,11 +10,13 @@ Authentication and authorization (password, facebook, & more) for your node.js C
   coming soon for beta invitation support and more.
 - *Easily Configurable* - everyauth was built with powerful 
   configuration needs in mind. One of the problems I found 
-  with existing `connect` solutions was that it offered 
+  with existing `connect` auth solutions is that they offer
   configurability from options, but if you wanted to do 
   anything more you had to dig into source and fork the
-  codebase. `everyauth` allows you to over-ride specific 
-  hooks so that you can configure it to your auth needs.
+  codebase. `everyauth` is built around the concept of steps
+  that you declare and define. So you can over-ride existing
+  steps, add new steps, and manipulate the order of steps
+  in a straightforward easy-to-read and easy-to-write manner.
 - *Idiomatic* - The syntax for configuring and extending your authorization strategies are
   idiomatic and chainable.
 - *Step-driven*
