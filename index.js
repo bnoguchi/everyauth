@@ -29,7 +29,7 @@ everyauth.middleware = function () {
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
-          _module.routeApp(app);
+          if (_module.routable) _module.routeApp(app);
         }
       })
   );
@@ -71,13 +71,16 @@ everyauth
   });
 
 everyauth.modules = {};
-['oauth', 'facebook'].forEach( function(name) {
+includeModules = {oauth: false, facebook: true}
+for (var name in includeModules) {
   var mod =
   everyauth[name] =
   everyauth.modules[name] = require('./lib/' + name);
 
+  mod.routable = includeModules[name];
+
   // Make `everyauth` accessible from each 
   // auth strategy module
   mod.everyauth = everyauth;
-});
+};
 
