@@ -78,3 +78,10 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       , everyauth.middleware()
       , connect.router(routes);
     ).listen(3000);
+
+### License
+MIT License
+
+---
+### Author
+Brian Noguchi
