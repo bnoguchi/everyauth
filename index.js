@@ -1,6 +1,8 @@
 var connect = require('connect')
   , everyauth = module.exports = {};
 
+everyauth.Promise = require('./lib/promise');
+
 // The connect middleware
 // e.g.,
 //     connect(
