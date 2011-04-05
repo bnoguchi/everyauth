@@ -11,20 +11,20 @@ var connect = require('connect')
 //     )
 everyauth.middleware = function () {
   var app = connect(
-//      function (req, res, next) {
-//        var methods = everyauth._req._sync._methods
-//          , getters = everyauth._req._sync._getters;
-//        for (var name in methods) {
-//          req[name] = methods[name];
-//        }
-//        for (name in getters) {
-//          Object.defineProperty(req, name, {
-//            get: getters[name]
-//          });
-//        }
-//        next();
-//      }
-      connect.router(function (app) {
+      function registerReqGettersAndMethods (req, res, next) {
+        var methods = everyauth._req._methods
+          , getters = everyauth._req._getters;
+        for (var name in methods) {
+          req[name] = methods[name];
+        }
+        for (name in getters) {
+          Object.defineProperty(req, name, {
+            get: getters[name]
+          });
+        }
+        next();
+      }
+    , connect.router(function (app) {
         var modules = everyauth.modules
           , _module;
         for (var _name in modules) {
@@ -37,22 +37,16 @@ everyauth.middleware = function () {
 };
 
 everyauth._req = {
-    _sync: {
-        _methods: {}
-      , _getters: {}
-    }
-  , _async: {
-        _methods: {}
-      , _getters: {}
-    }
+    _methods: {}
+  , _getters: {}
 };
-everyauth.addRequestMethod = function (name, fn, isAsync) {
-  this._req['_' + (isAsync ? 'a' : '') + 'sync']._methods[name] = fn;
+everyauth.addRequestMethod = function (name, fn) {
+  this._req._methods[name] = fn;
   return this;
 };
 
 everyauth.addRequestGetter = function (name, fn, isAsync) {
-  this._req['_' + (isAsync ? 'a' : '') + 'sync']._getters[name] = fn;
+  this._req._getters[name] = fn;
   return this;
 };
 
