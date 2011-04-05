@@ -24,12 +24,51 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 
 ## Setting up Facebook Connect
 
-    var everyauth = require('everyauth');
+    var everyauth = require('everyauth')
+      , connect = require('connect');
     
     everyauth.facebook
       .myHostname('http://localhost:3000')
       .appId('YOUR APP ID HERE')
       .appSecret('YOUR APP SECRET HERE')
       .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
+        // find or create user logic goes here
       })
       .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
+
+## Setting up Password Authentication
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.password
+      .myHostname('http://localhost:3000')
+      .appId('YOUR APP ID HERE')
+      .appSecret('YOUR APP SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);

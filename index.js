@@ -65,7 +65,7 @@ everyauth
   });
 
 everyauth.modules = {};
-includeModules = {oauth: false, facebook: true}
+includeModules = {password: true, oauth: false, facebook: true}
 for (var name in includeModules) {
   var mod =
   everyauth[name] =
