@@ -1,13 +1,5 @@
-var connect = require('connect')
-  , hooks = require('hooks');
-
-var everyauth = module.exports = {};
-
-// Adds `hook`, `pre`, and `post` methods
-// See https://github.com/bnoguchi/hooks-js/
-for (var k in hooks) {
-  everyauth[k] = hooks[k];
-}
+var connect = require('connect');
+  , everyauth = module.exports = {};
 
 // The connect middleware
 // e.g.,
@@ -18,29 +10,26 @@ for (var k in hooks) {
 //       , everyauth.middleware()
 //     )
 everyauth.middleware = function () {
-  var middleware = [
-  ];
   var app = connect(
-      function (req, res, next) {
-        var methods = everyauth._req._sync._methods
-          , getters = everyauth._req._sync._getters;
-        for (var name in methods) {
-          req[name] = methods[name];
-        }
-        for (name in getters) {
-          Object.defineProperty(req, name, {
-            get: getters[name]
-          });
-        }
-        next();
-      }
-    , connect.router(function (app) {
+//      function (req, res, next) {
+//        var methods = everyauth._req._sync._methods
+//          , getters = everyauth._req._sync._getters;
+//        for (var name in methods) {
+//          req[name] = methods[name];
+//        }
+//        for (name in getters) {
+//          Object.defineProperty(req, name, {
+//            get: getters[name]
+//          });
+//        }
+//        next();
+//      }
+      connect.router(function (app) {
         var modules = everyauth.modules
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
           _module.routeApp(app);
-          _module.emit('start', _module);
         }
       })
   );
