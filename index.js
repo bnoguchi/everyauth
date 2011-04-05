@@ -1,4 +1,4 @@
-var connect = require('connect');
+var connect = require('connect')
   , everyauth = module.exports = {};
 
 // The connect middleware
