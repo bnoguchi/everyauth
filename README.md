@@ -53,13 +53,17 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       , connect = require('connect');
     
     everyauth.password
-      .myHostname('http://localhost:3000')
-      .appId('YOUR APP ID HERE')
-      .appSecret('YOUR APP SECRET HERE')
-      .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
-        // find or create user logic goes here
+      .loginPath('/login') // Page with the login form
+      .authPath('/login') // What you POST to
+      .loginView('a string of html; OR the name of the jade/etc-view-engine view')
+      .redirectPath('/') // Where to redirect to after a login
+      .findUser( function (didSucceed, login) {
+        // Code to find the user based on whether we successfully authenticated or not
       })
-      .redirectPath('/');
+      .authenticate( function (login, password) {
+        // Returns a boolean or Promise with future Boolean value
+        // based on the login + password
+      });
     
     var routes = function (app) {
       // Define your routes here
