@@ -143,6 +143,21 @@ attached to the helper, `everyauth`:
 ## Configuring a Module
 everyauth was built with powerful configuration needs in mind.
 
+## Introspection
+
+everyauth provides convenient methods and getters for finding out
+about any module.
+
+Show all configurable parameters with their descriptions:
+    everyauth.facebook.configurable();
+
+Show the value of a single configurable parameter:
+    // Get the value of the configurable callbackPath parameter
+    everyauth.facebook.callbackPath(); // => '/auth/facebook/callback'
+
+Show the declared routes:
+    everyauth.facebook.routes;
+
 ### License
 MIT License
 
