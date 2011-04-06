@@ -8,15 +8,11 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 - *Modular* - We have you covered with Facebook and Twitter 
   OAuth logins, basic login/password support, and modules 
   coming soon for beta invitation support and more.
-- *Easily Configurable* - everyauth was built with powerful 
-  configuration needs in mind. One of the problems I found 
-  with existing `connect` auth solutions is that they offer
-  configurability from options, but if you wanted to do 
-  anything more you had to dig into source and fork the
-  codebase. `everyauth` is built around the concept of steps
-  that you declare and define. So you can over-ride existing
-  steps, add new steps, and manipulate the order of steps
-  in a straightforward easy-to-read and easy-to-write manner.
+- *Easily Configurable* - everyauth was built with powerful
+  configuration needs in mind. Configure an authorization strategy 
+  in a straightforward, easy-to-read & easy-to-write approach, 
+  with as much granularity as you want over the steps and 
+  logic of your authorization strategy.
 - *Idiomatic* - The syntax for configuring and extending your authorization strategies are
   idiomatic and chainable.
 - *Step-driven*
@@ -50,6 +46,21 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       , connect.router(routes);
     ).listen(3000);
 
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+    
+    everyauth.facebook
+      .entryPath('/auth/facebook')
+      .callbackPath('/auth/facebook/callback')
+      .scope('email')                // Defaults to undefined
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+    everyauth.facebook.scope(); // undefined
+    everyauth.facebook.entryPath(); // '/auth/facebook'
+      
+
 ## Setting up Password Authentication
     var everyauth = require('everyauth')
       , connect = require('connect');
@@ -59,12 +70,9 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       .postLoginPath('/login') // What you POST to
       .loginView('a string of html; OR the name of the jade/etc-view-engine view')
       .redirectPath('/') // Where to redirect to after a login
-      .findUser( function (didSucceed, login) {
-        // Code to find the user based on whether we successfully authenticated or not
-      })
       .authenticate( function (login, password) {
-        // Returns a boolean or Promise with future Boolean value
-        // based on the login + password
+        // Returns a user if we can authenticate with the login + password.
+        // If we cannot, returns null/undefined
       });
     
     var routes = function (app) {
@@ -95,6 +103,9 @@ attached to the helper, `everyauth`:
 
 - `everyauth.loggedIn`
 - (more - we copy over req.session.auth keys/values to the everyauth helper)
+
+## Configuring a Module
+everyauth was built with powerful configuration needs in mind.
 
 ### License
 MIT License
