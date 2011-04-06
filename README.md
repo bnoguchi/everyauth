@@ -90,6 +90,11 @@ configured parameter is, you can do so via:
 
     everyauth.facebook.scope(); // undefined
     everyauth.facebook.entryPath(); // '/auth/facebook'
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+    everyauth.facebook.configurable();
       
 
 ## Setting up Password Authentication
