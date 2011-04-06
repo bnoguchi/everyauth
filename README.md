@@ -79,6 +79,23 @@ Authentication and authorization (password, facebook, & more) for your node.js C
       , connect.router(routes);
     ).listen(3000);
 
+## Express Helpers
+
+If you are using express, everyauth comes with some useful dynamic helpers.
+To enable them:
+
+    var express = require('express')
+      , everyauth = require('everyauth')
+      , app = express.createServer();
+    
+    everyauth.helpExpress(app);
+
+Then, from within your views, you will have access to the following helpers methods
+attached to the helper, `everyauth`:
+
+- `everyauth.loggedIn`
+- (more - we copy over req.session.auth keys/values to the everyauth helper)
+
 ### License
 MIT License
 

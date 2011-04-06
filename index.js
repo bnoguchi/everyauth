@@ -3,6 +3,8 @@ var connect = require('connect')
 
 everyauth.Promise = require('./lib/promise');
 
+everyauth.helpExpress = require('./lib/expressHelper');
+
 // The connect middleware
 // e.g.,
 //     connect(
