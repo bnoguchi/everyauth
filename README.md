@@ -20,6 +20,37 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 ## Installation
     $ npm install everyauth
 
+## Quick Start
+Using everyauth comes down to just 2 simple steps if using Connect
+or 3 simple steps if using Express:
+
+1. *Choose and Configure Auth Strategies* - Find the authentication strategy
+   you desire in one of the sections below. Follow the configuration
+   instructions.
+2. *Add the Middleware to Connect*
+        var everyauth = require('everyauth');
+        // Step 1 code goes here
+        
+        // Step 2 code
+        var connect = require('connect');
+        var app = connect(
+            connect.bodyParser()
+          , connect.cookieParser()
+          , connect.session({secret: 'mr ripley'})
+          , everyauth.middleware()
+          , connect.router(routes)
+        );
+3. *Add View Helpers to Express*
+        // Step 1 code
+        // ...
+        // Step 2 code
+        // ...
+        
+        // Step 3 code
+        everyauth.helpExpress(app);
+        
+        app.listen(3000);
+
 ## Setting up Facebook Connect
 
     var everyauth = require('everyauth')
