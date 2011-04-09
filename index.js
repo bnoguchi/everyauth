@@ -5,6 +5,8 @@ everyauth.Promise = require('./lib/promise');
 
 everyauth.helpExpress = require('./lib/expressHelper');
 
+everyauth.debug = false;
+
 // The connect middleware
 // e.g.,
 //     connect(
@@ -69,7 +71,7 @@ everyauth
   });
 
 everyauth.modules = {};
-includeModules = {everymodule: false, password: true, oauth: false, facebook: true}
+includeModules = {everymodule: false, password: true, oauth2: false, facebook: true}
 for (var name in includeModules) {
   var mod =
   everyauth[name] =
