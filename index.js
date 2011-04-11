@@ -71,13 +71,15 @@ everyauth
   });
 
 everyauth.modules = {};
-includeModules = {everymodule: false, password: true, oauth2: false, facebook: true}
-for (var name in includeModules) {
+includeModules = [['everymodule', false], ['password', true], ['oauth', false], ['twitter', true], ['oauth2', false], ['facebook', true]];
+for (var i = 0, l = includeModules.length; i < l; i++) {
+  var name = includeModules[i][0]
+    , isRoutable = includeModules[i][1];
   var mod =
   everyauth[name] =
   everyauth.modules[name] = require('./lib/' + name);
 
-  mod.routable = includeModules[name];
+  mod.routable = isRoutable;
 
   // Make `everyauth` accessible from each 
   // auth strategy module

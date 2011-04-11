@@ -95,6 +95,32 @@ To see all parameters that are configurable, the following will return an
 object whose parameter name keys map to description values:
 
     everyauth.facebook.configurable();
+
+## Setting up Twitter OAuth
+
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.facebook
+      .myHostname('http://localhost:3000')
+      .consumerKey('YOUR CONSUMER ID HERE')
+      .consumerSecret('YOUR CONSUMER SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, accessTokenSecret, twitterUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
       
 
 ## Setting up Password Authentication
