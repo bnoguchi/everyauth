@@ -3,6 +3,13 @@ everyauth
 
 Authentication and authorization (password, facebook, & more) for your node.js Connect and Express apps.
 
+So far, `everyauth` enables you to login via:
+
+- `password`
+- `facebook`
+- `twitter`
+- `github`
+
 `everyauth` is:
 
 - **Modular** - We have you covered with Facebook and Twitter 
@@ -152,6 +159,53 @@ object whose parameter name keys map to description values:
       , everyauth.middleware()
       , connect.router(routes);
     ).listen(3000);
+
+## Setting up GitHub OAuth
+
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.github
+      .myHostname('http://localhost:3000')
+      .appId('YOUR CLIENT ID HERE')
+      .appSecret('YOUR CLIENT SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, githubUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+    
+    everyauth.github
+      .entryPath('/auth/github')
+      .callbackPath('/auth/github/callback')
+      .scope('repo'); // Defaults to undefined
+                      // Can be set to a combination of: 'user', 'public_repo', 'repo', 'gist'
+                      // For more details, see http://develop.github.com/p/oauth.html
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+    everyauth.github.scope(); // undefined
+    everyauth.github.entryPath(); // '/auth/github'
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+    everyauth.github.configurable();
 
 ## Express Helpers
 
