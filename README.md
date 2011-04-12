@@ -9,6 +9,7 @@ So far, `everyauth` enables you to login via:
 - `facebook`
 - `twitter`
 - `github`
+- `instagram`
 
 `everyauth` is:
 
@@ -206,6 +207,53 @@ To see all parameters that are configurable, the following will return an
 object whose parameter name keys map to description values:
 
     everyauth.github.configurable();
+
+## Setting up Instagram OAuth
+
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.instagram
+      .myHostname('http://localhost:3000')
+      .appId('YOUR CLIENT ID HERE')
+      .appSecret('YOUR CLIENT SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, instagramUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+    
+    everyauth.github
+      .entryPath('/auth/github')
+      .callbackPath('/auth/github/callback')
+      .scope('comments likes'); // Defaults to 'basic'
+                      // Can be set to a combination of: 'basic', 'comments', 'relationships', 'likes'
+                      // For more details, see http://instagram.com/developer/auth/#scope
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+    everyauth.instagram.callbackPath(); // '/auth/github/callback'
+    everyauth.instagram.entryPath(); // '/auth/github'
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+    everyauth.instagram.configurable();
 
 ## Express Helpers
 
