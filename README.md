@@ -5,29 +5,30 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 
 `everyauth` is:
 
-- *Modular* - We have you covered with Facebook and Twitter 
+- **Modular** - We have you covered with Facebook and Twitter 
   OAuth logins, basic login/password support, and modules 
   coming soon for beta invitation support and more.
-- *Easily Configurable* - everyauth was built with powerful
+- **Easily Configurable** - everyauth was built with powerful
   configuration needs in mind. Configure an authorization strategy 
   in a straightforward, easy-to-read & easy-to-write approach, 
   with as much granularity as you want over the steps and 
   logic of your authorization strategy.
-- *Idiomatic* - The syntax for configuring and extending your authorization strategies are
+- **Idiomatic** - The syntax for configuring and extending your authorization strategies are
   idiomatic and chainable.
-- *Step-driven*
+
 
 ## Installation
     $ npm install everyauth
+
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
 or 3 simple steps if using Express:
 
-1. *Choose and Configure Auth Strategies* - Find the authentication strategy
+1. **Choose and Configure Auth Strategies** - Find the authentication strategy
    you desire in one of the sections below. Follow the configuration
    instructions.
-2. *Add the Middleware to Connect*
+2. **Add the Middleware to Connect**
         var everyauth = require('everyauth');
         // Step 1 code goes here
         
@@ -40,7 +41,7 @@ or 3 simple steps if using Express:
           , everyauth.middleware()
           , connect.router(routes)
         );
-3. *Add View Helpers to Express*
+3. **Add View Helpers to Express**
         // Step 1 code
         // ...
         // Step 2 code
@@ -50,6 +51,9 @@ or 3 simple steps if using Express:
         everyauth.helpExpress(app);
         
         app.listen(3000);
+
+Jump to Configuration Instructions For:
+- [facebook](#facebook)
 
 ## Setting up Facebook Connect
 
@@ -95,6 +99,7 @@ To see all parameters that are configurable, the following will return an
 object whose parameter name keys map to description values:
 
     everyauth.facebook.configurable();
+
 
 ## Setting up Twitter OAuth
 
@@ -166,8 +171,13 @@ attached to the helper, `everyauth`:
 - `everyauth.loggedIn`
 - (more - we copy over req.session.auth keys/values to the everyauth helper)
 
+
 ## Configuring a Module
+
 everyauth was built with powerful configuration needs in mind.
+
+(documentation coming soon ...)
+
 
 ## Introspection
 
