@@ -298,6 +298,14 @@ Show the declared routes:
 
     everyauth.facebook.routes;
 
+## Modules and Projects that use everyauth
+
+Currently, the following module uses everyauth. If you are using everyauth
+in a project, app, or module, get in touch to get added to the list below:
+
+- [mongoose-auth](https://github.com/bnoguchi/mongoose-auth) Authorization plugin
+  for use with the node.js MongoDB orm.
+
 ### License
 MIT License
 
