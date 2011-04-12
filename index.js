@@ -71,7 +71,7 @@ everyauth
   });
 
 everyauth.modules = {};
-includeModules = [['everymodule', false], ['password', true], ['oauth', false], ['twitter', true], ['oauth2', false], ['facebook', true]];
+includeModules = [['everymodule', false], ['password', true], ['oauth', false], ['twitter', true], ['oauth2', false], ['facebook', true], ['github', true]];
 for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i][0]
     , isRoutable = includeModules[i][1];

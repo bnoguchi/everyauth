@@ -29,6 +29,7 @@ or 3 simple steps if using Express:
    you desire in one of the sections below. Follow the configuration
    instructions.
 2. **Add the Middleware to Connect**
+        
         var everyauth = require('everyauth');
         // Step 1 code goes here
         
@@ -42,6 +43,7 @@ or 3 simple steps if using Express:
           , connect.router(routes)
         );
 3. **Add View Helpers to Express**
+        
         // Step 1 code
         // ...
         // Step 2 code
@@ -51,9 +53,6 @@ or 3 simple steps if using Express:
         everyauth.helpExpress(app);
         
         app.listen(3000);
-
-Jump to Configuration Instructions For:
-- [facebook](#facebook)
 
 ## Setting up Facebook Connect
 
@@ -185,13 +184,16 @@ everyauth provides convenient methods and getters for finding out
 about any module.
 
 Show all configurable parameters with their descriptions:
+
     everyauth.facebook.configurable();
 
 Show the value of a single configurable parameter:
+
     // Get the value of the configurable callbackPath parameter
     everyauth.facebook.callbackPath(); // => '/auth/facebook/callback'
 
 Show the declared routes:
+
     everyauth.facebook.routes;
 
 ### License
