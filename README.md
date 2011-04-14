@@ -10,6 +10,7 @@ So far, `everyauth` enables you to login via:
 - `twitter`
 - `github`
 - `instagram`
+- `foursquare`
 
 `everyauth` is:
 
@@ -237,23 +238,69 @@ object whose parameter name keys map to description values:
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
     
-    everyauth.github
-      .entryPath('/auth/github')
-      .callbackPath('/auth/github/callback')
-      .scope('comments likes'); // Defaults to 'basic'
+    everyauth.instagram
+      .entryPath('/auth/instagram')
+      .callbackPath('/auth/instagram/callback')
+      .scope('basic') // Defaults to 'basic'
                       // Can be set to a combination of: 'basic', 'comments', 'relationships', 'likes'
                       // For more details, see http://instagram.com/developer/auth/#scope
+      .display(undefined); // Defaults to undefined; Set to 'touch' to see a mobile optimized version
+                           // of the instagram auth page
 
 If you want to see what the current value of a
 configured parameter is, you can do so via:
 
-    everyauth.instagram.callbackPath(); // '/auth/github/callback'
-    everyauth.instagram.entryPath(); // '/auth/github'
+    everyauth.instagram.callbackPath(); // '/auth/instagram/callback'
+    everyauth.instagram.entryPath(); // '/auth/instagram'
 
 To see all parameters that are configurable, the following will return an
 object whose parameter name keys map to description values:
 
     everyauth.instagram.configurable();
+
+## Setting up Foursquare OAuth
+
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.foursquare
+      .myHostname('http://localhost:3000')
+      .appId('YOUR CLIENT ID HERE')
+      .appSecret('YOUR CLIENT SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, foursquareUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+    
+    everyauth.foursquare
+      .entryPath('/auth/foursquare')
+      .callbackPath('/auth/foursquare/callback');
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+    everyauth.foursquare.callbackPath(); // '/auth/foursquare/callback'
+    everyauth.foursquare.entryPath(); // '/auth/foursquare'
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+    everyauth.foursquare.configurable();
 
 ## Express Helpers
 
