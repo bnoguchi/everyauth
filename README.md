@@ -324,7 +324,35 @@ attached to the helper, `everyauth`:
 
 everyauth was built with powerful configuration needs in mind.
 
-(documentation coming soon ...)
+Every module comes with a set of parameters that you can configure
+directly. To see a list of those parameters on a per module basis, 
+with descriptions about what they do, enter the following into the 
+node REPL (to access the REPL, just type `node` at the command line)
+
+    > var ea = require('everyauth');
+    > ea.facebook.configurable();
+
+For example, you will see that one of the configuration parameters is
+`moduleTimeout`, which is described to be `how long to wait per step
+before timing out and invoking any timeout callbacks`
+
+Every configuration parameter corresponds to a method of the same name
+on the auth module under consideration (i.e., in this case
+`ea.facebook`). To create or over-write that parameter, just
+call that method with the new value as the argument:
+
+    ea.facebook
+      .moduleTimeout( 4000 ); // Wait 4 seconds before timing out any step
+                              // involved in the facebook auth process
+
+Configuration parameters can be scalars. But they can be anythings. For
+example, they can also be functions, too. The facebook module has a 
+configurable step named `findOrCreateUser` that is described as 
+"STEP FN [findOrCreateUser] function encapsulating the logic for the step
+`fetchOAuthUser`.". What this means is that this configures the 
+function (i.e., "FN") that encapsulates the logic of this step. To see
+how to get more information about configuring this step, see our `Introspection`
+section below.
 
 
 ## Introspection
@@ -341,9 +369,76 @@ Show the value of a single configurable parameter:
     // Get the value of the configurable callbackPath parameter
     everyauth.facebook.callbackPath(); // => '/auth/facebook/callback'
 
-Show the declared routes:
+Show the declared routes (pretty printed):
 
     everyauth.facebook.routes;
+
+Show the steps initiated by a given route:
+
+    everyauth.facebook.route.get.entryPath.steps; 
+    everyauth.facebook.route.get.callbackPath.steps; 
+
+Sometimes you need to set up additional steps for a given auth
+module, by defining that step in your app. For example, the
+set of steps triggered when someone requests the facebook
+module's `callbackPath` contains a step that you must define
+in your app. To see what that step is, you can introspect
+the `callbackPath` route with the facebook module.
+
+    everyauth.facebook.route.get.callbackPath.steps.incomplete;
+    // => [ { name: 'findOrCreateUser',
+    //        error: 'is missing: its function' } ]
+
+This tells you that you must define the function that defines the
+logic for the `findOrCreateUser` step. To see what the function 
+signature looks like for this step:
+
+    var matchingStep =
+    everyauth.facebook.route.get.callbackPath.steps.filter( function (step) {
+      return step.name === 'findOrCreateUser';
+    })[0];
+    // { name: 'findOrCreateUser',
+    //   accepts: [ 'session', 'accessToken', 'extra', 'oauthUser' ],
+    //   promises: [ 'user' ] }
+
+This tells you that the function should take the following 4 arguments:
+
+    function (session, accessToken, extra, oauthUser) {
+      ...
+    }
+
+And that the function should return a `user` that is a user object or
+a Promise that promises a user object.
+
+    function (session, accessToken, extra, oauthUser) {
+      ...
+      return { id: 'some user id', username: 'some user name' };
+    }
+    
+    // OR
+    
+    function (session, accessToken, extra, oauthUser) {
+      var promise = new everyauth.Promise();
+      asyncFindUser( function (err, user) {
+        if (err) return promise.fail(err);
+        promise.fulfill(user);
+      });
+      return promise;
+    }
+
+You add this function as the block for the step `findOrCreateUser` just like
+you configure any other configurable parameter in your auth module:
+
+    everyauth.facebook
+      .findOrCreateUser( function (session, accessToken, extra, oauthUser) {
+        // Logic goes here
+      });
+
+There are also several other introspection tools at your disposal:
+
+For example, to show the submodules of an auth module by name:
+
+    everyauth.oauth2.submodules;
 
 ## Modules and Projects that use everyauth
 
