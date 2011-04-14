@@ -79,7 +79,7 @@ for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i][0]
     , isRoutable = includeModules[i][1];
   Object.defineProperty(everyauth, name, {
-    get: (function (isRoutable) {
+    get: (function (name, isRoutable) {
       return function () {
         var mod = this.modules[name] || (this.modules[name] = require('./lib/' + name));
         // Make `everyauth` accessible from each 
@@ -89,7 +89,7 @@ for (var i = 0, l = includeModules.length; i < l; i++) {
           this.enabled[name] = mod;
         return mod;
       }
-    })(isRoutable)
+    })(name, isRoutable)
   });
 };
 
