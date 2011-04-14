@@ -447,6 +447,13 @@ For example, to show the submodules of an auth module by name:
 
     everyauth.oauth2.submodules;
 
+
+Other introspection tools to describe (explanations coming soon):
+
+- *Invalid Steps*
+        
+        everyauth.facebook.routes.get.callbackPath.steps.invalid
+
 ## Modules and Projects that use everyauth
 
 Currently, the following module uses everyauth. If you are using everyauth
