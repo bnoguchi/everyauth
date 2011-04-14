@@ -345,14 +345,21 @@ call that method with the new value as the argument:
       .moduleTimeout( 4000 ); // Wait 4 seconds before timing out any step
                               // involved in the facebook auth process
 
-Configuration parameters can be scalars. But they can be anythings. For
+Configuration parameters can be scalars. But they can be anything. For
 example, they can also be functions, too. The facebook module has a 
 configurable step named `findOrCreateUser` that is described as 
 "STEP FN [findOrCreateUser] function encapsulating the logic for the step
 `fetchOAuthUser`.". What this means is that this configures the 
-function (i.e., "FN") that encapsulates the logic of this step. To see
-how to get more information about configuring this step, see our `Introspection`
-section below.
+function (i.e., "FN") that encapsulates the logic of this step.
+
+    ea.facebook
+      .findOrCreateUser( function (session, accessToken, extra, oauthUser) {
+        // find or create user logic goes here
+      });
+
+How do we know what arguments the function takes?
+We elaborate more about step function configuration in our 
+`Introspection` section below.
 
 
 ## Introspection
@@ -376,7 +383,7 @@ Show the declared routes (pretty printed):
 Show the steps initiated by a given route:
 
     everyauth.facebook.route.get.entryPath.steps; 
-    everyauth.facebook.route.get.callbackPath.steps; 
+    everyauth.facebook.route.get.callbackPath.steps;
 
 Sometimes you need to set up additional steps for a given auth
 module, by defining that step in your app. For example, the
