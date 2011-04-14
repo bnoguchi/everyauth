@@ -31,11 +31,11 @@ everyauth.middleware = function () {
         next();
       }
     , connect.router(function (app) {
-        var modules = everyauth.modules
+        var modules = everyauth.enabled
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
-          if (_module.routable) _module.routeApp(app);
+          _module.routeApp(app);
         }
       })
   );
@@ -71,18 +71,25 @@ everyauth
   });
 
 everyauth.modules = {};
-includeModules = [['everymodule', false], ['password', true], ['oauth', false], ['twitter', true], ['oauth2', false], ['facebook', true], ['github', true], ['instagram', true]];
+everyauth.enabled = {};
+var includeModules = [['everymodule', false], ['password', true], ['oauth', false], ['twitter', true]
+  , ['oauth2', false], ['facebook', true], ['github', true], ['instagram', true], ['foursquare', true]];
+
 for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i][0]
     , isRoutable = includeModules[i][1];
-  var mod =
-  everyauth[name] =
-  everyauth.modules[name] = require('./lib/' + name);
-
-  mod.routable = isRoutable;
-
-  // Make `everyauth` accessible from each 
-  // auth strategy module
-  mod.everyauth = everyauth;
+  Object.defineProperty(everyauth, name, {
+    get: (function (isRoutable) {
+      return function () {
+        var mod = this.modules[name] || (this.modules[name] = require('./lib/' + name));
+        // Make `everyauth` accessible from each 
+        // auth strategy module
+        mod.everyauth = this;
+        if (isRoutable)
+          this.enabled[name] = mod;
+        return mod;
+      }
+    })(isRoutable)
+  });
 };
 
