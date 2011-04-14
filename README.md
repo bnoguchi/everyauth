@@ -63,6 +63,34 @@ or 3 simple steps if using Express:
         
         app.listen(3000);
 
+## Logging Out
+
+If you integrate `everyauth` with `connect`, then `everyauth` automatically
+sets up a `logoutPath` at `GET` `/logout` for your app. It also
+sets a default handler for your logout route that clears your session
+of auth information and redirects them to '/'.
+
+To over-write the logout path:
+
+    everyauth.everymodule.logoutPath('/bye');
+
+To over-write the logout redirect path:
+
+    everyauth.everymodule.logoutRedirectPath('/navigate/to/after/logout');
+
+To over-write the logout handler:
+
+    everyauth.everymodule.handleLogout( function (req, res) {
+      // Put you extra logic here
+      
+      req.logout(); // The logout method is added for you by everyauth, too
+      
+      // And/or put your extra logic here
+      
+      res.writeHead(303, { 'Location': this.logoutRedirectPath() });
+      res.end();
+    });
+
 ## Setting up Facebook Connect
 
     var everyauth = require('everyauth')
