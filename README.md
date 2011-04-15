@@ -11,6 +11,7 @@ So far, `everyauth` enables you to login via:
 - `github`
 - `instagram`
 - `foursquare`
+- `linkedin`
 
 `everyauth` is:
 
@@ -142,7 +143,7 @@ object whose parameter name keys map to description values:
     var everyauth = require('everyauth')
       , connect = require('connect');
     
-    everyauth.facebook
+    everyauth.twitter
       .myHostname('http://localhost:3000')
       .consumerKey('YOUR CONSUMER ID HERE')
       .consumerSecret('YOUR CONSUMER SECRET HERE')
@@ -329,6 +330,51 @@ To see all parameters that are configurable, the following will return an
 object whose parameter name keys map to description values:
 
     everyauth.foursquare.configurable();
+
+## Setting up LinkedIn OAuth
+
+    var everyauth = require('everyauth')
+      , connect = require('connect');
+    
+    everyauth.linkedin
+      .myHostname('http://localhost:3000')
+      .consumerKey('YOUR CONSUMER ID HERE')
+      .consumerSecret('YOUR CONSUMER SECRET HERE')
+      .findOrCreateUser( function (session, accessToken, accessTokenSecret, linkedinUserMetadata) {
+        // find or create user logic goes here
+      })
+      .redirectPath('/');
+    
+    var routes = function (app) {
+      // Define your routes here
+    };
+    
+    connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'whodunnit'})
+      , everyauth.middleware()
+      , connect.router(routes);
+    ).listen(3000);
+
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+    
+    everyauth.linkedin
+      .entryPath('/auth/linkedin')
+      .callbackPath('/auth/linkedin/callback');
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+    everyauth.linkedin.callbackPath(); // '/auth/linkedin/callback'
+    everyauth.linkedin.entryPath(); // '/auth/linkedin'
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+    everyauth.linkedin.configurable();
 
 ## Express Helpers
 
