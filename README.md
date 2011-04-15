@@ -63,6 +63,9 @@ or 3 simple steps if using Express:
         everyauth.helpExpress(app);
         
         app.listen(3000);
+    
+    For more about what view helpers `everyauth` adds to your app, see the section
+    titled "Express Helpers" near the bottom of this README.
 
 ## Example Application
 
