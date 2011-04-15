@@ -43,6 +43,12 @@ everyauth
     .getLoginPath('/login')
     .postLoginPath('/login')
     .loginView('login.jade')
+    .authenticate( function (login, password) {
+      var user = usersByLogin[login];
+      if (!user) return false;
+      if (user.password !== password) return false;
+      return user;
+    })
 
     .getRegisterPath('/register')
     .postRegisterPath('/register')
@@ -52,13 +58,7 @@ everyauth
         login: login, password: password };
     })
 
-    .redirectPath('/')
-    .authenticate( function (login, password) {
-      var user = usersByLogin[login];
-      if (!user) return false;
-      if (user.password !== password) return false;
-      return user;
-    });
+    .redirectPath('/');
 
 everyauth.github
   .myHostname('http://local.host:3000')

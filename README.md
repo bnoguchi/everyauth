@@ -190,11 +190,22 @@ object whose parameter name keys map to description values:
       .getLoginPath('/login') // Page with the login form
       .postLoginPath('/login') // What you POST to
       .loginView('a string of html; OR the name of the jade/etc-view-engine view')
-      .redirectPath('/') // Where to redirect to after a login
       .authenticate( function (login, password) {
         // Returns a user if we can authenticate with the login + password.
         // If we cannot, returns null/undefined
-      });
+      })
+
+      .getRegisterPath('/register')
+      .postRegisterPath('/register')
+      .registerView('a string of html; OR the name of the jade/etc-view-engine view')
+      .registerUser( function (login, password) {
+        // Returns a user (or a Promise that promises a user) after adding it to
+        // some user store. You can also do things here like registration validation
+        // and re-directing back to the registration page upon invalid registration
+      })
+
+      
+      .redirectPath('/'); // Where to redirect to after a login
     
     var routes = function (app) {
       // Define your routes here
