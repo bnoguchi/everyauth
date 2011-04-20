@@ -40,29 +40,33 @@ or 3 simple steps if using Express:
    instructions.
 2. **Add the Middleware to Connect**
         
-        var everyauth = require('everyauth');
-        // Step 1 code goes here
-        
-        // Step 2 code
-        var connect = require('connect');
-        var app = connect(
-            connect.bodyParser()
-          , connect.cookieParser()
-          , connect.session({secret: 'mr ripley'})
-          , everyauth.middleware()
-          , connect.router(routes)
-        );
+    ```javascript
+    var everyauth = require('everyauth');
+    // Step 1 code goes here
+
+    // Step 2 code
+    var connect = require('connect');
+    var app = connect(
+        connect.bodyParser()
+      , connect.cookieParser()
+      , connect.session({secret: 'mr ripley'})
+      , everyauth.middleware()
+      , connect.router(routes)
+    );
+    ```
 3. **Add View Helpers to Express**
-        
-        // Step 1 code
-        // ...
-        // Step 2 code
-        // ...
-        
-        // Step 3 code
-        everyauth.helpExpress(app);
-        
-        app.listen(3000);
+    
+    ```javascript        
+    // Step 1 code
+    // ...
+    // Step 2 code
+    // ...
+
+    // Step 3 code
+    everyauth.helpExpress(app);
+
+    app.listen(3000);
+    ```
     
     For more about what view helpers `everyauth` adds to your app, see the section
     titled "Express Helpers" near the bottom of this README.
