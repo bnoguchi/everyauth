@@ -460,6 +460,45 @@ object whose parameter name keys map to description values:
 everyauth.linkedin.configurable();
 ```
 
+## Accessing the User
+
+If you are using `express` or `connect`, then `everyauth` 
+provides an easy way to access the user as:
+
+- `req.user` from your app server
+- `everyauth.user` via the `everyauth` helper accessible from your `express` views.
+- `user` as a helper accessible from your `express` views
+
+To access the user, configure `everyauth.everymodule.findUserById`.
+For example, using [mongoose](http://github.com/LearnBoost/mongoose):
+
+```javascript
+everyauth.everymodule.findUserById( function (userId, callback) {
+  User.findById(userId, callback);
+  // callback has the signature, function (err, user) {...}
+});
+```
+
+Once you have configured this method, you now have access to the user object
+that was fetched anywhere in your server app code as `req.user`. For instance:
+
+```javascript
+var app = require('express').createServer()
+
+// Configure your app
+
+app.get('/', function (req, res) {
+  console.log(req.user);  // FTW!
+  res.render('home');
+});
+```
+
+Moreover, you can access the user in your views as `everyauth.user`.
+
+    //- Inside ./views/home.jade
+    span.user-id= everyauth.user.name
+    #user-id= user.id
+
 ## Express Helpers
 
 If you are using express, everyauth comes with some useful dynamic helpers.
