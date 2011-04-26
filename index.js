@@ -30,6 +30,20 @@ everyauth.middleware = function () {
         }
         next();
       }
+    , function fetchUserFromSession (req, res, next) {
+        var sess = req.session
+          , auth = sess && sess.auth
+          , everymodule, findUser;
+        if (!auth) return next();
+        if (!auth.userId) return next();
+        everymodule = everyauth.everymodule;
+        if (!everymodule._findUserById) return next();
+        everymodule._findUserById(auth.userId, function (err, user) {
+          if (err) throw err; // TODO Leverage everyauth's error handling
+          if (user) req.user = user;
+          next();
+        });
+      }
     , connect.router(function (app) {
         var modules = everyauth.enabled
           , _module;
