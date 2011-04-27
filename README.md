@@ -175,6 +175,43 @@ object whose parameter name keys map to description values:
 everyauth.facebook.configurable();
 ```
 
+#### Dynamic Facebook Connect Scope
+
+Facebook provides many different 
+[permissions](http://developers.facebook.com/docs/authentication/permissions/)
+for which your app can ask your user. This is bundled up in the `scope` query
+paremter sent with the oauth request to Facebook. While your app may require 
+several different permissions from Facebook, Facebook recommends that you only
+ask for these permissions incrementally, as you need them. For example, you might
+want to only ask for the "email" scope upon registration. At the same time, for
+another user, you may want to ask for "user_status" permissions because they
+have progressed further along in your application.
+
+`everyauth` enables you to specify the "scope" dynamically with a second
+variation of the configurable `scope`. In addition to the first variation
+that looks like:
+
+```javascript
+everyauth.facebook
+  .scope('email,user_status');
+```
+
+you can have greater dynamic control over "scope" via the second variation of `scope`:
+
+```javascript
+everyauth.facebook
+  .scope( function (req, res) {
+    var session = req.session;
+    switch (session.userPhase) {
+      case 'registration':
+        return 'email';
+      case 'share-media':
+        return 'email,user_status';
+    }
+  });
+
+```
+
 ## Setting up Twitter OAuth
 
 ```javascript
