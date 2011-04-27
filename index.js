@@ -49,6 +49,7 @@ everyauth.middleware = function () {
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
+          _module.validateSteps();
           _module.routeApp(app);
         }
       })
