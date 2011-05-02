@@ -44,10 +44,14 @@ everyauth
     .postLoginPath('/login')
     .loginView('login.jade')
     .authenticate( function (login, password) {
+      var errors = [];
+      if (!login) errors.push('Missing login');
+      if (!password) errors.push('Missing password');
+      if (errors.length) return errors;
       var user = usersByLogin[login];
-      if (!user) return [null, ['Login failed']];
-      if (user.password !== password) return [null, ['Login failed']];
-      return [user, []];
+      if (!user) return ['Login failed'];
+      if (user.password !== password) return ['Login failed'];
+      return user;
     })
 
     .getRegisterPath('/register')

@@ -260,23 +260,23 @@ everyauth.password
   .postLoginPath('/login') // Uri path that your login form POSTs to
   .loginView('a string of html; OR the name of the jade/etc-view-engine view')
   .authenticate( function (login, password) {
-    // Either, we return an array [user, errors] if doing sync auth.
-    // Or, we return a Promise that can fulfill to promise.fulfill(user, errors).
+    // Either, we return a user or an array of errors if doing sync auth.
+    // Or, we return a Promise that can fulfill to promise.fulfill(user) or promise.fulfill(errors)
     // `errors` is an array of error message strings
     //
     // e.g., 
     // Example 1 - Sync Example
     // if (usersByLogin[login] && usersByLogin[login].password === password) {
-    //   return [usersByLogin[login], []];
+    //   return usersByLogin[login];
     // } else {
-    //   return [null, ['Login failed']]
+    //   return ['Login failed'];
     // }
     //
     // Example 2 - Async Example
     // var promise = this.Promise()
     // YourUserModel.find({ login: login}, function (err, user) {
-    //   if (err) return promise.fulfill(null, [err]);
-    //   promise.fulfill(user, []);
+    //   if (err) return promise.fulfill([err]);
+    //   promise.fulfill(user);
     // }
     // return promise;
   })
@@ -306,6 +306,7 @@ everyauth.password
     // some user store. You can also do things here like registration validation
     // and re-directing back to the registration page upon invalid registration
   })
+  .registerSuccessRedirect('/'); // Where to redirect to after a successful registration
 
 var routes = function (app) {
   // Define your routes here
