@@ -45,39 +45,30 @@ everyauth
     .loginView('login.jade')
     .authenticate( function (login, password) {
       var user = usersByLogin[login];
-      if (!user) return false;
-      if (user.password !== password) return false;
-      return user;
+      if (!user) return [null, ['Login failed']];
+      if (user.password !== password) return [null, ['Login failed']];
+      return [user, []];
     })
 
     .getRegisterPath('/register')
     .postRegisterPath('/register')
     .registerView('register.jade')
-    .validateRegistration( function (login, password, extraParams, req, res) {
-      if (!login)
-        return this.breakTo('registrationError', req, res, 'Missing login');
-      if (!password)
-        return this.breakTo('registrationError', req, res, 'Missing password');
-
-      var promise = this.Promise();
-      // simulate an async user db
-      setTimeout( function () {
-        if (login in usersByLogin) {
-          return promise.breakTo('registrationError', req, res, 'Someone already has the login ' + login);
-        }
-        promise.fulfill({
-            login: login
-          , password: password
-        });
-      }, 200);
-      return promise;
+    .validateRegistration( function (newUserAttrs) {
+      var login = newUserAttrs.login
+        , password = newUserAttrs.password
+        , errors = [];
+      if (!login) errors.push('Missing login');
+      if (usersByLogin[login]) errors.push('Login already taken');
+      if (!password) errors.push('Missing password');
+      return errors;
     })
     .registerUser( function (newUserAttrs) {
       var login = newUserAttrs.login;
       return usersByLogin[login] = newUserAttrs;
     })
 
-    .redirectPath('/');
+    .loginSuccessRedirect('/')
+    .registerSuccessRedirect('/');
 
 everyauth.github
   .myHostname('http://local.host:3000')

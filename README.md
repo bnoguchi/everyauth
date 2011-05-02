@@ -256,39 +256,56 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.password
-  .getLoginPath('/login') // Page with the login form
-  .postLoginPath('/login') // What you POST to
+  .getLoginPath('/login') // Uri path to the login page
+  .postLoginPath('/login') // Uri path that your login form POSTs to
   .loginView('a string of html; OR the name of the jade/etc-view-engine view')
   .authenticate( function (login, password) {
-    // Returns a user if we can authenticate with the login + password.
-    // If we cannot, returns null/undefined
+    // Either, we return an array [user, errors] if doing sync auth.
+    // Or, we return a Promise that can fulfill to promise.fulfill(user, errors).
+    // `errors` is an array of error message strings
+    //
+    // e.g., 
+    // Example 1 - Sync Example
+    // if (usersByLogin[login] && usersByLogin[login].password === password) {
+    //   return [usersByLogin[login], []];
+    // } else {
+    //   return [null, ['Login failed']]
+    // }
+    //
+    // Example 2 - Async Example
+    // var promise = this.Promise()
+    // YourUserModel.find({ login: login}, function (err, user) {
+    //   if (err) return promise.fulfill(null, [err]);
+    //   promise.fulfill(user, []);
+    // }
+    // return promise;
   })
+  .loginSuccessRedirect('/') // Where to redirect to after a login
+  
+    // If login fails, we render the errors via the login view template,
+    // so just make sure your loginView() template incorporates an `errors` local.
+    // See './example/views/login.jade'
 
-  .getRegisterPath('/register') // Page with the registration form
-  .postRegisterPath('/register') // What you POST to
-  // TODO Complete documentation for validateRegistration
-  .extractExtraRegistrationParams( function (req) {
-    return {
-        phone: req.body.phone
-      , name: {
-            first: req.body.first_name
-          , last: req.body.last_name
-        }
-    };
-  })
-  .validateRegistration( function () {
-  })
-  .handleRegistrationError( function (req, res, errorMessages) {
-  })
+  .getRegisterPath('/register') // Uri path to the registration page
+  .postRegisterPath('/register') // The Uri path that your registration form POSTs to
   .registerView('a string of html; OR the name of the jade/etc-view-engine view')
-  .registerUser( function (login, password) {
+  .validateRegistration( function (newUserAttributes) {
+    // Validate the registration input
+    // Return undefined, null, or [] if validation succeeds
+    // Return an array of error messages (or Promise promising this array)
+    // if validation fails
+    //
+    // e.g., assuming you define validate with the following signature
+    // var errors = validate(login, password, extraParams);
+    // return errors;
+    //
+    // The `errors` you return show up as an `errors` local in your jade template
+  })
+  .registerUser( function (newUserAttributes) {
     // Returns a user (or a Promise that promises a user) after adding it to
     // some user store. You can also do things here like registration validation
     // and re-directing back to the registration page upon invalid registration
   })
-
-  
-  .redirectPath('/'); // Where to redirect to after a login
 
 var routes = function (app) {
   // Define your routes here
@@ -325,6 +342,23 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.password.configurable();
+```
+
+### Password Recipe 1: Extra registration data besides login + password
+Sometimes your registration will ask for more information from the user besides the login and password.
+
+For this particular scenario, you can configure the optional step, `extractExtraRegistrationParams`.
+
+```javascript
+everyauth.password.extractExtraRegistrationParams( function (req) {
+  return {
+      phone: req.body.phone
+    , name: {
+          first: req.body.first_name
+        , last: req.body.last_name
+      }
+  };
+});
 ```
 
 ## Setting up GitHub OAuth

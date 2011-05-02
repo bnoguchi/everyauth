@@ -1,10 +1,12 @@
 h2 Register
-- if ('undefined' !== typeof errorMessage)
-  #error= errorMessage
+- if ('undefined' !== typeof errors && errors.length)
+  ul#errors
+    - each error in errors
+      li.error= error
 form(action: '/register', method: 'POST')
   #login
     label(for: 'login') Login
-    input(type: 'text', name: 'login')
+    input(type: 'text', name: 'login', value: userParams.login)
   #password
     label(for: 'password') Password
     input(type: 'password', name: 'password')
