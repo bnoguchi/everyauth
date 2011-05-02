@@ -304,9 +304,24 @@ everyauth.password
   .registerUser( function (newUserAttributes) {
     // This step is only executed if we pass the validateRegistration step without
     // any errors.
+    //
     // Returns a user (or a Promise that promises a user) after adding it to
     // some user store. You can also do things here like registration validation
     // and re-directing back to the registration page upon invalid registration
+    //
+    // As an edge case, sometimes your database may make you aware of violation
+    // of the unique login index, so if this error is sent back in an async
+    // callback, then you can just return that error as a single element array
+    // containing just that error message, and everyauth will automatically handle
+    // that as a failed registration. Again, you will have access to this error via
+    // the `errors` local in your register view jade template.
+    // e.g.,
+    // var promise = this.Promise();
+    // User.create(newUserAttributes, function (err, user) {
+    //   if (err) return promise.fulfill([err]);
+    //   promise.fulfill(user);
+    // });
+    // return promise;
   })
   .registerSuccessRedirect('/'); // Where to redirect to after a successful registration
 
