@@ -264,8 +264,22 @@ everyauth.password
     // If we cannot, returns null/undefined
   })
 
-  .getRegisterPath('/register')
-  .postRegisterPath('/register')
+  .getRegisterPath('/register') // Page with the registration form
+  .postRegisterPath('/register') // What you POST to
+  // TODO Complete documentation for validateRegistration
+  .extractExtraRegistrationParams( function (req) {
+    return {
+        phone: req.body.phone
+      , name: {
+            first: req.body.first_name
+          , last: req.body.last_name
+        }
+    };
+  })
+  .validateRegistration( function () {
+  })
+  .handleRegistrationError( function (req, res, errorMessages) {
+  })
   .registerView('a string of html; OR the name of the jade/etc-view-engine view')
   .registerUser( function (login, password) {
     // Returns a user (or a Promise that promises a user) after adding it to

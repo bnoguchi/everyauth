@@ -59,8 +59,8 @@ everyauth
       if (!password)
         return this.breakTo('registrationError', req, res, 'Missing password');
 
-      // simulate an async user db
       var promise = this.Promise();
+      // simulate an async user db
       setTimeout( function () {
         if (login in usersByLogin) {
           return promise.breakTo('registrationError', req, res, 'Someone already has the login ' + login);
