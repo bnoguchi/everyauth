@@ -302,6 +302,8 @@ everyauth.password
     // The `errors` you return show up as an `errors` local in your jade template
   })
   .registerUser( function (newUserAttributes) {
+    // This step is only executed if we pass the validateRegistration step without
+    // any errors.
     // Returns a user (or a Promise that promises a user) after adding it to
     // some user store. You can also do things here like registration validation
     // and re-directing back to the registration page upon invalid registration
