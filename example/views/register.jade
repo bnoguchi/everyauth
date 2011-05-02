@@ -1,4 +1,6 @@
 h2 Register
+- if ('undefined' !== typeof errorMessage)
+  #error= errorMessage
 form(action: '/register', method: 'POST')
   #login
     label(for: 'login') Login

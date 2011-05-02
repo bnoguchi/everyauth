@@ -53,9 +53,28 @@ everyauth
     .getRegisterPath('/register')
     .postRegisterPath('/register')
     .registerView('register.jade')
-    .registerUser( function (login, password) {
-      return usersByLogin[login] = { 
-        login: login, password: password };
+    .validateRegistration( function (login, password, extraParams, req, res) {
+      if (!login)
+        return this.breakTo('registrationError', req, res, 'Missing login');
+      if (!password)
+        return this.breakTo('registrationError', req, res, 'Missing password');
+
+      // simulate an async user db
+      var promise = this.Promise();
+      setTimeout( function () {
+        if (login in usersByLogin) {
+          return promise.breakTo('registrationError', req, res, 'Someone already has the login ' + login);
+        }
+        promise.fulfill({
+            login: login
+          , password: password
+        });
+      }, 200);
+      return promise;
+    })
+    .registerUser( function (newUserAttrs) {
+      var login = newUserAttrs.login;
+      return usersByLogin[login] = newUserAttrs;
     })
 
     .redirectPath('/');
