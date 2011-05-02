@@ -303,6 +303,30 @@ connect(
 ).listen(3000);
 ```
 
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.password
+  .loginFormFieldName('login')       // Defaults to 'login'
+  .passwordFormFieldName('password') // Defaults to 'password'
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.password.loginFormFieldName();    // 'login'
+everyauth.password.passwordFormFieldName(); // 'password'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.password.configurable();
+```
+
 ## Setting up GitHub OAuth
 
 ```javascript
@@ -694,6 +718,7 @@ And that the function should return a `user` that is a user object or
 a Promise that promises a user object.
 
 ```javascript
+// For synchronous lookup situations, you can return a user
 function (session, accessToken, extra, oauthUser) {
   ...
   return { id: 'some user id', username: 'some user name' };
@@ -701,8 +726,10 @@ function (session, accessToken, extra, oauthUser) {
 
 // OR
 
+// For asynchronous lookup situations, you must return a Promise that
+// will be fulfilled with a user later on
 function (session, accessToken, extra, oauthUser) {
-  var promise = new everyauth.Promise();
+  var promise = this.Promise();
   asyncFindUser( function (err, user) {
     if (err) return promise.fail(err);
     promise.fulfill(user);
