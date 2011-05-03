@@ -653,7 +653,7 @@ app.get('/', function (req, res) {
 });
 ```
 
-Moreover, you can access the user in your views as `everyauth.user`.
+Moreover, you can access the user in your views as `everyauth.user` or as `user`.
 
     //- Inside ./views/home.jade
     span.user-id= everyauth.user.name
@@ -676,8 +676,34 @@ Then, from within your views, you will have access to the following helpers meth
 attached to the helper, `everyauth`:
 
 - `everyauth.loggedIn`
-- (more - we copy over req.session.auth keys/values to the everyauth helper)
+- `everyauth.user` - the mongoose User document associated with the session
+- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
+  so you can do things like ...
+- `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
+- `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
+  for authorized API calls on behalf of the user.
+- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
+  `everyauth.github.user`, etc.
 
+You also get access to the view helper
+
+- `user` - the same as `everyauth.user` above
+
+As an example of how you would use these, consider the following `./views/user.jade` jade template:
+
+    .user-id
+      .label User Id
+      .value #{user.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
+`mongoose-auth` also provides convenience methods on the `ServerRequest` instance `req`. 
+From any scope that has access to `req`, you get the following convenience getters and methods:
+
+- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
+- `req.user`     - the mongoose User document associated with the session
+- `req.logout()` - clears the sesion of your auth data
 
 ## Configuring a Module
 
