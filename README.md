@@ -306,8 +306,7 @@ everyauth.password
     // any errors.
     //
     // Returns a user (or a Promise that promises a user) after adding it to
-    // some user store. You can also do things here like registration validation
-    // and re-directing back to the registration page upon invalid registration
+    // some user store.
     //
     // As an edge case, sometimes your database may make you aware of violation
     // of the unique login index, so if this error is sent back in an async
@@ -322,6 +321,9 @@ everyauth.password
     //   promise.fulfill(user);
     // });
     // return promise;
+    //
+    // Note: Index and db-driven validations are the only validations that occur 
+    // here; all other validations occur in the `validateRegistration` step documented above.
   })
   .registerSuccessRedirect('/'); // Where to redirect to after a successful registration
 
