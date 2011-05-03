@@ -40,6 +40,7 @@ everyauth
 
 everyauth
   .password
+    .loginWith('email')
     .getLoginPath('/login')
     .postLoginPath('/login')
     .loginView('login.jade')
@@ -57,17 +58,13 @@ everyauth
     .getRegisterPath('/register')
     .postRegisterPath('/register')
     .registerView('register.jade')
-    .validateRegistration( function (newUserAttrs) {
-      var login = newUserAttrs.login
-        , password = newUserAttrs.password
-        , errors = [];
-      if (!login) errors.push('Missing login');
+    .validateRegistration( function (newUserAttrs, errors) {
+      var login = newUserAttrs.login;
       if (usersByLogin[login]) errors.push('Login already taken');
-      if (!password) errors.push('Missing password');
       return errors;
     })
     .registerUser( function (newUserAttrs) {
-      var login = newUserAttrs.login;
+      var login = newUserAttrs[this.loginKey()];
       return usersByLogin[login] = newUserAttrs;
     })
 

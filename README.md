@@ -379,6 +379,28 @@ everyauth.password.extractExtraRegistrationParams( function (req) {
 });
 ```
 
+### Password Recipe 2: Logging in with email or phone number
+
+By default, `everyauth` uses the field and user key name `login` during the
+registration and login process.
+
+Sometimes, you want to use `email` or `phone` instead of `login`. Moreover,
+you also want to validate `email` and `phone` fields upon registration.
+
+`everyauth` provides an easy way to do this:
+
+```javascript
+everyauth.password.loginWith('email');
+
+// OR
+
+everyauth.password.loginWith('phone');
+```
+
+With simple login configuration like this, you get email (or phone) validation
+in addition to renaming of the form field and user key corresponding to what
+otherwise would typically be referred to as 'login'.
+
 ## Setting up GitHub OAuth
 
 ```javascript
