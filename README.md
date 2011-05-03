@@ -363,6 +363,7 @@ everyauth.password.configurable();
 ```
 
 ### Password Recipe 1: Extra registration data besides login + password
+
 Sometimes your registration will ask for more information from the user besides the login and password.
 
 For this particular scenario, you can configure the optional step, `extractExtraRegistrationParams`.
