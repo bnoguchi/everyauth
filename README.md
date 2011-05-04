@@ -73,7 +73,7 @@ or 3 simple steps if using Express:
 
 ## Example Application
 
-There is an example application at [./example](https://github.com/bnoguchi/tree/master/example)
+There is an example application at [./example](https://github.com/bnoguchi/everyauth/tree/master/example)
 
 To run it:
 
