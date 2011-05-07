@@ -686,7 +686,7 @@ Install [node-ldapauth](https://github.com/joewalnes/node-ldapauth):
 var everyauth = require('everyauth')
   , connect = require('connect');
 
-everyauth.linkedin
+everyauth.ldap
   .host('your.ldap.host')
   .port(389)
 
@@ -700,12 +700,7 @@ everyauth.linkedin
   .getLoginPath(...)
   .postLoginPath(...)
   .loginView(...)
-  .loginSuccessRedirect(...)
-  .getRegisterPath(...)
-  .postRegisterPath(...)
-  .registerView(...)
-  .validateRegistration(...)
-  .registerSuccessRedirect(...)
+  .loginSuccessRedirect(...);
 
 var routes = function (app) {
   // Define your routes here
