@@ -12,6 +12,7 @@ So far, `everyauth` enables you to login via:
 - `instagram`
 - `foursquare`
 - `linkedin`
+- `LDAP`
 
 `everyauth` is:
 
@@ -671,6 +672,52 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.linkedin.configurable();
+```
+
+## Setting up LDAP
+
+Install OpenLDAP client libraries:
+
+    $ apt-get install slapd ldap-utils
+
+Install [node-ldapauth](https://github.com/joewalnes/node-ldapauth):
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.linkedin
+  .host('your.ldap.host')
+  .port(389)
+
+  // The `ldap` module inherits from the `password` module, so 
+  // refer to the `password` module instructions several sections above
+  // in this README.
+  // You do not need to configure the `authenticate` step as instructed
+  // by `password` because the `ldap` module already does that for you.
+  // Moreover, all the registration related steps and configurable parameters
+  // are no longer valid
+  .getLoginPath(...)
+  .postLoginPath(...)
+  .loginView(...)
+  .loginSuccessRedirect(...)
+  .getRegisterPath(...)
+  .postRegisterPath(...)
+  .registerView(...)
+  .validateRegistration(...)
+  .registerSuccessRedirect(...)
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
 ```
 
 ## Accessing the User
