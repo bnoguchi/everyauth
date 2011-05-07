@@ -347,6 +347,9 @@ the same chainable API:
 everyauth.password
   .loginFormFieldName('login')       // Defaults to 'login'
   .passwordFormFieldName('password') // Defaults to 'password'
+  .loginLayout('custom_login_layout') // Only with `express`
+  .registerLayout('custom reg_layout') // Only with `express`
+  .loginLocals(fn);                    // See Recipe 3 below
 ```
 
 If you want to see what the current value of a
@@ -403,6 +406,58 @@ everyauth.password.loginWith('phone');
 With simple login configuration like this, you get email (or phone) validation
 in addition to renaming of the form field and user key corresponding to what
 otherwise would typically be referred to as 'login'.
+
+### Password Recipe 3: Adding additional view local variables to login and registration views
+
+If you are using `express`, you are able to pass variables from your app
+context to your view context via local variables. `everyauth` provides
+several convenience local vars for your views, but sometimes you will want
+to augment this set of local vars with additional locals.
+
+So `everyauth` also provides a mechanism for you to do so via the following
+configurables:
+
+```javascript
+everyauth.password.loginLocals(...);
+everyauth.password.registerLocals(...);
+```
+
+`loginLocals` and `registerLocals` configuration have symmetrical APIs, so I
+will only cover `loginLocals` here to illustrate how to use both.
+
+You can configure this parameter in one of *3* ways. Why 3? Because there are 3 types of ways that you can retrieve your locals.
+
+1. Static local vars that never change values:
+
+   ```javascript
+   everyauth.password.loginLocals({
+     title: 'Login'
+   });
+   ```
+
+2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
+   
+   ```javascript
+   everyauth.password.loginLocals( function (req, res) {
+     var sess = req.session;
+     return {
+       isReturning: sess.isReturning
+     };
+   });
+   ```
+
+3. Dynamic asynchronous local vars
+   
+   ```javascript
+   everyauth.password.loginLocals( function (req, res, done) {
+     asyncCall( function ( err, data) {
+       if (err) return done(err);
+       done(null, {
+         title: il8n.titleInLanguage('Login Page', il8n.language(data.geo))
+       });
+     });
+   });
+   ```
 
 ## Setting up GitHub OAuth
 
