@@ -436,26 +436,26 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
        ```
 2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
    
-   ```javascript
-   everyauth.password.loginLocals( function (req, res) {
-     var sess = req.session;
-     return {
-       isReturning: sess.isReturning
-     };
-   });
-   ```
+       ```javascript
+       everyauth.password.loginLocals( function (req, res) {
+         var sess = req.session;
+         return {
+           isReturning: sess.isReturning
+         };
+       });
+       ```
 3. Dynamic asynchronous local vars
    
-   ```javascript
-   everyauth.password.loginLocals( function (req, res, done) {
-     asyncCall( function ( err, data) {
-       if (err) return done(err);
-       done(null, {
-         title: il8n.titleInLanguage('Login Page', il8n.language(data.geo))
+       ```javascript
+       everyauth.password.loginLocals( function (req, res, done) {
+         asyncCall( function ( err, data) {
+           if (err) return done(err);
+           done(null, {
+             title: il8n.titleInLanguage('Login Page', il8n.language(data.geo))
+           });
+         });
        });
-     });
-   });
-   ```
+       ```
 
 ## Setting up GitHub OAuth
 
