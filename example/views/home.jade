@@ -23,6 +23,9 @@
   #linkedin-login(style: 'float: left; margin-left: 5px')
     a(href: '/auth/linkedin', style: 'border: 0px')
       img(style: 'border: 0px', src: 'http://developer.linkedin.com/servlet/JiveServlet/showImage/102-1182-2-1063/log-in-linkedin-large.png')
+  #linkedin-login(style: 'float: left; margin-left: 5px')
+    a(href: '/auth/google', style: 'border: 0px')
+      img(style: 'border: 0px', src: 'https://www.google.com/favicon.ico')
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -43,5 +46,8 @@
   - if (everyauth.linkedin)
     h3 LinkedIn User Data
     p= JSON.stringify(everyauth.linkedin.user)
+  - if (everyauth.google)
+    h3 Google User Data
+    p= JSON.stringify(everyauth.google.user)
   h3
     a(href: '/logout') Logout

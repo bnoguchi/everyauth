@@ -23,4 +23,8 @@ module.exports = {
         apiKey: 'pv6AWspODUeHIPNZfA531OYcFyB1v23u3y-KIADJdpyw54BXh-ciiQnduWf6FNRH'
       , apiSecret: 'Pdx7DCoJRdAk0ai3joXsslZvK1DPCQwsLn-T17Opkae22ZYDP5R7gmAoFes9TNHy'
     }
+  , google: {
+        clientId: '3335216477.apps.googleusercontent.com'
+      , clientSecret: 'HQ3dXWfmxMoJSZC987N6SeUn'
+    }
 };
