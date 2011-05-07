@@ -428,12 +428,12 @@ will only cover `loginLocals` here to illustrate how to use both.
 You can configure this parameter in one of *3* ways. Why 3? Because there are 3 types of ways that you can retrieve your locals.
 
 1. Static local vars that never change values:
+   
    ```javascript
    everyauth.password.loginLocals({
      title: 'Login'
    });
    ```
-
 2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
    
    ```javascript
@@ -444,7 +444,6 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
      };
    });
    ```
-
 3. Dynamic asynchronous local vars
    
    ```javascript
