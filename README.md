@@ -12,7 +12,8 @@ So far, `everyauth` enables you to login via:
 - `instagram`
 - `foursquare`
 - `linkedin`
-- `LDAP`
+- `Google` (OAuth2)
+- `LDAP` (experimental; not production-tested)
 
 `everyauth` is:
 
@@ -629,7 +630,7 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.linkedin
-  .myHostname('http://localhost:3000')
+  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER ID HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenSecret, linkedinUserMetadata) {
@@ -674,7 +675,74 @@ object whose parameter name keys map to description values:
 everyauth.linkedin.configurable();
 ```
 
+## Setting up Google OAuth2
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.google
+  .myHostname('http://localhost:3000')
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .scope('https://www.google.com/m8/feeds') // What you want access to
+  .handleAuthCallbackError( function (req, res) {
+    // If a user denies your app, Google will redirect the user to
+    // /auth/facebook/callback?error=access_denied
+    // This configurable route handler defines how you want to respond to
+    // that.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.google
+  .entryPath('/auth/google')
+  .callbackPath('/auth/google/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.google.scope(); // undefined
+everyauth.google.entryPath(); // '/auth/google'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.google.configurable();
+```
+
+
 ## Setting up LDAP
+
+The LDAP module is still in development. Do not use it in production yet.
 
 Install OpenLDAP client libraries:
 
