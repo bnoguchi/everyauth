@@ -429,11 +429,11 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
 
 1. Static local vars that never change values:
    
-   ```javascript
-   everyauth.password.loginLocals({
-     title: 'Login'
-   });
-   ```
+       ```javascript
+       everyauth.password.loginLocals({
+         title: 'Login'
+       });
+       ```
 2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
    
    ```javascript
