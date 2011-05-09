@@ -23,9 +23,12 @@
   #linkedin-login(style: 'float: left; margin-left: 5px')
     a(href: '/auth/linkedin', style: 'border: 0px')
       img(style: 'border: 0px', src: 'http://developer.linkedin.com/servlet/JiveServlet/showImage/102-1182-2-1063/log-in-linkedin-large.png')
-  #linkedin-login(style: 'float: left; margin-left: 5px')
+  #google-login(style: 'float: left; margin-left: 5px')
     a(href: '/auth/google', style: 'border: 0px')
       img(style: 'border: 0px', src: 'https://www.google.com/favicon.ico')
+  #yahoo-login(style: 'float: left; margin-left: 5px')
+    a(href: '/auth/yahoo', style: 'border: 0px')
+      img(style: 'border: 0px', src: 'http://l.yimg.com/a/i/reg/openid/buttons/1_new.png')
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -49,5 +52,8 @@
   - if (everyauth.google)
     h3 Google User Data
     p= JSON.stringify(everyauth.google.user)
+  - if (everyauth.yahoo)
+    h3 Yahoo User Data
+    p= JSON.stringify(everyauth.yahoo.user)
   h3
     a(href: '/logout') Logout

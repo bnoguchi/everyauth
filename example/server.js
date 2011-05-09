@@ -11,6 +11,7 @@ var usersByInstagramId = {};
 var usersByFoursquareId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
+var usersByYahooId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
@@ -150,6 +151,14 @@ everyauth.google
   })
   .redirectPath('/');
 
+everyauth.yahoo
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.yahoo.consumerKey)
+  .consumerSecret(conf.yahoo.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, yahooUser) {
+    return usersByYahooId[yahooUser.id] || (usersByYahooId[yahooUser.id] = yahooUser);
+  })
+  .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()

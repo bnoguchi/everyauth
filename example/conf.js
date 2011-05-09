@@ -27,4 +27,8 @@ module.exports = {
         clientId: '3335216477.apps.googleusercontent.com'
       , clientSecret: 'HQ3dXWfmxMoJSZC987N6SeUn'
     }
+  , yahoo: {
+        consumerKey: 'dj0yJmk9RVExRlhPRE9rV1hSJmQ9WVdrOWEyRTBVMUJoTm1zbWNHbzlNVE13TURFeU9UTTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYg--'
+      , consumerSecret: 'efe6ae4982217630fe3aebf6e6fa1e82c02eba0b'
+    }
 };
