@@ -6,13 +6,16 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 So far, `everyauth` enables you to login via:
 
 - `password`
-- `facebook`
-- `twitter`
-- `github`
-- `instagram`
-- `foursquare`
-- `linkedin`
-- `Google` (OAuth2)
+- OAuth
+  - `twitter`
+  - `linkedin`
+  - `yahoo`
+- OAuth2
+  - `facebook`
+  - `github`
+  - `instagram`
+  - `foursquare`
+  - `google`
 - `LDAP` (experimental; not production-tested)
 
 `everyauth` is:
@@ -739,6 +742,57 @@ object whose parameter name keys map to description values:
 everyauth.google.configurable();
 ```
 
+## Setting up Yahoo OAuth
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.yahoo
+  .myHostname('http://local.host:3000')
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenSecret, yahooUserMetadata) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.yahoo
+  .entryPath('/auth/yahoo')
+  .callbackPath('/auth/yahoo/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.yahoo.callbackPath(); // '/auth/yahoo/callback'
+everyauth.yahoo.entryPath(); // '/auth/yahoo'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.yahoo.configurable();
+```
 
 ## Setting up LDAP
 
