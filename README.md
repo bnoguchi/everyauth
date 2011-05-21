@@ -6,6 +6,8 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 So far, `everyauth` enables you to login via:
 
 - `password`
+- OpenId
+  - Google Hybrid
 - OAuth
   - `twitter`
   - `linkedin`
@@ -792,6 +794,35 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.yahoo.configurable();
+```
+
+## Setting up Google OpenId-Hybrid
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.googlehybrid
+  .myHostname('http://local.host:3000')
+  .consumerKey('YOUR CONSUMER ID HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
+  .findOrCreateUser( function(session, userAttributes) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
 ```
 
 ## Setting up LDAP
