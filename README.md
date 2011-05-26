@@ -252,6 +252,12 @@ connect(
   , connect.router(routes);
 ).listen(3000);
 ```
+
+When you set up your app at http://dev.twitter.com/, make sure that your callback url is set up to
+include that path '/auth/twitter/callback/'. In general, when dealing with OAuth or OAuth2 modules
+provided by `everyauth`, the default callback path is always set up to follow the pattern
+'/auth/#{moduleName}/callback', so just ensure that you configure your OAuth settings accordingly with
+the OAuth provider -- in this case, the "Edit Application Settings" section for your app at http://dev.twitter.com.
       
 
 ## Setting up Password Authentication
