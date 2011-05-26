@@ -18,7 +18,6 @@
     "connect": ">=1.4.0"
   },
   "devDependencies": {
-    "tobi": ">=0.2.0"
   },
   "engines": {
     "node": "0.4.x"
