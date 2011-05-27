@@ -1,0 +1,10 @@
+{
+    "name": "restler",
+    "version": "0.2.1",
+    "description": "An HTTP client library for node.js",
+    "contributors": [{ "name": "Dan Webb", "email": "dan@danwebb.net" }],
+    "homepage": "https://github.com/danwrong/restler",
+    "directories" : { "lib" : "./lib" },
+    "main" : "./lib/restler",
+    "engines": { "node": ">= 0.3.7" }
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+require.paths.push(process.cwd());
+
+var sys  = require('sys'),
+    rest = require('../lib/restler'),
+    repl = require('repl');
+  
+var replServer = repl.start();
+
+var exportMethods = {
+  sys: sys,
+  rest: rest
+}
+
+Object.keys(exportMethods).forEach(function(exportMethod) {
+  replServer.context[exportMethod] = exportMethods[exportMethod];
+});
+
+rest.get('http://twaud.io/api/v1/7.json').on('complete', function(data, response) {
+  console.log(response.headers);
+  replServer.context.data = data;
+});

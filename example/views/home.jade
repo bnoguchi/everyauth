@@ -1,34 +1,37 @@
 - if (!everyauth.loggedIn)
   h2 Not Authenticated
-  #register
-    a(href: '/register') Register
-  #password-login
-    a(href: '/login', style: 'border: 0px') Login with Password
-  #fb-login.fb_button(style: 'float: left; background-position:left -188px')
-    a.fb_button_medium(href: '/auth/facebook')
-      span#fb_login_text.fb_button_text
-        Connect with Facebook
-  #twitter-login.fb_button(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/twitter', style: 'border: 0px')
-      img(style='border: 0px', src: 'http://apiwiki.twitter.com/f/1242697715/Sign-in-with-Twitter-darker.png')
-  #github-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/github', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'http://github.com/intridea/authbuttons/raw/master/png/github_64.png')
-  #instagram-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/instagram', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'https://instagram.com/static/images/headerWithTitle.png')
-  #foursquare-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/foursquare', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'https://foursquare.com/img/headerLogo.png')
-  #linkedin-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/linkedin', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'http://developer.linkedin.com/servlet/JiveServlet/showImage/102-1182-2-1063/log-in-linkedin-large.png')
-  #google-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/google', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'https://www.google.com/favicon.ico')
-  #yahoo-login(style: 'float: left; margin-left: 5px')
-    a(href: '/auth/yahoo', style: 'border: 0px')
-      img(style: 'border: 0px', src: 'http://l.yimg.com/a/i/reg/openid/buttons/1_new.png')
+  //
+    #register
+      a(href: '/register') Register
+    #password-login
+      a(href: '/login', style: 'border: 0px') Login with Password
+    #fb-login.fb_button(style: 'float: left; background-position:left -188px')
+      a.fb_button_medium(href: '/auth/facebook')
+        span#fb_login_text.fb_button_text
+          Connect with Facebook
+    #twitter-login.fb_button(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/twitter', style: 'border: 0px')
+        img(style='border: 0px', src: 'http://apiwiki.twitter.com/f/1242697715/Sign-in-with-Twitter-darker.png')
+    #github-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/github', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'http://github.com/intridea/authbuttons/raw/master/png/github_64.png')
+    #instagram-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/instagram', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'https://instagram.com/static/images/headerWithTitle.png')
+    #foursquare-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/foursquare', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'https://foursquare.com/img/headerLogo.png')
+    #linkedin-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/linkedin', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'http://developer.linkedin.com/servlet/JiveServlet/showImage/102-1182-2-1063/log-in-linkedin-large.png')
+    #google-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/google', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'https://www.google.com/favicon.ico')
+    #yahoo-login(style: 'float: left; margin-left: 5px')
+      a(href: '/auth/yahoo', style: 'border: 0px')
+        img(style: 'border: 0px', src: 'http://l.yimg.com/a/i/reg/openid/buttons/1_new.png')
+  #readability-login
+    a(href: '/auth/readability', style: 'border: 0px') Login with Readability
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -55,5 +58,9 @@
   - if (everyauth.yahoo)
     h3 Yahoo User Data
     p= JSON.stringify(everyauth.yahoo.user)
-  h3
+  - if (everyauth.readability)
+    h3 Readability User Data
+    p= JSON.stringify(everyauth.readability.user)
+
+    h3
     a(href: '/logout') Logout

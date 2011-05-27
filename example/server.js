@@ -12,6 +12,7 @@ var usersByFoursquareId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
 var usersByYahooId = {};
+var usersByReadabilityId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
@@ -157,6 +158,15 @@ everyauth.yahoo
   .consumerSecret(conf.yahoo.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, yahooUser) {
     return usersByYahooId[yahooUser.id] || (usersByYahooId[yahooUser.id] = yahooUser);
+  })
+  .redirectPath('/');
+
+everyauth.readability
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.readability.consumerKey)
+  .consumerSecret(conf.readability.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
+      return usersByReadabilityId[reader.id] || (usersByReadabilityId[reader.id] = reader);
   })
   .redirectPath('/');
 
