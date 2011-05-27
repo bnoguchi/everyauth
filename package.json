@@ -17,6 +17,8 @@
     "restler": ">=0.2.1",
     "connect": ">=1.4.0"
   },
+  "devDependencies": {
+  },
   "engines": {
     "node": "0.4.x"
   }
