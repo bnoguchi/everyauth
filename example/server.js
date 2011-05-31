@@ -163,8 +163,8 @@ everyauth.yahoo
 
 everyauth.googlehybrid
   .myHostname('http://local.host:3000')
-  .consumerKey('3335216477.apps.googleusercontent.com')
-  .consumerSecret('HQ3dXWfmxMoJSZC987N6SeUn')
+  .consumerKey(conf.google.clientId)
+  .consumerSecret(conf.google.clientSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
   .findOrCreateUser( function(session, userAttributes) {
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = userAttributes);

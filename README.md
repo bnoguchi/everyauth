@@ -6,8 +6,8 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 So far, `everyauth` enables you to login via:
 
 - `password`
-- OpenId
-  - Google Hybrid
+- OpenId (Contributed by [RocketLabs Development](https://github.com/rocketlabsdev))
+  - Google Hybrid (Contributed by [RocketLabs Development](https://github.com/rocketlabsdev))
 - OAuth
   - `twitter`
   - `linkedin`
@@ -796,7 +796,9 @@ object whose parameter name keys map to description values:
 everyauth.yahoo.configurable();
 ```
 
-## Setting up Google OpenId-Hybrid
+## Setting up Google OpenID+OAuth Hybrid protocol
+
+OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
 
 ```javascript
 var everyauth = require('everyauth')
