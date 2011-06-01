@@ -13,6 +13,7 @@ var usersByLinkedinId = {};
 var usersByGoogleId = {};
 var usersByYahooId = {};
 var usersByGoogleHybridId = {};
+var usersByReadabilityId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
@@ -171,6 +172,15 @@ everyauth.googlehybrid
   })
   .redirectPath('/')
     
+everyauth.readability
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.readability.consumerKey)
+  .consumerSecret(conf.readability.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
+      return usersByReadabilityId[reader.id] || (usersByReadabilityId[reader.id] = reader);
+  })
+  .redirectPath('/');
+
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
