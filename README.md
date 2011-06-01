@@ -803,6 +803,61 @@ object whose parameter name keys map to description values:
 everyauth.yahoo.configurable();
 ```
 
+## Setting up Readability OAuth
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.readability
+  .myHostname('http://local.host:3000')
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByReadabilityId[reader.id] || (usersByReadabilityId[reader.id] = reader);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.readability
+  .entryPath('/auth/readability')
+  .callbackPath('/auth/readability/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.readability.callbackPath(); // '/auth/readability/callback'
+everyauth.readability.entryPath(); // '/auth/readability'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.readability.configurable();
+```
+
 ## Setting up Google OpenID+OAuth Hybrid protocol
 
 OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
