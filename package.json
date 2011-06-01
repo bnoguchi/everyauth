@@ -19,6 +19,7 @@
     "openid": ">=0.1.6"
   },
   "devDependencies": {
+    "express": ">=2.3.10"
   },
   "engines": {
     "node": "0.4.x"
