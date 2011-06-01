@@ -177,7 +177,7 @@ everyauth.readability
   .consumerKey(conf.readability.consumerKey)
   .consumerSecret(conf.readability.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
-      return usersByReadabilityId[reader.id] || (usersByReadabilityId[reader.id] = reader);
+      return usersByReadabilityId[reader.username] || (usersByReadabilityId[reader.username] = reader);
   })
   .redirectPath('/');
 

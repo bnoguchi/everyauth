@@ -817,7 +817,7 @@ everyauth.readability
     // find or create user logic goes here
     //
     // e.g.,
-    // return usersByReadabilityId[reader.id] || (usersByReadabilityId[reader.id] = reader);
+    // return usersByReadabilityId[reader.username] || (usersByReadabilityId[reader.username] = reader);
   })
   .redirectPath('/');
 
