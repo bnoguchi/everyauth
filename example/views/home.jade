@@ -29,6 +29,10 @@
   #yahoo-login(style: 'float: left; margin-left: 5px')
     a(href: '/auth/yahoo', style: 'border: 0px')
       img(style: 'border: 0px', src: 'http://l.yimg.com/a/i/reg/openid/buttons/1_new.png')
+  #googlehybrid-login(style: 'float: left; margin-left: 5px')
+    a(href: '/auth/googlehybrid', style: 'border: 0px')
+      img(style: 'border: 0px', src: 'https://www.google.com/favicon.ico')
+      | Hybrid
 - else
   h2 Authenticated
   - if (everyauth.facebook)

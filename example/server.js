@@ -12,6 +12,7 @@ var usersByFoursquareId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
 var usersByYahooId = {};
+var usersByGoogleHybridId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
@@ -160,6 +161,16 @@ everyauth.yahoo
   })
   .redirectPath('/');
 
+everyauth.googlehybrid
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.google.clientId)
+  .consumerSecret(conf.google.clientSecret)
+  .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
+  .findOrCreateUser( function(session, userAttributes) {
+    return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = userAttributes);
+  })
+  .redirectPath('/')
+    
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
