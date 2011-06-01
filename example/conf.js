@@ -34,5 +34,5 @@ module.exports = {
 	, readability: {
 				consumerKey: 'Alfrednerstu'
 			, consumerSecret: 'MXGftcxrRNMYn66CVmADR3KRnygCdYSk'
-	}
+    }
 };
