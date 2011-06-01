@@ -6,13 +6,13 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 So far, `everyauth` enables you to login via:
 
 - `password`
-- OpenId                                              &nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
-  - Google Hybrid                                     (Credits [RocketLabs Development](https://github.com/rocketlabsdev))
+- OpenId &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
+  - Google Hybrid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
 - OAuth
   - `twitter`
   - `linkedin`
   - `yahoo`
-  - `readability`                                     (Credits [Alfred Nerstu](https://github.com/alfrednerstu))
+  - `readability` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Alfred Nerstu](https://github.com/alfrednerstu))
 - OAuth2
   - `facebook`
   - `github`
