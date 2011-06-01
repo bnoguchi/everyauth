@@ -19,7 +19,8 @@
     "openid": ">=0.1.6"
   },
   "devDependencies": {
-    "express": ">=2.3.10"
+    "express": ">=2.3.10",
+    "jade": ">=0.11.0"
   },
   "engines": {
     "node": "0.4.x"
