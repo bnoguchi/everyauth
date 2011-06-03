@@ -4,6 +4,7 @@ var express = require('express')
 
 everyauth.debug = true;
 
+var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
 var usersByGhId = {};
@@ -20,6 +21,17 @@ var usersByLogin = {
     , password: 'password'
   }
 };
+
+everyauth
+  .dropbox
+    .myHostname('http://local.host:3000')
+    .consumerKey(conf.dropbox.consumerKey)
+    .consumerSecret(conf.dropbox.consumerSecret)
+    .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
+      return usersByDropboxId[dropboxUserMetadata.uid] ||
+        (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
+    })
+    .redirectPath('/')
 
 everyauth
   .facebook
