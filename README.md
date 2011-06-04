@@ -1256,6 +1256,8 @@ Thanks to the following contributors for the following modules:
   - Google Hybrid
 - [Alfred Nerstu](https://github.com/alfrednerstu)
   - Readability
+- [Torgeir](https://github.com/torgeir)
+  - DropBox
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
