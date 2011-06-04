@@ -8,6 +8,9 @@
     a.fb_button_medium(href: '/auth/facebook')
       span#fb_login_text.fb_button_text
         Connect with Facebook
+  #dropbox-login
+    a(href: '/auth/dropbox', style: 'border: 0px')
+      img(src: '/')
   #twitter-login
     a(href: '/auth/twitter', style: 'border: 0px')
       img(style='border: 0px', src: 'http://apiwiki.twitter.com/f/1242697715/Sign-in-with-Twitter-darker.png')
@@ -38,6 +41,9 @@
       img(style: 'border: 0px', src: 'https://www.readability.com/media/images/logo_chair.png')
 - else
   h2 Authenticated
+  - if (everyauth.dropbox)
+    h3 Dropbox User Data
+    p= JSON.stringify(everyauth.dropbox.user)
   - if (everyauth.facebook)
     h3 Facebook User Data
     p= JSON.stringify(everyauth.facebook.user)
