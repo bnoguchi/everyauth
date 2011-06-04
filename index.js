@@ -88,8 +88,8 @@ everyauth
 everyauth.modules = {};
 everyauth.enabled = {};
 var includeModules = [['everymodule', false], ['password', true], ['ldap', true]
-  , ['oauth', false], ['twitter', true], ['linkedin', true], ['yahoo', true], ['readability', true]
-  , ['oauth2', false], ['facebook', true], ['github', true], ['instagram', true], ['foursquare', true], ['google', true], ['openid', true], ['googlehybrid', true], ['dropbox', true]];
+  , ['oauth', false], ['twitter', true], ['linkedin', true], ['yahoo', true], ['readability', true], ['dropbox', true]
+  , ['oauth2', false], ['facebook', true], ['github', true], ['instagram', true], ['foursquare', true], ['google', true], ['openid', true], ['googlehybrid', true]];
 
 for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i][0]

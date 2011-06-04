@@ -1,9 +1,5 @@
 module.exports = {
-    dropbox: {
-	consumerKey: 'PLEASE ENTER YOUR CONSUMER KEY'
-      , consumerSecret: 'PLEASE ENTER YOUR CONSUMER SECRET'
-    }
-  , fb: {
+    fb: {
         appId: '111565172259433'
       , appSecret: '85f7e0a0cc804886180b887c1f04a3c1'
     }
@@ -38,5 +34,9 @@ module.exports = {
 	, readability: {
 				consumerKey: 'Alfrednerstu'
 			, consumerSecret: 'MXGftcxrRNMYn66CVmADR3KRnygCdYSk'
+    }
+  , dropbox: {
+      	consumerKey: 'uhfqnbely5stdtm'
+      , consumerSecret: 'jr7ofuwo32l7vkd'
     }
 };
