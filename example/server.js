@@ -23,17 +23,6 @@ var usersByLogin = {
 };
 
 everyauth
-  .dropbox
-    .myHostname('http://local.host:3000')
-    .consumerKey(conf.dropbox.consumerKey)
-    .consumerSecret(conf.dropbox.consumerSecret)
-    .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
-      return usersByDropboxId[dropboxUserMetadata.uid] ||
-        (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
-    })
-    .redirectPath('/')
-
-everyauth
   .facebook
     .myHostname('http://local.host:3000')
     .appId(conf.fb.appId)
@@ -192,6 +181,17 @@ everyauth.readability
       return usersByReadabilityId[reader.username] || (usersByReadabilityId[reader.username] = reader);
   })
   .redirectPath('/');
+
+everyauth
+  .dropbox
+    .myHostname('http://local.host:3000')
+    .consumerKey(conf.dropbox.consumerKey)
+    .consumerSecret(conf.dropbox.consumerSecret)
+    .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
+      return usersByDropboxId[dropboxUserMetadata.uid] ||
+        (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
+    })
+    .redirectPath('/')
 
 var app = express.createServer(
     express.bodyParser()

@@ -13,6 +13,7 @@ So far, `everyauth` enables you to login via:
   - `linkedin`
   - `yahoo`
   - `readability` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Alfred Nerstu](https://github.com/alfrednerstu))
+  - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
 - OAuth2
   - `facebook`
   - `github`
@@ -856,6 +857,61 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.readability.configurable();
+```
+
+## Setting up Dropbox OAuth
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.dropbox
+  .myHostname('http://local.host:3000')
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByDropboxId[user.uid] || (usersByDropboxId[user.uid] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.dropbox
+  .entryPath('/auth/dropbox')
+  .callbackPath('/auth/dropbox/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.dropbox.callbackPath(); // '/auth/dropbox/callback'
+everyauth.dropbox.entryPath(); // '/auth/dropbox'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.dropbox.configurable();
 ```
 
 ## Setting up Google OpenID+OAuth Hybrid protocol
