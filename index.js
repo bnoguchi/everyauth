@@ -1,4 +1,5 @@
 var connect = require('connect')
+  , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
 everyauth.Promise = require('./lib/promise');
@@ -38,10 +39,12 @@ everyauth.middleware = function () {
         if (!auth.userId) return next();
         everymodule = everyauth.everymodule;
         if (!everymodule._findUserById) return next();
+        var pause = __pause(req);
         everymodule._findUserById(auth.userId, function (err, user) {
           if (err) throw err; // TODO Leverage everyauth's error handling
           if (user) req.user = user;
           next();
+          pause.resume();
         });
       }
     , connect.router(function (app) {
