@@ -1118,6 +1118,29 @@ How do we know what arguments the function takes?
 We elaborate more about step function configuration in our 
 `Introspection` section below.
 
+### Configuring Error Handling
+
+By default, all modules handle errors by throwing them. That said, `everyauth` allows
+you to over-ride this behavior.
+
+You can configure error handling at the module and step level. To handle *all*
+errors in the same manner across all auth modules that you use, do the following.
+
+```javascript
+everyauth.everymodule.moduleErrback( function (err) {
+  // Do something with the err -- e.g., log it, throw it
+});
+```
+
+You can also configure your error handling on a per module basis. So, for example, if
+you want to handle errors during the Facebook module differently than in other modules:
+
+
+```javascript
+everyauth.facebook.moduleErrback( function (err) {
+  // Do something with the err -- e.g., log it, throw it
+});
+```
 
 ## Introspection
 
