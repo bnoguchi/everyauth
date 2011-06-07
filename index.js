@@ -90,25 +90,24 @@ everyauth
 
 everyauth.modules = {};
 everyauth.enabled = {};
-var includeModules = [['everymodule', false], ['password', true], ['ldap', true]
-  , ['oauth', false], ['twitter', true], ['linkedin', true], ['yahoo', true], ['readability', true], ['dropbox', true]
-  , ['oauth2', false], ['facebook', true], ['github', true], ['instagram', true], ['foursquare', true], ['google', true], ['openid', true], ['googlehybrid', true]];
+var includeModules = ['everymodule', 'password', 'ldap', 'oauth', 'twitter', 'linkedin', 'yahoo', 'readability', 'dropbox', 'oauth2', 'facebook', 'github', 'instagram', 'foursquare', 'google', 'openid', 'googlehybrid'];
 
 for (var i = 0, l = includeModules.length; i < l; i++) {
-  var name = includeModules[i][0]
-    , isRoutable = includeModules[i][1];
+  var name = includeModules[i];
+
+  // Lazy enabling of a module via `everyauth` getters
+  // i.e., the `facebook` module is not loaded into memory
+  // until `everyauth.facebook` is evaluated
   Object.defineProperty(everyauth, name, {
-    get: (function (name, isRoutable) {
+    get: (function (name) {
       return function () {
         var mod = this.modules[name] || (this.modules[name] = require('./lib/' + name));
-        // Make `everyauth` accessible from each 
-        // auth strategy module
-        mod.everyauth = this;
-        if (isRoutable)
+        // Make `everyauth` accessible from each auth strategy module
+        if (!mod.everyauth) mod.everyauth = this;
+        if (mod.shouldSetup)
           this.enabled[name] = mod;
         return mod;
       }
-    })(name, isRoutable)
+    })(name)
   });
 };
-
