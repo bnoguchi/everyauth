@@ -90,8 +90,14 @@ everyauth
 
 everyauth.modules = {};
 everyauth.enabled = {};
-var includeModules = ['everymodule', 'password', 'ldap', 'oauth', 'twitter', 'linkedin', 'yahoo', 'readability', 'dropbox', 'oauth2', 'facebook', 'github', 'instagram', 'foursquare', 'google', 'openid', 'googlehybrid'];
 
+// Grab all filenames in ./modules -- They correspond to the modules of the same name
+// as the filename (minus '.js')
+var fs = require('fs');
+var files = fs.readdirSync(__dirname + '/lib/modules');
+var includeModules = files.map( function (fname) {
+  return fname.substring(0, fname.length - 3);
+});
 for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i];
 
@@ -101,7 +107,7 @@ for (var i = 0, l = includeModules.length; i < l; i++) {
   Object.defineProperty(everyauth, name, {
     get: (function (name) {
       return function () {
-        var mod = this.modules[name] || (this.modules[name] = require('./lib/' + name));
+        var mod = this.modules[name] || (this.modules[name] = require('./lib/modules/' + name));
         // Make `everyauth` accessible from each auth strategy module
         if (!mod.everyauth) mod.everyauth = this;
         if (mod.shouldSetup)
