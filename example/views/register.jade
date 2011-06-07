@@ -3,12 +3,12 @@ h2 Register
   ul#errors
     - each error in errors
       li.error= error
-form(action: '/register', method: 'POST')
+form(action='/register', method='POST')
   #login
-    label(for: everyauth.password.loginFormFieldName) Login
-    input(type: 'text', name: everyauth.password.loginFormFieldName, value: userParams[everyauth.password.loginFormFieldName])
+    label(for=everyauth.password.loginFormFieldName) Login
+    input(type='text', name=everyauth.password.loginFormFieldName, value=userParams[everyauth.password.loginFormFieldName])
   #password
-    label(for: everyauth.password.passwordFormFieldName) Password
-    input(type: 'password', name: everyauth.password.passwordFormFieldName)
+    label(for=everyauth.password.passwordFormFieldName) Password
+    input(type='password', name=everyauth.password.passwordFormFieldName)
   #submit
-    input(type: 'submit') Register
+    input(type='submit') Register

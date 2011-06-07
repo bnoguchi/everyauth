@@ -2,12 +2,12 @@
   ul#errors
     - each error in errors
       li.error= error
-form(action: '/login', method: 'POST')
+form(action='/login', method='POST')
   #login
-    label(for: everyauth.password.loginFormFieldName) Login
-    input(type: 'text', name: everyauth.password.loginFormFieldName, value: email)
+    label(for=everyauth.password.loginFormFieldName) Login
+    input(type='text', name=everyauth.password.loginFormFieldName, value=email)
   #password
-    label(for: everyauth.password.passwordFormFieldName) Password
-    input(type: 'password', name: everyauth.password.passwordFormFieldName)
+    label(for=everyauth.password.passwordFormFieldName) Password
+    input(type='password', name=everyauth.password.passwordFormFieldName)
   #submit
-    input(type: 'submit') Login
+    input(type='submit') Login
