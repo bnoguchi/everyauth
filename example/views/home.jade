@@ -39,6 +39,9 @@
   #dropbox-login
     a(href='/auth/dropbox', style='border: 0px')
       img(src='https://www.dropbox.com/static/16890/images/logo.png')
+  #box-login
+    a(href='/auth/box', style='border: 0px')
+      img(src='http://sites.box.net/apps/web/simpleshare/img/logo.png')
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -71,6 +74,9 @@
   - if (everyauth.dropbox)
     h3 Dropbox User Data
     p= JSON.stringify(everyauth.dropbox.user)
+  - if (everyauth.box)
+    h3 Box.net User Data
+    p= JSON.stringify(everyauth.box.user)
 
   h3
     a(href='/logout') Logout

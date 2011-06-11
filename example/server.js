@@ -15,6 +15,7 @@ var usersByGoogleId = {};
 var usersByYahooId = {};
 var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
+var usersByBoxId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
@@ -192,6 +193,14 @@ everyauth
         (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
     })
     .redirectPath('/')
+
+everyauth.box
+  .apiKey(conf.box.apiKey)
+  .findOrCreateUser( function (sess, authToken, boxUser) {
+    return usersByBoxId[boxUser.user_id] ||
+      (usersByDropboxId[boxUser.user_id] = boxUser);
+  })
+  .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()
