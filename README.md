@@ -20,6 +20,7 @@ So far, `everyauth` enables you to login via:
   - `instagram`
   - `foursquare`
   - `google`
+- `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
 `everyauth` is:
@@ -972,6 +973,59 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
+
+## Setting up Box.net Auth
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.box
+  .apiKey('YOUR API KEY')
+  .findOrCreateUser( function (sess, authToken, boxUser) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByBoxId[user.user_id] || (usersByBoxId[user.user_id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.box
+  .entryPath('/auth/box')
+  .callbackPath('/auth/box/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.box.callbackPath(); // '/auth/box/callback'
+everyauth.box.entryPath(); // '/auth/box'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.box.configurable();
 ```
 
 ## Setting up LDAP
