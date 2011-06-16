@@ -978,7 +978,7 @@ connect(
 
 ## Setting up OpenID protocol
 
-OpenID protocol allows you to use an openid auth request with a oauth access request. You can read more information about it here http://openid.net/
+OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
 
 ```javascript
 var everyauth = require('everyauth')
