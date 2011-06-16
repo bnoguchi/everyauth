@@ -944,37 +944,6 @@ object whose parameter name keys map to description values:
 everyauth.dropbox.configurable();
 ```
 
-## Setting up Google OpenID+OAuth Hybrid protocol
-
-OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
-
-```javascript
-var everyauth = require('everyauth')
-  , connect = require('connect');
-
-everyauth.googlehybrid
-  .myHostname('http://local.host:3000')
-  .consumerKey('YOUR CONSUMER ID HERE')
-  .consumerSecret('YOUR CONSUMER SECRET HERE')
-  .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
-  .findOrCreateUser( function(session, userAttributes) {
-    // find or create user logic goes here
-  })
-  .redirectPath('/');
-
-var routes = function (app) {
-  // Define your routes here
-};
-
-connect(
-    connect.bodyParser()
-  , connect.cookieParser()
-  , connect.session({secret: 'whodunnit'})
-  , everyauth.middleware()
-  , connect.router(routes);
-).listen(3000);
-```
-
 ## Setting up OpenID protocol
 
 OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
@@ -1006,6 +975,37 @@ everyauth.openid
     , "http://axschema.org/x/media/signature"   : "required"
   })
   .openidURLField('openid_identifier'); //The POST variable used to get the OpenID
+  .findOrCreateUser( function(session, userAttributes) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+## Setting up Google OpenID+OAuth Hybrid protocol
+
+OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.googlehybrid
+  .myHostname('http://local.host:3000')
+  .consumerKey('YOUR CONSUMER ID HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
   .findOrCreateUser( function(session, userAttributes) {
     // find or create user logic goes here
   })
