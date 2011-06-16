@@ -150,7 +150,7 @@ everyauth.facebook
     // If you do not configure this, everyauth renders a default fallback
     // view notifying the user that their authentication failed and why.
   })
-  .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokExtra, fbUserMetadata) {
     // find or create user logic goes here
   })
   .redirectPath('/');
@@ -512,7 +512,7 @@ everyauth.github
   .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
-  .findOrCreateUser( function (session, accessToken, githubUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, , accessTokenExtra, githubUserMetadata) {
     // find or create user logic goes here
   })
   .redirectPath('/');
@@ -567,7 +567,7 @@ everyauth.instagram
   .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
-  .findOrCreateUser( function (session, accessToken, instagramUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, instagramUserMetadata) {
     // find or create user logic goes here
   })
   .redirectPath('/');
@@ -624,7 +624,7 @@ everyauth.foursquare
   .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
-  .findOrCreateUser( function (session, accessToken, foursquareUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, foursquareUserMetadata) {
     // find or create user logic goes here
   })
   .redirectPath('/');
@@ -737,7 +737,7 @@ everyauth.google
     // If you do not configure this, everyauth renders a default fallback
     // view notifying the user that their authentication failed and why.
   })
-  .findOrCreateUser( function (session, accessToken, fbUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
     // find or create user logic goes here
     // Return a user or Promise that promises a user
     // Promises are created via
@@ -1127,7 +1127,7 @@ Then, from within your views, you will have access to the following helpers meth
 attached to the helper, `everyauth`:
 
 - `everyauth.loggedIn`
-- `everyauth.user` - the mongoose User document associated with the session
+- `everyauth.user` - the User document associated with the session
 - `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
   so you can do things like ...
 - `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
@@ -1149,11 +1149,11 @@ As an example of how you would use these, consider the following `./views/user.j
       .label User Facebook Id
       .value #{everyauth.facebook.user.id}
 
-`mongoose-auth` also provides convenience methods on the `ServerRequest` instance `req`. 
+`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
 From any scope that has access to `req`, you get the following convenience getters and methods:
 
 - `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
-- `req.user`     - the mongoose User document associated with the session
+- `req.user`     - the User document associated with the session
 - `req.logout()` - clears the sesion of your auth data
 
 ## Configuring a Module
