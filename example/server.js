@@ -16,12 +16,23 @@ var usersByYahooId = {};
 var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
 var usersByBoxId = {};
+var usersByOpenId = {};
 var usersByLogin = {
   'brian': {
       login: 'brian'
     , password: 'password'
   }
 };
+
+everyauth
+  .openid
+    .myHostname('http://local.host:3000')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, openidData) {
+      return usersByOpenId[openidData.claimedIdentifier] ||
+        (usersByOpenId[openidData.claimedIdentifier] = openidData);
+    })
+    .redirectPath('/');
+
 
 everyauth
   .facebook
@@ -164,7 +175,7 @@ everyauth.yahoo
   })
   .redirectPath('/');
 
-everyauth.googlehybrid
+/*everyauth.googlehybrid
   .myHostname('http://local.host:3000')
   .consumerKey(conf.google.clientId)
   .consumerSecret(conf.google.clientSecret)
@@ -173,7 +184,7 @@ everyauth.googlehybrid
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = userAttributes);
   })
   .redirectPath('/')
-    
+*/    
 everyauth.readability
   .myHostname('http://local.host:3000')
   .consumerKey(conf.readability.consumerKey)

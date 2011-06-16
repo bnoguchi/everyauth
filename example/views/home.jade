@@ -42,6 +42,10 @@
   #box-login
     a(href='/auth/box', style='border: 0px')
       img(src='http://sites.box.net/apps/web/simpleshare/img/logo.png')
+  #openid-login
+    form#openid(action='/auth/openid')
+      input(type='text', name='openid_identifier')
+      input(type='submit') Login
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -77,6 +81,9 @@
   - if (everyauth.box)
     h3 Box.net User Data
     p= JSON.stringify(everyauth.box.user)
+  - if (everyauth.openid)
+    h3 Openid User Data
+    p= JSON.stringify(everyauth.openid.user)
 
   h3
     a(href='/logout') Logout
