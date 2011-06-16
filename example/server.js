@@ -28,6 +28,7 @@ everyauth
   .openid
     .myHostname('http://127.0.0.1:3000')
     .findOrCreateUser( function (session, accessToken, accessTokenExtra) {
+
       return usersByOpenId[accessToken.claimedIdentifier] ||
         (usersByOpenId[accessToken.claimedIdentifier] = accessToken);
     })
