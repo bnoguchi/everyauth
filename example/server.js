@@ -26,17 +26,17 @@ var usersByLogin = {
 
 everyauth
   .openid
-    .myHostname('http://local.host:3000')
-    .findOrCreateUser( function (session, accessToken, accessTokenExtra, openidData) {
-      return usersByOpenId[openidData.claimedIdentifier] ||
-        (usersByOpenId[openidData.claimedIdentifier] = openidData);
+    .myHostname('http://127.0.0.1:3000')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra) {
+      return usersByOpenId[accessToken.claimedIdentifier] ||
+        (usersByOpenId[accessToken.claimedIdentifier] = accessToken);
     })
     .redirectPath('/');
 
 
 everyauth
   .facebook
-    .myHostname('http://local.host:3000')
+    .myHostname('http://127.0.0.1:3000')
     .appId(conf.fb.appId)
     .appSecret(conf.fb.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
@@ -47,7 +47,7 @@ everyauth
 
 everyauth
   .twitter
-    .myHostname('http://local.host:3000')
+    .myHostname('http://127.0.0.1:3000')
     .consumerKey(conf.twit.consumerKey)
     .consumerSecret(conf.twit.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
@@ -119,7 +119,7 @@ everyauth
     .registerSuccessRedirect('/');
 
 everyauth.github
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
@@ -128,7 +128,7 @@ everyauth.github
   .redirectPath('/');
 
 everyauth.instagram
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .appId(conf.instagram.clientId)
   .appSecret(conf.instagram.clientSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, hipster) {
@@ -137,7 +137,7 @@ everyauth.instagram
   .redirectPath('/');
 
 everyauth.foursquare
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .appId(conf.foursquare.clientId)
   .appSecret(conf.foursquare.clientSecret)
   .findOrCreateUser( function (sess, accessTok, accessTokExtra, addict) {
@@ -146,7 +146,7 @@ everyauth.foursquare
   .redirectPath('/');
 
 everyauth.linkedin
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .consumerKey(conf.linkedin.apiKey)
   .consumerSecret(conf.linkedin.apiSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, linkedinUser) {
@@ -167,7 +167,7 @@ everyauth.google
   .redirectPath('/');
 
 everyauth.yahoo
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .consumerKey(conf.yahoo.consumerKey)
   .consumerSecret(conf.yahoo.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, yahooUser) {
@@ -175,8 +175,8 @@ everyauth.yahoo
   })
   .redirectPath('/');
 
-/*everyauth.googlehybrid
-  .myHostname('http://local.host:3000')
+everyauth.googlehybrid
+  .myHostname('http://127.0.0.1:3000')
   .consumerKey(conf.google.clientId)
   .consumerSecret(conf.google.clientSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
@@ -184,9 +184,9 @@ everyauth.yahoo
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = userAttributes);
   })
   .redirectPath('/')
-*/    
+    
 everyauth.readability
-  .myHostname('http://local.host:3000')
+  .myHostname('http://127.0.0.1:3000')
   .consumerKey(conf.readability.consumerKey)
   .consumerSecret(conf.readability.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
@@ -196,7 +196,7 @@ everyauth.readability
 
 everyauth
   .dropbox
-    .myHostname('http://local.host:3000')
+    .myHostname('http://127.0.0.1:3000')
     .consumerKey(conf.dropbox.consumerKey)
     .consumerSecret(conf.dropbox.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
