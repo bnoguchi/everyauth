@@ -8,6 +8,7 @@ So far, `everyauth` enables you to login via:
 - `password`
 - OpenId &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
   - `Google Hybrid` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
+  - `OpenId` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Mee](https://github.com/starfishmod))
 - OAuth
   - `twitter`
   - `linkedin`
@@ -957,6 +958,55 @@ everyauth.googlehybrid
   .consumerKey('YOUR CONSUMER ID HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
+  .findOrCreateUser( function(session, userAttributes) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+## Setting up OpenID protocol
+
+OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.openid
+  .myHostname('http://local.host:3000')
+  .simpleRegistration({
+      "nickname" : true
+    , "email"    : true
+    , "fullname" : true
+    , "dob"      : true
+    , "gender"   : true
+    , "postcode" : true
+    , "country"  : true
+    , "language" : true
+    , "timezone" : true
+  })
+	.attributeExchange({
+      "http://axschema.org/contact/email"       : "required"
+    , "http://axschema.org/namePerson/friendly" : "required"
+    , "http://axschema.org/namePerson"          : "required"
+    , "http://axschema.org/namePerson/first"    : "required"
+    , "http://axschema.org/contact/country/home": "required"
+    , "http://axschema.org/media/image/default" : "required"
+    , "http://axschema.org/x/media/signature"   : "required"
+  })
+  .openidURLField('openid_identifier'); //The POST variable used to get the OpenID
   .findOrCreateUser( function(session, userAttributes) {
     // find or create user logic goes here
   })
