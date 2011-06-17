@@ -27,10 +27,9 @@ var usersByLogin = {
 everyauth
   .openid
     .myHostname('http://local.host:3000')
-    .findOrCreateUser( function (session, accessToken, accessTokenExtra) {
-
-      return usersByOpenId[accessToken.claimedIdentifier] ||
-        (usersByOpenId[accessToken.claimedIdentifier] = accessToken);
+    .findOrCreateUser( function (session, userMetadata) {
+      return usersByOpenId[userMetadata.claimedIdentifier] ||
+        (usersByOpenId[userMetadata.claimedIdentifier] = userMetadata);
     })
     .redirectPath('/');
 

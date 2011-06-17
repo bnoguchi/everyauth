@@ -975,7 +975,7 @@ everyauth.openid
     , "http://axschema.org/x/media/signature"   : "required"
   })
   .openidURLField('openid_identifier'); //The POST variable used to get the OpenID
-  .findOrCreateUser( function(session, userAttributes) {
+  .findOrCreateUser( function(session, openIdUserAttributes) {
     // find or create user logic goes here
   })
   .redirectPath('/');
