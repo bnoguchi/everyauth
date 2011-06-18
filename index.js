@@ -66,9 +66,10 @@ Everyauth.prototype = {
     //       , everyauth.middleware()
     //     )
   , middleware: function () {
+      var everyauth = this;
       var app = connect(
           function registerReqGettersAndMethods (req, res, next) {
-            var methods = everyauth._req._methods
+            var methods = ._req._methods
               , getters = everyauth._req._getters;
             for (var name in methods) {
               req[name] = methods[name];
