@@ -236,7 +236,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.twitter
-  .myHostname('http://localhost:3000')
   .consumerKey('YOUR CONSUMER ID HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenSecret, twitterUserMetadata) {
@@ -670,7 +669,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.linkedin
-  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER ID HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenSecret, linkedinUserMetadata) {
@@ -785,7 +783,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.yahoo
-  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenSecret, yahooUserMetadata) {
@@ -837,7 +834,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.readability
-  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
@@ -892,7 +888,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.dropbox
-  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
@@ -949,7 +944,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.openid
-  .myHostname('http://local.host:3000')
   .simpleRegistration({
       "nickname" : true
     , "email"    : true
@@ -998,7 +992,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.googlehybrid
-  .myHostname('http://local.host:3000')
   .consumerKey('YOUR CONSUMER ID HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
