@@ -25,7 +25,7 @@ module.exports = {
     }
   , google: {
         clientId: '3335216477.apps.googleusercontent.com'
-      , clientSecret: 'HQ3dXWfmxMoJSZC987N6SeUn'
+      , clientSecret: 'PJMW_uP39nogdu0WpBuqMhtB'
     }
   , yahoo: {
         consumerKey: 'dj0yJmk9RVExRlhPRE9rV1hSJmQ9WVdrOWEyRTBVMUJoTm1zbWNHbzlNVE13TURFeU9UTTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYg--'

@@ -90,7 +90,7 @@ To run it:
     $ cd example
     $ node server.js
 
-Some OAuth Providers do not allow callbacks to localhost, so you will need to create a `localhost`
+**Important** - Some OAuth Providers do not allow callbacks to localhost, so you will need to create a `localhost`
 alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also 
 associated with 'local.host'. So inside your /etc/hosts file, one of the lines will look like:
 
@@ -258,7 +258,8 @@ connect(
 ).listen(3000);
 ```
 
-When you set up your app at http://dev.twitter.com/, make sure that your callback url is set up to
+**Important** - Some developers forget to do the following, and it causes them to have issues with `everyauth`.
+Please make sure to do the following: When you set up your app at http://dev.twitter.com/, make sure that your callback url is set up to
 include that path '/auth/twitter/callback/'. In general, when dealing with OAuth or OAuth2 modules
 provided by `everyauth`, the default callback path is always set up to follow the pattern
 '/auth/#{moduleName}/callback', so just ensure that you configure your OAuth settings accordingly with

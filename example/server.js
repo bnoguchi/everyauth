@@ -36,7 +36,6 @@ everyauth
 
 everyauth
   .facebook
-    .myHostname('http://local.host:3000')
     .appId(conf.fb.appId)
     .appSecret(conf.fb.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
@@ -232,3 +231,5 @@ app.get('/', function (req, res) {
 everyauth.helpExpress(app);
 
 app.listen(3000);
+
+console.log('Go to http://local.host:3000');
