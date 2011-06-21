@@ -139,7 +139,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.facebook
-  .myHostname('http://localhost:3000')
   .appId('YOUR APP ID HERE')
   .appSecret('YOUR APP SECRET HERE')
   .handleAuthCallbackError( function (req, res) {
@@ -510,7 +509,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.github
-  .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
   .findOrCreateUser( function (session, accessToken, , accessTokenExtra, githubUserMetadata) {
@@ -565,7 +563,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.instagram
-  .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, instagramUserMetadata) {
@@ -622,7 +619,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.foursquare
-  .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, foursquareUserMetadata) {
@@ -726,7 +722,6 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.google
-  .myHostname('http://localhost:3000')
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
   .scope('https://www.google.com/m8/feeds') // What you want access to
