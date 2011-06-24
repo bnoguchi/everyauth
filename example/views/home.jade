@@ -39,6 +39,9 @@
   #dropbox-login
     a(href='/auth/dropbox', style='border: 0px')
       img(src='https://www.dropbox.com/static/16890/images/logo.png')
+  #justintv-login
+    a(href='/auth/justintv', style='border: 0px')
+      img(src='http://s.jtvnw.net/jtv_user_pictures/hosted_images/new_logo_148_40_black.png')
   #box-login
     a(href='/auth/box', style='border: 0px')
       img(src='http://sites.box.net/apps/web/simpleshare/img/logo.png')
@@ -79,6 +82,9 @@
   - if (everyauth.dropbox)
     h3 Dropbox User Data
     p= JSON.stringify(everyauth.dropbox.user)
+  - if (everyauth.justintv)
+    h3 Justin.tv User Data
+    p= JSON.stringify(everyauth.justintv.user)
   - if (everyauth.box)
     h3 Box.net User Data
     p= JSON.stringify(everyauth.box.user)
