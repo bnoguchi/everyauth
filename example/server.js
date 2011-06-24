@@ -4,6 +4,7 @@ var express = require('express')
 
 everyauth.debug = true;
 
+var usersByVimeoId = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
@@ -203,6 +204,17 @@ everyauth
         (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
     })
     .redirectPath('/')
+
+everyauth
+	.vimeo
+		.myHostname('http://local.host:3000')
+		.consumerKey(conf.vimeo.consumerKey)
+		.consumerSecret(conf.vimeo.consumerSecret)
+		.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
+			return usersByVimeoId[vimeoUser.id] ||
+				(usersByVimeoId[vimeoUser.id] = vimeoUser);
+		})
+		.redirectPath('/')
 
 everyauth.box
   .apiKey(conf.box.apiKey)

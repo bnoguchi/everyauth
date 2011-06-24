@@ -39,6 +39,10 @@ module.exports = {
       	consumerKey: 'uhfqnbely5stdtm'
       , consumerSecret: 'jr7ofuwo32l7vkd'
     }
+	, vimeo: {
+		    consumerKey: 'Enter your consumer key here'
+			, consumerSecret: 'Enter your consumer secret here'
+	  }
   , box: {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }
