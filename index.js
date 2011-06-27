@@ -2,6 +2,7 @@ var connect = require('connect')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
+// TODO Deprecate exposure of Promise
 everyauth.Promise = require('./lib/promise');
 
 everyauth.helpExpress = require('./lib/expressHelper');
@@ -62,6 +63,7 @@ everyauth._req = {
     _methods: {}
   , _getters: {}
 };
+
 everyauth.addRequestMethod = function (name, fn) {
   this._req._methods[name] = fn;
   return this;
