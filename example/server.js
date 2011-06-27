@@ -5,6 +5,7 @@ var express = require('express')
 everyauth.debug = true;
 
 var usersByVimeoId = {};
+var usersByJustintvId = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
@@ -205,16 +206,24 @@ everyauth
     })
     .redirectPath('/')
 
-everyauth
-	.vimeo
-		.consumerKey(conf.vimeo.consumerKey)
-		.consumerSecret(conf.vimeo.consumerSecret)
-		.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
-			return usersByVimeoId[vimeoUser.id] ||
-				(usersByVimeoId[vimeoUser.id] = vimeoUser);
-		})
-		.redirectPath('/')
+everyauth.vimeo
+	.consumerKey(conf.vimeo.consumerKey)
+	.consumerSecret(conf.vimeo.consumerSecret)
+	.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
+		return usersByVimeoId[vimeoUser.id] ||
+			(usersByVimeoId[vimeoUser.id] = vimeoUser);
+	})
+	.redirectPath('/')
 
+everyauth.justintv
+  .consumerKey(conf.justintv.consumerKey)
+  .consumerSecret(conf.justintv.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, justintvUser) {
+    return usersByJustintvId[justintvUser.id] ||
+      (usersByJustintvId[justintvUser.id] = justintvUser);
+  })
+  .redirectPath('/')
+    
 everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {

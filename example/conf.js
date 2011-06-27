@@ -35,6 +35,10 @@ module.exports = {
 				consumerKey: 'Alfrednerstu'
 			, consumerSecret: 'MXGftcxrRNMYn66CVmADR3KRnygCdYSk'
     }
+  , justintv: {
+        consumerKey: 'enter your consumer key here'
+      , consumerSecret: 'enter your consumer secret here'    
+  }
   , dropbox: {
       	consumerKey: 'uhfqnbely5stdtm'
       , consumerSecret: 'jr7ofuwo32l7vkd'
