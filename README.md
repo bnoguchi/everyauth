@@ -14,6 +14,7 @@ So far, `everyauth` enables you to login via:
   - `yahoo`
   - `readability` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Alfred Nerstu](https://github.com/alfrednerstu))
   - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
+  - `justin.tv` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
 - OAuth2
   - `facebook`
   - `github`
@@ -933,6 +934,87 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.dropbox.configurable();
+```
+
+## Setting up Justin.tv OAuth
+
+[Sign up for a Justin.tv account](http://www.justin.tv/user/signup) and activate it as a [developer account](http://www.justin.tv/developer/activate) to get your consumer key and secret.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+  
+everyauth.justintv
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, justintvUser) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByJustintvId[justintvUser.id] || (usersByJustintvId[justintvUser.id] = justintvUser);
+  })
+  .redirectPath('/');
+  
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+The `justintvUser` parameter in the `.findOrCreateUser()` function above returns the `account/whoami` API call
+
+[Justin.tv API Wiki - Account/whoami](http://apiwiki.justin.tv/mediawiki/index.php/Account/whoami)
+
+```javascript
+{
+   "image_url_huge": "http:\/\/static-cdn.justin.tv\/jtv_user_pictures\/justin-320x240-4.jpg",
+   "profile_header_border_color": null,
+   "favorite_quotes": "I love Justin.tv",
+   "sex": "Male",
+   "image_url_large": "http:\/\/static-cdn.justin.tv\/jtv_user_pictures\/justin-125x94-4.jpg",
+   "profile_about": "Check out my website:\n\nwww.justin.tv\n",
+   "profile_background_color": null,
+   "image_url_medium": "http:\/\/static-cdn.justin.tv\/jtv_user_pictures\/justin-75x56-4.jpg",
+   "id": 1698,
+   "broadcaster": true,
+   "profile_url": "http:\/\/www.justin.tv\/justin\/profile",
+   "profile_link_color": null,
+   "image_url_small": "http:\/\/static-cdn.justin.tv\/jtv_user_pictures\/justin-50x37-4.jpg",
+   "profile_header_text_color": null,
+   "name": "The JUST UN",
+   "image_url_tiny": "http:\/\/static-cdn.justin.tv\/jtv_user_pictures\/justin-33x25-4.jpg",
+   "login": "justin",
+   "profile_header_bg_color": null,
+   "location": "San Francisco"
+}
+```
+
+You can also configure more parameters (most are set to defaults) via the same chainable API:
+
+```javascript
+everyauth.justintv
+  .entryPath('/auth/justintv')
+  .callbackPath('/auth/justintv/callback');
+```
+
+If you want to see what the current value of a configured parameter is, you can do so via:
+
+```javascript
+everyauth.justintv.callbackPath(); // '/auth/justintv/callback'
+everyauth.justintv.entryPath(); // '/auth/justintv'
+```
+
+To see all parameters that are configurable, the following will return an object whose parameter name keys map to description values:
+
+```javascript
+everyauth.justintv.configurable();
 ```
 
 ## Setting up OpenID protocol
