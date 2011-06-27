@@ -207,7 +207,6 @@ everyauth
 
 everyauth
 	.vimeo
-		.myHostname('http://local.host:3000')
 		.consumerKey(conf.vimeo.consumerKey)
 		.consumerSecret(conf.vimeo.consumerSecret)
 		.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
