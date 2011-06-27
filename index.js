@@ -8,13 +8,11 @@ everyauth.helpExpress = require('./lib/expressHelper');
 
 everyauth.debug = false;
 
-// The connect middleware
-// e.g.,
+// The connect middleware. e.g.,
 //     connect(
-//         connect.bodyParser()
-//       , connect.cookieParser()
-//       , connect.session({secret: 'oreo'})
+//         ...
 //       , everyauth.middleware()
+//       , ...
 //     )
 everyauth.middleware = function () {
   var app = connect(
