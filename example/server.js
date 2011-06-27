@@ -4,6 +4,7 @@ var express = require('express')
 
 everyauth.debug = true;
 
+var usersByJustintvId = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
@@ -204,6 +205,15 @@ everyauth
     })
     .redirectPath('/')
 
+everyauth.justintv
+  .consumerKey(conf.justintv.consumerKey)
+  .consumerSecret(conf.justintv.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, justintvUser) {
+    return usersByJustintvId[justintvUser.id] ||
+      (usersByJustintvId[justintvUser.id] = justintvUser);
+  })
+  .redirectPath('/')
+    
 everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
