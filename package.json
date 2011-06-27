@@ -8,7 +8,7 @@
     "url": "git://github.com/bnoguchi/everyauth.git"
   },
   "author": "Brian Noguchi <brian.noguchi@gmail.com> (https://github.com/bnoguchi/)",
-  "keywords": ["auth", "oauth", "password", "facebook", "openid", "twitter", "authorization", "authentication", "connect", "express"]
+  "keywords": ["auth", "oauth", "password", "facebook", "openid", "twitter", "authorization", "authentication", "connect", "express"],
   "main": "./index.js",
   "directories": {
     "lib": "lib"
