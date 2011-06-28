@@ -4,6 +4,7 @@ var express = require('express')
 
 everyauth.debug = true;
 
+var usersByVimeoId = {};
 var usersByJustintvId = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
@@ -204,6 +205,15 @@ everyauth
         (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
     })
     .redirectPath('/')
+
+everyauth.vimeo
+	.consumerKey(conf.vimeo.consumerKey)
+	.consumerSecret(conf.vimeo.consumerSecret)
+	.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
+		return usersByVimeoId[vimeoUser.id] ||
+			(usersByVimeoId[vimeoUser.id] = vimeoUser);
+	})
+	.redirectPath('/')
 
 everyauth.justintv
   .consumerKey(conf.justintv.consumerKey)
