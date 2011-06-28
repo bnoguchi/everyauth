@@ -1607,6 +1607,7 @@ Thanks to the following contributors for the following modules:
 - [slickplaid](https://github.com/slickplaid)
   - Justin.tv
   - Vimeo
+  - Netflix
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
