@@ -39,6 +39,10 @@ module.exports = {
         consumerKey: 'enter your consumer key here'
       , consumerSecret: 'enter your consumer secret here'    
   }
+  , tumblr: {
+        consumerKey: 'TAofjqRz9iKiAjtPMnXzHELIeQAw8cqKCZVXaEFSAxBrrvV99f'
+      , consumerSecret: 's8ldFtirtsnWGSiBjwpUwMct8Yh4sliS9Uiocqsv3bw0ovMtlR'
+  }
   , dropbox: {
       	consumerKey: 'uhfqnbely5stdtm'
       , consumerSecret: 'jr7ofuwo32l7vkd'

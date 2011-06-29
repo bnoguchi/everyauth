@@ -22,6 +22,7 @@ function addUser (source, sourceUser) {
 
 var usersByVimeoId = {};
 var usersByJustintvId = {};
+var usersByTumblrName = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
@@ -242,6 +243,15 @@ everyauth.justintv
       (usersByJustintvId[justintvUser.id] = addUser('justintv', justintvUser));
   })
   .redirectPath('/')
+
+everyauth.tumblr
+  .consumerKey(conf.tumblr.consumerKey)
+  .consumerSecret(conf.tumblr.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, tumblrUser) {
+    return usersByTumblrName[tumblrUser.name] ||
+      (usersByTumblrName[tumblrUser.name] = addUser('tumblr', tumblrUser));
+  })
+  .redirectPath('/');
     
 everyauth.box
   .apiKey(conf.box.apiKey)
