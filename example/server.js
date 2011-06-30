@@ -4,6 +4,22 @@ var express = require('express')
 
 everyauth.debug = true;
 
+var usersById = {};
+var nextUserId = 0;
+
+function addUser (source, sourceUser) {
+  var user;
+  if (arguments.length === 1) { // password-based
+    user = sourceUser = source;
+    user.id = ++nextUserId;
+    return usersById[nextUserId] = user;
+  } else { // non-password-based
+    user = usersById[++nextUserId] = {id: nextUserId};
+    user[source] = sourceUser;
+  }
+  return user;
+}
+
 var usersByNetflixId = {};
 var usersByVimeoId = {};
 var usersByJustintvId = {};
@@ -21,18 +37,20 @@ var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByLogin = {
-  'brian': {
-      login: 'brian'
-    , password: 'password'
-  }
+  'brian': addUser({ login: 'brian', password: 'password'})
 };
+
+everyauth.everymodule
+  .findUserById( function (id, callback) {
+    callback(null, usersById[id]);
+  });
 
 everyauth
   .openid
     .myHostname('http://local.host:3000')
     .findOrCreateUser( function (session, userMetadata) {
       return usersByOpenId[userMetadata.claimedIdentifier] ||
-        (usersByOpenId[userMetadata.claimedIdentifier] = userMetadata);
+        (usersByOpenId[userMetadata.claimedIdentifier] = addUser('openid', userMetadata));
     })
     .redirectPath('/');
 
@@ -43,7 +61,7 @@ everyauth
     .appSecret(conf.fb.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
       return usersByFbId[fbUserMetadata.id] ||
-        (usersByFbId[fbUserMetadata.id] = fbUserMetadata);
+        (usersByFbId[fbUserMetadata.id] = addUser('facebook', fbUserMetadata));
     })
     .redirectPath('/');
 
@@ -53,7 +71,7 @@ everyauth
     .consumerKey(conf.twit.consumerKey)
     .consumerSecret(conf.twit.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
-      return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = twitUser);
+      return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
     })
     .redirectPath('/');
 
@@ -114,7 +132,7 @@ everyauth
     })
     .registerUser( function (newUserAttrs) {
       var login = newUserAttrs[this.loginKey()];
-      return usersByLogin[login] = newUserAttrs;
+      return usersByLogin[login] = addUser(newUserAttrs);
     })
 
     .loginSuccessRedirect('/')
@@ -125,7 +143,7 @@ everyauth.github
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
-      return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = ghUser);
+      return usersByGhId[ghUser.id] || (usersByGhId[ghUser.id] = addUser('github', ghUser));
   })
   .redirectPath('/');
 
@@ -134,7 +152,7 @@ everyauth.instagram
   .appId(conf.instagram.clientId)
   .appSecret(conf.instagram.clientSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, hipster) {
-      return usersByInstagramId[hipster.id] || (usersByInstagramId[hipster.id] = hipster);
+      return usersByInstagramId[hipster.id] || (usersByInstagramId[hipster.id] = addUser('instagram', hipster));
   })
   .redirectPath('/');
 
@@ -143,7 +161,7 @@ everyauth.foursquare
   .appId(conf.foursquare.clientId)
   .appSecret(conf.foursquare.clientSecret)
   .findOrCreateUser( function (sess, accessTok, accessTokExtra, addict) {
-      return usersByFoursquareId[addict.id] || (usersByFoursquareId[addict.id] = addict);
+      return usersByFoursquareId[addict.id] || (usersByFoursquareId[addict.id] = addUser('foursquare', addict));
   })
   .redirectPath('/');
 
@@ -152,7 +170,7 @@ everyauth.linkedin
   .consumerKey(conf.linkedin.apiKey)
   .consumerSecret(conf.linkedin.apiSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, linkedinUser) {
-    return usersByLinkedinId[linkedinUser.id] || (usersByLinkedinId[linkedinUser.id] = linkedinUser);
+    return usersByLinkedinId[linkedinUser.id] || (usersByLinkedinId[linkedinUser.id] = addUser('linkedin', linkedinUser));
   })
   .redirectPath('/');
 
@@ -164,7 +182,7 @@ everyauth.google
   .findOrCreateUser( function (sess, accessToken, extra, googleUser) {
     googleUser.refreshToken = extra.refresh_token;
     googleUser.expiresIn = extra.expires_in;
-    return usersByGoogleId[googleUser.id] || (usersByGoogleId[googleUser.id] = googleUser);
+    return usersByGoogleId[googleUser.id] || (usersByGoogleId[googleUser.id] = addUser('google', googleUser));
   })
   .redirectPath('/');
 
@@ -173,7 +191,7 @@ everyauth.yahoo
   .consumerKey(conf.yahoo.consumerKey)
   .consumerSecret(conf.yahoo.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, yahooUser) {
-    return usersByYahooId[yahooUser.id] || (usersByYahooId[yahooUser.id] = yahooUser);
+    return usersByYahooId[yahooUser.id] || (usersByYahooId[yahooUser.id] = addUser('yahoo', yahooUser));
   })
   .redirectPath('/');
 
@@ -183,7 +201,7 @@ everyauth.googlehybrid
   .consumerSecret(conf.google.clientSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
   .findOrCreateUser( function(session, userAttributes) {
-    return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = userAttributes);
+    return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = addUser('googlehybrid', userAttributes));
   })
   .redirectPath('/')
     
@@ -192,7 +210,7 @@ everyauth.readability
   .consumerKey(conf.readability.consumerKey)
   .consumerSecret(conf.readability.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
-      return usersByReadabilityId[reader.username] || (usersByReadabilityId[reader.username] = reader);
+      return usersByReadabilityId[reader.username] || (usersByReadabilityId[reader.username] = addUser('readability', reader));
   })
   .redirectPath('/');
 
@@ -203,7 +221,7 @@ everyauth
     .consumerSecret(conf.dropbox.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
       return usersByDropboxId[dropboxUserMetadata.uid] ||
-        (usersByDropboxId[dropboxUserMetadata.uid] = dropboxUserMetadata);
+        (usersByDropboxId[dropboxUserMetadata.uid] = addUser('dropbox', dropboxUserMetadata));
     })
     .redirectPath('/')
 
@@ -221,7 +239,7 @@ everyauth.justintv
   .consumerSecret(conf.justintv.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, justintvUser) {
     return usersByJustintvId[justintvUser.id] ||
-      (usersByJustintvId[justintvUser.id] = justintvUser);
+      (usersByJustintvId[justintvUser.id] = addUser('justintv', justintvUser));
   })
   .redirectPath('/')
     
@@ -242,7 +260,7 @@ everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
     return usersByBoxId[boxUser.user_id] ||
-      (usersByDropboxId[boxUser.user_id] = boxUser);
+      (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
   })
   .redirectPath('/');
 
