@@ -36,7 +36,7 @@ var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByLogin = {
-  'brian': addUser({ login: 'brian', password: 'password'})
+  'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
 
 everyauth.everymodule

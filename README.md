@@ -100,6 +100,14 @@ associated with 'local.host'. So inside your /etc/hosts file, one of the lines w
 
 Then point your browser to [http://local.host:3000](http://local.host:3000)
 
+## Tests
+
+First, spin up the example server (See last section "Example Application").
+
+Then,
+
+    $ make test
+
 ## Logging Out
 
 If you integrate `everyauth` with `connect`, then `everyauth` automatically
