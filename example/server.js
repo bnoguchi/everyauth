@@ -150,6 +150,7 @@ everyauth.instagram
   .myHostname('http://local.host:3000')
   .appId(conf.instagram.clientId)
   .appSecret(conf.instagram.clientSecret)
+  .scope('basic')
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, hipster) {
       return usersByInstagramId[hipster.id] || (usersByInstagramId[hipster.id] = addUser('instagram', hipster));
   })
