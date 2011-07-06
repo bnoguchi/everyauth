@@ -37,7 +37,7 @@ var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByLogin = {
-  'brian': addUser({ login: 'brian', password: 'password'})
+  'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
 
 everyauth.everymodule
@@ -151,6 +151,7 @@ everyauth.instagram
   .myHostname('http://local.host:3000')
   .appId(conf.instagram.clientId)
   .appSecret(conf.instagram.clientSecret)
+  .scope('basic')
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, hipster) {
       return usersByInstagramId[hipster.id] || (usersByInstagramId[hipster.id] = addUser('instagram', hipster));
   })

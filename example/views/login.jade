@@ -2,7 +2,7 @@
   ul#errors
     - each error in errors
       li.error= error
-form(action='/login', method='POST')
+form(action='/login', method='post')
   #login
     label(for=everyauth.password.loginFormFieldName) Login
     input(type='text', name=everyauth.password.loginFormFieldName, value=email)

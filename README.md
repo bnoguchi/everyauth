@@ -101,6 +101,14 @@ associated with 'local.host'. So inside your /etc/hosts file, one of the lines w
 
 Then point your browser to [http://local.host:3000](http://local.host:3000)
 
+## Tests
+
+First, spin up the example server (See last section "Example Application").
+
+Then,
+
+    $ make test
+
 ## Logging Out
 
 If you integrate `everyauth` with `connect`, then `everyauth` automatically
@@ -265,7 +273,47 @@ include that path '/auth/twitter/callback/'. In general, when dealing with OAuth
 provided by `everyauth`, the default callback path is always set up to follow the pattern
 '/auth/#{moduleName}/callback', so just ensure that you configure your OAuth settings accordingly with
 the OAuth provider -- in this case, the "Edit Application Settings" section for your app at http://dev.twitter.com.
-      
+
+Alternatively, you can specify the callback url at the application level by configuring `callbackPath` (which
+has a default configuration of "/auth/twitter/callback"):
+
+```javascript
+everyauth.twitter
+  .consumerKey('YOUR CONSUMER ID HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .callbackPath('/custom/twitter/callback/path')
+  .findOrCreateUser( function (session, accessToken, accessTokenSecret, twitterUserMetadata) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+```
+
+So if your hostname is `example.com`, then this configuration will over-ride the `dev.twitter.com` callback url configuration.
+Instead, Twitter will redirect back to `example.com/custom/twitter/callback/path` in the example just given above.
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.twitter
+  .entryPath('/auth/twitter')
+  .callbackPath('/auth/twitter/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.twitter.callbackPath(); // '/auth/twitter/callback'
+everyauth.twitter.entryPath(); // '/auth/twitter'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.twitter.configurable();
+```
 
 ## Setting up Password Authentication
 
