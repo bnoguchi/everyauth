@@ -20,6 +20,7 @@ function addUser (source, sourceUser) {
   return user;
 }
 
+var usersByNetflixId = {};
 var usersByVimeoId = {};
 var usersByJustintvId = {};
 var usersByDropboxId = {};
@@ -243,6 +244,19 @@ everyauth.justintv
   })
   .redirectPath('/')
     
+everyauth.netflix
+	.consumerKey(conf.netflix.consumerKey)
+	.consumerSecret(conf.netflix.consumerSecret)
+	.moreAuthQueryParams({
+		oauth_consumer_key: conf.netflix.consumerKey
+		, application_name: conf.netflix.application_name
+	})
+  .findOrCreateUser( function (sess, accessToken, accessSecret, netflixUser) {
+    return usersByJustintvId[justintvUser.id] ||
+      (usersByNetflixId[netflixUser.id] = netflixUser);
+  })
+  .redirectPath('/')
+	
 everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {

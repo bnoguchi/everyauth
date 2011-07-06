@@ -47,6 +47,11 @@ module.exports = {
 		    consumerKey: 'Enter your consumer key here'
 			, consumerSecret: 'Enter your consumer secret here'
 	  }
+  , netflix: {
+        consumerKey: 'Enter your consumer key here'
+			, consumerSecret: 'Enter your consumer secret here'
+      , application_name: 'Enter your application name here'
+  }
   , box: {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }

@@ -16,6 +16,7 @@ So far, `everyauth` enables you to login via:
   - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
   - `justin.tv` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
   - `vimeo` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
+  - `netflix` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
 - OAuth2
   - `facebook`
   - `github`
@@ -1066,6 +1067,66 @@ To see all parameters that are configurable, the following will return an object
 everyauth.justintv.configurable();
 ```
 
+## Setting up Netflix OAuth
+
+You will first need to sign up for a [developer application](http://developer.netflix.com/) to get the [application name, consumer key and secret](http://developer.netflix.com/apps/mykeys).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.netflix
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .moreAuthQueryParams({
+    oauth_consumer_key: 'YOUR CONSUMER KEY HERE'
+    , application_name: 'APPLICATION NAME HERE'  
+  })
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByNetflixId[user.id] || (usersByNetflixId[user.id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.netflix
+  .entryPath('/auth/netflix')
+  .callbackPath('/auth/netflix/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.netflix.callbackPath(); // '/auth/netflix/callback'
+everyauth.netflix.entryPath(); // '/auth/netflix'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.netflix.configurable();
+```
+
 ## Setting up Vimeo OAuth
 
 You will first need to sign up for a [developer application](http://vimeo.com/api/applications) to get the consumer key and secret.
@@ -1594,6 +1655,7 @@ Thanks to the following contributors for the following modules:
 - [slickplaid](https://github.com/slickplaid)
   - Justin.tv
   - Vimeo
+  - Netflix
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
