@@ -23,7 +23,9 @@
   "devDependencies": {
     "express": ">=2.3.10",
     "jade": ">=0.12.1",
-    "tobi": ">=0.2.2"
+    "tobi": ">=0.2.2",
+    "expresso": ">=0.8.1",
+    "should": ">=0.2.1"
   },
   "engines": {
     "node": ">=0.4.x"
