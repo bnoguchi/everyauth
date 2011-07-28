@@ -28,6 +28,7 @@ var usersByTwitId = {};
 var usersByGhId = {};
 var usersByInstagramId = {};
 var usersByFoursquareId = {};
+var usersByGowallaId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
 var usersByYahooId = {};
@@ -162,6 +163,18 @@ everyauth.foursquare
   .appSecret(conf.foursquare.clientSecret)
   .findOrCreateUser( function (sess, accessTok, accessTokExtra, addict) {
       return usersByFoursquareId[addict.id] || (usersByFoursquareId[addict.id] = addUser('foursquare', addict));
+  })
+  .redirectPath('/');
+
+everyauth.gowalla
+  .myHostname('http://local.host:3000')
+  .appId(conf.gowalla.apiKey)
+  .appSecret(conf.gowalla.apiSecret)
+  .moduleErrback( function(err) {
+    console.log("moduleErrback for Gowalla", err);
+  })
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, loser) {
+    return usersByGowallaId[loser.url] || (usersByGowallaId[loser.url] = addUser('gowalla', loser));
   })
   .redirectPath('/');
 

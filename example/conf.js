@@ -19,6 +19,10 @@ module.exports = {
         clientId: 'VUGE4VHJMKWALKDKIOH1HLD1OQNHTC0PBZZBUQSHJ3WKW04K'
       , clientSecret: '0LVAGARGUN05DEDDRVWNIMH4RFIHEFV0CERU3OITAZW1CXGX'
     }
+  , gowalla: {
+        apiKey: '11cf666912004d709fa4bbf21718a82e',
+        apiSecret: 'e1e23f135776452898a6d268129bf153'
+    }
   , linkedin: {
         apiKey: 'pv6AWspODUeHIPNZfA531OYcFyB1v23u3y-KIADJdpyw54BXh-ciiQnduWf6FNRH'
       , apiSecret: 'Pdx7DCoJRdAk0ai3joXsslZvK1DPCQwsLn-T17Opkae22ZYDP5R7gmAoFes9TNHy'
