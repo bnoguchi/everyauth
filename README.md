@@ -1487,30 +1487,6 @@ How do we know what arguments the function takes?
 We elaborate more about step function configuration in our 
 `Introspection` section below.
 
-### Configuring Error Handling
-
-By default, all modules handle errors by throwing them. That said, `everyauth` allows
-you to over-ride this behavior.
-
-You can configure error handling at the module and step level. To handle *all*
-errors in the same manner across all auth modules that you use, do the following.
-
-```javascript
-everyauth.everymodule.moduleErrback( function (err) {
-  // Do something with the err -- e.g., log it, throw it
-});
-```
-
-You can also configure your error handling on a per module basis. So, for example, if
-you want to handle errors during the Facebook module differently than in other modules:
-
-
-```javascript
-everyauth.facebook.moduleErrback( function (err) {
-  // Do something with the err -- e.g., log it, throw it
-});
-```
-
 ## Introspection
 
 everyauth provides convenient methods and getters for finding out
@@ -1626,6 +1602,64 @@ Other introspection tools to describe (explanations coming soon):
     ```javascript    
     everyauth.facebook.routes.get.callbackPath.steps.invalid
     ```
+
+## Debugging
+
+### Debugging - Logging Module Steps
+
+To turn on debugging:
+
+```javascript
+everyauth.debug = true;
+```
+
+Each everyauth auth strategy module is composed of steps. As each step begins and ends, everyauth will print out to the console the beginning and end of each step. So by turning on the debug flag, you get insight into what step everyauth is executing at any time.
+
+### Debugging - Configuring Error Handling
+
+By default, all modules handle errors by throwing them. That said, `everyauth` allows
+you to over-ride this behavior.
+
+You can configure error handling at the module and step level. To handle *all*
+errors in the same manner across all auth modules that you use, do the following.
+
+```javascript
+everyauth.everymodule.moduleErrback( function (err) {
+  // Do something with the err -- e.g., log it, throw it
+});
+```
+
+You can also configure your error handling on a per module basis. So, for example, if
+you want to handle errors during the Facebook module differently than in other modules:
+
+
+```javascript
+everyauth.facebook.moduleErrback( function (err) {
+  // Do something with the err -- e.g., log it, throw it
+});
+```
+
+### Debugging - Setting Timeouts
+
+By default, every module has 10 seconds to complete each step. If a step takes longer than 10 seconds to complete, then everyauth will pass a timeout error to your configured error handler (see section "Configure Error Handling" above).
+
+If you would like to increase or decrease the timeout period across all modules, you can do so via:
+
+```javascript
+everyauth.everymodule.moduleTimeout(2000); // Wait 2 seconds per step instead before timing out
+```
+
+You can eliminate the timeout altogether by configuring your timeouts to -1:
+
+```javascript
+everyauth.everymodule.moduleTimeout(-1);
+```
+
+You can also configure the timeout period on a per module basis. For example, the following will result in the facebook module having 3 seconds to complete each step before timing out; all other modules will have the default 10 seconds per step before timing out.
+
+```javascript
+everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
+```
 
 ## Modules and Projects that use everyauth
 
