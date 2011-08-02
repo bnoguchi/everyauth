@@ -3,3 +3,4 @@ node_modules
 test/creds.js
 issues
 IRC.md
+playground.js
