@@ -18,6 +18,7 @@ So far, `everyauth` enables you to login via:
   - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
   - `justin.tv` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
   - `vimeo` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
+  - `tumblr`
 - OAuth2
   - `facebook`
   - `github`
@@ -1122,6 +1123,64 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.vimeo.configurable();
+```
+
+## Setting up Tumblr OAuth (1.a)
+
+You will first need to [register an app](http://www.tumblr.com/oauth/register) to get the consumer key and secret.
+During registration of your new app, enter a "Default callback URL" of "http://<hostname>:<port>/auth/tumblr/callback".
+Once you register your app, copy down your "OAuth Consumer Key" and "Secret Key" and proceed below.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.tumblr
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByTumblrName[user.name] || (usersByTumblrName[user.name] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.tumblr
+  .entryPath('/auth/tumblr')
+  .callbackPath('/auth/tumblr/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.tumblr.callbackPath(); // '/auth/tumblr/callback'
+everyauth.tumblr.entryPath(); // '/auth/tumblr'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.tumblr.configurable();
 ```
 
 ## Setting up OpenID protocol
