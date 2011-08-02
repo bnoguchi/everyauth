@@ -3,6 +3,8 @@ everyauth
 
 Authentication and authorization (password, facebook, & more) for your node.js Connect and Express apps.
 
+There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
+
 So far, `everyauth` enables you to login via:
 
 - `password`
