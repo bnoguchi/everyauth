@@ -784,7 +784,7 @@ everyauth.google
     // If you do not configure this, everyauth renders a default fallback
     // view notifying the user that their authentication failed and why.
   })
-  .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, googleUserMetadata) {
     // find or create user logic goes here
     // Return a user or Promise that promises a user
     // Promises are created via
