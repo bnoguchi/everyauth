@@ -25,6 +25,7 @@ So far, `everyauth` enables you to login via:
   - `instagram`
   - `foursquare`
   - `google`
+  - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
 - `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
@@ -827,6 +828,67 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.google.configurable();
+```
+
+## Setting up Gowalla OAuth2
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.gowalla
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .handleAuthCallbackError( function (req, res) {
+    // TODO - Update this documentation
+    // This configurable route handler defines how you want to respond to
+    // a response from Gowalla that something went wrong during the oauth2 process.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, gowallaUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.gowalla
+  .entryPath('/auth/gowalla')
+  .callbackPath('/auth/gowalla/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.gowalla.scope(); // undefined
+everyauth.gowalla.entryPath(); // '/auth/gowalla'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.gowalla.configurable();
 ```
 
 ## Setting up Yahoo OAuth
@@ -1689,6 +1751,8 @@ Thanks to the following contributors for the following modules:
 - [slickplaid](https://github.com/slickplaid)
   - Justin.tv
   - Vimeo
+- [Andrew Kramolisch](https://github.com/andykram)
+  - Gowalla
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
