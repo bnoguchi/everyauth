@@ -20,6 +20,9 @@
   #foursquare-login
     a(href='/auth/foursquare', style='border: 0px')
       img(style='border: 0px', src='https://foursquare.com/img/headerLogo.png')
+  #gowalla-login
+    a(href='/auth/gowalla', style='border: 0px')
+      img(style='border: 0px', src='http://static.gowalla.com/gowalla-connect-buttons/button-gowalla_connect-156ool.png')
   #linkedin-login
     a(href='/auth/linkedin', style='border: 0px')
       img(style='border: 0px', src='http://press.linkedin.com/sites/all/themes/presslinkedin/images/LinkedIn_WebLogo_LowResExample.jpg')
@@ -73,6 +76,9 @@
   - if (everyauth.foursquare)
     h3 Foursquare User Data
     p= JSON.stringify(everyauth.foursquare.user)
+  - if (everyauth.gowalla)
+    h3 Gowalla User Data
+    p= JSON.stringify(everyauth.gowalla.user)
   - if (everyauth.linkedin)
     h3 LinkedIn User Data
     p= JSON.stringify(everyauth.linkedin.user)
