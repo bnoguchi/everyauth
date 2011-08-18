@@ -58,4 +58,8 @@ module.exports = {
   , box: {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }
+  , runkeeper: {
+		clientId: '99c0504f02df4ad487de39601249a934'
+		, clientSecret: 'be19daffa3b44edd846f30edcaa5443e'
+	}
 };

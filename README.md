@@ -25,8 +25,11 @@ So far, `everyauth` enables you to login via:
   - `instagram`
   - `foursquare`
   - `google`
-  - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
-- `box` (Box.net)
+  - `gowalla`
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
+ - `box` (Box.net)
+ - `runkeeper`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Mats Becker](https://github.com/mbecker))
 - `LDAP` (experimental; not production-tested)
 
 `everyauth` is:
@@ -1374,6 +1377,58 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.box.configurable();
+```
+
+## Setting up Runkeeper OAuth2
+
+You will first need to sign up for the [runkeeper healtgraph](http://developer.runkeeper.com/healthgraph) to get the client id and client secret.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.runkeeper
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, runkeeperUser) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+  
+```javascript  
+everyauth.runkeeper
+  .entryPath('/auth/runkeeper')
+  .callbackPath('/auth/runkeeper/callback')
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.runkeeper.entryPath(); // '/auth/runkeeper'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.runkeeper.configurable();
 ```
 
 ## Setting up LDAP

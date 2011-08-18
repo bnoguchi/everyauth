@@ -37,6 +37,7 @@ var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
+var usersByRunkeeperId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -261,6 +262,14 @@ everyauth.box
       (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
   })
   .redirectPath('/');
+
+everyauth.runkeeper
+	.appId(conf.runkeeper.clientId)
+	.appSecret(conf.runkeeper.clientSecret)
+	.findOrCreateUser( function (sess, accessToken, accessTokenExtra, runkeeperUser) {
+	      return usersByRunkeeperId[runkeeperUser.id] || (usersByRunkeeperId[runkeeperUser.id] = addUser('runkeeper', runkeeperUser));
+	  })
+	.redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()
