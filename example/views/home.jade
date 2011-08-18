@@ -59,6 +59,9 @@
       label(for='openid_identifier') OpenID Identifier: &nbsp;
       input(type='text', name='openid_identifier')
       input(type='submit') Login
+  #runkeeper-login
+    a(href='/auth/runkeeper', style='border: 0px')
+	  img(src='http://static1.runkeeper.com/images/assets/login-black-white-200x38.png')
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -109,6 +112,9 @@
   - if (everyauth.openid)
     h3 Openid User Data
     p= JSON.stringify(everyauth.openid.user)
+  - if (everyauth.runkeeper)
+    h3 Runkeeper User Data
+    p= JSON.stringify(everyauth.runkeeper.user)
 
   h3
     a(href='/logout') Logout
