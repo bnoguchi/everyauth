@@ -48,6 +48,7 @@ everyauth.everymodule
 
 everyauth
   .openid
+    .myHostname('http://local.host:3000')
     .findOrCreateUser( function (session, userMetadata) {
       return usersByOpenId[userMetadata.claimedIdentifier] ||
         (usersByOpenId[userMetadata.claimedIdentifier] = addUser('openid', userMetadata));
