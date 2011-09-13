@@ -1,14 +1,25 @@
 {
   "name": "everyauth",
   "description": "Auth solution (password, facebook, & more) for your node.js Connect & Express apps",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "homepage": "https://github.com/bnoguchi/everyauth/",
   "repository": {
     "type": "git",
     "url": "git://github.com/bnoguchi/everyauth.git"
   },
   "author": "Brian Noguchi <brian.noguchi@gmail.com> (https://github.com/bnoguchi/)",
-  "keywords": ["auth", "oauth", "password", "facebook", "openid", "twitter", "authorization", "authentication", "connect", "express"],
+  "keywords": [
+    "auth",
+    "oauth",
+    "password",
+    "facebook",
+    "openid",
+    "twitter",
+    "authorization",
+    "authentication",
+    "connect",
+    "express"
+  ],
   "main": "./index.js",
   "directories": {
     "lib": "lib"
