@@ -26,7 +26,7 @@ So far, `everyauth` enables you to login via:
   - `foursquare`
   - `google`
   - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
-  - 37signals (Basecamp, Highrise, Backpack, Campfire)
+  - `37signals` (Basecamp, Highrise, Backpack, Campfire)
 - `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
