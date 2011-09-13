@@ -26,6 +26,7 @@ So far, `everyauth` enables you to login via:
   - `foursquare`
   - `google`
   - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
+  - 37signals (Basecamp, Highrise, Backpack, Campfire)
 - `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
@@ -889,6 +890,68 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.gowalla.configurable();
+```
+
+## Setting up 37signals (Basecamp, Highrise, Backpack, Campfire) OAuth2
+
+First, register an app at [integrate.37signals.com](https://integrate.37signals.com).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth['37signals']
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .handleAuthCallbackError( function (req, res) {
+    // TODO - Update this documentation
+    // This configurable route handler defines how you want to respond to
+    // a response from 37signals that something went wrong during the oauth2 process.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, _37signalsUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth['37signals']
+  .entryPath('/auth/37signals')
+  .callbackPath('/auth/37signals/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth['37signals'].entryPath(); // '/auth/37signals'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth['37signals'].configurable();
 ```
 
 ## Setting up Yahoo OAuth
