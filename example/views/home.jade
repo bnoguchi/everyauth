@@ -48,6 +48,9 @@
   #justintv-login
     a(href='/auth/justintv', style='border: 0px')
       img(src='http://s.jtvnw.net/jtv_user_pictures/hosted_images/new_logo_148_40_black.png')
+  #37signals-login
+    a(href='/auth/37signals', style='border: 0px')
+      img(src='http://37signals.com/svn/images/37slogo-trans.gif')
   #tumblr-login
     a(href='/auth/tumblr', style='border: 0px')
       img(src='http://assets.tumblr.com/images/logo.png?alpha&6')
@@ -100,6 +103,9 @@
   - if (everyauth.justintv)
     h3 Justin.tv User Data
     p= JSON.stringify(everyauth.justintv.user)  
+  - if (everyauth['37signals'])
+    h3 37signals User Data
+    p= JSON.stringify(everyauth['37signals'].user)  
   - if (everyauth.tumblr)
     h3 Tumblr User Data
     p= JSON.stringify(everyauth.tumblr.user)  

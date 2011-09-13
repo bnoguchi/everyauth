@@ -22,6 +22,7 @@ function addUser (source, sourceUser) {
 
 var usersByVimeoId = {};
 var usersByJustintvId = {};
+var usersBy37signalsId = {};
 var usersByTumblrName = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
@@ -243,6 +244,15 @@ everyauth.justintv
   .findOrCreateUser( function (sess, accessToken, accessSecret, justintvUser) {
     return usersByJustintvId[justintvUser.id] ||
       (usersByJustintvId[justintvUser.id] = addUser('justintv', justintvUser));
+  })
+  .redirectPath('/')
+
+everyauth['37signals']
+  .appId(conf['37signals'].clientId)
+  .appSecret(conf['37signals'].clientSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, _37signalsUser) {
+    return usersBy37signalsId[_37signalsUser.id] ||
+      (usersBy37signalsId[_37signalsUser.identity.id] = addUser('37signals', _37signalsUser));
   })
   .redirectPath('/')
 

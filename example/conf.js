@@ -42,7 +42,11 @@ module.exports = {
   , justintv: {
         consumerKey: 'enter your consumer key here'
       , consumerSecret: 'enter your consumer secret here'    
-  }
+    }
+  , '37signals': {
+        clientId: 'cd4bf9cd9ed828b6bed8b67e6b314cf8b90c8de5'
+      , clientSecret: '07883c36b4f4493b70f31872ed8fbdb099ff1cef'
+    }
   , tumblr: {
         consumerKey: 'TAofjqRz9iKiAjtPMnXzHELIeQAw8cqKCZVXaEFSAxBrrvV99f'
       , consumerSecret: 's8ldFtirtsnWGSiBjwpUwMct8Yh4sliS9Uiocqsv3bw0ovMtlR'
