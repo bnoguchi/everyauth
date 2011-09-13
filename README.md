@@ -1254,6 +1254,7 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.openid
+  .myHostname('http://localhost:3000')
   .simpleRegistration({
       "nickname" : true
     , "email"    : true
