@@ -153,14 +153,14 @@ You may want your own callback that decides where to send a user after login or 
 
 ```
 everyauth.password
-  .respondToLoginSucceed( function (res, user, req) {
+  .respondToLoginSucceed( function (res, user, data) {
     if (user) {
-      res.writeHead(303, {'Location': req.session.redirectTo});
+      res.writeHead(303, {'Location': data.session.redirectTo});
       res.end();
     }   
   })
-  .respondToRegistrationSucceed( function (res, user, req) {
-    res.writeHead(303, {'Location': req.session.redirectTo});
+  .respondToRegistrationSucceed( function (res, user, data) {
+    res.writeHead(303, {'Location': data.session.redirectTo});
     res.end();
   })
 ```
