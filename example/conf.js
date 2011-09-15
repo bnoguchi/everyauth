@@ -95,9 +95,13 @@ module.exports = {
         consumerKey: 'Enter your consumer key here'
       , consumerSecret: 'Enter your consumer secret here'
   }
-   , mixi: {
-        consumerKey: 'Enter your consumer key here'
-      , consumerSecret: 'Enter your consumer secret here'
-      , scope: 'r_profile'
-    }
+  , mixi: {
+      consumerKey: 'Enter your consumer key here'
+    , consumerSecret: 'Enter your consumer secret here'
+    , scope: 'r_profile'
+  }
+	, familysearch: {
+	    developerKey: 'enter your developer key here'
+		, userAgent: 'enter your app name and version here -- AppName/1.0'
+  }
 };

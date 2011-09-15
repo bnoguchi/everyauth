@@ -14,6 +14,8 @@
   #twitter-login
     a(href='/auth/twitter', style='border: 0px')
       img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
+  #familysearch-login
+    a(href='/auth/familysearch', style='display: inline-block; border: 0px; height: 35px; width: 118px; background: url(https://cdn.familysearch.org/common/oquirrh/assets/sprite_chrome.png)')
   #github-login
     a(href='/auth/github', style='border: 0px')
       img(style='border: 0px', src='http://github.com/intridea/authbuttons/raw/master/png/github_64.png')
@@ -94,6 +96,9 @@
   - if (everyauth.twitter)
     h3 Twitter User Data
     p= JSON.stringify(everyauth.twitter.user)
+  - if (everyauth.familysearch)
+    h3 FamilySearch User Data
+    p= JSON.stringify(everyauth.familysearch.user)
   - if (everyauth.github)
     h3 GitHub User Data
     p= JSON.stringify(everyauth.github.user)

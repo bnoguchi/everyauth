@@ -25,6 +25,7 @@ var usersByVimeoId = {};
 var usersByJustintvId = {};
 var usersBy37signalsId = {};
 var usersByTumblrName = {};
+var usersByFamilySearchName = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
@@ -369,6 +370,16 @@ everyauth
         (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
     })
     .redirectPath('/');
+
+everyauth.familysearch
+  .developerKey(conf.familysearch.developerKey)
+  .userAgent(conf.familysearch.userAgent)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, fsUser) {
+    return usersByFamilySearchName[fsUser.name] ||
+      (usersByFamilySearchName[fsUser.name] = addUser('familysearch', fsUser));
+  })
+  .redirectPath('/');
+
 
 var app = express.createServer(
     express.bodyParser()
