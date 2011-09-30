@@ -82,7 +82,7 @@ everyauth
 
   }).addRequestGetter('loggedIn', function () {
     var req = this;
-    if (req.session.auth && req.session.auth.loggedIn) {
+    if (req.session && req.session.auth && req.session.auth.loggedIn) {
       return true;
     } else {
       return false;
