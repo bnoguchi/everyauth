@@ -27,7 +27,7 @@
   "dependencies": {
     "oauth": ">=0.9.0",
     "restler": ">=0.2.1",
-    "connect": ">=1.4.0",
+    "connect": "=1.x",
     "openid": "=0.1.8",
     "xml2js": ">=0.1.7"
   },
