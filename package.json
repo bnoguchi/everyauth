@@ -1,7 +1,7 @@
 {
   "name": "everyauth",
   "description": "Auth solution (password, facebook, & more) for your node.js Connect & Express apps",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "homepage": "https://github.com/bnoguchi/everyauth/",
   "repository": {
     "type": "git",
