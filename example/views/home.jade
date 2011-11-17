@@ -57,6 +57,8 @@
   #box-login
     a(href='/auth/box', style='border: 0px')
       img(src='http://sites.box.net/apps/web/simpleshare/img/logo.png')
+  #dwolla-login
+    a(href='/auth/dwolla', style='border: 0px') Login with Dwolla
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -115,6 +117,9 @@
   - if (everyauth.openid)
     h3 Openid User Data
     p= JSON.stringify(everyauth.openid.user)
+  - if (everyauth.dwolla)
+    h3 Dwolla User Data
+    p= JSON.stringify(everyauth.dwolla.user)
 
   h3
     a(href='/logout') Logout

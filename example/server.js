@@ -38,6 +38,7 @@ var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
+var usersByDwollaId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -247,6 +248,7 @@ everyauth.justintv
   })
   .redirectPath('/')
 
+/* commented out as throws exception
 everyauth['37signals']
   .appId(conf['37signals'].clientId)
   .appSecret(conf['37signals'].clientSecret)
@@ -255,6 +257,7 @@ everyauth['37signals']
       (usersBy37signalsId[_37signalsUser.identity.id] = addUser('37signals', _37signalsUser));
   })
   .redirectPath('/')
+  */
 
 everyauth.tumblr
   .consumerKey(conf.tumblr.consumerKey)
@@ -270,6 +273,15 @@ everyauth.box
   .findOrCreateUser( function (sess, authToken, boxUser) {
     return usersByBoxId[boxUser.user_id] ||
       (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
+  })
+  .redirectPath('/');
+
+everyauth.dwolla
+  .appId(conf.dwolla.clientId)
+  .appSecret(conf.dwolla.clientSecret)
+  .scope('accountinfofull')
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, dwollaUser) {
+      return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
   })
   .redirectPath('/');
 
