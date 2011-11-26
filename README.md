@@ -27,6 +27,7 @@ So far, `everyauth` enables you to login via:
   - `google`
   - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
   - `37signals` (Basecamp, Highrise, Backpack, Campfire)
+  - `angellist`
 - `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
@@ -952,6 +953,61 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth['37signals'].configurable();
+```
+
+## Setting up AngelList OAuth2
+
+First, register an app [on AngelList](http://angel.co/api/oauth/clients).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.angellist
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, angelListUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.angellist
+  .entryPath('/auth/angellist')
+  .callbackPath('/auth/angellist/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.angellist.entryPath(); // '/auth/angellist'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.angellist.configurable();
 ```
 
 ## Setting up Yahoo OAuth
