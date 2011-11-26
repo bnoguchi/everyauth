@@ -154,6 +154,24 @@ everyauth.everymodule.handleLogout( function (req, res) {
 });
 ```
 
+## Custom redirect on login or registration
+
+You may want your own callback that decides where to send a user after login or registration.  One way of doing this is with the `respondToLoginSucceed` and `respondToRegistrationSucceed` methods.  This assumes that you have set a `.redirectTo` property on your `req.session` object:
+
+```
+everyauth.password
+  .respondToLoginSucceed( function (res, user, data) {
+    if (user) {
+      res.writeHead(303, {'Location': data.session.redirectTo});
+      res.end();
+    }   
+  })
+  .respondToRegistrationSucceed( function (res, user, data) {
+    res.writeHead(303, {'Location': data.session.redirectTo});
+    res.end();
+  })
+```
+
 ## Setting up Facebook Connect
 
 ```javascript
