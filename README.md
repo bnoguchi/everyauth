@@ -48,13 +48,6 @@ So far, `everyauth` enables you to login via:
 ## Installation
     $ npm install everyauth
 
-If you are using node version 0.4.x, then make sure to use everyauth versions >=0.2.24 and <0.3
-
-    $ npm install everyauth@0.2.24
-
-If you are using node version 0.6.x, then everyauth version 0.3.x is coming soon.
-
-
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
 or 3 simple steps if using Express:
