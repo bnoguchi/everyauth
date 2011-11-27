@@ -7,29 +7,29 @@ There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials
 
 So far, `everyauth` enables you to login via:
 
-- `password`
-- `OpenId` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi))
-  - `Google Hybrid` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
+- Password
+- <img src="http://www.openid.co.uk/files/chameleon_favicon.ico" style="vertical-align:middle"> OpenId (Credits [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi))
+  - <img src="http://1.bp.blogspot.com/_7ZYqYi4xigk/SWfANhA5U9I/AAAAAAAACOM/-8e3TJyR0zA/s320/Google+Favicon_0109.png" style="vertical-align:middle"> Google Hybrid (Credits [RocketLabs Development](https://github.com/rocketlabsdev))
 - OAuth
   - <img src="http://a3.twimg.com/a/1322242965/images/favicon.ico" style="vertical-align:middle"> Twitter
-  - `linkedin`
-  - `yahoo`
-  - `readability` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Alfred Nerstu](https://github.com/alfrednerstu))
-  - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
-  - `justin.tv` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
-  - `vimeo` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
-  - `tumblr`
+  - <img src="http://s3.licdn.com/scds/common/u/img/favicon_v3.ico" style="vertical-align:middle"> LinkedIn
+  - <img src="http://trac.astrometry.net/export/19947/trunk/src/astrometry/net/static/images.small/yahoo.ico" style="vertical-align:middle"> Yahoo!
+  - <img src="http://du3itj18e4z0b.cloudfront.net/da7afa/images/favicon.ico" style="vertical-align:middle"> Readability (Credits [Alfred Nerstu](https://github.com/alfrednerstu))
+  - <img src="https://www.dropbox.com/static/20447/images/favicon.ico" style="vertical-align:middle"> Dropbox (Credits [Torgeir](https://github.com/torgeir))
+  - <img src="http://favicon.yandex.net/favicon/justin.tv" style="vertical-align:middle"> Justin.tv (Credits [slickplaid](https://github.com/slickplaid))
+  - <img src="http://www.davidarenou.com/images/favicon_Vimeo.gif" style="vertical-align:middle"> Vimeo (Credits [slickplaid](https://github.com/slickplaid))
+  - <img src="http://www.fauxfu.com/wp-content/uploads/2011/10/FaviconTumblr.jpg" style="vertical-align:middle"> Tumblr
 - OAuth2
-  - `facebook`
-  - `github`
-  - `instagram`
-  - `foursquare`
-  - `google`
-  - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
-  - `37signals` (Basecamp, Highrise, Backpack, Campfire)
-  - `angellist`
-- `box` (Box.net)
-- `LDAP` (experimental; not production-tested)
+  - <img src="http://static.ak.fbcdn.net/rsrc.php/yi/r/q9U99v3_saj.ico" style="vertical-align:middle"> Facebook
+  - <img src="http://thekaiway.com/assets/github_favicon.png" style="vertical-align:middle"> Github
+  - <img src="http://instagram.com/static/images/favicon.ico" style="vertical-align:middle"> Instagram
+  - <img src="https://static-s.foursquare.com/favicon-c62b82f6120e2c592a3e6f3476d66554.ico" style="vertical-align:middle"> Foursquare
+  - <img src="http://1.bp.blogspot.com/_7ZYqYi4xigk/SWfANhA5U9I/AAAAAAAACOM/-8e3TJyR0zA/s320/Google+Favicon_0109.png" style="vertical-align:middle"> Google
+  - <img src="http://www.tagliaerbe.com/images/gowalla.png" style="vertical-align:middle"> Gowalla (Credits [Andrew Kramolisch](https://github.com/andykram))
+  - <img src="http://favicon.st-hatena.com/?url=http%3A%2F%2Fjobs.37signals.com%2Fjobs%2F9741" style="vertical-align:middle"> 37signals (Basecamp, Highrise, Backpack, Campfire)
+  - <img src="http://angel.co/images/icons/angellist.ico" style="vertical-align:middle"> AngelList
+- <img src="http://box.com/favicon.ico" style="vertical-align:middle"> Box.net
+- LDAP (experimental; not production-tested)
 
 `everyauth` is:
 
