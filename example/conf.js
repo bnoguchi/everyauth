@@ -31,7 +31,7 @@ module.exports = {
         clientId: '3335216477.apps.googleusercontent.com'
       , clientSecret: 'PJMW_uP39nogdu0WpBuqMhtB'
     }
-  , '37signals': {
+  , _37signals: {
         clientId: 'cd4bf9cd9ed828b6bed8b67e6b314cf8b90c8de5'
       , clientSecret: '07883c36b4f4493b70f31872ed8fbdb099ff1cef'
     }
