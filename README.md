@@ -37,6 +37,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> [Kenan Shifflett](https://github.com/nanek)
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1040,6 +1041,38 @@ object whose parameter name keys map to description values:
 everyauth.angellist.configurable();
 ```
 
+## Setting up Dwolla OAuth2
+
+First, register an app [on Dwolla](http://www.dwolla.com/developers).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.dwolla
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .scope('accountinfofull')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, dwollaUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+
 ## Setting up Yahoo OAuth
 
 ```javascript
@@ -1903,6 +1936,8 @@ Thanks to the following contributors for the following modules:
   - Vimeo
 - [Andrew Kramolisch](https://github.com/andykram)
   - Gowalla
+- [Kenan Shifflett](https://github.com/nanek)
+  - Dwolla
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
