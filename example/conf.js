@@ -67,7 +67,7 @@ module.exports = {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }
   , dwolla: {
-        clientId: process.env.DWOLLA_CLIENT_ID
-      , clientSecret: process.env.DWOLLA_CLIENT_SECRET
+        clientId: 'Enter your consumer key here'
+      , clientSecret: 'Enter your consumer secret here'
     }
 };

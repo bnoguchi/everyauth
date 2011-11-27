@@ -259,7 +259,6 @@ everyauth.justintv
   })
   .redirectPath('/')
 
-/* commented out as throws exception
 everyauth['37signals']
   .appId(conf['_37signals'].clientId)
   .appSecret(conf['_37signals'].clientSecret)
@@ -268,7 +267,6 @@ everyauth['37signals']
       (usersBy37signalsId[_37signalsUser.identity.id] = addUser('37signals', _37signalsUser));
   })
   .redirectPath('/')
-  */
 
 everyauth.tumblr
   .consumerKey(conf.tumblr.consumerKey)
