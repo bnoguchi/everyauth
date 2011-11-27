@@ -39,6 +39,7 @@ var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
+var usersByDwollaId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -281,6 +282,15 @@ everyauth.box
   .findOrCreateUser( function (sess, authToken, boxUser) {
     return usersByBoxId[boxUser.user_id] ||
       (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
+  })
+  .redirectPath('/');
+
+everyauth.dwolla
+  .appId(conf.dwolla.clientId)
+  .appSecret(conf.dwolla.clientSecret)
+  .scope('accountinfofull')
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, dwollaUser) {
+    return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
   })
   .redirectPath('/');
 
