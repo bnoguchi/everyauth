@@ -7,28 +7,36 @@ There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials
 
 So far, `everyauth` enables you to login via:
 
-- `password`
-- `OpenId` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi))
-  - `Google Hybrid` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [RocketLabs Development](https://github.com/rocketlabsdev))
-- OAuth
-  - `twitter`
-  - `linkedin`
-  - `yahoo`
-  - `readability` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Alfred Nerstu](https://github.com/alfrednerstu))
-  - `dropbox` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Torgeir](https://github.com/torgeir))
-  - `justin.tv` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
-  - `vimeo` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [slickplaid](https://github.com/slickplaid))
-  - `tumblr`
-- OAuth2
-  - `facebook`
-  - `github`
-  - `instagram`
-  - `foursquare`
-  - `google`
-  - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
-  - `37signals` (Basecamp, Highrise, Backpack, Campfire)
-- `box` (Box.net)
-- `LDAP` (experimental; not production-tested)
+<table>
+  <thead>
+    <tr> <th> Authenticate Via                                                                                                             <th> Credits
+  <tbody>
+    <tr> <td> Password
+    <!-- OpenId-based -->
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> [RocketLabs Development](https://github.com/rocketlabsdev)
+    <!-- OAuth-based -->
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> [Alfred Nerstu](https://github.com/alfrednerstu)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> [Torgeir](https://github.com/torgeir)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> [slickplaid](https://github.com/slickplaid)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> [slickplaid](https://github.com/slickplaid)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr
+    <!-- OAuth2-based -->
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> [Andrew Kramolisch](https://github.com/andykram)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals (Basecamp, Highrise, Backpack, Campfire)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList
+    
+    <!-- Misc -->
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net
+    <tr> <td> LDAP (experimental; not production-tested)
 
 `everyauth` is:
 
@@ -46,7 +54,6 @@ So far, `everyauth` enables you to login via:
 
 ## Installation
     $ npm install everyauth
-
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
@@ -145,6 +152,24 @@ everyauth.everymodule.handleLogout( function (req, res) {
   res.writeHead(303, { 'Location': this.logoutRedirectPath() });
   res.end();
 });
+```
+
+## Custom redirect on login or registration
+
+You may want your own callback that decides where to send a user after login or registration.  One way of doing this is with the `respondToLoginSucceed` and `respondToRegistrationSucceed` methods.  This assumes that you have set a `.redirectTo` property on your `req.session` object:
+
+```
+everyauth.password
+  .respondToLoginSucceed( function (res, user, data) {
+    if (user) {
+      res.writeHead(303, {'Location': data.session.redirectTo});
+      res.end();
+    }   
+  })
+  .respondToRegistrationSucceed( function (res, user, data) {
+    res.writeHead(303, {'Location': data.session.redirectTo});
+    res.end();
+  })
 ```
 
 ## Setting up Facebook Connect
@@ -952,6 +977,61 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth['37signals'].configurable();
+```
+
+## Setting up AngelList OAuth2
+
+First, register an app [on AngelList](http://angel.co/api/oauth/clients).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.angellist
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, angelListUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.angellist
+  .entryPath('/auth/angellist')
+  .callbackPath('/auth/angellist/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.angellist.entryPath(); // '/auth/angellist'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.angellist.configurable();
 ```
 
 ## Setting up Yahoo OAuth

@@ -33,6 +33,7 @@ var usersByFoursquareId = {};
 var usersByGowallaId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
+var usersByAngelListId = {};
 var usersByYahooId = {};
 var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
@@ -192,6 +193,16 @@ everyauth.google
     googleUser.refreshToken = extra.refresh_token;
     googleUser.expiresIn = extra.expires_in;
     return usersByGoogleId[googleUser.id] || (usersByGoogleId[googleUser.id] = addUser('google', googleUser));
+  })
+  .redirectPath('/');
+
+everyauth.angellist
+  .appId(conf.angellist.clientId)
+  .appSecret(conf.angellist.clientSecret)
+  .findOrCreateUser( function (sess, accessToken, extra, angellistUser) {
+    angellistUser.refreshToken = extra.refresh_token;
+    angellistUser.expiresIn = extra.expires_in;
+    return usersByAngelListId[angellistUser.id] || (usersByAngelListId[angellistUser.id] = addUser('angellist', angellistUser));
   })
   .redirectPath('/');
 
