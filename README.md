@@ -12,11 +12,9 @@ So far, `everyauth` enables you to login via:
     <tr> <th> Authenticate Via                                                                                                             <th> Credits
   <tbody>
     <tr> <td> Password
-    
     <!-- OpenId-based -->
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> [RocketLabs Development](https://github.com/rocketlabsdev)
-    
     <!-- OAuth-based -->
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn
@@ -26,7 +24,6 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> [slickplaid](https://github.com/slickplaid)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> [slickplaid](https://github.com/slickplaid)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr
-
     <!-- OAuth2-based -->
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github
