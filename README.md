@@ -9,12 +9,14 @@ So far, `everyauth` enables you to login via:
 
 <table>
   <thead>
-    <tr> <th> Authenticate Via                                                                                                             <th> Credits
+    <tr style="text-align:left">
+         <th> Authenticate Via                                                                                                             <th> Credits
   </thead>
   <tbody id=openid>
     <tr> <td> Password                                                                                                                     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> [RocketLabs Development](https://github.com/rocketlabsdev)
+  </tbody>
   <tbody id=oauth>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter         <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn       <td>
@@ -24,6 +26,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> [slickplaid](https://github.com/slickplaid)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> [slickplaid](https://github.com/slickplaid)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
+  </tbody>
   <tbody id=oauth2>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook       <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github           <td>
@@ -34,9 +37,12 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
+  </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
+  </tbody>
+</table>
 
 `everyauth` is:
 
