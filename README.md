@@ -11,6 +11,7 @@ So far, `everyauth` enables you to login via:
   <thead>
     <tr style="text-align:left">
          <th> Authenticate Via                                                                                                             <th> Credits
+    </tr>
   </thead>
   <tbody id=openid>
     <tr> <td> Password                                                                                                                     <td>
