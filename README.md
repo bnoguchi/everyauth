@@ -10,6 +10,7 @@ So far, `everyauth` enables you to login via:
 <table>
   <thead>
     <tr> <th> Authenticate Via                                                                                                             <th> Credits
+  </thead>
   <tbody id=openid>
     <tr> <td> Password                                                                                                                     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
