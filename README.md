@@ -9,8 +9,8 @@ So far, `everyauth` enables you to login via:
 
 <table>
   <thead>
-    <tr style="text-align:left">
-         <th> Authenticate Via                                                                                                             <th> Credits
+    <tr>
+         <th style="text-align:left"> Authenticate Via                                                                                     <th style="text-align:left"> Credits
     </tr>
   </thead>
   <tbody id=openid>
