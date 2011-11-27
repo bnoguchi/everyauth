@@ -10,33 +10,33 @@ So far, `everyauth` enables you to login via:
 <table>
   <thead>
     <tr> <th> Authenticate Via                                                                                                             <th> Credits
-  <tbody>
-    <tr> <td> Password
-    <!-- OpenId-based -->
+  </thead>
+  <tbody id=openid>
+    <tr> <td> Password                                                                                                                     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> [RocketLabs Development](https://github.com/rocketlabsdev)
-    <!-- OAuth-based -->
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!
+  <tbody id=oauth>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter         <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn       <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!            <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> [Alfred Nerstu](https://github.com/alfrednerstu)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> [Torgeir](https://github.com/torgeir)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> [slickplaid](https://github.com/slickplaid)
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> [slickplaid](https://github.com/slickplaid)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr
-    <!-- OAuth2-based -->
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
+  <tbody id=oauth2>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook       <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github           <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram     <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare   <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google           <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> [Andrew Kramolisch](https://github.com/andykram)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals (Basecamp, Highrise, Backpack, Campfire)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList
-    
-    <!-- Misc -->
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net
-    <tr> <td> LDAP (experimental; not production-tested)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
+                                                                                              (Basecamp, Highrise, Backpack, Campfire)     <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
+  <tbody id=misc>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
+    <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
 
 `everyauth` is:
 
