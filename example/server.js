@@ -261,8 +261,8 @@ everyauth.justintv
 
 /* commented out as throws exception
 everyauth['37signals']
-  .appId(conf['37signals'].clientId)
-  .appSecret(conf['37signals'].clientSecret)
+  .appId(conf['_37signals'].clientId)
+  .appSecret(conf['_37signals'].clientSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, _37signalsUser) {
     return usersBy37signalsId[_37signalsUser.id] ||
       (usersBy37signalsId[_37signalsUser.identity.id] = addUser('37signals', _37signalsUser));

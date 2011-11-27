@@ -7,24 +7,25 @@ There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials
 
 So far, `everyauth` enables you to login via:
 
-<table>
+<table style="text-align:left">
   <thead>
-    <tr style="text-align:left">
+    <tr>
          <th> Authenticate Via                                                                                                             <th> Credits
+    </tr>
   </thead>
   <tbody id=openid>
     <tr> <td> Password                                                                                                                     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> [RocketLabs Development](https://github.com/rocketlabsdev), [Andrew Mee](https://github.com/starfishmod), [Brian Noguchi](https://github.com/bnoguchi) 
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> [RocketLabs Development](https://github.com/rocketlabsdev)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>
   </tbody>
   <tbody id=oauth>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter         <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn       <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!            <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> [Alfred Nerstu](https://github.com/alfrednerstu)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> [Torgeir](https://github.com/torgeir)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> [slickplaid](https://github.com/slickplaid)
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> [slickplaid](https://github.com/slickplaid)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> <a href="https://github.com/alfrednerstu">Alfred Nerstu</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> <a href="https://github.com/torgeir">Torgeir</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> <a href="https://github.com/slickplaid">slickplaid</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> <a href="https://github.com/slickplaid">slickplaid</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
   </tbody>
   <tbody id=oauth2>
@@ -33,7 +34,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare   <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google           <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> [Andrew Kramolisch](https://github.com/andykram)
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
