@@ -7,10 +7,10 @@ There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials
 
 So far, `everyauth` enables you to login via:
 
-<table>
+<table style="text-align:left">
   <thead>
     <tr>
-         <th style="text-align:left"> Authenticate Via</th>                                                                                <th style="text-align:left"> Credits </th>
+         <th> Authenticate Via                                                                                                             <th> Credits
     </tr>
   </thead>
   <tbody id=openid>
