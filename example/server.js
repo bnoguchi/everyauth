@@ -292,7 +292,7 @@ everyauth.dwolla
   .appSecret(conf.dwolla.clientSecret)
   .scope('accountinfofull')
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, dwollaUser) {
-      return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
+    return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
   })
   .redirectPath('/');
 
