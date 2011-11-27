@@ -66,4 +66,8 @@ module.exports = {
   , box: {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }
+  , dwolla: {
+        clientId: 'Enter your consumer key here'
+      , clientSecret: 'Enter your consumer secret here'
+    }
 };
