@@ -70,4 +70,8 @@ module.exports = {
         clientId: 'Enter your consumer key here'
       , clientSecret: 'Enter your consumer secret here'
     }
+  , skyrock: {
+        consumerKey: 'a0ae943e20c5af88'
+      , consumerSecret: 'cjucy86r0fg4uxx3'
+    }
 };

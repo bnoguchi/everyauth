@@ -40,6 +40,7 @@ var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByDwollaId = {};
+var usersBySkyrockId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -291,6 +292,14 @@ everyauth.dwolla
   .scope('accountinfofull')
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, dwollaUser) {
     return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
+  })
+  .redirectPath('/');
+
+everyauth.skyrock
+  .consumerKey(conf.skyrock.consumerKey)
+  .consumerSecret(conf.skyrock.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
+    return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
   })
   .redirectPath('/');
 

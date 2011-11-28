@@ -39,6 +39,7 @@ So far, `everyauth` enables you to login via:
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle"> Skyrock           <td>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1055,6 +1056,29 @@ everyauth.dwolla
   .appSecret('YOUR TOKEN HERE')
   .scope('accountinfofull')
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, dwollaUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+## Setting up Skyrock OAuth2
+
+First, register an app [on Skyrock](http://www.skyrock.com/developer/).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.skyrock
+  .consumerKey('YOUR CLIENT ID HERE')
+  .consumerSecret('YOUR TOKEN HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, skyrockUserMetadata) {
     // find or create user logic goes here
     // Return a user or Promise that promises a user
     // Promises are created via
