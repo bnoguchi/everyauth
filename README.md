@@ -1068,7 +1068,7 @@ var routes = function (app) {
 };
 ```
 
-## Setting up Skyrock OAuth2
+## Setting up Skyrock OAuth
 
 First, register an app [on Skyrock](http://www.skyrock.com/developer/).
 
@@ -1077,8 +1077,8 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.skyrock
-  .consumerKey('YOUR CLIENT ID HERE')
-  .consumerSecret('YOUR TOKEN HERE')
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, skyrockUserMetadata) {
     // find or create user logic goes here
     // Return a user or Promise that promises a user
