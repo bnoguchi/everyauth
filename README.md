@@ -1066,6 +1066,7 @@ everyauth.dwolla
 var routes = function (app) {
   // Define your routes here
 };
+```
 
 ## Setting up Skyrock OAuth2
 
@@ -1097,6 +1098,7 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
 
 ## Setting up Yahoo OAuth
 
