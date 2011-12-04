@@ -39,7 +39,7 @@ So far, `everyauth` enables you to login via:
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle"> Skyrock           <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle"> Skyrock           <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1965,6 +1965,8 @@ Thanks to the following contributors for the following modules:
   - Gowalla
 - [Kenan Shifflett](https://github.com/nanek)
   - Dwolla
+- [Rodolphe Stoclin](https://github.com/srod)
+  - Skyrock
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
