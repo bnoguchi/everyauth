@@ -27,6 +27,7 @@ So far, `everyauth` enables you to login via:
   - `google`
   - `gowalla` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Credits [Andrew Kramolisch](https://github.com/andykram))
   - `37signals` (Basecamp, Highrise, Backpack, Campfire)
+  - `angellist`
 - `box` (Box.net)
 - `LDAP` (experimental; not production-tested)
 
@@ -46,7 +47,6 @@ So far, `everyauth` enables you to login via:
 
 ## Installation
     $ npm install everyauth
-
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
@@ -145,6 +145,24 @@ everyauth.everymodule.handleLogout( function (req, res) {
   res.writeHead(303, { 'Location': this.logoutRedirectPath() });
   res.end();
 });
+```
+
+## Custom redirect on login or registration
+
+You may want your own callback that decides where to send a user after login or registration.  One way of doing this is with the `respondToLoginSucceed` and `respondToRegistrationSucceed` methods.  This assumes that you have set a `.redirectTo` property on your `req.session` object:
+
+```
+everyauth.password
+  .respondToLoginSucceed( function (res, user, data) {
+    if (user) {
+      res.writeHead(303, {'Location': data.session.redirectTo});
+      res.end();
+    }   
+  })
+  .respondToRegistrationSucceed( function (res, user, data) {
+    res.writeHead(303, {'Location': data.session.redirectTo});
+    res.end();
+  })
 ```
 
 ## Setting up Facebook Connect
@@ -952,6 +970,61 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth['37signals'].configurable();
+```
+
+## Setting up AngelList OAuth2
+
+First, register an app [on AngelList](http://angel.co/api/oauth/clients).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.angellist
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, angelListUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.angellist
+  .entryPath('/auth/angellist')
+  .callbackPath('/auth/angellist/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.angellist.entryPath(); // '/auth/angellist'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.angellist.configurable();
 ```
 
 ## Setting up Yahoo OAuth

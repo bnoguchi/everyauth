@@ -29,6 +29,9 @@
   #google-login
     a(href='/auth/google', style='border: 0px')
       img(style='border: 0px', src='https://www.google.com/favicon.ico')
+  #angellist-login
+    a(href='/auth/angellist', style="color: black; text-decoration: none; font-weight: bold; font-size: 25px; font-family: 'helvetica neue', arial, helvetica, freesans, 'liberations sans', 'numbus sans l', sans-serif") AngelList
+
   #yahoo-login
     a(href='/auth/yahoo', style='border: 0px')
       img(style='border: 0px', src='http://l.yimg.com/a/i/reg/openid/buttons/1_new.png')
@@ -88,6 +91,9 @@
   - if (everyauth.google)
     h3 Google User Data
     p= JSON.stringify(everyauth.google.user)
+  - if (everyauth.angellist)
+    h3 AngelList User Data
+    p= JSON.stringify(everyauth.angellist.user)
   - if (everyauth.yahoo)
     h3 Yahoo User Data
     p= JSON.stringify(everyauth.yahoo.user)
