@@ -38,7 +38,7 @@ module.exports = {
   , angellist: {
         clientId: 'e5feda9308f55f16b0ef0e848f5b1e41'
       , clientSecret: 'e0ec367efb9d59fa10bdd53ba268b81f'
-    }    
+    }
   , yahoo: {
         consumerKey: 'dj0yJmk9RVExRlhPRE9rV1hSJmQ9WVdrOWEyRTBVMUJoTm1zbWNHbzlNVE13TURFeU9UTTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYg--'
       , consumerSecret: 'efe6ae4982217630fe3aebf6e6fa1e82c02eba0b'
@@ -49,7 +49,7 @@ module.exports = {
     }
   , justintv: {
         consumerKey: 'enter your consumer key here'
-      , consumerSecret: 'enter your consumer secret here'    
+      , consumerSecret: 'enter your consumer secret here'
     }
   , tumblr: {
         consumerKey: 'TAofjqRz9iKiAjtPMnXzHELIeQAw8cqKCZVXaEFSAxBrrvV99f'
@@ -69,5 +69,9 @@ module.exports = {
   , dwolla: {
         clientId: 'Enter your consumer key here'
       , clientSecret: 'Enter your consumer secret here'
+    }
+  , vkontakte: {
+        appId: 'Enter your app id here'
+      , appSecret: 'Enter your app secret here'
     }
 };
