@@ -39,6 +39,8 @@ So far, `everyauth` enables you to login via:
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
+
+    <tr> <td> <img src="https://github.com/meritt/everyauth/raw/master/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1074,6 +1076,38 @@ connect(
   , connect.router(routes);
 ).listen(3000);
 
+## Setting up VKontakte OAuth2
+
+First, register an app [on VKontakte](http://vk.com/editapp?act=create&site=1).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.vkontakte
+  .appId('YOUR APP ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .scope('photo')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+
 ## Setting up Yahoo OAuth
 
 ```javascript
@@ -1939,6 +1973,8 @@ Thanks to the following contributors for the following modules:
   - Gowalla
 - [Kenan Shifflett](https://github.com/nanek)
   - Dwolla
+- [Alexey Simonenko](https://github.com/meritt)
+  - VKontakte
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
