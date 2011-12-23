@@ -1074,6 +1074,7 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
 
 ## Setting up VKontakte OAuth2
 
@@ -1106,6 +1107,7 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
 
 ## Setting up Yahoo OAuth
 
