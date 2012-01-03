@@ -43,9 +43,9 @@ module.exports = {
         consumerKey: 'dj0yJmk9RVExRlhPRE9rV1hSJmQ9WVdrOWEyRTBVMUJoTm1zbWNHbzlNVE13TURFeU9UTTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1iYg--'
       , consumerSecret: 'efe6ae4982217630fe3aebf6e6fa1e82c02eba0b'
     }
-	, readability: {
-				consumerKey: 'Alfrednerstu'
-			, consumerSecret: 'MXGftcxrRNMYn66CVmADR3KRnygCdYSk'
+, readability: {
+        consumerKey: 'Alfrednerstu'
+      , consumerSecret: 'MXGftcxrRNMYn66CVmADR3KRnygCdYSk'
     }
   , justintv: {
         consumerKey: 'enter your consumer key here'
@@ -59,10 +59,10 @@ module.exports = {
       	consumerKey: 'uhfqnbely5stdtm'
       , consumerSecret: 'jr7ofuwo32l7vkd'
     }
-	, vimeo: {
-		    consumerKey: 'Enter your consumer key here'
-			, consumerSecret: 'Enter your consumer secret here'
-	  }
+  , vimeo: {
+        consumerKey: 'Enter your consumer key here'
+      , consumerSecret: 'Enter your consumer secret here'
+    }
   , box: {
         apiKey: '5hl66lbfy0quj8qhhzcn57dflb55y4rg'
     }
@@ -73,5 +73,9 @@ module.exports = {
   , vkontakte: {
         appId: 'Enter your app id here'
       , appSecret: 'Enter your app secret here'
+    }
+  , skyrock: {
+        consumerKey: 'a0ae943e20c5af88'
+      , consumerSecret: 'cjucy86r0fg4uxx3'
     }
 };

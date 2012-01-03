@@ -41,6 +41,7 @@ var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByDwollaId = {};
 var usersByVkId = {};
+var usersBySkyrockId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -295,15 +296,22 @@ everyauth.dwolla
   })
   .redirectPath('/');
 
-everyauth
-  .vkontakte
-    .appId(conf.vkontakte.appId)
-    .appSecret(conf.vkontakte.appSecret)
-    .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
-      return usersByVkId[vkUserMetadata.uid] ||
-        (usersByVkId[vkUserMetadata.uid] = addUser('vkontakte', vkUserMetadata));
-    })
-    .redirectPath('/');
+everyauth.vkontakte
+  .appId(conf.vkontakte.appId)
+  .appSecret(conf.vkontakte.appSecret)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
+    return usersByVkId[vkUserMetadata.uid] ||
+      (usersByVkId[vkUserMetadata.uid] = addUser('vkontakte', vkUserMetadata));
+  })
+  .redirectPath('/');
+
+everyauth.skyrock
+  .consumerKey(conf.skyrock.consumerKey)
+  .consumerSecret(conf.skyrock.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
+    return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
+  })
+  .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()

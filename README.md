@@ -40,6 +40,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle"> AngelList     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
     <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1066,6 +1067,30 @@ everyauth.dwolla
 var routes = function (app) {
   // Define your routes here
 };
+```
+
+## Setting up Skyrock OAuth
+
+First, register an app [on Skyrock](http://www.skyrock.com/developer/).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.skyrock
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, skyrockUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
 
 connect(
     connect.bodyParser()
@@ -1976,6 +2001,8 @@ Thanks to the following contributors for the following modules:
   - Dwolla
 - [Alexey Simonenko](https://github.com/meritt)
   - VKontakte
+- [Rodolphe Stoclin](https://github.com/srod)
+  - Skyrock
 
 ### MIT License
 Copyright (c) 2011 by Brian Noguchi
