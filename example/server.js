@@ -40,6 +40,7 @@ var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
 var usersByDwollaId = {};
+var usersByVkId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -222,7 +223,7 @@ everyauth.googlehybrid
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = addUser('googlehybrid', userAttributes));
   })
   .redirectPath('/')
-    
+
 everyauth.readability
   .consumerKey(conf.readability.consumerKey)
   .consumerSecret(conf.readability.consumerSecret)
@@ -276,7 +277,7 @@ everyauth.tumblr
       (usersByTumblrName[tumblrUser.name] = addUser('tumblr', tumblrUser));
   })
   .redirectPath('/');
-    
+
 everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
@@ -293,6 +294,16 @@ everyauth.dwolla
     return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
   })
   .redirectPath('/');
+
+everyauth
+  .vkontakte
+    .appId(conf.vkontakte.appId)
+    .appSecret(conf.vkontakte.appSecret)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
+      return usersByVkId[vkUserMetadata.uid] ||
+        (usersByVkId[vkUserMetadata.uid] = addUser('vkontakte', vkUserMetadata));
+    })
+    .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()
