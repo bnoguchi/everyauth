@@ -63,7 +63,6 @@ everyauth
 
 everyauth
   .facebook
-    .mobile(true)
     .appId(conf.fb.appId)
     .appSecret(conf.fb.appSecret)
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, fbUserMetadata) {
