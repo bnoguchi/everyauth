@@ -316,6 +316,7 @@ everyauth.skyrock
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
+  , express.favicon()
   , express.cookieParser()
   , express.session({ secret: 'htuayreve'})
   , everyauth.middleware()
