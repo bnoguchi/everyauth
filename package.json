@@ -15,6 +15,7 @@
     "facebook",
     "openid",
     "twitter",
+    "dropbox",
     "authorization",
     "authentication",
     "connect",
