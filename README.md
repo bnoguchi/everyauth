@@ -279,6 +279,19 @@ everyauth.facebook
 
 ```
 
+#### Facebook Mobile OAuth Dialog
+If you are programming for mobile, you can bring up the facebook mobile OAuth
+dialog instead of the traditional desktop browser-based one by just adding
+`mobile(true)` to your configuration as seen here:
+
+```javascript
+everyauth.facebook
+  .mobile(true)
+  .appId('YOUR APP ID HERE')
+  .appSecret('YOUR APP SECRET HERE')
+  // rest of configuration
+```
+
 ## Setting up Twitter OAuth
 
 ```javascript
