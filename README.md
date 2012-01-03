@@ -1754,6 +1754,26 @@ As an example of how you would use these, consider the following `./views/user.j
       .label User Facebook Id
       .value #{everyauth.facebook.user.id}
 
+If you already have an express helper named `user`, then you can configure
+`everyauth` to use a different helper name to access the user object that
+everyauth manages. To do so, leverage the `userAlias` option for
+`everyauth.helpExpress`:
+
+```javascript
+everyauth.helpExpress(app, { userAlias: '__user__' });
+```
+
+Then, you could access the user object in your view with the helper `__user__`
+instead of the default helper `user`. So you can compare with the default use
+of helpers given previously, the alternative leveraging userAlias would look like:
+
+    .user-id
+      .label User Id
+      .value #{__user__.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
 `everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
 From any scope that has access to `req`, you get the following convenience getters and methods:
 
