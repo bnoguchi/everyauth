@@ -15,7 +15,7 @@ So far, `everyauth` enables you to login via:
   </thead>
   <tbody id=openid>
     <tr> <td> Password                                                                                                                     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>
   </tbody>
   <tbody id=oauth>
