@@ -42,6 +42,7 @@ var usersByOpenId = {};
 var usersByDwollaId = {};
 var usersByVkId = {};
 var usersBySkyrockId = {};
+var usersByAzureAcs = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -50,6 +51,20 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
+
+everyauth.azureacs
+  .namespace('acssample1')
+  .entryPath('/auth/azureacs')
+  .callbackPath('/auth/azureacs/callback')
+  .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
+  .wtrealm('urn:testlocal')
+  .returnUrl('http://localhost:5000/login')
+  .whr('')
+  .tokenFormat('swt')
+  .findOrCreateUser( function (session, acsUser) {
+     return usersByAzureAcs[acsUser.id] || (usersByAzureAcs[acsUser.id] = addUser('azureAcs', acsUser));
+  })
+  .redirectPath('/');
 
 everyauth
   .openid
