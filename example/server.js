@@ -53,12 +53,12 @@ everyauth.everymodule
   });
 
 everyauth.azureacs
-  .namespace('acssample1')
+  .namespace('node-acs-local')
   .entryPath('/auth/azureacs')
   .callbackPath('/auth/azureacs/callback')
   .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
-  .wtrealm('urn:testlocal')
-  .returnUrl('http://localhost:5000/login')
+  .wtrealm('urn:nodeacslocal')
+  .redirectPath('http://localhost:3000')
   .whr('')
   .tokenFormat('swt')
   .findOrCreateUser( function (session, acsUser) {
