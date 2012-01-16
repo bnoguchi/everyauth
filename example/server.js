@@ -53,7 +53,7 @@ everyauth.everymodule
   });
 
 everyauth.azureacs
-  .namespace('node-acs-local')
+  .namespace('acssample1')
   .entryPath('/auth/azureacs')
   .callbackPath('/auth/azureacs/callback')
   .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
