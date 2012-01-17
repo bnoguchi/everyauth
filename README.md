@@ -41,6 +41,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
     <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle" width="16px" height="16px"> OpenStreetMap         <td> <a href="https://github.com/christophlsa">Christoph Giesel</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
