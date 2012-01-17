@@ -57,9 +57,9 @@ everyauth.azureacs
   .entryPath('/auth/azureacs')
   .callbackPath('/auth/azureacs/callback')
   .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
-  .wtrealm('urn:nodeacslocal')
+  .realm('urn:nodeacslocal')
   .redirectPath('http://localhost:3000')
-  .whr('')
+  .homeRealm('')
   .tokenFormat('swt')
   .findOrCreateUser( function (session, acsUser) {
      return usersByAzureAcs[acsUser.id] || (usersByAzureAcs[acsUser.id] = addUser('azureAcs', acsUser));
