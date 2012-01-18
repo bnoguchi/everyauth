@@ -53,7 +53,7 @@ everyauth.everymodule
   });
 
 everyauth.azureacs
-  .namespace('acssample1')
+  .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
   .entryPath('/auth/azureacs')
   .callbackPath('/auth/azureacs/callback')
   .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')

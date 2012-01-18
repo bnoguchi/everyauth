@@ -32,8 +32,8 @@
     "connect": ">=1 <2",
     "openid": ">=0.2.0",
     "xml2js": ">=0.1.7",
-    "swt": "https://github.com/darrenzully/node-swt/tarball/master",
-    "wsfederation": "https://github.com/darrenzully/node-wsfederation/tarball/master"
+    "node-swt": ">=0.1.1",
+    "node-wsfederation": ">=0.1.1"
   },
   "devDependencies": {
     "express": ">=2.3.10",
