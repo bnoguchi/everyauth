@@ -58,7 +58,6 @@ everyauth.azureacs
   .callbackPath('/auth/azureacs/callback')
   .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
   .realm('urn:nodeacslocal')
-  .redirectPath('http://localhost:3000')
   .homeRealm('')
   .tokenFormat('swt')
   .findOrCreateUser( function (session, acsUser) {
