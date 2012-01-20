@@ -64,6 +64,9 @@
     a(href='/auth/dwolla', style='border: 0px') Login with Dwolla
   #skyrock-login
     a(href='/auth/skyrock', style='border: 0px') Login with Skyrock
+  #evernote-login
+    a(href='/auth/evernote', style='border: 0px') 
+      img(src='http://www.evernote.com/about/media/img/logo.png')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -131,6 +134,9 @@
   - if (everyauth.skyrock)
     h3 Skyrock User Data
     p= JSON.stringify(everyauth.skyrock.user)
-
+  - if (everyauth.evernote)
+    h3 Evernote User Data
+    p= JSON.stringify(everyauth.evernote.user)
+  
   h3
     a(href='/logout') Logout

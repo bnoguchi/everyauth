@@ -82,4 +82,9 @@ module.exports = {
         consumerKey: 'a0ae943e20c5af88'
       , consumerSecret: 'cjucy86r0fg4uxx3'
     }
+  , evernote: {
+        oauthHost: 'https://www.evernote.com'
+      , consumerKey: 'Enter your consumer key here'
+      , consumerSecret: 'Enter your consumer secret here'
+    }
 };

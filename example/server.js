@@ -42,6 +42,7 @@ var usersByOpenId = {};
 var usersByDwollaId = {};
 var usersByVkId = {};
 var usersBySkyrockId = {};
+var usersByEvernoteId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -311,6 +312,15 @@ everyauth.skyrock
   .consumerSecret(conf.skyrock.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
     return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
+  })
+  .redirectPath('/');
+
+everyauth.evernote
+  .oauthHost(conf.evernote.oauthHost)
+  .consumerKey(conf.evernote.consumerKey)
+  .consumerSecret(conf.evernote.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, enUserMetadata) {
+    return usersByEvernoteId[enUserMetadata.userId] || (usersByEvernoteId[enUserMetadata.userId] = addUser('evernote', enUserMetadata));
   })
   .redirectPath('/');
 
