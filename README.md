@@ -45,6 +45,7 @@ So far, `everyauth` enables you to login via:
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
+    <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
   </tbody>
 </table>
 
@@ -1680,6 +1681,56 @@ connect(
 ).listen(3000);
 ```
 
+## Setting up Windows Azure Access Control Service (ACS) Auth
+
+You will need to create a [Windows Azure ACS namespace](http://msdn.microsoft.com/en-us/library/windowsazure/hh674478.aspx). The only caveat when creating the namespace is setting the "Return URL". You will probably [create one Relying Party](http://msdn.microsoft.com/en-us/library/windowsazure/gg429779.aspx) for each environment (dev, qa, prod) and each of them will have a different "Return URL". For instance, dev will be `http://localhost:port/auth/azureacs/callback` and prod could be `https://myapp.com/auth/azureacs/callback` (notice the `/auth/azureacs/callback`, that's where the module will listen the POST with the token from ACS)
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.azureacs
+      .identityProviderUrl('https://YOURNAMESPACE.accesscontrol.windows.net/v2/wsfederation/')
+      .entryPath('/auth/azureacs')
+      .callbackPath('/auth/azureacs/callback')
+      .signingKey('d0jul....YOUR_SIGNINGK=_KEY......OEvz24=')
+      .realm('YOUR_APPLICATION_REALM_IDENTIFIER')
+      .homeRealm('') // if you want to use a default idp (like google/liveid)
+      .tokenFormat('swt')  // only swt supported for now
+      .findOrCreateUser( function (session, acsUser) {
+         // you could enrich the "user" entity by storing/fetching the user from a db
+        return null;
+      });
+      .redirectPath('/');
+
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.box.callbackPath(); // '/auth/azureacs/callback'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.box.configurable();
+```
+
 ## Accessing the User
 
 If you are using `express` or `connect`, then `everyauth` 
@@ -2061,3 +2112,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+=======
