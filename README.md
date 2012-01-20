@@ -27,6 +27,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> <a href="https://github.com/slickplaid">slickplaid</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> <a href="https://github.com/slickplaid">slickplaid</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/evernote.ico" style="vertical-align:middle"> Evernote         <td> <a href="https://github.com/dannyamey">Danny Amey</a>
   </tbody>
   <tbody id=oauth2>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook       <td>
@@ -1499,6 +1500,64 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.tumblr.configurable();
+```
+
+## Setting up Evernote OAuth (1.a)
+
+You will first need to [request an API key](http://www.evernote.com/about/developer/api/#key) to get the consumer key and secret.  Note that this consumer key and secret will only be valid for the sandbox rather than the production OAuth host.  By default the Evernote module will use the production host, so you'll need to override this using the chainable API if you're using the sandbox.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.evernote
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByEvernoteId[user.userId] || (usersByEvernoteId[user.userId] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript    
+everyauth.evernote
+  .oauthHost('https://sandbox.evernote.com')
+  .entryPath('/auth/evernote')
+  .callbackPath('/auth/evernote/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.evernote.oauthHost(); // 'https://sandbox.evernote.com'
+everyauth.evernote.callbackPath(); // '/auth/evernote/callback'
+everyauth.evernote.entryPath(); // '/auth/evernote'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.evernote.configurable();
 ```
 
 ## Setting up OpenID protocol
