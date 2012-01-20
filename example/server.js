@@ -217,13 +217,14 @@ everyauth.yahoo
   .redirectPath('/');
 
 everyauth.googlehybrid
-  .consumerKey(conf.google.clientId)
-  .consumerSecret(conf.google.clientSecret)
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.googlehybrid.consumerKey)
+  .consumerSecret(conf.googlehybrid.consumerSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
   .findOrCreateUser( function(session, userAttributes) {
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = addUser('googlehybrid', userAttributes));
   })
-  .redirectPath('/')
+  .redirectPath('/');
 
 everyauth.readability
   .consumerKey(conf.readability.consumerKey)

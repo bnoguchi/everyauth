@@ -1554,12 +1554,16 @@ connect(
 
 OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
 
+Register your domain with Google
+[here](https://accounts.google.com/ManageDomains) and write down the
+consumer key and consumer secret generated during the domain registration.
+
 ```javascript
 var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.googlehybrid
-  .consumerKey('YOUR CONSUMER ID HERE')
+  .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .scope(['GOOGLE API SCOPE','GOOGLE API SCOPE'])
   .findOrCreateUser( function(session, userAttributes) {
