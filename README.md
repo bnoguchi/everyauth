@@ -1558,6 +1558,64 @@ object whose parameter name keys map to description values:
 everyauth.evernote.configurable();
 ```
 
+## Setting up OpenStreetMap OAuth
+
+You will first need to [login to OpenStreetMap](http://www.openstreetmap.org). Then register you application on your OpenStreetMap user page via the View my OAuth details link on the bottom of the page to get the consumer key and secret. The registered application does not need any permission listed there to login via OAuth.
+
+```javascript
+var everyauth = require('osm')
+  , connect = require('connect');
+
+everyauth.osm
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByOSMId[user.id] || (usersByOSMId[user.id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.osm
+  .oauthHost('http://api06.dev.openstreetmap.org')
+  .entryPath('/auth/osm')
+  .callbackPath('/auth/osm/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.osm.oauthHost(); // 'http://api.openstreetmap.org'
+everyauth.osm.callbackPath(); // '/auth/osm/callback'
+everyauth.osm.entryPath(); // '/auth/osm'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.osm.configurable();
+```
+
 ## Setting up OpenID protocol
 
 OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
