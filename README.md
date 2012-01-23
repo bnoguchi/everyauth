@@ -23,6 +23,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> <a href="https://github.com/torgeir">Torgeir</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/evernote.ico" style="vertical-align:middle"> Evernote         <td> <a href="https://github.com/dannyamey">Danny Amey</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle"> OpenStreetMap       <td> <a href="https://github.com/christophlsa">Christoph Giesel</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github           <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare   <td>
@@ -88,7 +89,7 @@ or 3 simple steps if using Express:
     ```
 3. **Add View Helpers to Express**
     
-    ```javascript        
+    ```javascript
     // Step 1 code
     // ...
     // Step 2 code
@@ -218,7 +219,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.facebook
   .entryPath('/auth/facebook')
   .callbackPath('/auth/facebook/callback')
@@ -344,7 +345,7 @@ Instead, Twitter will redirect back to `example.com/custom/twitter/callback/path
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.twitter
   .entryPath('/auth/twitter')
   .callbackPath('/auth/twitter/callback');
@@ -459,7 +460,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.password
   .loginFormFieldName('login')       // Defaults to 'login'
   .passwordFormFieldName('password') // Defaults to 'password'
@@ -632,7 +633,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
   
-```javascript  
+```javascript
 everyauth.github
   .entryPath('/auth/github')
   .callbackPath('/auth/github/callback')
@@ -686,7 +687,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.instagram
   .entryPath('/auth/instagram')
   .callbackPath('/auth/instagram/callback')
@@ -742,7 +743,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.foursquare
   .entryPath('/auth/foursquare')
   .callbackPath('/auth/foursquare/callback');
@@ -793,7 +794,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.linkedin
   .entryPath('/auth/linkedin')
   .callbackPath('/auth/linkedin/callback');
@@ -856,7 +857,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.google
   .entryPath('/auth/google')
   .callbackPath('/auth/google/callback');
@@ -917,7 +918,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.gowalla
   .entryPath('/auth/gowalla')
   .callbackPath('/auth/gowalla/callback');
@@ -980,7 +981,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth['37signals']
   .entryPath('/auth/37signals')
   .callbackPath('/auth/37signals/callback');
@@ -1035,7 +1036,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.angellist
   .entryPath('/auth/angellist')
   .callbackPath('/auth/angellist/callback');
@@ -1175,7 +1176,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.yahoo
   .entryPath('/auth/yahoo')
   .callbackPath('/auth/yahoo/callback');
@@ -1229,7 +1230,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.readability
   .entryPath('/auth/readability')
   .callbackPath('/auth/readability/callback');
@@ -1283,7 +1284,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.dropbox
   .entryPath('/auth/dropbox')
   .callbackPath('/auth/dropbox/callback');
@@ -1420,7 +1421,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.vimeo
   .entryPath('/auth/vimeo')
   .callbackPath('/auth/vimeo/callback');
@@ -1478,7 +1479,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.tumblr
   .entryPath('/auth/tumblr')
   .callbackPath('/auth/tumblr/callback');
@@ -1534,7 +1535,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.evernote
   .oauthHost('https://sandbox.evernote.com')
   .entryPath('/auth/evernote')
@@ -1555,6 +1556,64 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.evernote.configurable();
+```
+
+## Setting up OpenStreetMap OAuth
+
+You will first need to [login to OpenStreetMap](http://www.openstreetmap.org). Then register you application on your OpenStreetMap user page via the View my OAuth details link on the bottom of the page to get the consumer key and secret. The registered application does not need any permission listed there to login via OAuth.
+
+```javascript
+var everyauth = require('osm')
+  , connect = require('connect');
+
+everyauth.osm
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByOSMId[user.id] || (usersByOSMId[user.id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.osm
+  .oauthHost('http://api06.dev.openstreetmap.org')
+  .entryPath('/auth/osm')
+  .callbackPath('/auth/osm/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.osm.oauthHost(); // 'http://api.openstreetmap.org'
+everyauth.osm.callbackPath(); // '/auth/osm/callback'
+everyauth.osm.entryPath(); // '/auth/osm'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.osm.configurable();
 ```
 
 ## Setting up OpenID protocol
@@ -1672,7 +1731,7 @@ connect(
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
 
-```javascript    
+```javascript
 everyauth.box
   .entryPath('/auth/box')
   .callbackPath('/auth/box/callback');
@@ -2048,7 +2107,7 @@ Other introspection tools to describe (explanations coming soon):
 
 - *Invalid Steps*
     
-    ```javascript    
+    ```javascript
     everyauth.facebook.routes.get.callbackPath.steps.invalid
     ```
 
