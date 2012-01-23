@@ -42,6 +42,8 @@ var usersByOpenId = {};
 var usersByDwollaId = {};
 var usersByVkId = {};
 var usersBySkyrockId = {};
+var usersByEvernoteId = {};
+var usersByAzureAcs = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -50,6 +52,19 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
+
+everyauth.azureacs
+  .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
+  .entryPath('/auth/azureacs')
+  .callbackPath('/auth/azureacs/callback')
+  .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
+  .realm('urn:nodeacslocal')
+  .homeRealm('')
+  .tokenFormat('swt')
+  .findOrCreateUser( function (session, acsUser) {
+     return usersByAzureAcs[acsUser.id] || (usersByAzureAcs[acsUser.id] = addUser('azureAcs', acsUser));
+  })
+  .redirectPath('/');
 
 everyauth
   .openid
@@ -217,13 +232,14 @@ everyauth.yahoo
   .redirectPath('/');
 
 everyauth.googlehybrid
-  .consumerKey(conf.google.clientId)
-  .consumerSecret(conf.google.clientSecret)
+  .myHostname('http://local.host:3000')
+  .consumerKey(conf.googlehybrid.consumerKey)
+  .consumerSecret(conf.googlehybrid.consumerSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
   .findOrCreateUser( function(session, userAttributes) {
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = addUser('googlehybrid', userAttributes));
   })
-  .redirectPath('/')
+  .redirectPath('/');
 
 everyauth.readability
   .consumerKey(conf.readability.consumerKey)
@@ -310,6 +326,15 @@ everyauth.skyrock
   .consumerSecret(conf.skyrock.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
     return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
+  })
+  .redirectPath('/');
+
+everyauth.evernote
+  .oauthHost(conf.evernote.oauthHost)
+  .consumerKey(conf.evernote.consumerKey)
+  .consumerSecret(conf.evernote.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, enUserMetadata) {
+    return usersByEvernoteId[enUserMetadata.userId] || (usersByEvernoteId[enUserMetadata.userId] = addUser('evernote', enUserMetadata));
   })
   .redirectPath('/');
 

@@ -8,6 +8,9 @@
     a.fb_button_medium(href='/auth/facebook')
       span#fb_login_text.fb_button_text
         Connect with Facebook
+  #azureacs-login
+    a(href='/auth/azureacs', style='border: 0px')
+      img(style='border: 0px', src='http://www.microsoft.com/france/etudiants/Files/labo/windows_azure_logo.png')
   #twitter-login
     a(href='/auth/twitter', style='border: 0px')
       img(style='border: 0px', src='https://si0.twimg.com/images/dev/buttons/sign-in-with-twitter-l.png')
@@ -64,6 +67,9 @@
     a(href='/auth/dwolla', style='border: 0px') Login with Dwolla
   #skyrock-login
     a(href='/auth/skyrock', style='border: 0px') Login with Skyrock
+  #evernote-login
+    a(href='/auth/evernote', style='border: 0px') 
+      img(src='http://www.evernote.com/about/media/img/logo.png')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -74,6 +80,9 @@
   - if (everyauth.facebook)
     h3 Facebook User Data
     p= JSON.stringify(everyauth.facebook.user)
+  - if (everyauth.azureacs)
+    h3 Azure ACS User Data
+    p= JSON.stringify(everyauth.azureacs.user)
   - if (everyauth.twitter)
     h3 Twitter User Data
     p= JSON.stringify(everyauth.twitter.user)
@@ -131,6 +140,9 @@
   - if (everyauth.skyrock)
     h3 Skyrock User Data
     p= JSON.stringify(everyauth.skyrock.user)
-
+  - if (everyauth.evernote)
+    h3 Evernote User Data
+    p= JSON.stringify(everyauth.evernote.user)
+  
   h3
     a(href='/logout') Logout
