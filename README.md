@@ -38,6 +38,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.ico" style="vertical-align:middle"> TripIt         <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1615,6 +1616,37 @@ object whose parameter name keys map to description values:
 ```javascript
 everyauth.osm.configurable();
 ```
+
+## Setting up TripIt OAuth (1.0)
+
+Obtain consumer key and consumer secret for your app by [registering it](http://www.tripit.com/developer/create).
+Please note that TripIt is using _API Key_ and _API Secret_ terminology: use those values as describe below.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.tripit
+  .consumerKey('YOUR API KEY')
+  .consumerSecret('YOUR API SECRET')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, tripitProfile) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
 
 ## Setting up OpenID protocol
 
