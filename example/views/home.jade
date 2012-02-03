@@ -70,6 +70,9 @@
   #evernote-login
     a(href='/auth/evernote', style='border: 0px') 
       img(src='http://www.evernote.com/about/media/img/logo.png')
+  #tripit-login
+    a(href='/auth/tripit', style='border: 0px')
+      img(src='http://www.tripit.com/images/logos/logo_90x40_trans.gif', title='Login with TripIt')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -143,6 +146,9 @@
   - if (everyauth.evernote)
     h3 Evernote User Data
     p= JSON.stringify(everyauth.evernote.user)
+  - if (everyauth.tripit)
+    h3 TripIt User Data
+    p= JSON.stringify(everyauth.tripit.user)
   
   h3
     a(href='/logout') Logout
