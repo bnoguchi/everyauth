@@ -44,6 +44,7 @@ var usersByVkId = {};
 var usersBySkyrockId = {};
 var usersByEvernoteId = {};
 var usersByAzureAcs = {};
+var usersByTripIt = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -335,6 +336,15 @@ everyauth.evernote
   .consumerSecret(conf.evernote.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, enUserMetadata) {
     return usersByEvernoteId[enUserMetadata.userId] || (usersByEvernoteId[enUserMetadata.userId] = addUser('evernote', enUserMetadata));
+  })
+  .redirectPath('/');
+
+everyauth.tripit
+  .consumerKey(conf.tripit.consumerKey)
+  .consumerSecret(conf.tripit.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, tripitProfile) {
+    var userId = tripitProfile['@attributes'].ref;
+    return usersByTripIt[userId] || (usersByTripIt[userId] = addUser('tripit', tripitProfile));
   })
   .redirectPath('/');
 
