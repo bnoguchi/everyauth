@@ -20,6 +20,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google           <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn       <td>
+	<tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/live.ico" style="vertical-align:middle"> Windows Live       <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> <a href="https://github.com/torgeir">Torgeir</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/evernote.ico" style="vertical-align:middle"> Evernote         <td> <a href="https://github.com/dannyamey">Danny Amey</a>
@@ -815,6 +816,60 @@ object whose parameter name keys map to description values:
 ```javascript
 everyauth.linkedin.configurable();
 ```
+
+## Setting up Windows Live OAuth
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.live
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, liveUserMetadata) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.live
+  .entryPath('/auth/live')
+  .callbackPath('/auth/live/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.live.callbackPath(); // '/auth/live/callback'
+everyauth.live.entryPath(); // '/auth/live'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.live.configurable();
+```
+
+To run the Windows Live sample please run access the server through the url local.hosti:3000,
+since Live limits the apps by one app per domain and local.host was taken.
 
 ## Setting up Google OAuth2
 

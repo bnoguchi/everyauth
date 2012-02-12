@@ -29,6 +29,9 @@
   #linkedin-login
     a(href='/auth/linkedin', style='border: 0px')
       img(style='border: 0px', src='http://press.linkedin.com/sites/all/themes/presslinkedin/images/LinkedIn_WebLogo_LowResExample.jpg')
+  #windows-live-login
+    a(href='/auth/live', style='border: 0px')
+      img(style='border: 0px', src='http://upload.wikimedia.org/wikipedia/en/thumb/5/50/Windows_Live_logo.svg/300px-Windows_Live_logo.svg.png')
   #google-login
     a(href='/auth/google', style='border: 0px')
       img(style='border: 0px', src='https://www.google.com/favicon.ico')
@@ -104,6 +107,9 @@
   - if (everyauth.linkedin)
     h3 LinkedIn User Data
     p= JSON.stringify(everyauth.linkedin.user)
+  - if (everyauth.live)
+    h3 Windows Live User Data
+    p= JSON.stringify(everyauth.live.user)
   - if (everyauth.google)
     h3 Google User Data
     p= JSON.stringify(everyauth.google.user)

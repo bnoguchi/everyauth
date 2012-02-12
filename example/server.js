@@ -32,6 +32,7 @@ var usersByInstagramId = {};
 var usersByFoursquareId = {};
 var usersByGowallaId = {};
 var usersByLinkedinId = {};
+var usersByLiveId = {};
 var usersByGoogleId = {};
 var usersByAngelListId = {};
 var usersByYahooId = {};
@@ -202,6 +203,14 @@ everyauth.linkedin
     return usersByLinkedinId[linkedinUser.id] || (usersByLinkedinId[linkedinUser.id] = addUser('linkedin', linkedinUser));
   })
   .redirectPath('/');
+  
+  everyauth.live
+  .appId(conf.live.apiKey)
+  .appSecret(conf.live.apiSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, liveUser) {
+    return usersByLiveId[liveUser.id] || (usersByLiveId[liveUser.id] = addUser('live', liveUser));
+  })
+  .redirectPath('/');
 
 everyauth.google
   .appId(conf.google.clientId)
@@ -370,3 +379,4 @@ everyauth.helpExpress(app);
 app.listen(3000);
 
 console.log('Go to http://local.host:3000');
+console.log('For live Go to http://local.hosti:3000');
