@@ -90,5 +90,9 @@ module.exports = {
   , tripit: {
         consumerKey: 'a59bb58479f80e24dc6da1b1e61a107db743bc4c'
       , consumerSecret: '41dc4c0c39ac3ab162269a79f399eb180f753c66'
-}
+    }
+  , _500px: {
+        consumerKey: 'Enter your consumer key here'
+      , consumerSecret: 'Enter your consumer secret here'
+  }
 };
