@@ -326,7 +326,7 @@ everyauth.skyrock
   .consumerKey(conf.skyrock.consumerKey)
   .consumerSecret(conf.skyrock.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
-    return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
+    return usersBySkyrockId[skyrockUser.id_user] || (usersBySkyrockId[skyrockUser.id_user] = addUser('skyrock', skyrockUser));
   })
   .redirectPath('/');
 
