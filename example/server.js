@@ -45,6 +45,7 @@ var usersBySkyrockId = {};
 var usersByEvernoteId = {};
 var usersByAzureAcs = {};
 var usersByTripIt = {};
+var usersBy500pxId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -345,6 +346,14 @@ everyauth.tripit
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, tripitProfile) {
     var userId = tripitProfile['@attributes'].ref;
     return usersByTripIt[userId] || (usersByTripIt[userId] = addUser('tripit', tripitProfile));
+  })
+  .redirectPath('/');
+
+everyauth['500px']
+  .consumerKey(conf._500px.consumerKey)
+  .consumerSecret(conf._500px.consumerSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
   })
   .redirectPath('/');
 
