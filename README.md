@@ -1678,6 +1678,7 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
 
 
 ## Setting up OpenID protocol
