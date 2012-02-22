@@ -32,7 +32,7 @@ var usersByInstagramId = {};
 var usersByFoursquareId = {};
 var usersByGowallaId = {};
 var usersByLinkedinId = {};
-var usersByLiveId = {};
+var usersByWindowsLiveId = {};
 var usersByGoogleId = {};
 var usersByAngelListId = {};
 var usersByYahooId = {};
@@ -204,11 +204,11 @@ everyauth.linkedin
   })
   .redirectPath('/');
   
-  everyauth.live
-  .appId(conf.live.apiKey)
-  .appSecret(conf.live.apiSecret)
-  .findOrCreateUser( function (sess, accessToken, accessSecret, liveUser) {
-    return usersByLiveId[liveUser.id] || (usersByLiveId[liveUser.id] = addUser('live', liveUser));
+  everyauth.windowsLive
+  .appId(conf.windowsLive.apiKey)
+  .appSecret(conf.windowsLive.apiSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, windowsLiveUser) {
+    return usersByWindowsLiveId[windowsLiveUser.id] || (usersByWindowsLiveId[windowsLiveUser.id] = addUser('windowsLive', windowsLiveUser));
   })
   .redirectPath('/');
 
@@ -379,4 +379,4 @@ everyauth.helpExpress(app);
 app.listen(3000);
 
 console.log('Go to http://local.host:3000');
-console.log('For live Go to http://local.hosti:3000');
+console.log('For Windows Live Go to http://local.hosti:3000');
