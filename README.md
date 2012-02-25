@@ -2239,7 +2239,8 @@ everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
 ## In the Wild
 
 The following module projects use everyauth. If you are using everyauth
-in a project, app, or module, get in touch to get added to the list below:
+in a project, app, or module, get on the list below by getting in touch or
+submitting a pull request with changes to the README.
 
 ### Startups
 
@@ -2251,6 +2252,13 @@ in a project, app, or module, get in touch to get added to the list below:
   for use with the node.js MongoDB orm.
 
 ## Tutorials
+
+The following are 3rd party screencasts and blog posts about either getting up
+and running with everyauth or writing your own everyauth modules to support a
+new service.
+
+If you would like your blog post to be included, please submit a pull request
+with changes to the README.
 
 - [NodeTuts: Starting with everyauth](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
 - [Node.js modules you should know about:
