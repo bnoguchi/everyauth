@@ -2238,9 +2238,10 @@ everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
 
 ## In the Wild
 
-The following module projects use everyauth. If you are using everyauth
-in a project, app, or module, get on the list below by getting in touch or
-submitting a pull request with changes to the README.
+The following projects use everyauth.
+
+If you are using everyauth in a project, app, or module, get on the list below
+by getting in touch or submitting a pull request with changes to the README.
 
 ### Startups
 
