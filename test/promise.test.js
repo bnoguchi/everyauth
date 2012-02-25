@@ -1,8 +1,8 @@
-var should = require('should')
+var expect = require('expect')
   , Promise = require('../lib/promise');
 
-module.exports = {
-  'fulfill called >1 times should only have an effect once': function (done) {
+describe('Promise', function () {
+  '#fulfilll being invoked >1 times should only have an effect once': function (done) {
     var p = new Promise()
       , test = null;
     p.callback( function (val) {
@@ -11,8 +11,8 @@ module.exports = {
     p.fulfill(1);
     p.fulfill(2);
     setTimeout( function () {
-      test.should.equal(1);
+      expect(test).to.equal(1);
       done();
     }, 1000);
   }
-};
+});

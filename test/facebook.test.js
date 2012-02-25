@@ -23,7 +23,7 @@ browser.get('/auth/facebook', function (res, $) {
           $('h2').should.have.text('Authenticated');
           $('h2').should.not.have.text('Not Authenticated');
         });
-        
+
       } else {
         // Else we are back at local.host
         $('h2').should.have.text('Authenticated');
