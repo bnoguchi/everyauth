@@ -2255,6 +2255,7 @@ in a project, app, or module, get in touch to get added to the list below:
   everyauth](http://www.catonmat.net/blog/nodejs-modules-everyauth/)
 - [Implementing Windows Azure ACS with
   everyauth](http://nodeblog.cloudapp.net/implementing-windows-azure-acs-with-everyauth)
+- [OAuth: Logging In with EveryAuth and NodeJS](http://blog.koostudios.com/?p=453)
 
 ---
 ### Author
