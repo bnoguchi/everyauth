@@ -2,9 +2,6 @@ var connect = require('connect')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
-// TODO Deprecate exposure of Promise
-everyauth.Promise = require('./lib/promise');
-
 everyauth.helpExpress = require('./lib/expressHelper');
 
 everyauth.debug = false;
@@ -42,6 +39,7 @@ everyauth.middleware = function () {
         everymodule._findUserById(auth.userId, function (err, user) {
           if (err) throw err; // TODO Leverage everyauth's error handling
           if (user) req.user = user;
+          else delete sess.auth;
           next();
           pause.resume();
         });
@@ -81,7 +79,7 @@ everyauth
 
   }).addRequestGetter('loggedIn', function () {
     var req = this;
-    if (req.session.auth && req.session.auth.loggedIn) {
+    if (req.session && req.session.auth && req.session.auth.loggedIn) {
       return true;
     } else {
       return false;

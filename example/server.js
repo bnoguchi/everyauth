@@ -22,19 +22,30 @@ function addUser (source, sourceUser) {
 
 var usersByVimeoId = {};
 var usersByJustintvId = {};
+var usersBy37signalsId = {};
+var usersByTumblrName = {};
 var usersByDropboxId = {};
 var usersByFbId = {};
 var usersByTwitId = {};
 var usersByGhId = {};
 var usersByInstagramId = {};
 var usersByFoursquareId = {};
+var usersByGowallaId = {};
 var usersByLinkedinId = {};
 var usersByGoogleId = {};
+var usersByAngelListId = {};
 var usersByYahooId = {};
 var usersByGoogleHybridId = {};
 var usersByReadabilityId = {};
 var usersByBoxId = {};
 var usersByOpenId = {};
+var usersByDwollaId = {};
+var usersByVkId = {};
+var usersBySkyrockId = {};
+var usersByEvernoteId = {};
+var usersByAzureAcs = {};
+var usersByTripIt = {};
+var usersBy500pxId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -43,6 +54,19 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
+
+everyauth.azureacs
+  .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
+  .entryPath('/auth/azureacs')
+  .callbackPath('/auth/azureacs/callback')
+  .signingKey('d0julb9JNbCB8J2ACHzxU33SSiqbylQveQtuwOEvz24=')
+  .realm('urn:nodeacslocal')
+  .homeRealm('')
+  .tokenFormat('swt')
+  .findOrCreateUser( function (session, acsUser) {
+     return usersByAzureAcs[acsUser.id] || (usersByAzureAcs[acsUser.id] = addUser('azureAcs', acsUser));
+  })
+  .redirectPath('/');
 
 everyauth
   .openid
@@ -66,7 +90,6 @@ everyauth
 
 everyauth
   .twitter
-    .myHostname('http://local.host:3000')
     .consumerKey(conf.twit.consumerKey)
     .consumerSecret(conf.twit.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
@@ -138,7 +161,6 @@ everyauth
     .registerSuccessRedirect('/');
 
 everyauth.github
-  .myHostname('http://local.host:3000')
   .appId(conf.github.appId)
   .appSecret(conf.github.appSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, ghUser) {
@@ -147,16 +169,15 @@ everyauth.github
   .redirectPath('/');
 
 everyauth.instagram
-  .myHostname('http://local.host:3000')
   .appId(conf.instagram.clientId)
   .appSecret(conf.instagram.clientSecret)
+  .scope('basic')
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, hipster) {
       return usersByInstagramId[hipster.id] || (usersByInstagramId[hipster.id] = addUser('instagram', hipster));
   })
   .redirectPath('/');
 
 everyauth.foursquare
-  .myHostname('http://local.host:3000')
   .appId(conf.foursquare.clientId)
   .appSecret(conf.foursquare.clientSecret)
   .findOrCreateUser( function (sess, accessTok, accessTokExtra, addict) {
@@ -164,8 +185,18 @@ everyauth.foursquare
   })
   .redirectPath('/');
 
+everyauth.gowalla
+  .appId(conf.gowalla.apiKey)
+  .appSecret(conf.gowalla.apiSecret)
+  .moduleErrback( function(err) {
+    console.log("moduleErrback for Gowalla", err);
+  })
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, loser) {
+    return usersByGowallaId[loser.url] || (usersByGowallaId[loser.url] = addUser('gowalla', loser));
+  })
+  .redirectPath('/');
+
 everyauth.linkedin
-  .myHostname('http://local.host:3000')
   .consumerKey(conf.linkedin.apiKey)
   .consumerSecret(conf.linkedin.apiSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, linkedinUser) {
@@ -174,7 +205,6 @@ everyauth.linkedin
   .redirectPath('/');
 
 everyauth.google
-  .myHostname('http://localhost:3000')
   .appId(conf.google.clientId)
   .appSecret(conf.google.clientSecret)
   .scope('https://www.google.com/m8/feeds/')
@@ -185,8 +215,17 @@ everyauth.google
   })
   .redirectPath('/');
 
+everyauth.angellist
+  .appId(conf.angellist.clientId)
+  .appSecret(conf.angellist.clientSecret)
+  .findOrCreateUser( function (sess, accessToken, extra, angellistUser) {
+    angellistUser.refreshToken = extra.refresh_token;
+    angellistUser.expiresIn = extra.expires_in;
+    return usersByAngelListId[angellistUser.id] || (usersByAngelListId[angellistUser.id] = addUser('angellist', angellistUser));
+  })
+  .redirectPath('/');
+
 everyauth.yahoo
-  .myHostname('http://local.host:3000')
   .consumerKey(conf.yahoo.consumerKey)
   .consumerSecret(conf.yahoo.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, yahooUser) {
@@ -196,16 +235,15 @@ everyauth.yahoo
 
 everyauth.googlehybrid
   .myHostname('http://local.host:3000')
-  .consumerKey(conf.google.clientId)
-  .consumerSecret(conf.google.clientSecret)
+  .consumerKey(conf.googlehybrid.consumerKey)
+  .consumerSecret(conf.googlehybrid.consumerSecret)
   .scope(['http://docs.google.com/feeds/','http://spreadsheets.google.com/feeds/'])
   .findOrCreateUser( function(session, userAttributes) {
     return usersByGoogleHybridId[userAttributes.claimedIdentifier] || (usersByGoogleHybridId[userAttributes.claimedIdentifier] = addUser('googlehybrid', userAttributes));
   })
-  .redirectPath('/')
-    
+  .redirectPath('/');
+
 everyauth.readability
-  .myHostname('http://local.host:3000')
   .consumerKey(conf.readability.consumerKey)
   .consumerSecret(conf.readability.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, reader) {
@@ -215,7 +253,6 @@ everyauth.readability
 
 everyauth
   .dropbox
-    .myHostname('http://local.host:3000')
     .consumerKey(conf.dropbox.consumerKey)
     .consumerSecret(conf.dropbox.consumerSecret)
     .findOrCreateUser( function (sess, accessToken, accessSecret, dropboxUserMetadata) {
@@ -241,7 +278,25 @@ everyauth.justintv
       (usersByJustintvId[justintvUser.id] = addUser('justintv', justintvUser));
   })
   .redirectPath('/')
-    
+
+everyauth['37signals']
+  .appId(conf['_37signals'].clientId)
+  .appSecret(conf['_37signals'].clientSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, _37signalsUser) {
+    return usersBy37signalsId[_37signalsUser.id] ||
+      (usersBy37signalsId[_37signalsUser.identity.id] = addUser('37signals', _37signalsUser));
+  })
+  .redirectPath('/')
+
+everyauth.tumblr
+  .consumerKey(conf.tumblr.consumerKey)
+  .consumerSecret(conf.tumblr.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, tumblrUser) {
+    return usersByTumblrName[tumblrUser.name] ||
+      (usersByTumblrName[tumblrUser.name] = addUser('tumblr', tumblrUser));
+  })
+  .redirectPath('/');
+
 everyauth.box
   .apiKey(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
@@ -250,9 +305,62 @@ everyauth.box
   })
   .redirectPath('/');
 
+everyauth.dwolla
+  .appId(conf.dwolla.clientId)
+  .appSecret(conf.dwolla.clientSecret)
+  .scope('accountinfofull')
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, dwollaUser) {
+    return usersByDwollaId[dwollaUser.id] || (usersByDwollaId[dwollaUser.id] = addUser('dwolla', dwollaUser));
+  })
+  .redirectPath('/');
+
+everyauth.vkontakte
+  .appId(conf.vkontakte.appId)
+  .appSecret(conf.vkontakte.appSecret)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
+    return usersByVkId[vkUserMetadata.uid] ||
+      (usersByVkId[vkUserMetadata.uid] = addUser('vkontakte', vkUserMetadata));
+  })
+  .redirectPath('/');
+
+everyauth.skyrock
+  .consumerKey(conf.skyrock.consumerKey)
+  .consumerSecret(conf.skyrock.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
+    return usersBySkyrockId[skyrockUser.id_user] || (usersBySkyrockId[skyrockUser.id_user] = addUser('skyrock', skyrockUser));
+  })
+  .redirectPath('/');
+
+everyauth.evernote
+  .oauthHost(conf.evernote.oauthHost)
+  .consumerKey(conf.evernote.consumerKey)
+  .consumerSecret(conf.evernote.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, enUserMetadata) {
+    return usersByEvernoteId[enUserMetadata.userId] || (usersByEvernoteId[enUserMetadata.userId] = addUser('evernote', enUserMetadata));
+  })
+  .redirectPath('/');
+
+everyauth.tripit
+  .consumerKey(conf.tripit.consumerKey)
+  .consumerSecret(conf.tripit.consumerSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, tripitProfile) {
+    var userId = tripitProfile['@attributes'].ref;
+    return usersByTripIt[userId] || (usersByTripIt[userId] = addUser('tripit', tripitProfile));
+  })
+  .redirectPath('/');
+
+everyauth['500px']
+  .consumerKey(conf._500px.consumerKey)
+  .consumerSecret(conf._500px.consumerSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
+  })
+  .redirectPath('/');
+
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
+  , express.favicon()
   , express.cookieParser()
   , express.session({ secret: 'htuayreve'})
   , everyauth.middleware()
