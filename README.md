@@ -2236,13 +2236,25 @@ You can also configure the timeout period on a per module basis. For example, th
 everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
 ```
 
-## Modules and Projects that use everyauth
+## In the Wild
 
 Currently, the following module uses everyauth. If you are using everyauth
 in a project, app, or module, get in touch to get added to the list below:
 
+### Startups
+- [Storify](http://storify.com/)
+
+### Modules
 - [mongoose-auth](https://github.com/bnoguchi/mongoose-auth) Authorization plugin
   for use with the node.js MongoDB orm.
+
+## Tutorials
+
+- [NodeTuts: Starting with everyauth](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
+- [Node.js modules you should know about:
+  everyauth](http://www.catonmat.net/blog/nodejs-modules-everyauth/)
+- [Implementing Windows Azure ACS with
+  everyauth](http://nodeblog.cloudapp.net/implementing-windows-azure-acs-with-everyauth)
 
 ---
 ### Author
