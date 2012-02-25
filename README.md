@@ -2252,6 +2252,7 @@ by getting in touch or submitting a pull request with changes to the README.
 
 - [mongoose-auth](https://github.com/bnoguchi/mongoose-auth) Authorization plugin
   for use with the node.js MongoDB orm.
+- [ExpressStarter](https://github.com/JustinBeckwith/ExpressStarter)
 
 ## Tutorials
 
@@ -2268,6 +2269,7 @@ with changes to the README.
 - [Implementing Windows Azure ACS with
   everyauth](http://nodeblog.cloudapp.net/implementing-windows-azure-acs-with-everyauth)
 - [OAuth: Logging In with EveryAuth and NodeJS](http://blog.koostudios.com/?p=453)
+- [Calling the github API with node.js](http://www.garann.com/dev/2011/calling-the-github-api-with-node-js/)
 
 ---
 ### Author
@@ -2321,4 +2323,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-=======
