@@ -74,7 +74,7 @@ or 3 simple steps if using Express:
    you desire in one of the sections below. Follow the configuration
    instructions.
 2. **Add the Middleware to Connect**
-        
+
     ```javascript
     var everyauth = require('everyauth');
     // Step 1 code goes here
@@ -90,7 +90,7 @@ or 3 simple steps if using Express:
     );
     ```
 3. **Add View Helpers to Express**
-    
+
     ```javascript
     // Step 1 code
     // ...
@@ -102,7 +102,7 @@ or 3 simple steps if using Express:
 
     app.listen(3000);
     ```
-    
+
     For more about what view helpers `everyauth` adds to your app, see the section
     titled "Express Helpers" near the bottom of this README.
 
@@ -243,7 +243,7 @@ object whose parameter name keys map to description values:
 everyauth.facebook.configurable();
 ```
 
-#### Dynamic Facebook Connect Scope
+### Dynamic Facebook Connect Scope
 
 Facebook provides many different 
 [permissions](http://developers.facebook.com/docs/authentication/permissions/)
@@ -280,7 +280,7 @@ everyauth.facebook
 
 ```
 
-#### Facebook Mobile OAuth Dialog
+### Facebook Mobile OAuth Dialog
 If you are programming for mobile, you can bring up the facebook mobile OAuth
 dialog instead of the traditional desktop browser-based one by just adding
 `mobile(true)` to your configuration as seen here:
@@ -605,7 +605,9 @@ everyauth.password
   });
 ```
 
-## Setting up GitHub OAuth
+## Other Modules
+
+### Setting up GitHub OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -659,7 +661,7 @@ object whose parameter name keys map to description values:
 everyauth.github.configurable();
 ```
 
-## Setting up Instagram OAuth
+### Setting up Instagram OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -715,7 +717,7 @@ object whose parameter name keys map to description values:
 everyauth.instagram.configurable();
 ```
 
-## Setting up Foursquare OAuth
+### Setting up Foursquare OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -766,7 +768,7 @@ object whose parameter name keys map to description values:
 everyauth.foursquare.configurable();
 ```
 
-## Setting up LinkedIn OAuth
+### Setting up LinkedIn OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -817,7 +819,7 @@ object whose parameter name keys map to description values:
 everyauth.linkedin.configurable();
 ```
 
-## Setting up Google OAuth2
+### Setting up Google OAuth2
 
 ```javascript
 var everyauth = require('everyauth')
@@ -880,7 +882,7 @@ object whose parameter name keys map to description values:
 everyauth.google.configurable();
 ```
 
-## Setting up Gowalla OAuth2
+### Setting up Gowalla OAuth2
 
 ```javascript
 var everyauth = require('everyauth')
@@ -941,7 +943,7 @@ object whose parameter name keys map to description values:
 everyauth.gowalla.configurable();
 ```
 
-## Setting up 37signals (Basecamp, Highrise, Backpack, Campfire) OAuth2
+### Setting up 37signals (Basecamp, Highrise, Backpack, Campfire) OAuth2
 
 First, register an app at [integrate.37signals.com](https://integrate.37signals.com).
 
@@ -1003,7 +1005,7 @@ object whose parameter name keys map to description values:
 everyauth['37signals'].configurable();
 ```
 
-## Setting up AngelList OAuth2
+### Setting up AngelList OAuth2
 
 First, register an app [on AngelList](http://angel.co/api/oauth/clients).
 
@@ -1058,7 +1060,7 @@ object whose parameter name keys map to description values:
 everyauth.angellist.configurable();
 ```
 
-## Setting up Dwolla OAuth2
+### Setting up Dwolla OAuth2
 
 First, register an app [on Dwolla](http://www.dwolla.com/developers).
 
@@ -1083,7 +1085,7 @@ var routes = function (app) {
 };
 ```
 
-## Setting up Skyrock OAuth
+### Setting up Skyrock OAuth
 
 First, register an app [on Skyrock](http://www.skyrock.com/developer/).
 
@@ -1115,7 +1117,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up VKontakte OAuth2
+### Setting up VKontakte OAuth2
 
 First, register an app [on VKontakte](http://vk.com/editapp?act=create&site=1).
 
@@ -1148,7 +1150,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Yahoo OAuth
+### Setting up Yahoo OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1199,7 +1201,7 @@ object whose parameter name keys map to description values:
 everyauth.yahoo.configurable();
 ```
 
-## Setting up Readability OAuth
+### Setting up Readability OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1253,7 +1255,7 @@ object whose parameter name keys map to description values:
 everyauth.readability.configurable();
 ```
 
-## Setting up Dropbox OAuth
+### Setting up Dropbox OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1307,7 +1309,7 @@ object whose parameter name keys map to description values:
 everyauth.dropbox.configurable();
 ```
 
-## Setting up Justin.tv OAuth
+### Setting up Justin.tv OAuth
 
 [Sign up for a Justin.tv account](http://www.justin.tv/user/signup) and activate it as a [developer account](http://www.justin.tv/developer/activate) to get your consumer key and secret.
 
@@ -1388,7 +1390,7 @@ To see all parameters that are configurable, the following will return an object
 everyauth.justintv.configurable();
 ```
 
-## Setting up Vimeo OAuth
+### Setting up Vimeo OAuth
 
 You will first need to sign up for a [developer application](http://vimeo.com/api/applications) to get the consumer key and secret.
 
@@ -1444,7 +1446,7 @@ object whose parameter name keys map to description values:
 everyauth.vimeo.configurable();
 ```
 
-## Setting up Tumblr OAuth (1.a)
+### Setting up Tumblr OAuth (1.a)
 
 You will first need to [register an app](http://www.tumblr.com/oauth/register) to get the consumer key and secret.
 During registration of your new app, enter a "Default callback URL" of "http://<hostname>:<port>/auth/tumblr/callback".
@@ -1502,7 +1504,7 @@ object whose parameter name keys map to description values:
 everyauth.tumblr.configurable();
 ```
 
-## Setting up Evernote OAuth (1.a)
+### Setting up Evernote OAuth (1.a)
 
 You will first need to [request an API key](http://www.evernote.com/about/developer/api/#key) to get the consumer key and secret.  Note that this consumer key and secret will only be valid for the sandbox rather than the production OAuth host.  By default the Evernote module will use the production host, so you'll need to override this using the chainable API if you're using the sandbox.
 
@@ -1560,7 +1562,7 @@ object whose parameter name keys map to description values:
 everyauth.evernote.configurable();
 ```
 
-## Setting up OpenStreetMap OAuth
+### Setting up OpenStreetMap OAuth
 
 You will first need to [login to OpenStreetMap](http://www.openstreetmap.org). Then register you application on your OpenStreetMap user page via the View my OAuth details link on the bottom of the page to get the consumer key and secret. The registered application does not need any permission listed there to login via OAuth.
 
@@ -1618,7 +1620,7 @@ object whose parameter name keys map to description values:
 everyauth.osm.configurable();
 ```
 
-## Setting up TripIt OAuth (1.0)
+### Setting up TripIt OAuth (1.0)
 
 Obtain consumer key and consumer secret for your app by [registering it](http://www.tripit.com/developer/create).
 Please note that TripIt is using _API Key_ and _API Secret_ terminology: use those values as describe below.
@@ -1648,7 +1650,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up 500px OAuth (1.0)
+### Setting up 500px OAuth (1.0)
 
 You will first need to [request an API key](http://developer.500px.com/oauth_clients/new) to get the consumer key and secret.
 
@@ -1681,7 +1683,7 @@ connect(
 ```
 
 
-## Setting up OpenID protocol
+### Setting up OpenID protocol
 
 OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
 
@@ -1730,7 +1732,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Google OpenID+OAuth Hybrid protocol
+### Setting up Google OpenID+OAuth Hybrid protocol
 
 OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
 
@@ -1764,7 +1766,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Box.net Auth
+### Setting up Box.net Auth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1817,7 +1819,7 @@ object whose parameter name keys map to description values:
 everyauth.box.configurable();
 ```
 
-## Setting up LDAP
+### Setting up LDAP
 
 The LDAP module is still in development. Do not use it in production yet.
 
@@ -1860,7 +1862,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Windows Azure Access Control Service (ACS) Auth
+### Setting up Windows Azure Access Control Service (ACS) Auth
 
 You will need to create a [Windows Azure ACS namespace](http://msdn.microsoft.com/en-us/library/windowsazure/hh674478.aspx). The only caveat when creating the namespace is setting the "Return URL". You will probably [create one Relying Party](http://msdn.microsoft.com/en-us/library/windowsazure/gg429779.aspx) for each environment (dev, qa, prod) and each of them will have a different "Return URL". For instance, dev will be `http://localhost:port/auth/azureacs/callback` and prod could be `https://myapp.com/auth/azureacs/callback` (notice the `/auth/azureacs/callback`, that's where the module will listen the POST with the token from ACS)
 
