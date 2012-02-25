@@ -486,7 +486,7 @@ object whose parameter name keys map to description values:
 everyauth.password.configurable();
 ```
 
-### Password Recipe 1: Extra registration data besides login + password
+### Password Recipe 1: Extra registration data
 
 Sometimes your registration will ask for more information from the user besides the login and password.
 
