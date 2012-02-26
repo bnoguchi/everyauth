@@ -85,7 +85,6 @@
       input(type='submit') Login
 - else
   h2 Authenticated
-    p= JSON.stringify(everyauth.mixi.user)
   - if (everyauth.facebook)
     h3 Facebook User Data
     p= JSON.stringify(everyauth.facebook.user)
@@ -160,5 +159,6 @@
     p= JSON.stringify(everyauth['500px'].user)
   - if (everyauth.mixi)
     h3 mixi User Data
+    p= JSON.stringify(everyauth.mixi.user)
   h3
     a(href='/logout') Logout
