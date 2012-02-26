@@ -1693,8 +1693,8 @@ var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.mixi
-  .appId('YOUR CLIENT ID HERE')
-  .appSecret('YOUR TOKEN HERE')
+  .appId('YOUR CONSUMER KEY HERE')
+  .appSecret('YOUR CONSUMER SECRET HERE')
   .display('pc') //specify device types of access: See http://developers.mixi.co.jp/
   .scope('r_profile') //specify types of access: See http://developers.mixi.co.jp/
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
