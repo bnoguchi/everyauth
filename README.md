@@ -40,6 +40,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi             <td> <a href="https://github.com/dannyamey">mixi</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1682,6 +1683,31 @@ connect(
 ).listen(3000);
 ```
 
+### mixi OAuth2
+
+First, register an app [on mixi](http://developer.mixi.co.jp).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mixi
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR TOKEN HERE')
+  .display('pc') //specify device types of access: See http://developers.mixi.co.jp/
+  .scope('r_profile') //specify types of access: See http://developers.mixi.co.jp/
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+```
 
 ### OpenID protocol
 
