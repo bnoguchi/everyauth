@@ -88,7 +88,6 @@ everyauth
     })
     .redirectPath('/');
 
-
 everyauth
   .twitter
     .consumerKey(conf.twit.consumerKey)
