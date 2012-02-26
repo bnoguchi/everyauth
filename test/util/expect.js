@@ -109,7 +109,7 @@ Assertion.prototype.one = function(selector, text){
     , 'expected ' + j(elem) + ' to not have one ' + i(selector) + ' tag, but has ' + n(len));
 
   if (undefined != text) {
-    elems.should.have.text(text);
+    expect(elems).to.have.text(text);
   }
 
   return this;
@@ -174,8 +174,8 @@ Assertion.prototype.class = function(name){
  */
 
 Assertion.prototype.header = function(field, val){
-  this.obj.should.have.property('headers');
-  this.obj.headers.should.have.property(field.toLowerCase(), val);
+  expect(this.obj).to.have.property('headers');
+  expect(this.obj.headers).to.have.property(field.toLowerCase(), val);
   return this;
 };
 
@@ -188,7 +188,7 @@ Assertion.prototype.header = function(field, val){
  */
 
 Assertion.prototype.status = function(code){
-  this.obj.should.have.property('statusCode');
+  expect(this.obj).to.have.property('statusCode');
   var status = this.obj.statusCode;
 
   this.assert(

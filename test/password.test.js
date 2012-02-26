@@ -11,9 +11,9 @@ describe('password', function () {
         $('form')
           .fill({ email: 'newuser@example.com', password: 'pass' })
           .submit( function (res, $) {
-            res.should.have.status(200);
-            $('h2').should.have.text('Authenticated');
-            $('h2').should.not.have.text('Not Authenticated');
+            expect(res).to.have.status(200);
+            expect($('h2')).to.have.text('Authenticated');
+            expect($('h2')).to.not.have.text('Not Authenticated');
             done();
           });
       });
@@ -25,9 +25,9 @@ describe('password', function () {
           $('form')
             .fill({ email: '', password: '' })
             .submit( function (res, $) {
-              res.should.have.status(200);
-              $('#errors li:first').should.have.text('Missing email');
-              $('#errors li:eq(1)').should.have.text('Missing password');
+              expect(res).to.have.status(200);
+              expect($('#errors li:first')).to.have.text('Missing email');
+              expect($('#errors li:eq(1)')).to.have.text('Missing password');
               done();
             });
         });
@@ -40,8 +40,8 @@ describe('password', function () {
           $('form')
             .fill({ email: 'newuser', password: 'pass' })
             .submit( function (res, $) {
-              res.should.have.status(200);
-              $('#errors').should.have.text('Please correct your email.');
+              expect(res).to.have.status(200);
+              expect($('#errors')).to.have.text('Please correct your email.');
               done();
             });
         });
@@ -52,9 +52,9 @@ describe('password', function () {
           $('form')
             .fill({ email: 'newuser', password: '' })
             .submit( function (res, $) {
-              res.should.have.status(200);
-              $('#errors li:first').should.have.text('Please correct your email.');
-              $('#errors li:eq(1)').should.have.text('Missing password');
+              expect(res).to.have.status(200);
+              expect($('#errors li:first')).to.have.text('Please correct your email.');
+              expect($('#errors li:eq(1)')).to.have.text('Missing password');
               done();
             });
         });
@@ -65,8 +65,8 @@ describe('password', function () {
           $('form')
             .fill({ email: 'abc@example.com', password: '' })
             .submit( function (res, $) {
-              res.should.have.status(200);
-              $('#errors').should.have.text('Missing password');
+              expect(res).to.have.status(200);
+              expect($('#errors')).to.have.text('Missing password');
               done();
             });
         });
@@ -80,9 +80,9 @@ describe('password', function () {
         $('form')
           .fill({ email: 'brian@example.com', password: 'password' })
           .submit( function (res, $) {
-            res.should.have.status(200);
-            $('h2').should.have.text('Authenticated');
-            $('h2').should.not.have.text('Not Authenticated');
+            expect(res).to.have.status(200);
+            expect($('h2')).to.have.text('Authenticated');
+            expect($('h2')).to.not.have.text('Not Authenticated');
             done();
           });
       });
@@ -94,8 +94,8 @@ describe('password', function () {
           $('form')
             .fill({ email: 'brian@example.com', password: 'wrongpassword' })
             .submit( function (res, $) {
-              res.should.have.status(200);
-              $('#errors').should.have.text('Login failed');
+              expect(res).to.have.status(200);
+              expect($('#errors')).to.have.text('Login failed');
               done();
             });
         });
@@ -106,7 +106,7 @@ describe('password', function () {
           $('form')
             .fill({ email: 'brian@example.com', password: '' })
             .submit( function (res, $) {
-              $('#errors').should.have.text('Missing password');
+              expect($('#errors')).to.have.text('Missing password');
               done();
             });
         });
@@ -117,8 +117,8 @@ describe('password', function () {
           $('form')
             .fill({ email: '', password: '' })
             .submit( function (res, $) {
-              $('#errors li:first').should.have.text('Missing login');
-              $('#errors li:eq(1)').should.have.text('Missing password');
+              expect($('#errors li:first')).to.have.text('Missing login');
+              expect($('#errors li:eq(1)')).to.have.text('Missing password');
               done();
             });
           });
