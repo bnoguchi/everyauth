@@ -5,6 +5,10 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 
 There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
 
+There is also a Google Groups (recently created)
+[here](http://groups.google.com/group/everyauth) to post questions and discuss
+potential ideas and extensions to the library.
+
 So far, `everyauth` enables you to login via:
 
 <table style="text-align:left">
