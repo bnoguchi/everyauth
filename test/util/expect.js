@@ -1,3 +1,5 @@
+var expect = require('expect.js');
+
 /**
  * Adapted from Tobi to work with expect.js
  *
@@ -5,7 +7,7 @@
  * Copyright(c) 2010 LearnBoost <dev@learnboost.com>
  * MIT Licensed
  */
-var Assertion = require('expect.js').Assertion
+var Assertion = expect.Assertion
   , statusCodes = require('http').STATUS_CODES
   , j = function(elem){ return '[jQuery ' + i(elem.selector.replace(/^ *\* */, '')) + ']'; }
   , i = require('sys').inspect;
