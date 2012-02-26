@@ -75,6 +75,9 @@
       img(src='http://www.tripit.com/images/logos/logo_90x40_trans.gif', title='Login with TripIt')
   #500px-login
     a(href='/auth/500px', style='border: 0px') Login with 500px
+  #mixi-login
+    a(href='/auth/mixi', style='border: 0px') 
+      img(src='http://mixi.co.jp/press/images/thumb_press_def.gif', title='Login with mixi')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -154,5 +157,8 @@
   - if (everyauth['500px'])
     h3 500px User Data
     p= JSON.stringify(everyauth['500px'].user)
+  - if (everyauth.mixi)
+    h3 mixi User Data
+    p= JSON.stringify(everyauth.mixi.user)
   h3
     a(href='/logout') Logout

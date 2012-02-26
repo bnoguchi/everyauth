@@ -95,4 +95,9 @@ module.exports = {
         consumerKey: 'Enter your consumer key here'
       , consumerSecret: 'Enter your consumer secret here'
   }
+   , mixi: {
+        consumerKey: 'Enter your consumer key here'
+      , consumerSecret: 'Enter your consumer secret here'
+      , scope: 'r_profile'
+    }
 };

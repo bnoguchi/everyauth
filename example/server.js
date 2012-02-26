@@ -357,6 +357,18 @@ everyauth['500px']
   })
   .redirectPath('/');
 
+everyauth
+  .mixi
+    .appId(conf.mixi.consumerKey)
+    .appSecret(conf.mixi.consumerSecret)
+    .scope(conf.mixi.scope)
+    .display('pc')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
+      return usersByFbId[mixiUserMetadata.id] ||
+        (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
+    })
+    .redirectPath('/');
+
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
