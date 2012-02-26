@@ -88,6 +88,7 @@ everyauth
     })
     .redirectPath('/');
 
+
 everyauth
   .twitter
     .consumerKey(conf.twit.consumerKey)
@@ -356,6 +357,18 @@ everyauth['500px']
     return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
   })
   .redirectPath('/');
+
+everyauth
+  .mixi
+    .appId(conf.mixi.consumerKey)
+    .appSecret(conf.mixi.consumerSecret)
+    .scope(conf.mixi.scope)
+    .display('pc')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
+      return usersByFbId[mixiUserMetadata.id] ||
+        (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
+    })
+    .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()
