@@ -1,8 +1,8 @@
-var expect = require('expect')
+var expect = require('expect.js')
   , Promise = require('../lib/promise');
 
 describe('Promise', function () {
-  '#fulfilll being invoked >1 times should only have an effect once': function (done) {
+  it('#fulfilll being invoked >1 times should only have an effect once', function (done) {
     var p = new Promise()
       , test = null;
     p.callback( function (val) {
@@ -14,5 +14,5 @@ describe('Promise', function () {
       expect(test).to.equal(1);
       done();
     }, 1000);
-  }
+  });
 });
