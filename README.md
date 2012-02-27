@@ -2302,10 +2302,10 @@ with changes to the README.
 - [Calling the github API with node.js](http://www.garann.com/dev/2011/calling-the-github-api-with-node-js/)
 
 ---
-### Author
+## Author
 Brian Noguchi
 
-### Credits
+## Credits
 
 Thanks to the following contributors for the following modules:
 
@@ -2333,7 +2333,7 @@ Thanks to the following contributors for the following modules:
   - 500px
   - Evernote
 
-### MIT License
+## MIT License
 Copyright (c) 2011 by Brian Noguchi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
