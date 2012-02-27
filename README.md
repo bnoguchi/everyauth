@@ -2283,6 +2283,8 @@ by getting in touch or submitting a pull request with changes to the README.
 
 - [mongoose-auth](https://github.com/bnoguchi/mongoose-auth) Authorization plugin
   for use with the node.js MongoDB orm.
+- [Heroku's Facebook Node.JS
+  Template](https://github.com/heroku/facebook-template-nodejs)
 - [ExpressStarter](https://github.com/JustinBeckwith/ExpressStarter)
 
 ## Tutorials
