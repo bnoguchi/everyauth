@@ -6,7 +6,7 @@ Satisfaction.prototype.fill = function () {
   if (arguments.length === 1) {
     var namesToVals = arguments[0];
     for (var name in namesToVals) {
-      _fill.call(this, 'input[name=' + name + ']', namesToVals[name]);
+      _fill.call(this, 'input[name="' + name + '"]', namesToVals[name]);
     }
     return this;
   }
@@ -17,7 +17,7 @@ Satisfaction.prototype.fill = function () {
     var formSelector = this._currFormSelector = arguments[0]
       , namesToVals = arguments[1];
     for (var name in namesToVals) {
-      this.fill(formSelector + ' input[name=' + name + ']', namesToVals[name]);
+      this.fill(formSelector + ' input[name="' + name + '"]', namesToVals[name]);
     }
     return this;
   }
