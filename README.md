@@ -2218,6 +2218,32 @@ everyauth.debug = true;
 
 Each everyauth auth strategy module is composed of steps. As each step begins and ends, everyauth will print out to the console the beginning and end of each step. So by turning on the debug flag, you get insight into what step everyauth is executing at any time.
 
+For example, here is some example debugging information output to the console
+during a Facebook Connect authorization:
+
+```
+starting step - getAuthUri
+...finished step
+starting step - requestAuthUri
+...finished step
+starting step - getCode
+...finished step
+starting step - getAccessToken
+...finished step
+starting step - fetchOAuthUser
+...finished step
+starting step - getSession
+...finished step
+starting step - findOrCreateUser
+...finished step
+starting step - compile
+...finished step
+starting step - addToSession
+...finished step
+starting step - sendResponse
+...finished step
+```
+
 ### Debugging - Configuring Error Handling
 
 By default, all modules handle errors by throwing them. That said, `everyauth` allows
