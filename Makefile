@@ -1,4 +1,4 @@
-TESTS = $(shell find test/ -name '*.test.js')
+TESTS = $(shell find test/ -name '*.tobi.js' -o -name '*.test.js')
 
 test:
 	mocha --reporter spec $(TESTS)
