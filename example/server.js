@@ -1,6 +1,7 @@
 var express = require('express')
   , everyauth = require('../index')
-  , conf = require('./conf');
+  , conf = require('./conf')
+  , everyauthRoot = __dirname + '/..';
 
 everyauth.debug = true;
 
@@ -368,6 +369,7 @@ var app = express.createServer(
 
 app.configure( function () {
   app.set('view engine', 'jade');
+  app.set('views', everyauthRoot + '/example/views');
 });
 
 app.get('/', function (req, res) {
@@ -379,3 +381,5 @@ everyauth.helpExpress(app);
 app.listen(3000);
 
 console.log('Go to http://local.host:3000');
+
+module.exports = app;
