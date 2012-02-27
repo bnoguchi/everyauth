@@ -291,6 +291,8 @@ everyauth.password
   })
 ```
 
+# Auth Strategy Instructions
+
 ## Facebook Connect
 
 ```javascript
