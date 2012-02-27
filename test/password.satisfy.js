@@ -71,55 +71,51 @@ describe('password', function () {
       });
     });
 
-//  describe('login', function () {
-//    it('should succeed with the right email + password', function (done) {
-//      browser.get('/login', function (res, $) {
-//        $('form')
-//          .fill({ email: 'brian@example.com', password: 'password' })
-//          .submit( function (res, $) {
-//            expect(res).to.have.status(200);
-//            expect($('h2')).to.have.text('Authenticated');
-//            expect($('h2')).to.not.have.text('Not Authenticated');
-//            done();
-//          });
-//      });
-//    });
-//
-//    describe('failing', function () {
-//      it('should fail with the wrong password', function (done) {
-//        browser.get('/login', function (res, $) {
-//          $('form')
-//            .fill({ email: 'brian@example.com', password: 'wrongpassword' })
-//            .submit( function (res, $) {
-//              expect(res).to.have.status(200);
-//              expect($('#errors')).to.have.text('Login failed');
-//              done();
-//            });
-//        });
-//      });
-//
-//      it('should fail with an empty password', function (done) {
-//        browser.get('/login', function (res, $) {
-//          $('form')
-//            .fill({ email: 'brian@example.com', password: '' })
-//            .submit( function (res, $) {
-//              expect($('#errors')).to.have.text('Missing password');
-//              done();
-//            });
-//        });
-//      });
-//
-//      it('should fail with no email, no password', function (done) {
-//        browser.get('/login', function (res, $) {
-//          $('form')
-//            .fill({ email: '', password: '' })
-//            .submit( function (res, $) {
-//              expect($('#errors li:first')).to.have.text('Missing login');
-//              expect($('#errors li:eq(1)')).to.have.text('Missing password');
-//              done();
-//            });
-//          });
-//      });
-//    });
-//  });
+  describe('login', function () {
+    var loginUrl = 'http://localhost:3000/login';
+
+    it('should succeed with the right email + password', function (done) {
+      satisfy(loginUrl)
+        .fill({ email: 'brian@example.com', password: 'password' })
+        .submit()
+
+        .expect('h2').to.have.text('Authenticated')
+        .expect('h2').to.not.have.text('Not Authenticated')
+
+        .run(done);
+    });
+
+    describe('failing', function () {
+      it('should fail with the wrong password', function (done) {
+        satisfy(loginUrl)
+          .fill({ email: 'brian@example.com', password: 'wrongpassword' })
+          .submit()
+
+          .expect('#errors').to.have.text('Login failed')
+
+          .run(done);
+      });
+
+      it('should fail with an empty password', function (done) {
+        satisfy(loginUrl)
+          .fill({ email: 'brian@example.com', password: '' })
+          .submit()
+
+          .expect('#errors').to.have.text('Missing password')
+
+          .run(done);
+      });
+
+      it('should fail with no email, no password', function (done) {
+        satisfy(loginUrl)
+          .fill({ email: '', password: '' })
+          .submit()
+
+          .expect('#errors li:first').to.have.text('Missing login')
+          .expect('#errors li:eq(1)').to.have.text('Missing password')
+
+          .run(done);
+      });
+    });
+  });
 });
