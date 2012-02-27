@@ -614,6 +614,23 @@ everyauth.password.extractExtraRegistrationParams( function (req) {
 });
 ```
 
+Then, you will have access to this data from within your configured
+`validateRegistration` and `registerUser`:
+
+```javascript
+everyauth.password
+  .validateRegistration( function (newUserAttributes) {
+    var phone = newUserAttributes.phone
+      , firstName = newUserAttributes.name.first
+      , lastName = newUserAttributes.name.last;
+  })
+  .registerUser( function (newUserAttributes) {
+    var phone = newUserAttributes.phone
+      , firstName = newUserAttributes.name.first
+      , lastName = newUserAttributes.name.last;
+  });
+```
+
 ### Password Recipe 2: Logging in with email or phone number
 
 By default, `everyauth` uses the field and user key name `login` during the
