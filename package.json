@@ -26,7 +26,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "oauth": ">=0.9.0",
+    "oauth": "git+ssh://git@github.com:ciaranj/node-oauth.git",
     "restler": ">=0.2.1",
     "request": ">=2.2.0",
     "connect": ">=1 <2",
