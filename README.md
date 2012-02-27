@@ -131,11 +131,113 @@ Then point your browser to [http://local.host:3000](http://local.host:3000)
 
 ## Tests
 
-First, spin up the example server (See last section "Example Application").
-
-Then,
-
+    $ npm install everyauth --dev
     $ make test
+
+## Accessing the User
+
+If you are using `express` or `connect`, then `everyauth` 
+provides an easy way to access the user as:
+
+- `req.user` from your app server
+- `everyauth.user` via the `everyauth` helper accessible from your `express` views.
+- `user` as a helper accessible from your `express` views
+
+To access the user, configure `everyauth.everymodule.findUserById`.
+For example, using [mongoose](http://github.com/LearnBoost/mongoose):
+
+```javascript
+everyauth.everymodule.findUserById( function (userId, callback) {
+  User.findById(userId, callback);
+  // callback has the signature, function (err, user) {...}
+});
+```
+
+Once you have configured this method, you now have access to the user object
+that was fetched anywhere in your server app code as `req.user`. For instance:
+
+```javascript
+var app = require('express').createServer()
+
+// Configure your app
+
+app.get('/', function (req, res) {
+  console.log(req.user);  // FTW!
+  res.render('home');
+});
+```
+
+Moreover, you can access the user in your views as `everyauth.user` or as `user`.
+
+    //- Inside ./views/home.jade
+    span.user-id= everyauth.user.name
+    #user-id= user.id
+
+## Express Helpers
+
+If you are using express, everyauth comes with some useful dynamic helpers.
+To enable them:
+
+```javascript
+var express = require('express')
+  , everyauth = require('everyauth')
+  , app = express.createServer();
+
+everyauth.helpExpress(app);
+```
+
+Then, from within your views, you will have access to the following helpers methods
+attached to the helper, `everyauth`:
+
+- `everyauth.loggedIn`
+- `everyauth.user` - the User document associated with the session
+- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
+  so you can do things like ...
+- `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
+- `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
+  for authorized API calls on behalf of the user.
+- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
+  `everyauth.github.user`, etc.
+
+You also get access to the view helper
+
+- `user` - the same as `everyauth.user` above
+
+As an example of how you would use these, consider the following `./views/user.jade` jade template:
+
+    .user-id
+      .label User Id
+      .value #{user.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
+If you already have an express helper named `user`, then you can configure
+`everyauth` to use a different helper name to access the user object that
+everyauth manages. To do so, leverage the `userAlias` option for
+`everyauth.helpExpress`:
+
+```javascript
+everyauth.helpExpress(app, { userAlias: '__user__' });
+```
+
+Then, you could access the user object in your view with the helper `__user__`
+instead of the default helper `user`. So you can compare with the default use
+of helpers given previously, the alternative leveraging userAlias would look like:
+
+    .user-id
+      .label User Id
+      .value #{__user__.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
+`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
+From any scope that has access to `req`, you get the following convenience getters and methods:
+
+- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
+- `req.user`     - the User document associated with the session
+- `req.logout()` - clears the sesion of your auth data
 
 ## Logging Out
 
@@ -1942,111 +2044,6 @@ object whose parameter name keys map to description values:
 ```javascript
 everyauth.box.configurable();
 ```
-
-## Accessing the User
-
-If you are using `express` or `connect`, then `everyauth` 
-provides an easy way to access the user as:
-
-- `req.user` from your app server
-- `everyauth.user` via the `everyauth` helper accessible from your `express` views.
-- `user` as a helper accessible from your `express` views
-
-To access the user, configure `everyauth.everymodule.findUserById`.
-For example, using [mongoose](http://github.com/LearnBoost/mongoose):
-
-```javascript
-everyauth.everymodule.findUserById( function (userId, callback) {
-  User.findById(userId, callback);
-  // callback has the signature, function (err, user) {...}
-});
-```
-
-Once you have configured this method, you now have access to the user object
-that was fetched anywhere in your server app code as `req.user`. For instance:
-
-```javascript
-var app = require('express').createServer()
-
-// Configure your app
-
-app.get('/', function (req, res) {
-  console.log(req.user);  // FTW!
-  res.render('home');
-});
-```
-
-Moreover, you can access the user in your views as `everyauth.user` or as `user`.
-
-    //- Inside ./views/home.jade
-    span.user-id= everyauth.user.name
-    #user-id= user.id
-
-## Express Helpers
-
-If you are using express, everyauth comes with some useful dynamic helpers.
-To enable them:
-
-```javascript
-var express = require('express')
-  , everyauth = require('everyauth')
-  , app = express.createServer();
-
-everyauth.helpExpress(app);
-```
-
-Then, from within your views, you will have access to the following helpers methods
-attached to the helper, `everyauth`:
-
-- `everyauth.loggedIn`
-- `everyauth.user` - the User document associated with the session
-- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
-  so you can do things like ...
-- `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
-- `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
-  for authorized API calls on behalf of the user.
-- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
-  `everyauth.github.user`, etc.
-
-You also get access to the view helper
-
-- `user` - the same as `everyauth.user` above
-
-As an example of how you would use these, consider the following `./views/user.jade` jade template:
-
-    .user-id
-      .label User Id
-      .value #{user.id}
-    .facebook-id
-      .label User Facebook Id
-      .value #{everyauth.facebook.user.id}
-
-If you already have an express helper named `user`, then you can configure
-`everyauth` to use a different helper name to access the user object that
-everyauth manages. To do so, leverage the `userAlias` option for
-`everyauth.helpExpress`:
-
-```javascript
-everyauth.helpExpress(app, { userAlias: '__user__' });
-```
-
-Then, you could access the user object in your view with the helper `__user__`
-instead of the default helper `user`. So you can compare with the default use
-of helpers given previously, the alternative leveraging userAlias would look like:
-
-    .user-id
-      .label User Id
-      .value #{__user__.id}
-    .facebook-id
-      .label User Facebook Id
-      .value #{everyauth.facebook.user.id}
-
-`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
-From any scope that has access to `req`, you get the following convenience getters and methods:
-
-- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
-- `req.user`     - the User document associated with the session
-- `req.logout()` - clears the sesion of your auth data
 
 ## Configuring a Module
 
