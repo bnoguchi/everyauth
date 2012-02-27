@@ -44,7 +44,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> ufssf
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
        <td> <a href="https://github.com/ufssf">ufssf</a>
   </tbody>
   <tbody id=misc>
