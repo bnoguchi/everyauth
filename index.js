@@ -75,8 +75,8 @@ everyauth
   .addRequestMethod('logout', function () {
     var req = this;
     delete req.session.auth;
-
-  }).addRequestGetter('loggedIn', function () {
+  })
+  .addRequestGetter('loggedIn', function () {
     var req = this;
     if (req.session && req.session.auth && req.session.auth.loggedIn) {
       return true;
