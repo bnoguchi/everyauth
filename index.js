@@ -29,15 +29,14 @@ everyauth.middleware = function () {
       }
     , function fetchUserFromSession (req, res, next) {
         var sess = req.session
-          , auth = sess && sess.auth
-          , everymodule, findUser;
+          , auth = sess && sess.auth;
         if (!auth) return next();
         if (!auth.userId) return next();
-        everymodule = everyauth.everymodule;
+        var everymodule = everyauth.everymodule;
         if (!everymodule._findUserById) return next();
         var pause = __pause(req);
         everymodule._findUserById(auth.userId, function (err, user) {
-          if (err) throw err; // TODO Leverage everyauth's error handling
+          if (err) return next(err);
           if (user) req.user = user;
           else delete sess.auth;
           next();
