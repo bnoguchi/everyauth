@@ -23,7 +23,6 @@ describe('Twitter', function () {
 
   it('should successfully login with the right username, password', function (done) {
     this.timeout(10000);
-    browser.userAgent = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30';
     browser.get('/auth/twitter', function (res, $) {
       $('#oauth_form')
         .fill({
