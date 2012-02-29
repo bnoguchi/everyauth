@@ -30,8 +30,7 @@ everyauth.middleware = function () {
     , function fetchUserFromSession (req, res, next) {
         var sess = req.session
           , auth = sess && sess.auth;
-        if (!auth) return next();
-        if (!auth.userId) return next();
+        if (!auth || !auth.userId) return next();
         var everymodule = everyauth.everymodule;
         if (!everymodule._findUserById) return next();
         var pause = __pause(req);
@@ -48,7 +47,7 @@ everyauth.middleware = function () {
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
-          _module.validateSteps();
+          _module.validateSequences();
           _module.routeApp(app);
         }
       })
@@ -78,11 +77,7 @@ everyauth
   })
   .addRequestGetter('loggedIn', function () {
     var req = this;
-    if (req.session && req.session.auth && req.session.auth.loggedIn) {
-      return true;
-    } else {
-      return false;
-    }
+    return !!(req.session && req.session.auth && req.session.auth.loggedIn);
   });
 
 everyauth.modules = {};
