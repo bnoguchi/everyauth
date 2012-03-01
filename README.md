@@ -2320,6 +2320,7 @@ by getting in touch or submitting a pull request with changes to the README.
 
 - [Storify](http://storify.com/)
 - [DoodleOrDie](http://doodleordie.com/)
+- [Furkot](http://trips.furkot.com/)
 
 ### Modules
 
