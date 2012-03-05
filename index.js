@@ -4,7 +4,7 @@ var connect = require('connect')
 
 everyauth.helpExpress = require('./lib/expressHelper');
 
-everyauth.debug = false;
+everyauth.debug = require('./lib/debug');
 
 // The connect middleware. e.g.,
 //     connect(
