@@ -1,7 +1,7 @@
 {
   "name": "everyauth",
   "description": "Auth solution (password, facebook, & more) for your node.js Connect & Express apps",
-  "version": "0.2.30",
+  "version": "0.2.31",
   "homepage": "https://github.com/bnoguchi/everyauth/",
   "repository": {
     "type": "git",
@@ -46,5 +46,6 @@
   },
   "engines": {
     "node": ">=0.4"
-  }
+  },
+  "optionalDependencies": {}
 }
