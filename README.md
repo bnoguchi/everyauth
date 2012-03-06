@@ -268,8 +268,7 @@ everyauth.everymodule.handleLogout( function (req, res) {
   
   // And/or put your extra logic here
   
-  res.writeHead(303, { 'Location': this.logoutRedirectPath() });
-  res.end();
+  this.redirect(res, this.logoutRedirectPath());
 });
 ```
 
@@ -277,19 +276,30 @@ everyauth.everymodule.handleLogout( function (req, res) {
 
 You may want your own callback that decides where to send a user after login or registration.  One way of doing this is with the `respondToLoginSucceed` and `respondToRegistrationSucceed` methods.  This assumes that you have set a `.redirectTo` property on your `req.session` object:
 
-```
+```javascript
 everyauth.password
   .respondToLoginSucceed( function (res, user, data) {
     if (user) {
-      res.writeHead(303, {'Location': data.session.redirectTo});
-      res.end();
+      this.redirect(res, data.session.redirectTo)
     }   
   })
   .respondToRegistrationSucceed( function (res, user, data) {
-    res.writeHead(303, {'Location': data.session.redirectTo});
-    res.end();
+    this.redirect(res, data.session.redirectTo)
   })
 ```
+
+If you are using express and want your redirects to be subject to [express
+redirect mapping](http://expressjs.com/guide.html#res.redirect\(\)), you can
+overwrite redirect method employed by everyauth.
+
+```javascript
+everyauth.everymodule
+  .performRedirect( function (res, location) {
+    res.redirect(location, 303);
+  });
+```
+
+A newly defined method will be used by everyauth to perform all redirects.
 
 # Auth Strategy Instructions
 
