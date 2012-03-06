@@ -132,6 +132,10 @@ Then point your browser to [http://local.host:3000](http://local.host:3000)
 ## Tests
 
     $ npm install everyauth --dev
+
+Then, update test/creds.js with credentials that the integration tests use to
+login to each 3rd party service.
+
     $ make test
 
 ## Accessing the User
