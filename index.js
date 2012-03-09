@@ -79,9 +79,8 @@ everyauth.middleware = function () {
           , auth = sess && sess.auth;
         if (!auth || !auth.userId) return next();
         var everymodule = everyauth.everymodule;
-        if (!everymodule._findUserById) return next();
         var pause = __pause(req);
-        everymodule._findUserById(auth.userId, function (err, user) {
+        everymodule.findUserById()(auth.userId, function (err, user) {
           if (err) {
             pause.resume();
             return next(err);
