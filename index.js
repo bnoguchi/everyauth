@@ -35,7 +35,10 @@ everyauth.middleware = function () {
         if (!everymodule._findUserById) return next();
         var pause = __pause(req);
         everymodule._findUserById(auth.userId, function (err, user) {
-          if (err) return next(err);
+          if (err) {
+            pause.resume();
+            return next(err);
+          }
           if (user) req.user = user;
           else delete sess.auth;
           next();
