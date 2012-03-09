@@ -147,7 +147,8 @@ provides an easy way to access the user as:
 - `everyauth.user` via the `everyauth` helper accessible from your `express` views.
 - `user` as a helper accessible from your `express` views
 
-To access the user, configure `everyauth.everymodule.findUserById`.
+To access the user, configure `everyauth.everymodule.findUserById` and
+optionally `everyauth.everymodule.userPkey`.
 For example, using [mongoose](http://github.com/LearnBoost/mongoose):
 
 ```javascript
@@ -176,6 +177,14 @@ Moreover, you can access the user in your views as `everyauth.user` or as `user`
     //- Inside ./views/home.jade
     span.user-id= everyauth.user.name
     #user-id= user.id
+
+`everyauth` assumes that you store your users with an `id` property. If not --
+e.g, if you adopt the convention `user.uid` over `user.id` -- then just make
+sure to configure the `everyauth.everymodule.userPkey` parameter:
+
+```javascript
+everyauth.everymodule.userPkey('uid');
+```
 
 ## Express Helpers
 
