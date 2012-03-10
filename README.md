@@ -2351,6 +2351,7 @@ by getting in touch or submitting a pull request with changes to the README.
   for use with the node.js MongoDB orm.
 - [Heroku's Facebook Node.JS
   Template](https://github.com/heroku/facebook-template-nodejs)
+- [node-express-boilerplate](https://github.com/mape/node-express-boilerplate)
 - [ExpressStarter](https://github.com/JustinBeckwith/ExpressStarter)
 
 ## Tutorials
