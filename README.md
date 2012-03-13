@@ -358,7 +358,8 @@ the same chainable API:
 everyauth.facebook
   .entryPath('/auth/facebook')
   .callbackPath('/auth/facebook/callback')
-  .scope('email')                // Defaults to undefined
+  .scope('email')                        // Defaults to undefined
+  .fields('id,name,email,picture')       // Controls the returned fields. Defaults to undefined
 ```
 
 If you want to see what the current value of a
@@ -366,6 +367,7 @@ configured parameter is, you can do so via:
 
 ```javascript
 everyauth.facebook.scope(); // undefined
+everyauth.facebook.fields(); // undefined
 everyauth.facebook.entryPath(); // '/auth/facebook'
 ```
 
