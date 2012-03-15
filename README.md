@@ -19,8 +19,7 @@ So far, `everyauth` enables you to login via:
   </thead>
   <tbody>
     <tr> <td> Password                                                                                                                     <td>
-    <tr> <td> <img src="https://github.com/swallentin/everyauth/raw/master/media/weibo.ico" style="vertical-align:middle"> Weibo       <td>
-
+    <tr> <td> <img src="https://github.com/swallentin/everyauth/raw/master/media/weibo.ico" style="vertical-align:middle"> Weibo       <td> <a href="https://github.com/swallentin">Stephan Wallentin</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook       <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter         <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google           <td>
