@@ -4,6 +4,13 @@
     a(href='/register') Register
   #password-login
     a(href='/login', style='border: 0px') Login with Password
+
+    #weibo-login
+      a(href='/auth/weibo', style='border: 0px')
+        img(style='border: 0px', src='http://technode.com/wp-content/uploads/2011/04/sina-weibo-new-logo1.jpg')
+
+
+  
   #fb-login.fb_button(style='background-position: left -188px')
     a.fb_button_medium(href='/auth/facebook')
       span#fb_login_text.fb_button_text
@@ -82,6 +89,9 @@
       input(type='submit') Login
 - else
   h2 Authenticated
+  - if (everyauth.weibo)
+    h3 Weibo User Data
+    p= JSON.stringify(everyauth.weibo.user)
   - if (everyauth.facebook)
     h3 Facebook User Data
     p= JSON.stringify(everyauth.facebook.user)

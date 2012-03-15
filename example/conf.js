@@ -1,7 +1,11 @@
 module.exports = {
-    fb: {
-        appId: '111565172259433'
-      , appSecret: '85f7e0a0cc804886180b887c1f04a3c1'
+    weibo: {
+        consumerKey: '1100315480'
+      , consumerSecret: '1c75bc30b3bec4c5c23c8c4cef8d409f'
+    }
+  , fb: {
+        appId: '297348623622954'
+      , appSecret: 'daa93e282fa734af9045b2ca9d0461eb'
     }
   , twit: {
         consumerKey: 'JLCGyLzuOK1BjnKPKGyQ'

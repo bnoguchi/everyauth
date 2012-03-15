@@ -3,6 +3,7 @@ var express = require('express')
   , conf = require('./conf');
 
 everyauth.debug = true;
+everyauth.github.moduleTimeout(16000);
 
 var usersById = {};
 var nextUserId = 0;
@@ -19,7 +20,7 @@ function addUser (source, sourceUser) {
   }
   return user;
 }
-
+var usersByWeibo = {};
 var usersByVimeoId = {};
 var usersByJustintvId = {};
 var usersBy37signalsId = {};
@@ -54,6 +55,17 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
+
+everyauth.weibo
+  .appId(conf.weibo.consumerKey)
+  .appSecret(conf.weibo.consumerSecret)
+  .scope('basic')
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, weiboUser) {
+      console.log('findOrCreateUser: ' + JSON.stringify( weiboUser));
+      return usersByWeibo[weiboUser.id] || (usersByWeibo[weiboUser.id] = addUser('weibo', weiboUser));
+  })
+  .redirectPath('/');
+
 
 everyauth.azureacs
   .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
@@ -378,4 +390,4 @@ everyauth.helpExpress(app);
 
 app.listen(3000);
 
-console.log('Go to http://local.host:3000');
+console.log('Go to http://local.englishtown.com:3000');

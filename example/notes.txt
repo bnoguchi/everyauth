@@ -1,0 +1,33 @@
+
+command to get an acces_token,
+
+curl -d "code=4e27403e0acfc0f893c9f2220740f7ae&client_id=1100315480&client_secret=1c75bc30b3bec4c5c23c8c4cef8d409f&redirect_uri=http://local.dev" https://api.weibo.com/oauth2/access_token
+
+
+open your browser and enter url below to get a authorization token,
+https://api.weibo.com/oauth2/authorize?client_id=1100315480&redirect_uri=http://local.dev
+
+code
+client_id
+client_secret
+redirect_uri
+https://api.weibo.com/oauth2/access_token
+
+var data = {
+    "data": {
+        "client_id": "1100315480",
+        "redirect_uri": "http://local.dev:3000/auth/weibo/callback",
+        "code": "cc04d8a6c7b1cfa7dce477bfe0e62229",
+        "client_secret": "1c75bc30b3bec4c5c23c8c4cef8d409f",
+        "grant_type": "code"
+    }
+}
+
+d2a4043547f67c14342431963b3c883a
+
+{"data":{"client_id":"1100315480","redirect_uri":"http://local.dev:3000/auth/weibo/callback","code":"cc04d8a6c7b1cfa7dce477bfe0e62229","client_secret":"1c75bc30b3bec4c5c23c8c4cef8d409f","grant_type":"code"}}
+
+curl -d "code=5b6e456637545c9e9a687ac30cd52982&client_id=1100315480&client_secret=1c75bc30b3bec4c5c23c8c4cef8d409f&redirect_uri=http://local.dev&grant_type=code" https://api.weibo.com/oauth2/access_token
+
+curl -d "access_token=2.00txXjrCs_o9MBb131bf5050RHUPtC" https://api.weibo.com/2/users/show.json
+

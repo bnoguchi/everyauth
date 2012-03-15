@@ -1,0 +1,1024 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+info using npm@1.1.0-2
+info using node@v0.6.8
+verbose config file /Users/stephanwallentin/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/package.json
+verbose loadDefaults everyauth@0.2.30
+verbose where, deps [ '/Users/stephanwallentin/development/nodejs/everyauth',
+verbose where, deps   [ 'oauth',
+verbose where, deps     'restler',
+verbose where, deps     'request',
+verbose where, deps     'connect',
+verbose where, deps     'openid',
+verbose where, deps     'xml2js',
+verbose where, deps     'node-swt',
+verbose where, deps     'node-wsfederation',
+verbose where, deps     'express',
+verbose where, deps     'jade',
+verbose where, deps     'tobi',
+verbose where, deps     'expect.js',
+verbose where, deps     'mocha',
+verbose where, deps     'satisfy' ] ]
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/package.json
+info preinstall everyauth@0.2.30
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/connect/package.json
+verbose loadDefaults connect@1.8.5
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/expect.js/package.json
+verbose loadDefaults expect.js@0.1.2
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/express/package.json
+verbose loadDefaults express@2.5.8
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/jade/package.json
+verbose loadDefaults jade@0.20.3
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/mocha/package.json
+verbose loadDefaults mocha@0.13.0
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/node-swt/package.json
+verbose loadDefaults node-swt@0.1.1
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/node-wsfederation/package.json
+verbose loadDefaults node-wsfederation@0.1.1
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/oauth/package.json
+verbose loadDefaults oauth@0.9.5
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/openid/package.json
+verbose loadDefaults openid@0.4.1
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/request/package.json
+verbose loadDefaults request@2.9.152
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/restler/package.json
+verbose loadDefaults restler@2.0.0
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/satisfy/package.json
+verbose loadDefaults satisfy@0.1.0
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/xml2js/package.json
+verbose loadDefaults xml2js@0.1.13
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/connect/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/expect.js/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/express/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/jade/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/mocha/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/node-swt/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/node-wsfederation/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/oauth/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/openid/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/request/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/restler/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/satisfy/package.json
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/xml2js/package.json
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping connect@>=1 <2
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping openid@>=0.2.0
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping xml2js@>=0.1.7
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping node-swt@>=0.1.1
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping node-wsfederation@>=0.1.1
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping express@>=2.3.10
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping jade@>=0.12.1
+verbose cache add [ 'tobi@>=0.2.2', null ]
+silly cache add: name, spec, args [ undefined, 'tobi@>=0.2.2', [ 'tobi@>=0.2.2', null ] ]
+verbose parsed url { pathname: 'tobi@', path: 'tobi@', href: 'tobi@' }
+silly cache add: name, spec, args [ 'tobi', '>=0.2.2', [ 'tobi', '>=0.2.2' ] ]
+verbose parsed url { pathname: '=0.2.2', path: '=0.2.2', href: '=0.2.2' }
+verbose addNamed [ 'tobi', '>=0.2.2' ]
+verbose addNamed [ null, '>=0.2.2' ]
+silly name, range, hasData [ 'tobi', '>=0.2.2', false ]
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping satisfy@>=0.1.0
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping expect.js@>=0.1.2
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping mocha@>=0.13.0
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping oauth@>=0.9.0
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping restler@>=0.2.1
+verbose already installed in /Users/stephanwallentin/development/nodejs/everyauth skipping request@>=2.2.0
+verbose raw, before any munging tobi
+verbose url resolving [ 'https://registry.npmjs.org/', './tobi' ]
+verbose url resolved https://registry.npmjs.org/tobi
+verbose etag "EG1NBAEC9L38GA2YDHDZ168XW"
+http GET https://registry.npmjs.org/tobi
+http 304 https://registry.npmjs.org/tobi
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"EG1NBAEC9L38GA2YDHDZ168XW"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:27 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag tobi from cache
+silly name, range, hasData 2 [ 'tobi', '>=0.2.2', true ]
+silly versions [ 'tobi', [ '0.0.8', '0.1.0', '0.1.1', '0.3.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'b3e0cbaa10494c0b65d543dbde64201ac4974df5',
+verbose bin dist     tarball: 'http://registry.npmjs.org/tobi/-/tobi-0.3.2.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/tobi/0.3.2/package/package.json
+verbose loadDefaults tobi@0.3.2
+silly resolved [ { name: 'tobi',
+silly resolved     description: 'expressive server-side functional testing with jQuery and jsdom',
+silly resolved     version: '0.3.2',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     keywords: [ 'test', 'testing', 'browser', 'jquery', 'css' ],
+silly resolved     dependencies: 
+silly resolved      { jsdom: '>= 0.1.21',
+silly resolved        htmlparser: '>= 1.7.3',
+silly resolved        should: '>= 0.0.4',
+silly resolved        qs: '>= 0.1.0' },
+silly resolved     devDependencies: 
+silly resolved      { express: '2.3.x',
+silly resolved        expresso: '>= 0.0.1',
+silly resolved        htmlparser: '>= 0.0.1',
+silly resolved        jsdom: '>= 0.0.1',
+silly resolved        qs: '>= 0.0.1',
+silly resolved        should: '>= 0.0.1',
+silly resolved        connect: '>= 0.0.1' },
+silly resolved     main: './index.js',
+silly resolved     engines: { node: '>= 0.4.x < 0.7.0' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/LearnBoost/tobi.git' },
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'tobi@0.3.2',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} } ]
+info into /Users/stephanwallentin/development/nodejs/everyauth tobi@0.3.2
+info installOne tobi@0.3.2
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi
+verbose from cache /Users/stephanwallentin/.npm/tobi/0.3.2/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm'
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm 755
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/.gitmodules
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/History.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/index.html
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/Makefile
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/Readme.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/browser.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/tobi.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/assertions
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/assertions/should.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/cookie
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/cookie/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/cookie/jar.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/jquery
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/jquery/core.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/jquery/fill.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package/lib/jquery/index.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/___tobi.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/package.json
+verbose loadDefaults tobi@0.3.2
+info preinstall tobi@0.3.2
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/package.json
+verbose cache add [ 'jsdom@>= 0.1.21', null ]
+silly cache add: name, spec, args [ undefined, 'jsdom@>= 0.1.21', [ 'jsdom@>= 0.1.21', null ] ]
+verbose parsed url { pathname: 'jsdom@', path: 'jsdom@', href: 'jsdom@' }
+silly cache add: name, spec, args [ 'jsdom', '>= 0.1.21', [ 'jsdom', '>= 0.1.21' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'jsdom', '>= 0.1.21' ]
+verbose addNamed [ null, '>=0.1.21' ]
+silly name, range, hasData [ 'jsdom', '>=0.1.21', false ]
+verbose cache add [ 'htmlparser@>= 1.7.3', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'htmlparser@>= 1.7.3',
+silly cache add: name, spec, args   [ 'htmlparser@>= 1.7.3', null ] ]
+verbose parsed url { pathname: 'htmlparser@',
+verbose parsed url   path: 'htmlparser@',
+verbose parsed url   href: 'htmlparser@' }
+silly cache add: name, spec, args [ 'htmlparser', '>= 1.7.3', [ 'htmlparser', '>= 1.7.3' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'htmlparser', '>= 1.7.3' ]
+verbose addNamed [ null, '>=1.7.3' ]
+silly name, range, hasData [ 'htmlparser', '>=1.7.3', false ]
+verbose raw, before any munging jsdom
+verbose url resolving [ 'https://registry.npmjs.org/', './jsdom' ]
+verbose url resolved https://registry.npmjs.org/jsdom
+verbose etag "1ILYEKGER8BQJGLFB5Y4F9OO1"
+http GET https://registry.npmjs.org/jsdom
+verbose raw, before any munging htmlparser
+verbose url resolving [ 'https://registry.npmjs.org/', './htmlparser' ]
+verbose url resolved https://registry.npmjs.org/htmlparser
+verbose etag "3HC0ACA7KVHHSB4KFCX04ORSG"
+http GET https://registry.npmjs.org/htmlparser
+verbose cache add [ 'should@>= 0.0.4', null ]
+silly cache add: name, spec, args [ undefined, 'should@>= 0.0.4', [ 'should@>= 0.0.4', null ] ]
+verbose parsed url { pathname: 'should@', path: 'should@', href: 'should@' }
+silly cache add: name, spec, args [ 'should', '>= 0.0.4', [ 'should', '>= 0.0.4' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'should', '>= 0.0.4' ]
+verbose addNamed [ null, '>=0.0.4' ]
+silly name, range, hasData [ 'should', '>=0.0.4', false ]
+verbose cache add [ 'qs@>= 0.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'qs@>= 0.1.0', [ 'qs@>= 0.1.0', null ] ]
+verbose parsed url { pathname: 'qs@', path: 'qs@', href: 'qs@' }
+silly cache add: name, spec, args [ 'qs', '>= 0.1.0', [ 'qs', '>= 0.1.0' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'qs', '>= 0.1.0' ]
+verbose addNamed [ null, '>=0.1.0' ]
+silly name, range, hasData [ 'qs', '>=0.1.0', false ]
+verbose raw, before any munging should
+verbose url resolving [ 'https://registry.npmjs.org/', './should' ]
+verbose url resolved https://registry.npmjs.org/should
+verbose etag "CTFPZYNZMI2C0W83PE5I6X6BC"
+http GET https://registry.npmjs.org/should
+verbose raw, before any munging qs
+verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+verbose url resolved https://registry.npmjs.org/qs
+verbose etag "88ML9H4MRNIP4WV0VPPU5J1JF"
+http GET https://registry.npmjs.org/qs
+http 304 https://registry.npmjs.org/jsdom
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"1ILYEKGER8BQJGLFB5Y4F9OO1"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:30 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag jsdom from cache
+silly name, range, hasData 2 [ 'jsdom', '>=0.1.21', true ]
+silly versions [ 'jsdom',
+silly versions   [ '0.0.1',
+silly versions     '0.1.2',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.1.10',
+silly versions     '0.1.11',
+silly versions     '0.1.12',
+silly versions     '0.1.13',
+silly versions     '0.1.15',
+silly versions     '0.1.16',
+silly versions     '0.1.17',
+silly versions     '0.1.18',
+silly versions     '0.1.19',
+silly versions     '0.1.20',
+silly versions     '0.1.21',
+silly versions     '0.1.22',
+silly versions     '0.1.23',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.2.5',
+silly versions     '0.2.6',
+silly versions     '0.2.7',
+silly versions     '0.2.8',
+silly versions     '0.2.9',
+silly versions     '0.2.10',
+silly versions     '0.2.11',
+silly versions     '0.2.12' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'f0fd86f7dea82005cf6f7256e1bf3c7bf766a135',
+verbose bin dist     tarball: 'http://registry.npmjs.org/jsdom/-/jsdom-0.2.12.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/jsdom/0.2.12/package/package.json
+verbose loadDefaults jsdom@0.2.12
+http 304 https://registry.npmjs.org/qs
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"88ML9H4MRNIP4WV0VPPU5J1JF"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:31 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag qs from cache
+silly name, range, hasData 2 [ 'qs', '>=0.1.0', true ]
+silly versions [ 'qs',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '3cac4c861e371a8c9c4770ac23cda8de639b8e5f',
+verbose bin dist     tarball: 'http://registry.npmjs.org/qs/-/qs-0.4.2.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/qs/0.4.2/package/package.json
+verbose loadDefaults qs@0.4.2
+http 304 https://registry.npmjs.org/should
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"CTFPZYNZMI2C0W83PE5I6X6BC"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:31 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag should from cache
+silly name, range, hasData 2 [ 'should', '>=0.0.4', true ]
+silly versions [ 'should',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2',
+silly versions     '0.5.0',
+silly versions     '0.5.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '3729f1c791415ab56406d6e9d7bd65368ac2ef1b',
+verbose bin dist     tarball: 'http://registry.npmjs.org/should/-/should-0.5.1.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/should/0.5.1/package/package.json
+verbose loadDefaults should@0.5.1
+http 304 https://registry.npmjs.org/htmlparser
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"3HC0ACA7KVHHSB4KFCX04ORSG"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:31 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag htmlparser from cache
+silly name, range, hasData 2 [ 'htmlparser', '>=1.7.3', true ]
+silly versions [ 'htmlparser',
+silly versions   [ '1.6.2', '1.7.0', '1.7.1', '1.7.2', '1.7.3', '1.7.4' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '344467cfe8ed1310d77397ea00a200db7e2e8922',
+verbose bin dist     tarball: 'http://registry.npmjs.org/htmlparser/-/htmlparser-1.7.4.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/htmlparser/1.7.4/package/package.json
+verbose loadDefaults htmlparser@1.7.4
+silly resolved [ { name: 'jsdom',
+silly resolved     version: '0.2.12',
+silly resolved     description: 'A javascript implementation of the W3C DOM',
+silly resolved     keywords: [ 'dom', 'w3c', 'javascript' ],
+silly resolved     maintainers: 
+silly resolved      [ { name: 'Elijah Insua',
+silly resolved          email: 'tmpvar@gmail.com',
+silly resolved          url: 'http://tmpvar.com' } ],
+silly resolved     contributors: 
+silly resolved      [ { name: 'Vincent Greene', email: 'ulteriorlife@gmail.com' },
+silly resolved        { name: 'Dav Glass', email: 'davglass@gmail.com' },
+silly resolved        { name: 'Felix Gnass', email: 'fgnass@gmail.com' },
+silly resolved        { name: 'Charlie Robbins', email: 'charlie.robbins@gmail.com' },
+silly resolved        { name: 'Aria Stewart', email: 'aredridel@nbtsc.org' },
+silly resolved        { name: 'Matthew',
+silly resolved          email: 'N.A.',
+silly resolved          url: 'http://github.com/matthewpflueger/' },
+silly resolved        { name: 'Olivier El Mekki',
+silly resolved          email: 'unknown',
+silly resolved          url: 'http://blog.olivier-elmekki.com/' },
+silly resolved        { name: 'Shimon Dookdin', email: 'helpmepro1@gmail.com' },
+silly resolved        { name: 'Daniel Cassidy',
+silly resolved          email: 'mail@danielcassidy.me.uk',
+silly resolved          url: 'http://www.danielcassidy.me.uk/' },
+silly resolved        { name: 'Sam Ruby',
+silly resolved          email: 'N/A',
+silly resolved          url: 'http://intertwingly.net/blog/' },
+silly resolved        { name: 'hij1nx', url: 'http://github.com/hij1nx' },
+silly resolved        { name: 'Yonathan Randolph', url: 'http://github.com/yonran' },
+silly resolved        { name: 'Martin Davis', url: 'http://github.com/waslogic' },
+silly resolved        { name: 'Andreas Lind Petersen', email: 'andreas@one.com' },
+silly resolved        { name: 'd-ash', url: 'http://github.com/d-ash' },
+silly resolved        { name: 'Robin Zhong', email: 'fbzhong@gmail.com' },
+silly resolved        { name: 'Alexander Flatter', email: 'flatter@gmail.com' },
+silly resolved        { name: 'Heng Liu', email: 'liucougar@gmail.com' },
+silly resolved        { name: 'Brian McDaniel', url: 'http://github.com/brianmcd' },
+silly resolved        { name: 'John Hurliman', email: 'jhurliman@jhurliman.org' },
+silly resolved        { name: 'Jimmy Mabey' },
+silly resolved        { name: 'Gregory Tomlinson' },
+silly resolved        { name: 'Jason Davies', url: 'http://www.jasondavies.com/' },
+silly resolved        { name: 'Josh Marshall',
+silly resolved          url: 'http://www.ponderingtheobvious.com/' },
+silly resolved        { name: 'Jason Priestley', url: 'https://github.com/jhp' },
+silly resolved        { name: 'Derek Lindahl', url: 'https://github.com/dlindahl' },
+silly resolved        { name: 'Chris Roebuck',
+silly resolved          email: 'chris@quillu.com',
+silly resolved          url: 'http://www.quillu.com' },
+silly resolved        { name: 'Avi Deitcher', url: 'https://github.com/deitch' } ],
+silly resolved     bugs: 
+silly resolved      { email: 'tmpvar@gmail.com',
+silly resolved        url: 'http://github.com/tmpvar/jsdom/issues' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'MIT',
+silly resolved          url: 'http://github.com/tmpvar/jsdom/blob/master/LICENSE.txt' } ],
+silly resolved     repositories: [ { type: 'git', url: 'http://github.com/tmpvar/jsdom.git' } ],
+silly resolved     implements: [ 'http://www.w3.org/TR/REC-DOM-Level-1' ],
+silly resolved     dependencies: 
+silly resolved      { htmlparser: '1.x',
+silly resolved        request: '2.x',
+silly resolved        cssom: '0.2.x',
+silly resolved        contextify: '0.1.x' },
+silly resolved     optionalDependencies: { contextify: '0.1.x' },
+silly resolved     devDependencies: { nodeunit: '>=0.5.x', 'console.log': '*', optimist: '*' },
+silly resolved     engines: { node: '>=0.1.9' },
+silly resolved     directories: { lib: './lib/jsdom' },
+silly resolved     main: './lib/jsdom',
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'jsdom@0.2.12',
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} },
+silly resolved   { name: 'qs',
+silly resolved     description: 'querystring parser',
+silly resolved     version: '0.4.2',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/visionmedia/node-querystring.git' },
+silly resolved     devDependencies: { mocha: '*', should: '*' },
+silly resolved     author: 
+silly resolved      { name: 'TJ Holowaychuk',
+silly resolved        email: 'tj@vision-media.ca',
+silly resolved        url: 'http://tjholowaychuk.com' },
+silly resolved     main: 'index',
+silly resolved     engines: { node: '*' },
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'qs@0.4.2',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} },
+silly resolved   { name: 'should',
+silly resolved     description: 'test framework agnostic BDD-style assertions',
+silly resolved     version: '0.5.1',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     contributors: [ { name: 'Aseem Kishore', email: 'aseem.kishore@gmail.com' } ],
+silly resolved     devDependencies: { mocha: '*', should: '*' },
+silly resolved     keywords: [ 'test', 'bdd', 'assert' ],
+silly resolved     main: './lib/should.js',
+silly resolved     engines: { node: '>= 0.2.0' },
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'should@0.5.1',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} },
+silly resolved   { name: 'htmlparser',
+silly resolved     description: 'Forgiving HTML/XML/RSS Parser in JS for *both* Node and Browsers',
+silly resolved     version: '1.7.4',
+silly resolved     author: { name: 'Chris Winberry', email: 'chris@winberry.net' },
+silly resolved     contributors: [],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/tautologistics/node-htmlparser.git' },
+silly resolved     keywords: [ 'html', 'xml', 'rss', 'parser' ],
+silly resolved     directories: { lib: './lib/' },
+silly resolved     main: './lib/htmlparser',
+silly resolved     homepage: 'http://github.com/tautologistics/node-htmlparser',
+silly resolved     bugs: 
+silly resolved      { email: 'chris@winberry.net',
+silly resolved        url: 'http://github.com/tautologistics/node-htmlparser/issues' },
+silly resolved     os: [ 'linux', 'darwin', 'freebsd', 'win32' ],
+silly resolved     engines: { node: '>=0.1.33' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'MIT',
+silly resolved          url: 'http://github.com/tautologistics/node-htmlparser/raw/master/LICENSE' } ],
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'htmlparser@1.7.4',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true,
+silly resolved     scripts: {} } ]
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi jsdom@0.2.12
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi qs@0.4.2
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi should@0.5.1
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi htmlparser@1.7.4
+info installOne jsdom@0.2.12
+info installOne qs@0.4.2
+info installOne should@0.5.1
+info installOne htmlparser@1.7.4
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser
+verbose from cache /Users/stephanwallentin/.npm/jsdom/0.2.12/package/package.json
+verbose from cache /Users/stephanwallentin/.npm/qs/0.4.2/package/package.json
+verbose from cache /Users/stephanwallentin/.npm/should/0.5.1/package/package.json
+verbose from cache /Users/stephanwallentin/.npm/htmlparser/1.7.4/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm'
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm 755
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm 755
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm 755
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm 755
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/.gitmodules
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/.travis.yml
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/benchmark.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/examples.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/History.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/Makefile
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/Readme.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/lib/querystring.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/test
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/test/mocha.opts
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/test/parse.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package/test/stringify.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___qs.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs/package.json
+verbose loadDefaults qs@0.4.2
+info preinstall qs@0.4.2
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs/package.json
+silly resolved []
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs
+info build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/qs/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules' ]
+info linkStuff qs@0.4.2
+verbose linkBins qs@0.4.2
+verbose linkMans qs@0.4.2
+verbose rebuildBundles qs@0.4.2
+info install qs@0.4.2
+info postinstall qs@0.4.2
+verbose installOne cb qs@0.4.2
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/.gitmodules
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/History.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/Makefile
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/Readme.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/examples
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/examples/runner.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/lib/eql.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/lib/should.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/test
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/test/exist.test.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package/test/should.test.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___should.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should/package.json
+verbose loadDefaults should@0.5.1
+info preinstall should@0.5.1
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should/package.json
+silly resolved []
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should
+info build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/should/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules' ]
+info linkStuff should@0.5.1
+verbose linkBins should@0.5.1
+verbose linkMans should@0.5.1
+verbose rebuildBundles should@0.5.1
+info install should@0.5.1
+info postinstall should@0.5.1
+verbose installOne cb should@0.5.1
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/CHANGELOG
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/json2.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/LICENSE
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/profile.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/README.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/runtests.html
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/runtests.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/runtests.min.html
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/runtests.min.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/snippet.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/utils_example.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/lib/htmlparser.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/lib/htmlparser.min.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/lib/node-htmlparser.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/lib/node-htmlparser.min.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/01-basic.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/02-single_tag_1.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/03-single_tag_2.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/04-unescaped_in_script.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/05-tags_in_comment.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/06-comment_in_script.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/07-unescaped_in_style.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/08-extra_spaces_in_tag.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/09-unquoted_attrib.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/10-singular_attribute.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/11-text_outside_tags.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/12-text_only.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/13-comment_in_text.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/14-comment_in_text_in_script.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/15-non-verbose.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/16-ignore_whitespace.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/17-xml_namespace.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/18-enforce_empty_tags.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/19-ignore_empty_tags.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/20-rss.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/21-atom.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package/tests/22-position_data.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___htmlparser.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser/package.json
+verbose loadDefaults htmlparser@1.7.4
+info preinstall htmlparser@1.7.4
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser/package.json
+silly resolved []
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser
+info build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/htmlparser/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules' ]
+info linkStuff htmlparser@1.7.4
+verbose linkBins htmlparser@1.7.4
+verbose linkMans htmlparser@1.7.4
+verbose rebuildBundles htmlparser@1.7.4
+info install htmlparser@1.7.4
+info postinstall htmlparser@1.7.4
+verbose installOne cb htmlparser@1.7.4
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/changelog
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/LICENSE.txt
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/README.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/status.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/benchmark
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/benchmark/mark.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/benchmark/stats.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/browser
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/browser/browser.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/ender
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/ender/ender.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/ender/run.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/jquery
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/jquery/jquery.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/jquery/run.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/node-xml
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/node-xml/example.xml
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/node-xml/run.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/pure
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/pure/pure.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/pure/run.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/pure/sax-test.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/pure/sax.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/sizzle
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/sizzle/run.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/sizzle/sax.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/example/sizzle/sizzle.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/utils.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser/documentfeatures.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser/domtohtml.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser/htmlencoding.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser/htmltodom.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/browser/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level1
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level1/core.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/core.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/events.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/html.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/ls.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level3/xpath.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/selectors
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/selectors/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/selectors/sizzle.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/core.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/events.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/html.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/style.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/languages
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package/lib/jsdom/level2/languages/javascript.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/___jsdom.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/package.json
+verbose loadDefaults jsdom@0.2.12
+info preinstall jsdom@0.2.12
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/package.json
+verbose cache add [ 'cssom@0.2.x', null ]
+silly cache add: name, spec, args [ undefined, 'cssom@0.2.x', [ 'cssom@0.2.x', null ] ]
+verbose parsed url { pathname: 'cssom@0.2.x',
+verbose parsed url   path: 'cssom@0.2.x',
+verbose parsed url   href: 'cssom@0.2.x' }
+silly cache add: name, spec, args [ 'cssom', '0.2.x', [ 'cssom', '0.2.x' ] ]
+verbose parsed url { pathname: '0.2.x', path: '0.2.x', href: '0.2.x' }
+verbose addNamed [ 'cssom', '0.2.x' ]
+verbose addNamed [ null, '>=0.2.0- <0.3.0-' ]
+silly name, range, hasData [ 'cssom', '>=0.2.0- <0.3.0-', false ]
+verbose cache add [ 'contextify@0.1.x', null ]
+silly cache add: name, spec, args [ undefined, 'contextify@0.1.x', [ 'contextify@0.1.x', null ] ]
+verbose parsed url { pathname: 'contextify@0.1.x',
+verbose parsed url   path: 'contextify@0.1.x',
+verbose parsed url   href: 'contextify@0.1.x' }
+silly cache add: name, spec, args [ 'contextify', '0.1.x', [ 'contextify', '0.1.x' ] ]
+verbose parsed url { pathname: '0.1.x', path: '0.1.x', href: '0.1.x' }
+verbose addNamed [ 'contextify', '0.1.x' ]
+verbose addNamed [ null, '>=0.1.0- <0.2.0-' ]
+silly name, range, hasData [ 'contextify', '>=0.1.0- <0.2.0-', false ]
+verbose raw, before any munging cssom
+verbose url resolving [ 'https://registry.npmjs.org/', './cssom' ]
+verbose url resolved https://registry.npmjs.org/cssom
+verbose etag "I82Q6I1NVXN9ROCOIOJWVN03"
+http GET https://registry.npmjs.org/cssom
+verbose raw, before any munging contextify
+verbose url resolving [ 'https://registry.npmjs.org/', './contextify' ]
+verbose url resolved https://registry.npmjs.org/contextify
+verbose etag "76TZZ0L4QOOR5C2VKVK5ZR9M7"
+http GET https://registry.npmjs.org/contextify
+http 304 https://registry.npmjs.org/cssom
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"I82Q6I1NVXN9ROCOIOJWVN03"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:34 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag cssom from cache
+http 304 https://registry.npmjs.org/contextify
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"76TZZ0L4QOOR5C2VKVK5ZR9M7"',
+silly get cb     date: 'Sun, 26 Feb 2012 13:52:34 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag contextify from cache
+silly name, range, hasData 2 [ 'cssom', '>=0.2.0- <0.3.0-', true ]
+silly versions [ 'cssom', [ '0.2.0', '0.2.1', '0.2.2', '0.2.3' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '7f9a236c0b05dbc06945ae055ba1c6d8eab91c69',
+verbose bin dist     tarball: 'http://registry.npmjs.org/cssom/-/cssom-0.2.3.tgz' } ]
+silly name, range, hasData 2 [ 'contextify', '>=0.1.0- <0.2.0-', true ]
+silly versions [ 'contextify',
+silly versions   [ '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.1.0',
+silly versions     '0.1.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8r-v83.6.6.19-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'e45a64fd719df5f010b9dcf344fa634def058543',
+verbose bin dist     tarball: 'http://registry.npmjs.org/contextify/-/contextify-0.1.1.tgz' } ]
+verbose caching /Users/stephanwallentin/.npm/cssom/0.2.3/package/package.json
+verbose loadDefaults cssom@0.2.3
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/Users/stephanwallentin/.npm/contextify/0.1.1/package/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+verbose caching /Users/stephanwallentin/.npm/contextify/0.1.1/package/package.json
+verbose loadDefaults contextify@0.1.1
+silly resolved [ { name: 'cssom',
+silly resolved     description: 'CSS Object Model implementation and CSS parser',
+silly resolved     keywords: [ 'CSS', 'CSSOM', 'parser', 'styleSheet' ],
+silly resolved     version: '0.2.3',
+silly resolved     homepage: 'https://github.com/NV/CSSOM',
+silly resolved     author: { name: 'Nikita Vasilyev', email: 'me@elv1s.ru' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/NV/CSSOM.git' },
+silly resolved     bugs: { url: 'https://github.com/NV/CSSOM/issues' },
+silly resolved     directories: { lib: './lib' },
+silly resolved     main: './lib/index.js',
+silly resolved     engines: { node: '>=0.2.0' },
+silly resolved     devDependencies: { jake: '0.2.x' },
+silly resolved     licenses: [ { type: 'MIT', url: 'http://creativecommons.org/licenses/MIT/' } ],
+silly resolved     scripts: { prepublish: 'jake lib/index.js' },
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'cssom@0.2.3',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true },
+silly resolved   { name: 'contextify',
+silly resolved     version: '0.1.1',
+silly resolved     description: 'Turn an object into a persistent execution context.',
+silly resolved     author: { name: 'Brian McDaniel', email: 'brianmcd05@gmail.com' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'Assaf Arkin',
+silly resolved          email: 'assaf@labnotes.org',
+silly resolved          url: 'http://labnotes.org/' } ],
+silly resolved     keywords: [ 'context', 'vm' ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/brianmcd/contextify.git' },
+silly resolved     main: './lib/contextify',
+silly resolved     scripts: 
+silly resolved      { test: 'nodeunit test/',
+silly resolved        preinstall: 'node-waf clean || (exit 0); node-waf configure build' },
+silly resolved     engines: { node: '>=0.4.0' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'MIT',
+silly resolved          url: 'http://github.com/brianmcd/contextify/blob/master/LICENSE.txt' } ],
+silly resolved     dependencies: { bindings: '*' },
+silly resolved     devDependencies: { nodeunit: '>=0.5.x' },
+silly resolved     _npmUser: { name: 'swallentin', email: 'stephan.wallentin@gmail.com' },
+silly resolved     _id: 'contextify@0.1.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.0-2',
+silly resolved     _nodeVersion: 'v0.6.8',
+silly resolved     _defaultsLoaded: true } ]
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom cssom@0.2.3
+info into /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom contextify@0.1.1
+info installOne cssom@0.2.3
+info installOne contextify@0.1.1
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify
+verbose from cache /Users/stephanwallentin/.npm/cssom/0.2.3/package/package.json
+verbose from cache /Users/stephanwallentin/.npm/contextify/0.1.1/package/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm'
+verbose mkdir (expected) error ENOENT, no such file or directory '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm'
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm 755
+verbose mkdir done: /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm 755
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack_ uid, gid [ 501, 20 ]
+verbose unpackTarget /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify
+silly gunzTarPerm modes [ '755', '644' ]
+silly afterUntar undefined
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/bindings.gyp
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/changelog
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/LICENSE.txt
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/README.md
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/wscript
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/lib/contextify.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/src
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/src/contextify.cc
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/test
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package/test/contextify.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___contextify.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify' ]
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify/package.json
+verbose loadDefaults contextify@0.1.1
+info preinstall contextify@0.1.1
+silly afterUntar undefined
+verbose unsafe-perm in lifecycle false
+verbose Setting uid from 0 501
+verbose stack at uid setting Error
+verbose stack at uid setting     at exec (/usr/local/lib/node_modules/npm/lib/utils/exec.js:35:17)
+verbose stack at uid setting     at Array.0 (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:127:5)
+verbose stack at uid setting     at EventEmitter._tickCallback (node.js:192:40)
+silly exec sh "-c" "node-waf clean || (exit 0); node-waf configure build"
+silly spawning [ 'sh',
+silly spawning   [ '-c', 'node-waf clean || (exit 0); node-waf configure build' ],
+silly spawning   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify' ]
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/.gitmodules
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/.npmignore
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/package.json
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/clone.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSImportRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSKeyframeRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSKeyframesRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSMediaRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSStyleDeclaration.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSStyleRule.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/CSSStyleSheet.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/index.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/MediaList.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/parse.js
+silly asyncMap in gTP /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package/lib/StyleSheet.js
+verbose gunzed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package
+verbose rm'ed /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom
+verbose renamed [ '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/___cssom.npm/package',
+verbose renamed   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom' ]
+verbose caching /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom/package.json
+verbose loadDefaults cssom@0.2.3
+info preinstall cssom@0.2.3
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom/package.json
+silly resolved []
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom
+info build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/cssom/package.json
+verbose linkStuff [ false,
+verbose linkStuff   false,
+verbose linkStuff   false,
+verbose linkStuff   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules' ]
+info linkStuff cssom@0.2.3
+verbose linkBins cssom@0.2.3
+verbose linkMans cssom@0.2.3
+verbose rebuildBundles cssom@0.2.3
+info install cssom@0.2.3
+info postinstall cssom@0.2.3
+verbose installOne cb cssom@0.2.3
+info contextify@0.1.1 Failed to exec preinstall script
+ERR! error installing contextify@0.1.1
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules/contextify/package.json
+info preuninstall contextify@0.1.1
+info uninstall contextify@0.1.1
+verbose unbuild contextify@0.1.1 [ false,
+verbose unbuild contextify@0.1.1   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules',
+verbose unbuild contextify@0.1.1   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/node_modules' ]
+info postuninstall contextify@0.1.1
+verbose installOne cb contextify@0.1.1
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom
+ERR! error installing jsdom@0.2.12
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules/jsdom/package.json
+info preuninstall jsdom@0.2.12
+info uninstall jsdom@0.2.12
+verbose unbuild jsdom@0.2.12 [ false,
+verbose unbuild jsdom@0.2.12   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules',
+verbose unbuild jsdom@0.2.12   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/node_modules' ]
+info postuninstall jsdom@0.2.12
+verbose installOne cb jsdom@0.2.12
+verbose about to build /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi
+ERR! error installing tobi@0.3.2
+info unbuild /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi
+verbose from cache /Users/stephanwallentin/development/nodejs/everyauth/node_modules/tobi/package.json
+info preuninstall tobi@0.3.2
+info uninstall tobi@0.3.2
+verbose unbuild tobi@0.3.2 [ true,
+verbose unbuild tobi@0.3.2   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules',
+verbose unbuild tobi@0.3.2   '/Users/stephanwallentin/development/nodejs/everyauth/node_modules' ]
+info postuninstall tobi@0.3.2
+verbose installOne cb tobi@0.3.2
+ERR! contextify@0.1.1 preinstall: `node-waf clean || (exit 0); node-waf configure build`
+ERR! `sh "-c" "node-waf clean || (exit 0); node-waf configure build"` failed with 1
+ERR! 
+ERR! Failed at the contextify@0.1.1 preinstall script.
+ERR! This is most likely a problem with the contextify package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     node-waf clean || (exit 0); node-waf configure build
+ERR! You can get their info via:
+ERR!     npm owner ls contextify
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Darwin 11.3.0
+ERR! command "node" "/usr/local/bin/npm" "install"
+ERR! cwd /Users/stephanwallentin/development/nodejs/everyauth
+ERR! node -v v0.6.8
+ERR! npm -v 1.1.0-2
+ERR! code ELIFECYCLE
+ERR! message contextify@0.1.1 preinstall: `node-waf clean || (exit 0); node-waf configure build`
+ERR! message `sh "-c" "node-waf clean || (exit 0); node-waf configure build"` failed with 1
+ERR! errno {}
+verbose exit [ 1, true ]
