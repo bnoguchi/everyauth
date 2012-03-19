@@ -44,8 +44,8 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
-       <td> <a href="https://github.com/ufssf">ufssf</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi               <td> <a href="https://github.com/ufssf">ufssf</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/fs.ico" style="vertical-align:middle"> FamilySearch (family history platform & APIs)  <td> <a href="https://github.com/timshadel">Tim Shadel</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1941,6 +1941,72 @@ connect(
   , everyauth.middleware()
   , connect.router(routes);
 ).listen(3000);
+```
+
+### FamilySearch OAuth
+
+First, register for a developer key at [devnet.familysearch.org](http://devnet.familysearch.org).
+
+**Step 1 code:**
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.familysearch
+  .developerKey('YOUR DEVELOPER KEY HERE')
+  .userAgent('YOUR APP USER AGENT STRING HERE')
+  .handleAuthCallbackError( function (req, res) {
+    // TODO - Update this documentation
+    // This configurable route handler defines how you want to respond to
+    // a response from FamilySearch that something went wrong during the oauth process.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, familySearchUser) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+**Configure With Testing Reference:**
+
+```javascript
+everyauth.familysearch
+  .developerKey('YOUR DEVELOPER KEY HERE')
+  .userAgent('YOUR APP USER AGENT STRING HERE')
+  .referenceHost('http://www.dev.usys.org')
+  ...
+```
+
+Inspecting the FamilySearch module works the same as the other modules.
+
+**Example FamilySearch User**
+
+Similar to other modules, the final parameter sent to `.findOrCreateUser()` is `familySearchUser`.
+It's a cleaned up version of the response given by the `identity/v2/user` API call.
+
+```javascript
+{ username: 'someuser',
+  name: 'Some User',
+  email: 'someuser@example.com',
+  sessionId: 'ZZZ-some-fs-session-id',
+  id: 'ZZZZ-ZZZZ' }
 ```
 
 ### Box.net
