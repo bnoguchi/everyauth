@@ -47,6 +47,7 @@ var usersByEvernoteId = {};
 var usersByAzureAcs = {};
 var usersByTripIt = {};
 var usersBy500pxId = {};
+var usersByMendeleyId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -355,6 +356,14 @@ everyauth['500px']
   .consumerSecret(conf._500px.consumerSecret)
   .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
     return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
+  })
+  .redirectPath('/');
+
+everyauth.mendeley
+  .consumerKey(conf.mendeley.consumerKey)
+  .consumerSecret(conf.mendeley.consumerSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = addUser('mendeley', user));
   })
   .redirectPath('/');
 

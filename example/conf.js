@@ -100,4 +100,8 @@ module.exports = {
       , consumerSecret: 'Enter your consumer secret here'
       , scope: 'r_profile'
     }
+  , mendeley: {
+      consumerKey: 'Enter your consumer key here'
+    , consumerSecret: 'Enter your consumer secret here'
+  }
 };

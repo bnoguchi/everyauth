@@ -78,6 +78,9 @@
   #mixi-login
     a(href='/auth/mixi', style='border: 0px') 
       img(src='http://mixi.co.jp/press/images/thumb_press_def.gif', title='Login with mixi')
+  #mendeley-login
+    a(href='/auth/mendeley', style='border: 0px') 
+      img(src='http://d1rktifm8krpj.cloudfront.net/graphics/commonnew/logo-mendeley_1248201417297118.png', title='Login with Mendeley')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -160,5 +163,8 @@
   - if (everyauth.mixi)
     h3 mixi User Data
     p= JSON.stringify(everyauth.mixi.user)
+  - if (everyauth.mendeley)
+    h3 Mendeley User Data
+    p= JSON.stringify(everyauth.mendeley.user)
   h3
     a(href='/logout') Logout
