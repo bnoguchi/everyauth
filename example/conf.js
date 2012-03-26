@@ -78,6 +78,10 @@ module.exports = {
         appId: 'Enter your app id here'
       , appSecret: 'Enter your app secret here'
     }
+  , mailru: {
+        appId: 'Enter your app id here'
+      , appSecret: 'Enter your app secret here'
+    }
   , skyrock: {
         consumerKey: 'a0ae943e20c5af88'
       , consumerSecret: 'cjucy86r0fg4uxx3'

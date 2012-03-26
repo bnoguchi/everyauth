@@ -47,6 +47,7 @@ var usersByEvernoteId = {};
 var usersByAzureAcs = {};
 var usersByTripIt = {};
 var usersBy500pxId = {};
+var usersMailruId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -321,6 +322,15 @@ everyauth.vkontakte
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, vkUserMetadata) {
     return usersByVkId[vkUserMetadata.uid] ||
       (usersByVkId[vkUserMetadata.uid] = addUser('vkontakte', vkUserMetadata));
+  })
+  .redirectPath('/');
+
+everyauth.mailru
+  .appId(conf.mailru.appId)
+  .appSecret(conf.mailru.appSecret)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mlUserMetadata) {
+    return usersMailruId[mlUserMetadata.uid] ||
+      (usersMailruId[mlUserMetadata.uid] = addUser('mailru', mlUserMetadata));
   })
   .redirectPath('/');
 
