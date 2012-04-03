@@ -7,4 +7,8 @@ module.exports = {
         login: ''
       , password: ''
     }
+  , soundcloud: {
+        login: ''
+      , password: ''
+    }
 };
