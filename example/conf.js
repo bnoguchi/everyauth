@@ -100,4 +100,8 @@ module.exports = {
       , consumerSecret: 'Enter your consumer secret here'
       , scope: 'r_profile'
     }
+   , mailchimp: {
+        appId: 'Enter your client/app id here'
+      , appSecret: 'Enter your client/app secret here'
+    }
 };
