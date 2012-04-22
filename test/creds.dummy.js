@@ -11,4 +11,8 @@ module.exports = {
         login: ''
       , password: ''
     }
+  , mailchimp: {
+      login: ''
+    , password: ''
+  }
 };

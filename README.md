@@ -47,6 +47,8 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/soundcloud.ico" style="vertical-align:middle"> SoundCloud   <td> <a href="https://github.com/chrisleishman">Chris Leishman</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
        <td> <a href="https://github.com/ufssf">ufssf</a>
+    <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
+      <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1919,6 +1921,34 @@ everyauth.mixi
     // Return a user or Promise that promises a user
     // Promises are created via
     //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+```
+
+### Mailchimp OAuth2
+
+First, register an app [in Mailchimp](http://login.mailchimp.com).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mailchimp
+  .appId('YOUR CLIENT KEY HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .myHostname(process.env.HOSTNAME || "http://127.0.0.1:3000")//MC requires 127.0.0.1 for dev
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailchimpUserData) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey. 
+    // You'll want to work with mailchimpUserData.user_id for queries
+    // and mailchimpUserData.apikey for your API wrapper
   })
   .redirectPath('/');
 

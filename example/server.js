@@ -48,6 +48,7 @@ var usersByAzureAcs = {};
 var usersByTripIt = {};
 var usersBy500pxId = {};
 var usersBySoundCloudId = {};
+var usersByMailchimpId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -379,6 +380,17 @@ everyauth
         (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
     })
     .redirectPath('/');
+    
+everyauth
+  .mailchimp
+    .appId(conf.mailchimp.appId)
+    .appSecret(conf.mailchimp.appSecret)
+    .myHostname(process.env.HOSTNAME || "http://127.0.0.1:3000")//MC requires 127.0.0.1 for dev
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailchimpUser){
+      return usersByMailchimpId[mailchimpUser.id] ||
+        (usersByMailchimpId[mailchimpUser.user_id] = addUser('mailchimp', mailchimpUser));
+    })
+    .redirectPath("/");
 
 var app = express.createServer(
     express.bodyParser()
