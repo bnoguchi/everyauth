@@ -2392,7 +2392,7 @@ Everyauth also supports a special method `configure` for coffee-script
 aficionados. Coffee and chainable APIs often don't mix well. As an alternative,
 you can configure an everyauth module using an `Object` passed to `configure`:
 
-```coffee-script
+```coffee
 everyauth.dropbox.configure
   consumerKey:       conf.dropbox.consumerKey
   consumerSecret:    conf.dropbox.consumerSecret
