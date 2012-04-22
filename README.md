@@ -164,6 +164,17 @@ everyauth.everymodule.findUserById( function (userId, callback) {
 });
 ```
 
+If you need access to the request object the function can have three arguments:
+
+```javascript
+everyauth.everymodule.findUserById( function (req, userId, callback) {
+
+  // use the request in some way ...
+
+  // callback has the signature, function (err, user) {...}
+});
+```
+
 Once you have configured this method, you now have access to the user object
 that was fetched anywhere in your server app code as `req.user`. For instance:
 
