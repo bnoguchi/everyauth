@@ -100,8 +100,8 @@ module.exports = {
       , consumerSecret: 'Enter your consumer secret here'
   }
   , soundcloud: {
-        appId: 'Enter your app id here'
-      , appSecret: 'Enter your app secret here'
+        appId: '79dcfcb876e71dc18c1767b9ebe96298'
+      , appSecret: '6f828028dab96838d07b2407cd5f80cd'
   }
    , mixi: {
         consumerKey: 'Enter your consumer key here'
