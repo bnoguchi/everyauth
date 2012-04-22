@@ -44,6 +44,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/soundcloud.ico" style="vertical-align:middle"> SoundCloud   <td> <a href="https://github.com/chrisleishman">Chris Leishman</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
        <td> <a href="https://github.com/ufssf">ufssf</a>
   </tbody>
@@ -1834,6 +1835,72 @@ connect(
 ).listen(3000);
 ```
 
+### SoundCloud OAuth2
+
+You will first need to [register an app](http://soundcloud.com/you/apps) to get the client id and secret.
+During registration of your new app, enter a "Default callback URL" of "http://<hostname>:<port>/auth/soundcloud/callback".
+Once you register your app, copy down your "Client ID" and "Client Secret" and proceed below.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.soundcloud
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .handleAuthCallbackError( function (req, res) {
+    // TODO - Update this documentation
+    // This configurable route handler defines how you want to respond to
+    // a response from SoundCloud that something went wrong during the oauth2 process.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, soundcloudUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.soundcloud
+  .entryPath('/auth/soundcloud')
+  .callbackPath('/auth/soundcloud/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.soundcloud.scope(); // undefined
+everyauth.soundcloud.display(); // undefined
+everyauth.soundcloud.entryPath(); // '/auth/soundcloud'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.soundcloud.configurable();
+```
+
 ### mixi OAuth2
 
 First, register an app [on mixi](http://developer.mixi.co.jp).
@@ -2404,6 +2471,8 @@ Thanks to the following contributors for the following modules:
 - [Danny Amey](https://github.com/dannyamey)
   - 500px
   - Evernote
+- [Chris Leishman](https://github.com/chrisleishman)
+  - SoundCloud
 
 ## MIT License
 Copyright (c) 2011 by Brian Noguchi

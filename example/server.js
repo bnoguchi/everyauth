@@ -47,6 +47,7 @@ var usersByEvernoteId = {};
 var usersByAzureAcs = {};
 var usersByTripIt = {};
 var usersBy500pxId = {};
+var usersBySoundCloudId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -357,6 +358,15 @@ everyauth['500px']
     return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
   })
   .redirectPath('/');
+
+everyauth
+  .soundcloud
+    .appId(conf.soundcloud.appId)
+    .appSecret(conf.soundcloud.appSecret)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, soundcloudUser) {
+      return usersBySoundCloudId[soundcloudUser.id] || (usersBySoundCloudId[soundcloudUser.id] = addUser('soundcloud', soundcloudUser));
+    })
+    .redirectPath('/');
 
 everyauth
   .mixi
