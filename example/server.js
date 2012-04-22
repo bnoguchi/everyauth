@@ -212,7 +212,7 @@ everyauth.linkedin
 everyauth.google
   .appId(conf.google.clientId)
   .appSecret(conf.google.clientSecret)
-  .scope('https://www.google.com/m8/feeds/')
+  .scope('https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/')
   .findOrCreateUser( function (sess, accessToken, extra, googleUser) {
     googleUser.refreshToken = extra.refresh_token;
     googleUser.expiresIn = extra.expires_in;
