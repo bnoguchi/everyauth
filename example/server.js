@@ -411,14 +411,13 @@ everyauth
     })
     .redirectPath("/");
 
-var app = express.createServer(
-    express.bodyParser()
-  , express.static(__dirname + "/public")
-  , express.favicon()
-  , express.cookieParser()
-  , express.session({ secret: 'htuayreve'})
-  , everyauth.middleware()
-);
+var app = express();
+app.use(express.static(__dirname + '/public'))
+  .use(express.favicon())
+  .use(express.bodyParser())
+  .use(express.cookieParser('htuayreve'))
+  .use(express.session())
+  .use(everyauth.middleware(app));
 
 app.configure( function () {
   app.set('view engine', 'jade');
