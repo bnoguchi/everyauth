@@ -112,4 +112,8 @@ module.exports = {
         appId: 'Enter your client/app id here'
       , appSecret: 'Enter your client/app secret here'
     }
+  , mendeley: {
+      consumerKey: 'Enter your consumer key here'
+    , consumerSecret: 'Enter your consumer secret here'
+  }
 };

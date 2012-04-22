@@ -50,6 +50,8 @@ So far, `everyauth` enables you to login via:
        <td> <a href="https://github.com/ufssf">ufssf</a>
     <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
       <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
+       <td> <a href="https://github.com/edy-b">Eduard Baun</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -1992,6 +1994,43 @@ everyauth.mailchimp
 var routes = function (app) {
   // Define your routes here
 };
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### Mendeley OAuth (1.0)
+
+You will first need to [register your application](http://dev.mendeley.com/applications/register/) to get the consumer key and secret.
+
+```javascript
+everyauth.mendeley
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
 ```
 
 ### OpenID protocol
