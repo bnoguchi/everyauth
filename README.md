@@ -774,6 +774,74 @@ everyauth.password
   });
 ```
 
+### Password Recipe 5: Password Hashing
+
+By default, everyauth is agnostic about how you decide to store your users and
+therefore passwords. However, one should *always* use password hashing and
+salting for security.
+
+Here's an example of how to incorporate password hashing into everyauth using
+bcrypt hashing. The idea is to store a salt and hash value inside your user object
+instead of the password. The hash value is generated from the password (sent with a
+registration or login request) and unique salt per user, using the bcrypt algorithm.
+
+```javascript
+// Make sure to `npm install bcrypt`
+var bcrypt = require('bcrypt');
+
+everyauth.password
+  .registerUser( function (newUserAttrs) {
+    var promise = this.Promise()
+      , password = newUserAttrs.password;
+
+    delete newUserAttrs[password]; // Don't store password
+    newUserAttrs.salt = bcrypt.genSaltSync(10);
+    newUserAttrs.hash = bcrypt.hashSync(password, salt);
+
+    // Create a new user in your data store
+    createUser( newUserAttrs, function (err, createdUser) {
+      if (err) return promise.fail(err);
+      return promise.fulfill(createdUser);
+    });
+
+    return promise;
+  })
+  .authenticate( function (login, password) {
+    var promise
+      , errors = [];
+    if (!login) errors.push('Missing login.');
+    if (!password) errors.push('Missing password.');
+    if (errors.length) return errors;
+
+    promise = this.Promise();
+
+    // findUser passes an error or user to a callback after finding the
+    // user by login
+    findUser( login, function (err, user) {
+      if (err) {
+        errors.push(err.message || err);
+        return promise.fulfill(errors);
+      }
+      if (!user) {
+        errors.push('User with login ' + login + ' does not exist.');
+        return promise.fulfill(errors);
+      }
+      bcrypt.compare(password, user.hash, function (err, didSucceed) {
+        if (err) {
+          return promise.fail(err);
+          errors.push('Wrong password.');
+          return promise.fulfill(errors);
+        }
+        if (didSucceed) return promise.fulfill(user);
+        errors.push('Wrong password.');
+        return promise.fulfill(errors);
+      });
+    });
+
+    return promise;
+  })
+```
+
 ## Other Modules
 
 ### GitHub OAuth
