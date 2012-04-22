@@ -80,7 +80,8 @@ everyauth.middleware = function () {
         if (!auth || !auth.userId) return next();
         var everymodule = everyauth.everymodule;
         var pause = __pause(req);
-        everymodule.findUserById()(auth.userId, function (err, user) {
+
+        var findUserById_callback = function (err, user) {
           if (err) {
             pause.resume();
             return next(err);
@@ -89,7 +90,14 @@ everyauth.middleware = function () {
           else delete sess.auth;
           next();
           pause.resume();
-        });
+        }; 
+
+        var findUserById_function = everymodule.findUserById();
+        
+        findUserById_function.length === 3
+          ? findUserById_function( req, auth.userId, findUserById_callback )
+          : findUserById_function(      auth.userId, findUserById_callback );
+
       }
     , connect.router(function (app) {
         var modules = everyauth.enabled
