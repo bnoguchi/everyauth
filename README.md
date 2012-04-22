@@ -2559,6 +2559,7 @@ with changes to the README.
   everyauth](http://nodeblog.cloudapp.net/implementing-windows-azure-acs-with-everyauth)
 - [OAuth: Logging In with EveryAuth and NodeJS](http://blog.koostudios.com/?p=453)
 - [Calling the github API with node.js](http://www.garann.com/dev/2011/calling-the-github-api-with-node-js/)
+- [Simple Node.js Express MVR Template](http://benedmunds.com/2012/04/19/simple-nodejs-express-mvr-template/)
 
 ---
 ## Author
