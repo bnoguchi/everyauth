@@ -40,6 +40,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle"> OpenStreetMap       <td> <a href="https://github.com/christophlsa">Christoph Giesel</a>
     <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
+    <tr> <td> <img src="https://github.com/biggora/everyauth/raw/master/media/mailru.ico" style="vertical-align:middle"> Mail.ru (Russian Social Network) <td> <a href="https://github.com/biggora">Alexey Gordeyev</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
@@ -1305,6 +1306,42 @@ connect(
 ).listen(3000);
 ```
 
+### Mail.ru OAuth2
+
+First, register an app [on mail.ru](http://api.mail.ru/apps/my/add/).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mailru
+    .appId('YOUR CONSUMER KEY HERE')
+    .appSecret('YOUR CONSUMER SECRET HERE')
+    .scope('messages')
+    .entryPath('/auth/mailru')
+    .callbackPath('/auth/mailru/callback')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailruUser)  {
+          // find or create user logic goes here
+          // Return a user or Promise that promises a user
+          // Promises are created via
+          // var promise = this.Promise();
+          // return promise;
+    })
+    .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
 ### Yahoo OAuth
 
 ```javascript
@@ -2496,6 +2533,8 @@ Thanks to the following contributors for the following modules:
   - Dwolla
 - [Alexey Simonenko](https://github.com/meritt)
   - VKontakte
+- [Alexey Gordeyev](https://github.com/biggora)
+  - Mail.ru
 - [Rodolphe Stoclin](https://github.com/srod)
   - Skyrock
 - [Danny Amey](https://github.com/dannyamey)

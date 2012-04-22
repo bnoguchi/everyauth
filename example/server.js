@@ -49,6 +49,7 @@ var usersByTripIt = {};
 var usersBy500pxId = {};
 var usersBySoundCloudId = {};
 var usersByMailchimpId = {};
+var usersMailruId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -326,6 +327,15 @@ everyauth.vkontakte
   })
   .redirectPath('/');
 
+everyauth.mailru
+  .appId(conf.mailru.appId)
+  .appSecret(conf.mailru.appSecret)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mlUserMetadata) {
+    return usersMailruId[mlUserMetadata.uid] ||
+      (usersMailruId[mlUserMetadata.uid] = addUser('mailru', mlUserMetadata));
+  })
+  .redirectPath('/');
+
 everyauth.skyrock
   .consumerKey(conf.skyrock.consumerKey)
   .consumerSecret(conf.skyrock.consumerSecret)
@@ -380,7 +390,7 @@ everyauth
         (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
     })
     .redirectPath('/');
-    
+
 everyauth
   .mailchimp
     .appId(conf.mailchimp.appId)
