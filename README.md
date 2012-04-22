@@ -2507,6 +2507,20 @@ You can also configure the timeout period on a per module basis. For example, th
 everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
 ```
 
+### For coffee-script lovers
+
+Everyauth also supports a special method `configure` for coffee-script
+aficionados. Coffee and chainable APIs often don't mix well. As an alternative,
+you can configure an everyauth module using an `Object` passed to `configure`:
+
+```coffee-script
+everyauth.dropbox.configure
+  consumerKey:       conf.dropbox.consumerKey
+  consumerSecret:    conf.dropbox.consumerSecret
+  findOrCreateUser:  (sess, accessToken, accessSecret, dbMeta) -> users[dbMeta.uid] or= addUser('dropbox', dbMeta)
+  redirectPath:      '/'
+```
+
 ## In the Wild
 
 The following projects use everyauth.
