@@ -79,44 +79,27 @@ So far, `everyauth` enables you to login via:
     $ npm install everyauth
 
 ## Quick Start
-Using everyauth comes down to just 2 simple steps if using Connect
-or 3 simple steps if using Express:
+
+Incorporate everyauth into your express app in just 2 easy steps.
 
 1. **Choose and Configure Auth Strategies** - Find the authentication strategy
    you desire in one of the sections below. Follow the configuration
    instructions.
-2. **Add the Middleware to Connect**
+2. **Add the Middleware to Express**
 
     ```javascript
     var everyauth = require('everyauth');
     // Step 1 code goes here
 
     // Step 2 code
-    var connect = require('connect');
-    var app = connect(
-        connect.bodyParser()
-      , connect.cookieParser()
-      , connect.session({secret: 'mr ripley'})
-      , everyauth.middleware()
-      , connect.router(routes)
-    );
+    var express = require('express');
+    var app = express();
+    app
+      .use(express.bodyParser())
+      .use(express.cookieParser('mr ripley'))
+      .use(express.session())
+      .use(everyauth.middleware(app));
     ```
-3. **Add View Helpers to Express**
-
-    ```javascript
-    // Step 1 code
-    // ...
-    // Step 2 code
-    // ...
-
-    // Step 3 code
-    everyauth.helpExpress(app);
-
-    app.listen(3000);
-    ```
-
-    For more about what view helpers `everyauth` adds to your app, see the section
-    titled "Express Helpers" near the bottom of this README.
 
 ## Example Application
 
