@@ -441,6 +441,14 @@ everyauth.facebookCanvas
 Note that you must also configure the usual Facebook configurations described
 above in order for this to work.
 
+You can tell if the user logged in via the canvas interface using the following test:
+
+```javascript
+if (everyauth.facebookCanvas) {
+  // Do something different
+}
+```
+
 
 ## Twitter OAuth
 
