@@ -76,6 +76,19 @@
   #tripit-login
     a(href='/auth/tripit', style='border: 0px')
       img(src='http://www.tripit.com/images/logos/logo_90x40_trans.gif', title='Login with TripIt')
+  #500px-login
+    a(href='/auth/500px', style='border: 0px') Login with 500px
+  #soundcloud-login
+    a(href='/auth/soundcloud', style='border: 0px')
+      img(src='http://connect.soundcloud.com/2/btn-connect-sc-l.png', title='Login with SoundCloud')
+  #mixi-login
+    a(href='/auth/mixi', style='border: 0px') 
+      img(src='http://mixi.co.jp/press/images/thumb_press_def.gif', title='Login with mixi')
+  #mailchimp-login
+    a(href='/auth/mailchimp',style='border: 0px') Login with Mailchimp
+  #mendeley-login
+    a(href='/auth/mendeley', style='border: 0px') 
+      img(src='http://d1rktifm8krpj.cloudfront.net/graphics/commonnew/logo-mendeley_1248201417297118.png', title='Login with Mendeley')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -155,6 +168,20 @@
   - if (everyauth.tripit)
     h3 TripIt User Data
     p= JSON.stringify(everyauth.tripit.user)
-  
+  - if (everyauth['500px'])
+    h3 500px User Data
+    p= JSON.stringify(everyauth['500px'].user)
+  - if (everyauth['soundcloud'])
+    h3 SoundCloud User Data
+    p= JSON.stringify(everyauth['soundcloud'].user)
+  - if (everyauth.mixi)
+    h3 mixi User Data
+    p= JSON.stringify(everyauth.mixi.user)
+  - if (everyauth.mailchimp)
+    h3 mailchimp User Data
+    p= JSON.stringify(everyauth.mailchimp.user)
+  - if (everyauth.mendeley)
+    h3 Mendeley User Data
+    p= JSON.stringify(everyauth.mendeley.user)
   h3
     a(href='/logout') Logout

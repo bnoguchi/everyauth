@@ -1,6 +1,6 @@
-TESTS = $(shell find test/ -name '*.test.js')
+TESTS = $(shell find test/ -name '*.tobi.js' -o -name '*.test.js')
 
 test:
-	node $(TESTS)
+	mocha --reporter spec $(TESTS)
 
 .PHONY: test

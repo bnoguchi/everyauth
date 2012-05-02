@@ -1,6 +1,7 @@
 var express = require('express')
   , everyauth = require('../index')
-  , conf = require('./conf');
+  , conf = require('./conf')
+  , everyauthRoot = __dirname + '/..';
 
 everyauth.debug = true;
 
@@ -46,6 +47,11 @@ var usersBySkyrockId = {};
 var usersByEvernoteId = {};
 var usersByAzureAcs = {};
 var usersByTripIt = {};
+var usersBy500pxId = {};
+var usersBySoundCloudId = {};
+var usersByMailchimpId = {};
+var usersMailruId = {};
+var usersByMendeleyId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -215,7 +221,7 @@ everyauth.linkedin
 everyauth.google
   .appId(conf.google.clientId)
   .appSecret(conf.google.clientSecret)
-  .scope('https://www.google.com/m8/feeds/')
+  .scope('https://www.googleapis.com/auth/userinfo.profile https://www.google.com/m8/feeds/')
   .findOrCreateUser( function (sess, accessToken, extra, googleUser) {
     googleUser.refreshToken = extra.refresh_token;
     googleUser.expiresIn = extra.expires_in;
@@ -331,11 +337,20 @@ everyauth.vkontakte
   })
   .redirectPath('/');
 
+everyauth.mailru
+  .appId(conf.mailru.appId)
+  .appSecret(conf.mailru.appSecret)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mlUserMetadata) {
+    return usersMailruId[mlUserMetadata.uid] ||
+      (usersMailruId[mlUserMetadata.uid] = addUser('mailru', mlUserMetadata));
+  })
+  .redirectPath('/');
+
 everyauth.skyrock
   .consumerKey(conf.skyrock.consumerKey)
   .consumerSecret(conf.skyrock.consumerSecret)
   .findOrCreateUser( function (sess, accessToken, accessTokenExtra, skyrockUser) {
-    return usersBySkyrockId[skyrockUser.id] || (usersBySkyrockId[skyrockUser.id] = addUser('skyrock', skyrockUser));
+    return usersBySkyrockId[skyrockUser.id_user] || (usersBySkyrockId[skyrockUser.id_user] = addUser('skyrock', skyrockUser));
   })
   .redirectPath('/');
 
@@ -357,6 +372,54 @@ everyauth.tripit
   })
   .redirectPath('/');
 
+everyauth['500px']
+  .consumerKey(conf._500px.consumerKey)
+  .consumerSecret(conf._500px.consumerSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersBy500pxId[user.id] || (usersBy500pxId[user.id] = addUser('500px', user));
+  })
+  .redirectPath('/');
+
+everyauth.mendeley
+  .consumerKey(conf.mendeley.consumerKey)
+  .consumerSecret(conf.mendeley.consumerSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = addUser('mendeley', user));
+  })
+  .redirectPath('/');
+
+everyauth
+  .soundcloud
+    .appId(conf.soundcloud.appId)
+    .appSecret(conf.soundcloud.appSecret)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, soundcloudUser) {
+      return usersBySoundCloudId[soundcloudUser.id] || (usersBySoundCloudId[soundcloudUser.id] = addUser('soundcloud', soundcloudUser));
+    })
+    .redirectPath('/');
+
+everyauth
+  .mixi
+    .appId(conf.mixi.consumerKey)
+    .appSecret(conf.mixi.consumerSecret)
+    .scope(conf.mixi.scope)
+    .display('pc')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
+      return usersByFbId[mixiUserMetadata.id] ||
+        (usersByFbId[mixiUserMetadata.id] = addUser('mixi', mixiUserMetadata));
+    })
+    .redirectPath('/');
+
+everyauth
+  .mailchimp
+    .appId(conf.mailchimp.appId)
+    .appSecret(conf.mailchimp.appSecret)
+    .myHostname(process.env.HOSTNAME || "http://127.0.0.1:3000")//MC requires 127.0.0.1 for dev
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailchimpUser){
+      return usersByMailchimpId[mailchimpUser.id] ||
+        (usersByMailchimpId[mailchimpUser.user_id] = addUser('mailchimp', mailchimpUser));
+    })
+    .redirectPath("/");
+
 var app = express.createServer(
     express.bodyParser()
   , express.static(__dirname + "/public")
@@ -368,15 +431,16 @@ var app = express.createServer(
 
 app.configure( function () {
   app.set('view engine', 'jade');
+  app.set('views', everyauthRoot + '/example/views');
 });
 
 app.get('/', function (req, res) {
   res.render('home');
 });
 
-everyauth.helpExpress(app);
-
 app.listen(3000);
 
 console.log('Go to http://local.host:3000');
 console.log('For Windows Live Go to http://local.hosti:3000');
+
+module.exports = app;

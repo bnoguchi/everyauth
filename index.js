@@ -2,7 +2,11 @@ var connect = require('connect')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
-everyauth.helpExpress = require('./lib/expressHelper');
+
+everyauth.helpExpress = function () {
+  console.warn('everyauth.helpExpress is being deprecated. helpExpress is now automatically invoked when it detects express. So remove everyauth.helpExpress from your code');
+  return this;
+}
 
 everyauth.debug = false;
 
@@ -13,6 +17,49 @@ everyauth.debug = false;
 //       , ...
 //     )
 everyauth.middleware = function () {
+  var oldUse = connect.HTTPServer.prototype.use;
+  connect.HTTPServer.prototype.use = function (route, handle) {
+    if (! (handle && handle.everyauth)) {
+      return oldUse.call(this, route, handle);
+    }
+    if (this.set) { /* If the context is an express app */
+      var parentApp = this;
+      // Then decorate the parent app as soon as we mount everyauth as middleware
+      // so that any views accessible from the parent app have dynamic helpers
+      // related to everyauth.
+      var helpers = {}
+        , userAlias = everyauth.expressHelperUserAlias || 'user';
+      helpers.everyauth = function (req, res) {
+        var sess = req.session
+          , auth = sess.auth
+          , ea = { loggedIn: !!(auth && auth.loggedIn) };
+
+        // Copy the session.auth properties over
+        for (var k in auth) {
+          ea[k] = auth[k];
+        }
+
+        if (everyauth.enabled.password) {
+          // Add in access to loginFormFieldName() + passwordFormFieldName()
+          ea.password || (ea.password = {});
+          ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
+          ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
+        }
+
+        ea.user = req.user;
+
+        return ea;
+      };
+      helpers[userAlias] = function (req, res) {
+        return req.user;
+      };
+      parentApp.dynamicHelpers(helpers);
+    }
+    connect.HTTPServer.prototype.use = oldUse;
+    return this.use(route, handle);
+  };
+
+
   var app = connect(
       function registerReqGettersAndMethods (req, res, next) {
         var methods = everyauth._req._methods
@@ -29,31 +76,42 @@ everyauth.middleware = function () {
       }
     , function fetchUserFromSession (req, res, next) {
         var sess = req.session
-          , auth = sess && sess.auth
-          , everymodule, findUser;
-        if (!auth) return next();
-        if (!auth.userId) return next();
-        everymodule = everyauth.everymodule;
-        if (!everymodule._findUserById) return next();
+          , auth = sess && sess.auth;
+        if (!auth || !auth.userId) return next();
+        var everymodule = everyauth.everymodule;
         var pause = __pause(req);
-        everymodule._findUserById(auth.userId, function (err, user) {
-          if (err) throw err; // TODO Leverage everyauth's error handling
+
+        var findUserById_callback = function (err, user) {
+          if (err) {
+            pause.resume();
+            return next(err);
+          }
           if (user) req.user = user;
           else delete sess.auth;
           next();
           pause.resume();
-        });
+        }; 
+
+        var findUserById_function = everymodule.findUserById();
+        
+        findUserById_function.length === 3
+          ? findUserById_function( req, auth.userId, findUserById_callback )
+          : findUserById_function(      auth.userId, findUserById_callback );
+
       }
     , connect.router(function (app) {
         var modules = everyauth.enabled
           , _module;
         for (var _name in modules) {
           _module = modules[_name];
-          _module.validateSteps();
+          _module.validateSequences();
           _module.routeApp(app);
         }
       })
   );
+
+  app.everyauth = true;
+
   return app;
 };
 
@@ -76,14 +134,10 @@ everyauth
   .addRequestMethod('logout', function () {
     var req = this;
     delete req.session.auth;
-
-  }).addRequestGetter('loggedIn', function () {
+  })
+  .addRequestGetter('loggedIn', function () {
     var req = this;
-    if (req.session && req.session.auth && req.session.auth.loggedIn) {
-      return true;
-    } else {
-      return false;
-    }
+    return !!(req.session && req.session.auth && req.session.auth.loggedIn);
   });
 
 everyauth.modules = {};

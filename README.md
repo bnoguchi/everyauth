@@ -5,6 +5,10 @@ Authentication and authorization (password, facebook, & more) for your node.js C
 
 There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
 
+There is also a Google Groups (recently created)
+[here](http://groups.google.com/group/everyauth) to post questions and discuss
+potential ideas and extensions to the library.
+
 So far, `everyauth` enables you to login via:
 
 <table style="text-align:left">
@@ -37,9 +41,18 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle"> OpenStreetMap       <td> <a href="https://github.com/christophlsa">Christoph Giesel</a>
     <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
+    <tr> <td> <img src="https://github.com/biggora/everyauth/raw/master/media/mailru.ico" style="vertical-align:middle"> Mail.ru (Russian Social Network) <td> <a href="https://github.com/biggora">Alexey Gordeyev</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.ico" style="vertical-align:middle"> TripIt         <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/soundcloud.ico" style="vertical-align:middle"> SoundCloud   <td> <a href="https://github.com/chrisleishman">Chris Leishman</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
+       <td> <a href="https://github.com/ufssf">ufssf</a>
+    <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
+      <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
+       <td> <a href="https://github.com/edy-b">Eduard Baun</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -74,7 +87,7 @@ or 3 simple steps if using Express:
    you desire in one of the sections below. Follow the configuration
    instructions.
 2. **Add the Middleware to Connect**
-        
+
     ```javascript
     var everyauth = require('everyauth');
     // Step 1 code goes here
@@ -90,7 +103,7 @@ or 3 simple steps if using Express:
     );
     ```
 3. **Add View Helpers to Express**
-    
+
     ```javascript
     // Step 1 code
     // ...
@@ -102,7 +115,7 @@ or 3 simple steps if using Express:
 
     app.listen(3000);
     ```
-    
+
     For more about what view helpers `everyauth` adds to your app, see the section
     titled "Express Helpers" near the bottom of this README.
 
@@ -125,11 +138,137 @@ Then point your browser to [http://local.host:3000](http://local.host:3000)
 
 ## Tests
 
-First, spin up the example server (See last section "Example Application").
+    $ npm install everyauth --dev
 
-Then,
+Then, update test/creds.js with credentials that the integration tests use to
+login to each 3rd party service.
 
     $ make test
+
+## Accessing the User
+
+If you are using `express` or `connect`, then `everyauth` 
+provides an easy way to access the user as:
+
+- `req.user` from your app server
+- `everyauth.user` via the `everyauth` helper accessible from your `express` views.
+- `user` as a helper accessible from your `express` views
+
+To access the user, configure `everyauth.everymodule.findUserById` and
+optionally `everyauth.everymodule.userPkey`.
+For example, using [mongoose](http://github.com/LearnBoost/mongoose):
+
+```javascript
+everyauth.everymodule.findUserById( function (userId, callback) {
+  User.findById(userId, callback);
+  // callback has the signature, function (err, user) {...}
+});
+```
+
+If you need access to the request object the function can have three arguments:
+
+```javascript
+everyauth.everymodule.findUserById( function (req, userId, callback) {
+
+  // use the request in some way ...
+
+  // callback has the signature, function (err, user) {...}
+});
+```
+
+Once you have configured this method, you now have access to the user object
+that was fetched anywhere in your server app code as `req.user`. For instance:
+
+```javascript
+var app = require('express').createServer()
+
+// Configure your app
+
+app.get('/', function (req, res) {
+  console.log(req.user);  // FTW!
+  res.render('home');
+});
+```
+
+Moreover, you can access the user in your views as `everyauth.user` or as `user`.
+
+    //- Inside ./views/home.jade
+    span.user-id= everyauth.user.name
+    #user-id= user.id
+
+`everyauth` assumes that you store your users with an `id` property. If not --
+e.g, if you adopt the convention `user.uid` over `user.id` -- then just make
+sure to configure the `everyauth.everymodule.userPkey` parameter:
+
+```javascript
+everyauth.everymodule.userPkey('uid');
+```
+
+## Express Helpers
+
+If you are using express, everyauth comes with some useful dynamic helpers.
+To enable them:
+
+```javascript
+var express = require('express')
+  , everyauth = require('everyauth')
+  , app = express.createServer();
+
+everyauth.helpExpress(app);
+```
+
+Then, from within your views, you will have access to the following helpers methods
+attached to the helper, `everyauth`:
+
+- `everyauth.loggedIn`
+- `everyauth.user` - the User document associated with the session
+- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
+  so you can do things like ...
+- `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
+- `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
+  for authorized API calls on behalf of the user.
+- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
+  `everyauth.github.user`, etc.
+
+You also get access to the view helper
+
+- `user` - the same as `everyauth.user` above
+
+As an example of how you would use these, consider the following `./views/user.jade` jade template:
+
+    .user-id
+      .label User Id
+      .value #{user.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
+If you already have an express helper named `user`, then you can configure
+`everyauth` to use a different helper name to access the user object that
+everyauth manages. To do so, leverage the `userAlias` option for
+`everyauth.helpExpress`:
+
+```javascript
+everyauth.helpExpress(app, { userAlias: '__user__' });
+```
+
+Then, you could access the user object in your view with the helper `__user__`
+instead of the default helper `user`. So you can compare with the default use
+of helpers given previously, the alternative leveraging userAlias would look like:
+
+    .user-id
+      .label User Id
+      .value #{__user__.id}
+    .facebook-id
+      .label User Facebook Id
+      .value #{everyauth.facebook.user.id}
+
+`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
+From any scope that has access to `req`, you get the following convenience getters and methods:
+
+- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
+- `req.user`     - the User document associated with the session
+- `req.logout()` - clears the sesion of your auth data
 
 ## Logging Out
 
@@ -160,30 +299,42 @@ everyauth.everymodule.handleLogout( function (req, res) {
   
   // And/or put your extra logic here
   
-  res.writeHead(303, { 'Location': this.logoutRedirectPath() });
-  res.end();
+  this.redirect(res, this.logoutRedirectPath());
 });
 ```
 
-## Custom redirect on login or registration
+## Custom redirect on password-based login or registration
 
 You may want your own callback that decides where to send a user after login or registration.  One way of doing this is with the `respondToLoginSucceed` and `respondToRegistrationSucceed` methods.  This assumes that you have set a `.redirectTo` property on your `req.session` object:
 
-```
+```javascript
 everyauth.password
   .respondToLoginSucceed( function (res, user, data) {
     if (user) {
-      res.writeHead(303, {'Location': data.session.redirectTo});
-      res.end();
+      this.redirect(res, data.session.redirectTo)
     }   
   })
   .respondToRegistrationSucceed( function (res, user, data) {
-    res.writeHead(303, {'Location': data.session.redirectTo});
-    res.end();
+    this.redirect(res, data.session.redirectTo)
   })
 ```
 
-## Setting up Facebook Connect
+If you are using express and want your redirects to be subject to [express
+redirect mapping](http://expressjs.com/guide.html#res.redirect\(\)), you can
+overwrite redirect method employed by everyauth.
+
+```javascript
+everyauth.everymodule
+  .performRedirect( function (res, location) {
+    res.redirect(location, 303);
+  });
+```
+
+A newly defined method will be used by everyauth to perform all redirects.
+
+# Auth Strategy Instructions
+
+## Facebook Connect
 
 ```javascript
 var everyauth = require('everyauth')
@@ -225,7 +376,8 @@ the same chainable API:
 everyauth.facebook
   .entryPath('/auth/facebook')
   .callbackPath('/auth/facebook/callback')
-  .scope('email')                // Defaults to undefined
+  .scope('email')                        // Defaults to undefined
+  .fields('id,name,email,picture')       // Controls the returned fields. Defaults to undefined
 ```
 
 If you want to see what the current value of a
@@ -233,6 +385,7 @@ configured parameter is, you can do so via:
 
 ```javascript
 everyauth.facebook.scope(); // undefined
+everyauth.facebook.fields(); // undefined
 everyauth.facebook.entryPath(); // '/auth/facebook'
 ```
 
@@ -243,7 +396,7 @@ object whose parameter name keys map to description values:
 everyauth.facebook.configurable();
 ```
 
-#### Dynamic Facebook Connect Scope
+### Dynamic Facebook Connect Scope
 
 Facebook provides many different 
 [permissions](http://developers.facebook.com/docs/authentication/permissions/)
@@ -280,7 +433,7 @@ everyauth.facebook
 
 ```
 
-#### Facebook Mobile OAuth Dialog
+### Facebook Mobile OAuth Dialog
 If you are programming for mobile, you can bring up the facebook mobile OAuth
 dialog instead of the traditional desktop browser-based one by just adding
 `mobile(true)` to your configuration as seen here:
@@ -293,7 +446,7 @@ everyauth.facebook
   // rest of configuration
 ```
 
-## Setting up Twitter OAuth
+## Twitter OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -368,7 +521,7 @@ object whose parameter name keys map to description values:
 everyauth.twitter.configurable();
 ```
 
-## Setting up Password Authentication
+## Password Authentication
 
 ```javascript
 var everyauth = require('everyauth')
@@ -486,7 +639,7 @@ object whose parameter name keys map to description values:
 everyauth.password.configurable();
 ```
 
-### Password Recipe 1: Extra registration data besides login + password
+### Password Recipe 1: Extra registration data
 
 Sometimes your registration will ask for more information from the user besides the login and password.
 
@@ -502,6 +655,23 @@ everyauth.password.extractExtraRegistrationParams( function (req) {
       }
   };
 });
+```
+
+Then, you will have access to this data from within your configured
+`validateRegistration` and `registerUser`:
+
+```javascript
+everyauth.password
+  .validateRegistration( function (newUserAttributes) {
+    var phone = newUserAttributes.phone
+      , firstName = newUserAttributes.name.first
+      , lastName = newUserAttributes.name.last;
+  })
+  .registerUser( function (newUserAttributes) {
+    var phone = newUserAttributes.phone
+      , firstName = newUserAttributes.name.first
+      , lastName = newUserAttributes.name.last;
+  });
 ```
 
 ### Password Recipe 2: Logging in with email or phone number
@@ -605,7 +775,77 @@ everyauth.password
   });
 ```
 
-## Setting up GitHub OAuth
+### Password Recipe 5: Password Hashing
+
+By default, everyauth is agnostic about how you decide to store your users and
+therefore passwords. However, one should *always* use password hashing and
+salting for security.
+
+Here's an example of how to incorporate password hashing into everyauth using
+bcrypt hashing. The idea is to store a salt and hash value inside your user object
+instead of the password. The hash value is generated from the password (sent with a
+registration or login request) and unique salt per user, using the bcrypt algorithm.
+
+```javascript
+// Make sure to `npm install bcrypt`
+var bcrypt = require('bcrypt');
+
+everyauth.password
+  .registerUser( function (newUserAttrs) {
+    var promise = this.Promise()
+      , password = newUserAttrs.password;
+
+    delete newUserAttrs[password]; // Don't store password
+    newUserAttrs.salt = bcrypt.genSaltSync(10);
+    newUserAttrs.hash = bcrypt.hashSync(password, salt);
+
+    // Create a new user in your data store
+    createUser( newUserAttrs, function (err, createdUser) {
+      if (err) return promise.fail(err);
+      return promise.fulfill(createdUser);
+    });
+
+    return promise;
+  })
+  .authenticate( function (login, password) {
+    var promise
+      , errors = [];
+    if (!login) errors.push('Missing login.');
+    if (!password) errors.push('Missing password.');
+    if (errors.length) return errors;
+
+    promise = this.Promise();
+
+    // findUser passes an error or user to a callback after finding the
+    // user by login
+    findUser( login, function (err, user) {
+      if (err) {
+        errors.push(err.message || err);
+        return promise.fulfill(errors);
+      }
+      if (!user) {
+        errors.push('User with login ' + login + ' does not exist.');
+        return promise.fulfill(errors);
+      }
+      bcrypt.compare(password, user.hash, function (err, didSucceed) {
+        if (err) {
+          return promise.fail(err);
+          errors.push('Wrong password.');
+          return promise.fulfill(errors);
+        }
+        if (didSucceed) return promise.fulfill(user);
+        errors.push('Wrong password.');
+        return promise.fulfill(errors);
+      });
+    });
+
+    return promise;
+  })
+```
+
+## Other Modules
+
+### GitHub OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -659,7 +899,7 @@ object whose parameter name keys map to description values:
 everyauth.github.configurable();
 ```
 
-## Setting up Instagram OAuth
+### Instagram OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -715,7 +955,7 @@ object whose parameter name keys map to description values:
 everyauth.instagram.configurable();
 ```
 
-## Setting up Foursquare OAuth
+### Foursquare OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -766,7 +1006,7 @@ object whose parameter name keys map to description values:
 everyauth.foursquare.configurable();
 ```
 
-## Setting up LinkedIn OAuth
+### LinkedIn OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -872,6 +1112,8 @@ To run the Windows Live sample please run access the server through the url loca
 since Windows Live limits the apps by one app per domain and local.host was taken.
 
 ## Setting up Google OAuth2
+=======
+### Google OAuth2
 
 ```javascript
 var everyauth = require('everyauth')
@@ -934,7 +1176,7 @@ object whose parameter name keys map to description values:
 everyauth.google.configurable();
 ```
 
-## Setting up Gowalla OAuth2
+### Gowalla OAuth2
 
 ```javascript
 var everyauth = require('everyauth')
@@ -995,7 +1237,7 @@ object whose parameter name keys map to description values:
 everyauth.gowalla.configurable();
 ```
 
-## Setting up 37signals (Basecamp, Highrise, Backpack, Campfire) OAuth2
+### 37signals (Basecamp, Highrise, Backpack, Campfire) OAuth2
 
 First, register an app at [integrate.37signals.com](https://integrate.37signals.com).
 
@@ -1057,7 +1299,7 @@ object whose parameter name keys map to description values:
 everyauth['37signals'].configurable();
 ```
 
-## Setting up AngelList OAuth2
+### AngelList OAuth2
 
 First, register an app [on AngelList](http://angel.co/api/oauth/clients).
 
@@ -1112,7 +1354,7 @@ object whose parameter name keys map to description values:
 everyauth.angellist.configurable();
 ```
 
-## Setting up Dwolla OAuth2
+### Dwolla OAuth2
 
 First, register an app [on Dwolla](http://www.dwolla.com/developers).
 
@@ -1137,7 +1379,7 @@ var routes = function (app) {
 };
 ```
 
-## Setting up Skyrock OAuth
+### Skyrock OAuth
 
 First, register an app [on Skyrock](http://www.skyrock.com/developer/).
 
@@ -1169,7 +1411,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up VKontakte OAuth2
+### VKontakte OAuth2
 
 First, register an app [on VKontakte](http://vk.com/editapp?act=create&site=1).
 
@@ -1202,7 +1444,43 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Yahoo OAuth
+### Mail.ru OAuth2
+
+First, register an app [on mail.ru](http://api.mail.ru/apps/my/add/).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mailru
+    .appId('YOUR CONSUMER KEY HERE')
+    .appSecret('YOUR CONSUMER SECRET HERE')
+    .scope('messages')
+    .entryPath('/auth/mailru')
+    .callbackPath('/auth/mailru/callback')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailruUser)  {
+          // find or create user logic goes here
+          // Return a user or Promise that promises a user
+          // Promises are created via
+          // var promise = this.Promise();
+          // return promise;
+    })
+    .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### Yahoo OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1253,7 +1531,7 @@ object whose parameter name keys map to description values:
 everyauth.yahoo.configurable();
 ```
 
-## Setting up Readability OAuth
+### Readability OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1307,7 +1585,7 @@ object whose parameter name keys map to description values:
 everyauth.readability.configurable();
 ```
 
-## Setting up Dropbox OAuth
+### Dropbox OAuth
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1361,7 +1639,7 @@ object whose parameter name keys map to description values:
 everyauth.dropbox.configurable();
 ```
 
-## Setting up Justin.tv OAuth
+### Justin.tv OAuth
 
 [Sign up for a Justin.tv account](http://www.justin.tv/user/signup) and activate it as a [developer account](http://www.justin.tv/developer/activate) to get your consumer key and secret.
 
@@ -1442,7 +1720,7 @@ To see all parameters that are configurable, the following will return an object
 everyauth.justintv.configurable();
 ```
 
-## Setting up Vimeo OAuth
+### Vimeo OAuth
 
 You will first need to sign up for a [developer application](http://vimeo.com/api/applications) to get the consumer key and secret.
 
@@ -1498,7 +1776,7 @@ object whose parameter name keys map to description values:
 everyauth.vimeo.configurable();
 ```
 
-## Setting up Tumblr OAuth (1.a)
+### Tumblr OAuth (1.a)
 
 You will first need to [register an app](http://www.tumblr.com/oauth/register) to get the consumer key and secret.
 During registration of your new app, enter a "Default callback URL" of "http://<hostname>:<port>/auth/tumblr/callback".
@@ -1556,7 +1834,7 @@ object whose parameter name keys map to description values:
 everyauth.tumblr.configurable();
 ```
 
-## Setting up Evernote OAuth (1.a)
+### Evernote OAuth (1.a)
 
 You will first need to [request an API key](http://www.evernote.com/about/developer/api/#key) to get the consumer key and secret.  Note that this consumer key and secret will only be valid for the sandbox rather than the production OAuth host.  By default the Evernote module will use the production host, so you'll need to override this using the chainable API if you're using the sandbox.
 
@@ -1614,7 +1892,7 @@ object whose parameter name keys map to description values:
 everyauth.evernote.configurable();
 ```
 
-## Setting up OpenStreetMap OAuth
+### OpenStreetMap OAuth
 
 You will first need to [login to OpenStreetMap](http://www.openstreetmap.org). Then register you application on your OpenStreetMap user page via the View my OAuth details link on the bottom of the page to get the consumer key and secret. The registered application does not need any permission listed there to login via OAuth.
 
@@ -1672,7 +1950,7 @@ object whose parameter name keys map to description values:
 everyauth.osm.configurable();
 ```
 
-## Setting up TripIt OAuth (1.0)
+### TripIt OAuth (1.0)
 
 Obtain consumer key and consumer secret for your app by [registering it](http://www.tripit.com/developer/create).
 Please note that TripIt is using _API Key_ and _API Secret_ terminology: use those values as describe below.
@@ -1702,8 +1980,196 @@ connect(
 ).listen(3000);
 ```
 
+### 500px OAuth (1.0)
 
-## Setting up OpenID protocol
+You will first need to [request an API key](http://developer.500px.com/oauth_clients/new) to get the consumer key and secret.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth['500px']
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersBy500pxId[user.userId] || (usersBy500pxId[user.userId] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### SoundCloud OAuth2
+
+You will first need to [register an app](http://soundcloud.com/you/apps) to get the client id and secret.
+During registration of your new app, enter a "Default callback URL" of "http://<hostname>:<port>/auth/soundcloud/callback".
+Once you register your app, copy down your "Client ID" and "Client Secret" and proceed below.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.soundcloud
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .handleAuthCallbackError( function (req, res) {
+    // TODO - Update this documentation
+    // This configurable route handler defines how you want to respond to
+    // a response from SoundCloud that something went wrong during the oauth2 process.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, soundcloudUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.soundcloud
+  .entryPath('/auth/soundcloud')
+  .callbackPath('/auth/soundcloud/callback');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.soundcloud.scope(); // undefined
+everyauth.soundcloud.display(); // undefined
+everyauth.soundcloud.entryPath(); // '/auth/soundcloud'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.soundcloud.configurable();
+```
+
+### mixi OAuth2
+
+First, register an app [on mixi](http://developer.mixi.co.jp).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mixi
+  .appId('YOUR CONSUMER KEY HERE')
+  .appSecret('YOUR CONSUMER SECRET HERE')
+  .display('pc') //specify device types of access: See http://developers.mixi.co.jp/
+  .scope('r_profile') //specify types of access: See http://developers.mixi.co.jp/
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mixiUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+```
+
+### Mailchimp OAuth2
+
+First, register an app [in Mailchimp](http://login.mailchimp.com).
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.mailchimp
+  .appId('YOUR CLIENT KEY HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .myHostname(process.env.HOSTNAME || "http://127.0.0.1:3000")//MC requires 127.0.0.1 for dev
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailchimpUserData) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey. 
+    // You'll want to work with mailchimpUserData.user_id for queries
+    // and mailchimpUserData.apikey for your API wrapper
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### Mendeley OAuth (1.0)
+
+You will first need to [register your application](http://dev.mendeley.com/applications/register/) to get the consumer key and secret.
+
+```javascript
+everyauth.mendeley
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### OpenID protocol
 
 OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
 
@@ -1752,7 +2218,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Google OpenID+OAuth Hybrid protocol
+### Google OpenID+OAuth Hybrid protocol
 
 OpenID+OAuth Hybrid protocol allows you to combine an openid auth request with a oauth access request. You can read more information about it here http://code.google.com/apis/accounts/docs/OpenID.html
 
@@ -1786,7 +2252,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Box.net Auth
+### Box.net
 
 ```javascript
 var everyauth = require('everyauth')
@@ -1839,7 +2305,7 @@ object whose parameter name keys map to description values:
 everyauth.box.configurable();
 ```
 
-## Setting up LDAP
+### LDAP
 
 The LDAP module is still in development. Do not use it in production yet.
 
@@ -1882,7 +2348,7 @@ connect(
 ).listen(3000);
 ```
 
-## Setting up Windows Azure Access Control Service (ACS) Auth
+### Windows Azure Access Control Service (ACS)
 
 You will need to create a [Windows Azure ACS namespace](http://msdn.microsoft.com/en-us/library/windowsazure/hh674478.aspx). The only caveat when creating the namespace is setting the "Return URL". You will probably [create one Relying Party](http://msdn.microsoft.com/en-us/library/windowsazure/gg429779.aspx) for each environment (dev, qa, prod) and each of them will have a different "Return URL". For instance, dev will be `http://localhost:port/auth/azureacs/callback` and prod could be `https://myapp.com/auth/azureacs/callback` (notice the `/auth/azureacs/callback`, that's where the module will listen the POST with the token from ACS)
 
@@ -1932,111 +2398,6 @@ object whose parameter name keys map to description values:
 everyauth.box.configurable();
 ```
 
-## Accessing the User
-
-If you are using `express` or `connect`, then `everyauth` 
-provides an easy way to access the user as:
-
-- `req.user` from your app server
-- `everyauth.user` via the `everyauth` helper accessible from your `express` views.
-- `user` as a helper accessible from your `express` views
-
-To access the user, configure `everyauth.everymodule.findUserById`.
-For example, using [mongoose](http://github.com/LearnBoost/mongoose):
-
-```javascript
-everyauth.everymodule.findUserById( function (userId, callback) {
-  User.findById(userId, callback);
-  // callback has the signature, function (err, user) {...}
-});
-```
-
-Once you have configured this method, you now have access to the user object
-that was fetched anywhere in your server app code as `req.user`. For instance:
-
-```javascript
-var app = require('express').createServer()
-
-// Configure your app
-
-app.get('/', function (req, res) {
-  console.log(req.user);  // FTW!
-  res.render('home');
-});
-```
-
-Moreover, you can access the user in your views as `everyauth.user` or as `user`.
-
-    //- Inside ./views/home.jade
-    span.user-id= everyauth.user.name
-    #user-id= user.id
-
-## Express Helpers
-
-If you are using express, everyauth comes with some useful dynamic helpers.
-To enable them:
-
-```javascript
-var express = require('express')
-  , everyauth = require('everyauth')
-  , app = express.createServer();
-
-everyauth.helpExpress(app);
-```
-
-Then, from within your views, you will have access to the following helpers methods
-attached to the helper, `everyauth`:
-
-- `everyauth.loggedIn`
-- `everyauth.user` - the User document associated with the session
-- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
-  so you can do things like ...
-- `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
-- `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
-  for authorized API calls on behalf of the user.
-- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
-  `everyauth.github.user`, etc.
-
-You also get access to the view helper
-
-- `user` - the same as `everyauth.user` above
-
-As an example of how you would use these, consider the following `./views/user.jade` jade template:
-
-    .user-id
-      .label User Id
-      .value #{user.id}
-    .facebook-id
-      .label User Facebook Id
-      .value #{everyauth.facebook.user.id}
-
-If you already have an express helper named `user`, then you can configure
-`everyauth` to use a different helper name to access the user object that
-everyauth manages. To do so, leverage the `userAlias` option for
-`everyauth.helpExpress`:
-
-```javascript
-everyauth.helpExpress(app, { userAlias: '__user__' });
-```
-
-Then, you could access the user object in your view with the helper `__user__`
-instead of the default helper `user`. So you can compare with the default use
-of helpers given previously, the alternative leveraging userAlias would look like:
-
-    .user-id
-      .label User Id
-      .value #{__user__.id}
-    .facebook-id
-      .label User Facebook Id
-      .value #{everyauth.facebook.user.id}
-
-`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
-From any scope that has access to `req`, you get the following convenience getters and methods:
-
-- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
-- `req.user`     - the User document associated with the session
-- `req.logout()` - clears the sesion of your auth data
-
 ## Configuring a Module
 
 everyauth was built with powerful configuration needs in mind.
@@ -2081,6 +2442,20 @@ ea.facebook
 How do we know what arguments the function takes?
 We elaborate more about step function configuration in our 
 `Introspection` section below.
+
+### For coffee-script lovers
+
+Everyauth also supports a special method `configure` for coffee-script
+aficionados. Coffee and chainable APIs often don't mix well. As an alternative,
+you can configure an everyauth module using an `Object` passed to `configure`:
+
+```coffee
+everyauth.dropbox.configure
+  consumerKey:       conf.dropbox.consumerKey
+  consumerSecret:    conf.dropbox.consumerSecret
+  findOrCreateUser:  (sess, accessToken, accessSecret, dbMeta) -> users[dbMeta.uid] or= addUser('dropbox', dbMeta)
+  redirectPath:      '/'
+```
 
 ## Introspection
 
@@ -2210,6 +2585,32 @@ everyauth.debug = true;
 
 Each everyauth auth strategy module is composed of steps. As each step begins and ends, everyauth will print out to the console the beginning and end of each step. So by turning on the debug flag, you get insight into what step everyauth is executing at any time.
 
+For example, here is some example debugging information output to the console
+during a Facebook Connect authorization:
+
+```
+starting step - getAuthUri
+...finished step
+starting step - requestAuthUri
+...finished step
+starting step - getCode
+...finished step
+starting step - getAccessToken
+...finished step
+starting step - fetchOAuthUser
+...finished step
+starting step - getSession
+...finished step
+starting step - findOrCreateUser
+...finished step
+starting step - compile
+...finished step
+starting step - addToSession
+...finished step
+starting step - sendResponse
+...finished step
+```
+
 ### Debugging - Configuring Error Handling
 
 By default, all modules handle errors by throwing them. That said, `everyauth` allows
@@ -2256,19 +2657,51 @@ You can also configure the timeout period on a per module basis. For example, th
 everyauth.facebook.moduleTimeout(3000); // Wait 3 seconds
 ```
 
-## Modules and Projects that use everyauth
+## In the Wild
 
-Currently, the following module uses everyauth. If you are using everyauth
-in a project, app, or module, get in touch to get added to the list below:
+The following projects use everyauth.
+
+If you are using everyauth in a project, app, or module, get on the list below
+by getting in touch or submitting a pull request with changes to the README.
+
+### Startups & Apps
+
+- [Storify](http://storify.com/)
+- [DoodleOrDie](http://doodleordie.com/)
+- [Furkot](http://trips.furkot.com/)
+
+### Modules
 
 - [mongoose-auth](https://github.com/bnoguchi/mongoose-auth) Authorization plugin
   for use with the node.js MongoDB orm.
+- [Heroku's Facebook Node.JS
+  Template](https://github.com/heroku/facebook-template-nodejs)
+- [node-express-boilerplate](https://github.com/mape/node-express-boilerplate)
+- [ExpressStarter](https://github.com/JustinBeckwith/ExpressStarter)
+
+## Tutorials
+
+The following are 3rd party screencasts and blog posts about either getting up
+and running with everyauth or writing your own everyauth modules to support a
+new service.
+
+If you would like your blog post to be included, please submit a pull request
+with changes to the README.
+
+- [NodeTuts: Starting with everyauth](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
+- [Node.js modules you should know about:
+  everyauth](http://www.catonmat.net/blog/nodejs-modules-everyauth/)
+- [Implementing Windows Azure ACS with
+  everyauth](http://nodeblog.cloudapp.net/implementing-windows-azure-acs-with-everyauth)
+- [OAuth: Logging In with EveryAuth and NodeJS](http://blog.koostudios.com/?p=453)
+- [Calling the github API with node.js](http://www.garann.com/dev/2011/calling-the-github-api-with-node-js/)
+- [Simple Node.js Express MVR Template](http://benedmunds.com/2012/04/19/simple-nodejs-express-mvr-template/)
 
 ---
-### Author
+## Author
 Brian Noguchi
 
-### Credits
+## Credits
 
 Thanks to the following contributors for the following modules:
 
@@ -2290,12 +2723,19 @@ Thanks to the following contributors for the following modules:
   - Dwolla
 - [Alexey Simonenko](https://github.com/meritt)
   - VKontakte
+- [Alexey Gordeyev](https://github.com/biggora)
+  - Mail.ru
 - [Rodolphe Stoclin](https://github.com/srod)
   - Skyrock
 - [Or Kaplan](https://github.com/orkaplan)
   - Windows Live
+- [Danny Amey](https://github.com/dannyamey)
+  - 500px
+  - Evernote
+- [Chris Leishman](https://github.com/chrisleishman)
+  - SoundCloud
 
-### MIT License
+## MIT License
 Copyright (c) 2011 by Brian Noguchi
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -2315,4 +2755,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-=======
