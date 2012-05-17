@@ -116,4 +116,8 @@ module.exports = {
       consumerKey: 'Enter your consumer key here'
     , consumerSecret: 'Enter your consumer secret here'
   }
+  , meetup: {
+      appId: 'nurgg46uqquq3eqa957ivnddv9'
+    , appSecret: '6spfeab72gc8f89l735i391rr3'
+  }
 };

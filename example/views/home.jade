@@ -45,6 +45,9 @@
   #readability-login
     a(href='/auth/readability', style='border: 0px')
       img(style='border: 0px', src='https://www.readability.com/media/images/logo_chair.png')
+  #meetup-login
+    a(href='/auth/meetup', style='border: 0px')
+      img(style='border: 0px', src='http://img2.meetupstatic.com/img/header/logo.png')
   #dropbox-login
     a(href='/auth/dropbox', style='border: 0px')
       img(src='https://www.dropbox.com/static/16890/images/logo.png')
@@ -177,5 +180,8 @@
   - if (everyauth.mendeley)
     h3 Mendeley User Data
     p= JSON.stringify(everyauth.mendeley.user)
+  - if (everyauth.meetup)
+    h3 Meetup User Data
+    p= JSON.stringify(everyauth.meetup.user)
   h3
     a(href='/logout') Logout
