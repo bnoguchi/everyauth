@@ -2116,17 +2116,17 @@ connect(
 
 ### RunKeeper OAuth (2.0)
 
-You will first need to [register your application](http://dev.mendeley.com/applications/register/) to get the consumer key and secret.
+You will first need to [register your application](http://runkeeper.com/partner/applications) to get the appId and appSecret.
 
 ```javascript
-everyauth.mendeley
-  .consumerKey('YOUR CONSUMER KEY HERE')
+everyauth.runkeeper
+  .appId('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
   .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
     // find or create user logic goes here
     //
     // e.g.,
-    // return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = user);
+    // return usersByRunKeeperId[user.userID] || (usersByRunKeeperId[user.userID] = user);
   })
   .redirectPath('/');
 
