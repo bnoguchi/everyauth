@@ -265,7 +265,7 @@ of helpers given previously, the alternative leveraging userAlias would look lik
 `everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
 From any scope that has access to `req`, you get the following convenience getters and methods:
 
-- `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
+- `req.session.auth.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
 - `req.user`     - the User document associated with the session
 - `req.logout()` - clears the sesion of your auth data
 
