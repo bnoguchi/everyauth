@@ -794,7 +794,7 @@ everyauth.password
     var promise = this.Promise()
       , password = newUserAttrs.password;
 
-    delete newUserAttrs[password]; // Don't store password
+    delete newUserAttrs.password; // Don't store password
     newUserAttrs.salt = bcrypt.genSaltSync(10);
     newUserAttrs.hash = bcrypt.hashSync(password, salt);
 
