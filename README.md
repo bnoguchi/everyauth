@@ -2197,6 +2197,40 @@ connect(
 ).listen(3000);
 ```
 
+### Smarterer
+
+You will need to register for an app id [here](http://www.smarterer.com/).  Implementation details follow the same pattern as with other
+oauth2 implementations.
+
+```javascript
+
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.smarterer
+  .appId('YOUR APP ID')
+  .appSecret('YOUR APP SECRET')
+  .findOrCreateUser(function(session, accessToken, accessTokenSecret, userData) {
+    // find or create user logic goes here
+    // userData.userName will contain the smarterer username for the authenticated user
+    // userData.badges will contain the scores on quizes
+  })
+  .redirectPath('/');
+
+  var routes = function (app) {
+    // Define your routes here
+  };
+
+  connect(
+      connect.bodyParser()
+    , connect.cookieParser()
+    , connect.session({secret: 'whodunnit'})
+    , everyauth.middleware()
+    , connect.router(routes);
+  ).listen(3000);
+```
+
+
 ### Box.net
 
 ```javascript
