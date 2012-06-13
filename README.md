@@ -52,6 +52,8 @@ So far, `everyauth` enables you to login via:
       <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
        <td> <a href="https://github.com/edy-b">Eduard Baun</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer
+       <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
