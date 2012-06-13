@@ -2217,17 +2217,17 @@ everyauth.smarterer
   })
   .redirectPath('/');
 
-  var routes = function (app) {
-    // Define your routes here
-  };
+var routes = function (app) {
+  // Define your routes here
+};
 
-  connect(
-      connect.bodyParser()
-    , connect.cookieParser()
-    , connect.session({secret: 'whodunnit'})
-    , everyauth.middleware()
-    , connect.router(routes);
-  ).listen(3000);
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
 ```
 
 
