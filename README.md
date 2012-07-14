@@ -60,6 +60,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
+    <tr><td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred                            <td> <a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a>
   </tbody>
 </table>
 
@@ -2375,6 +2376,18 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.box.configurable();
+```
+
+### Dailycred OAuth
+
+```javascript
+everyauth.dailycred
+  .appId(conf.dc.appId)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, dcUserMetadata) {
+    return usersByDcId[dcUserMetadata.id] ||
+      (usersByDcId[dcUserMetadata.id] = addUser('dailycred', dcUserMetadata));
+  })
+  .redirectPath('/');
 ```
 
 ## Configuring a Module

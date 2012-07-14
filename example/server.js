@@ -51,6 +51,7 @@ var usersBySoundCloudId = {};
 var usersByMailchimpId = {};
 var usersMailruId = {};
 var usersByMendeleyId = {};
+var usersByDcId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -59,7 +60,15 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
-
+  
+everyauth.dailycred
+  .appId(conf.dc.appId)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, dcUserMetadata) {
+    return usersByDcId[dcUserMetadata.id] ||
+      (usersByDcId[dcUserMetadata.id] = addUser('dailycred', dcUserMetadata));
+  })
+  .redirectPath('/');
+  
 everyauth.azureacs
   .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
   .entryPath('/auth/azureacs')
