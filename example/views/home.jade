@@ -91,6 +91,8 @@
       label(for='openid_identifier') OpenID Identifier: &nbsp;
       input(type='text', name='openid_identifier')
       input(type='submit') Login
+  #dailycred-login
+    a(href='/auth/dailycred') Login with Dailycred
 - else
   h2 Authenticated
   - if (everyauth.facebook)
