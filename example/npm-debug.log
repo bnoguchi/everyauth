@@ -1,0 +1,3091 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-d' ]
+info using npm@1.1.21
+info using node@v0.6.17
+verbose /usr/local/bin/node node symlink
+verbose config file /Users/hank/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /Users/hank/node/everyauth/package.json
+verbose loadDefaults everyauth@0.2.32
+verbose readDependencies: using package.json deps
+verbose where, deps [ '/Users/hank/node/everyauth',
+verbose where, deps   [ 'oauth',
+verbose where, deps     'request',
+verbose where, deps     'connect',
+verbose where, deps     'openid',
+verbose where, deps     'xml2js',
+verbose where, deps     'node-swt',
+verbose where, deps     'node-wsfederation',
+verbose where, deps     'debug',
+verbose where, deps     'express',
+verbose where, deps     'jade',
+verbose where, deps     'tobi',
+verbose where, deps     'expect.js',
+verbose where, deps     'mocha',
+verbose where, deps     'satisfy' ] ]
+verbose from cache /Users/hank/node/everyauth/package.json
+info preinstall everyauth@0.2.32
+verbose from cache /Users/hank/node/everyauth/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'oauth@https://github.com/ciaranj/node-oauth/tarball/master',
+verbose cache add   null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'oauth@https://github.com/ciaranj/node-oauth/tarball/master',
+silly cache add: name, spec, args   [ 'oauth@https://github.com/ciaranj/node-oauth/tarball/master',
+silly cache add: name, spec, args     null ] ]
+verbose parsed url { pathname: 'oauth@https://github.com/ciaranj/node-oauth/tarball/master',
+verbose parsed url   path: 'oauth@https://github.com/ciaranj/node-oauth/tarball/master',
+verbose parsed url   href: 'oauth@https://github.com/ciaranj/node-oauth/tarball/master' }
+silly cache add: name, spec, args [ 'oauth',
+silly cache add: name, spec, args   'https://github.com/ciaranj/node-oauth/tarball/master',
+silly cache add: name, spec, args   [ 'oauth',
+silly cache add: name, spec, args     'https://github.com/ciaranj/node-oauth/tarball/master' ] ]
+verbose parsed url { protocol: 'https:',
+verbose parsed url   slashes: true,
+verbose parsed url   host: 'github.com',
+verbose parsed url   hostname: 'github.com',
+verbose parsed url   href: 'https://github.com/ciaranj/node-oauth/tarball/master',
+verbose parsed url   pathname: '/ciaranj/node-oauth/tarball/master',
+verbose parsed url   path: '/ciaranj/node-oauth/tarball/master' }
+verbose addRemoteTarball [ 'https://github.com/ciaranj/node-oauth/tarball/master', null ]
+verbose cache add [ 'request@2.9.x', null ]
+silly cache add: name, spec, args [ undefined, 'request@2.9.x', [ 'request@2.9.x', null ] ]
+verbose parsed url { pathname: 'request@2.9.x',
+verbose parsed url   path: 'request@2.9.x',
+verbose parsed url   href: 'request@2.9.x' }
+silly cache add: name, spec, args [ 'request', '2.9.x', [ 'request', '2.9.x' ] ]
+verbose parsed url { pathname: '2.9.x', path: '2.9.x', href: '2.9.x' }
+verbose addNamed [ 'request', '2.9.x' ]
+verbose addNamed [ null, '>=2.9.0- <2.10.0-' ]
+silly name, range, hasData [ 'request', '>=2.9.0- <2.10.0-', false ]
+verbose cache add [ 'connect@>=1 <2', null ]
+silly cache add: name, spec, args [ undefined, 'connect@>=1 <2', [ 'connect@>=1 <2', null ] ]
+verbose parsed url { pathname: 'connect@', path: 'connect@', href: 'connect@' }
+silly cache add: name, spec, args [ 'connect', '>=1 <2', [ 'connect', '>=1 <2' ] ]
+verbose parsed url { pathname: '=1', path: '=1', href: '=1' }
+verbose addNamed [ 'connect', '>=1 <2' ]
+verbose addNamed [ null, '>=1.0.0- <2.0.0-' ]
+silly name, range, hasData [ 'connect', '>=1.0.0- <2.0.0-', false ]
+verbose cache add [ 'openid@>=0.2.0', null ]
+silly cache add: name, spec, args [ undefined, 'openid@>=0.2.0', [ 'openid@>=0.2.0', null ] ]
+verbose parsed url { pathname: 'openid@', path: 'openid@', href: 'openid@' }
+silly cache add: name, spec, args [ 'openid', '>=0.2.0', [ 'openid', '>=0.2.0' ] ]
+verbose parsed url { pathname: '=0.2.0', path: '=0.2.0', href: '=0.2.0' }
+verbose addNamed [ 'openid', '>=0.2.0' ]
+verbose addNamed [ null, '>=0.2.0' ]
+silly name, range, hasData [ 'openid', '>=0.2.0', false ]
+verbose cache add [ 'xml2js@>=0.1.7', null ]
+silly cache add: name, spec, args [ undefined, 'xml2js@>=0.1.7', [ 'xml2js@>=0.1.7', null ] ]
+verbose parsed url { pathname: 'xml2js@', path: 'xml2js@', href: 'xml2js@' }
+silly cache add: name, spec, args [ 'xml2js', '>=0.1.7', [ 'xml2js', '>=0.1.7' ] ]
+verbose parsed url { pathname: '=0.1.7', path: '=0.1.7', href: '=0.1.7' }
+verbose addNamed [ 'xml2js', '>=0.1.7' ]
+verbose addNamed [ null, '>=0.1.7' ]
+silly name, range, hasData [ 'xml2js', '>=0.1.7', false ]
+verbose cache add [ 'node-swt@>=0.1.1', null ]
+silly cache add: name, spec, args [ undefined, 'node-swt@>=0.1.1', [ 'node-swt@>=0.1.1', null ] ]
+verbose parsed url { pathname: 'node-swt@', path: 'node-swt@', href: 'node-swt@' }
+silly cache add: name, spec, args [ 'node-swt', '>=0.1.1', [ 'node-swt', '>=0.1.1' ] ]
+verbose parsed url { pathname: '=0.1.1', path: '=0.1.1', href: '=0.1.1' }
+verbose addNamed [ 'node-swt', '>=0.1.1' ]
+verbose addNamed [ null, '>=0.1.1' ]
+silly name, range, hasData [ 'node-swt', '>=0.1.1', false ]
+verbose cache add [ 'node-wsfederation@>=0.1.1', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'node-wsfederation@>=0.1.1',
+silly cache add: name, spec, args   [ 'node-wsfederation@>=0.1.1', null ] ]
+verbose parsed url { pathname: 'node-wsfederation@',
+verbose parsed url   path: 'node-wsfederation@',
+verbose parsed url   href: 'node-wsfederation@' }
+silly cache add: name, spec, args [ 'node-wsfederation',
+silly cache add: name, spec, args   '>=0.1.1',
+silly cache add: name, spec, args   [ 'node-wsfederation', '>=0.1.1' ] ]
+verbose parsed url { pathname: '=0.1.1', path: '=0.1.1', href: '=0.1.1' }
+verbose addNamed [ 'node-wsfederation', '>=0.1.1' ]
+verbose addNamed [ null, '>=0.1.1' ]
+silly name, range, hasData [ 'node-wsfederation', '>=0.1.1', false ]
+verbose cache add [ 'debug@0.5.0', null ]
+silly cache add: name, spec, args [ undefined, 'debug@0.5.0', [ 'debug@0.5.0', null ] ]
+verbose parsed url { pathname: 'debug@0.5.0',
+verbose parsed url   path: 'debug@0.5.0',
+verbose parsed url   href: 'debug@0.5.0' }
+silly cache add: name, spec, args [ 'debug', '0.5.0', [ 'debug', '0.5.0' ] ]
+verbose parsed url { pathname: '0.5.0', path: '0.5.0', href: '0.5.0' }
+verbose addNamed [ 'debug', '0.5.0' ]
+verbose addNamed [ '0.5.0', '0.5.0' ]
+verbose cache add [ 'express@>=2.3.10', null ]
+silly cache add: name, spec, args [ undefined, 'express@>=2.3.10', [ 'express@>=2.3.10', null ] ]
+verbose parsed url { pathname: 'express@', path: 'express@', href: 'express@' }
+silly cache add: name, spec, args [ 'express', '>=2.3.10', [ 'express', '>=2.3.10' ] ]
+verbose parsed url { pathname: '=2.3.10', path: '=2.3.10', href: '=2.3.10' }
+verbose addNamed [ 'express', '>=2.3.10' ]
+verbose addNamed [ null, '>=2.3.10' ]
+silly name, range, hasData [ 'express', '>=2.3.10', false ]
+verbose cache add [ 'jade@>=0.12.1', null ]
+silly cache add: name, spec, args [ undefined, 'jade@>=0.12.1', [ 'jade@>=0.12.1', null ] ]
+verbose parsed url { pathname: 'jade@', path: 'jade@', href: 'jade@' }
+silly cache add: name, spec, args [ 'jade', '>=0.12.1', [ 'jade', '>=0.12.1' ] ]
+verbose parsed url { pathname: '=0.12.1', path: '=0.12.1', href: '=0.12.1' }
+verbose addNamed [ 'jade', '>=0.12.1' ]
+verbose addNamed [ null, '>=0.12.1' ]
+silly name, range, hasData [ 'jade', '>=0.12.1', false ]
+verbose cache add [ 'tobi@>=0.2.2', null ]
+silly cache add: name, spec, args [ undefined, 'tobi@>=0.2.2', [ 'tobi@>=0.2.2', null ] ]
+verbose parsed url { pathname: 'tobi@', path: 'tobi@', href: 'tobi@' }
+silly cache add: name, spec, args [ 'tobi', '>=0.2.2', [ 'tobi', '>=0.2.2' ] ]
+verbose parsed url { pathname: '=0.2.2', path: '=0.2.2', href: '=0.2.2' }
+verbose addNamed [ 'tobi', '>=0.2.2' ]
+verbose addNamed [ null, '>=0.2.2' ]
+silly name, range, hasData [ 'tobi', '>=0.2.2', false ]
+verbose cache add [ 'expect.js@>=0.1.2', null ]
+silly cache add: name, spec, args [ undefined, 'expect.js@>=0.1.2', [ 'expect.js@>=0.1.2', null ] ]
+verbose parsed url { pathname: 'expect.js@',
+verbose parsed url   path: 'expect.js@',
+verbose parsed url   href: 'expect.js@' }
+silly cache add: name, spec, args [ 'expect.js', '>=0.1.2', [ 'expect.js', '>=0.1.2' ] ]
+verbose parsed url { pathname: '=0.1.2', path: '=0.1.2', href: '=0.1.2' }
+verbose addNamed [ 'expect.js', '>=0.1.2' ]
+verbose addNamed [ null, '>=0.1.2' ]
+silly name, range, hasData [ 'expect.js', '>=0.1.2', false ]
+verbose cache add [ 'mocha@>=0.13.0', null ]
+silly cache add: name, spec, args [ undefined, 'mocha@>=0.13.0', [ 'mocha@>=0.13.0', null ] ]
+verbose parsed url { pathname: 'mocha@', path: 'mocha@', href: 'mocha@' }
+silly cache add: name, spec, args [ 'mocha', '>=0.13.0', [ 'mocha', '>=0.13.0' ] ]
+verbose parsed url { pathname: '=0.13.0', path: '=0.13.0', href: '=0.13.0' }
+verbose addNamed [ 'mocha', '>=0.13.0' ]
+verbose addNamed [ null, '>=0.13.0' ]
+silly name, range, hasData [ 'mocha', '>=0.13.0', false ]
+verbose cache add [ 'satisfy@>=0.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'satisfy@>=0.1.0', [ 'satisfy@>=0.1.0', null ] ]
+verbose parsed url { pathname: 'satisfy@', path: 'satisfy@', href: 'satisfy@' }
+silly cache add: name, spec, args [ 'satisfy', '>=0.1.0', [ 'satisfy', '>=0.1.0' ] ]
+verbose parsed url { pathname: '=0.1.0', path: '=0.1.0', href: '=0.1.0' }
+verbose addNamed [ 'satisfy', '>=0.1.0' ]
+verbose addNamed [ null, '>=0.1.0' ]
+silly name, range, hasData [ 'satisfy', '>=0.1.0', false ]
+verbose raw, before any munging request
+verbose url resolving [ 'https://registry.npmjs.org/', './request' ]
+verbose url resolved https://registry.npmjs.org/request
+http GET https://registry.npmjs.org/request
+verbose raw, before any munging xml2js
+verbose url resolving [ 'https://registry.npmjs.org/', './xml2js' ]
+verbose url resolved https://registry.npmjs.org/xml2js
+http GET https://registry.npmjs.org/xml2js
+verbose raw, before any munging node-swt
+verbose url resolving [ 'https://registry.npmjs.org/', './node-swt' ]
+verbose url resolved https://registry.npmjs.org/node-swt
+http GET https://registry.npmjs.org/node-swt
+verbose raw, before any munging node-wsfederation
+verbose url resolving [ 'https://registry.npmjs.org/', './node-wsfederation' ]
+verbose url resolved https://registry.npmjs.org/node-wsfederation
+http GET https://registry.npmjs.org/node-wsfederation
+verbose raw, before any munging openid
+verbose url resolving [ 'https://registry.npmjs.org/', './openid' ]
+verbose url resolved https://registry.npmjs.org/openid
+http GET https://registry.npmjs.org/openid
+verbose raw, before any munging tobi
+verbose url resolving [ 'https://registry.npmjs.org/', './tobi' ]
+verbose url resolved https://registry.npmjs.org/tobi
+http GET https://registry.npmjs.org/tobi
+verbose raw, before any munging expect.js
+verbose url resolving [ 'https://registry.npmjs.org/', './expect.js' ]
+verbose url resolved https://registry.npmjs.org/expect.js
+http GET https://registry.npmjs.org/expect.js
+verbose raw, before any munging mocha
+verbose url resolving [ 'https://registry.npmjs.org/', './mocha' ]
+verbose url resolved https://registry.npmjs.org/mocha
+http GET https://registry.npmjs.org/mocha
+verbose raw, before any munging satisfy
+verbose url resolving [ 'https://registry.npmjs.org/', './satisfy' ]
+verbose url resolved https://registry.npmjs.org/satisfy
+http GET https://registry.npmjs.org/satisfy
+verbose raw, before any munging debug/0.5.0
+verbose url resolving [ 'https://registry.npmjs.org/', './debug/0.5.0' ]
+verbose url resolved https://registry.npmjs.org/debug/0.5.0
+http GET https://registry.npmjs.org/debug/0.5.0
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/tmp.tgz
+http GET https://github.com/ciaranj/node-oauth/tarball/master
+verbose raw, before any munging connect
+verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+verbose url resolved https://registry.npmjs.org/connect
+verbose etag "3D4UP735ORKU1E2C4IPOAKM18"
+http GET https://registry.npmjs.org/connect
+verbose raw, before any munging jade
+verbose url resolving [ 'https://registry.npmjs.org/', './jade' ]
+verbose url resolved https://registry.npmjs.org/jade
+verbose etag "D9MWXJIFLO6BA3VP219B0W2LG"
+http GET https://registry.npmjs.org/jade
+verbose raw, before any munging express
+verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+verbose url resolved https://registry.npmjs.org/express
+verbose etag "885Z09F9TP77WNACOP5AJ04SV"
+http GET https://registry.npmjs.org/express
+http 200 https://registry.npmjs.org/node-wsfederation
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"3BT5DRYQS3M4M4JM7OL0A1RMK"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '2699' } ]
+silly name, range, hasData 2 [ 'node-wsfederation', '>=0.1.1', true ]
+silly versions [ 'node-wsfederation', [ '0.1.0', '0.1.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '9abf1dd3b20a3ab0a38f899c882c218d734e8a7b',
+verbose bin dist     tarball: 'http://registry.npmjs.org/node-wsfederation/-/node-wsfederation-0.1.1.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/node-wsfederation/-/node-wsfederation-0.1.1.tgz',
+verbose addRemoteTarball   '9abf1dd3b20a3ab0a38f899c882c218d734e8a7b' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/tmp.tgz
+http GET https://registry.npmjs.org/node-wsfederation/-/node-wsfederation-0.1.1.tgz
+http 200 https://registry.npmjs.org/node-swt
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"D2X7LB8BA2KBS6JAF6Y0URWX"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '2561' } ]
+silly name, range, hasData 2 [ 'node-swt', '>=0.1.1', true ]
+silly versions [ 'node-swt', [ '0.1.0', '0.1.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'af0903825784be553b93dbae57d99d59060585dd',
+verbose bin dist     tarball: 'http://registry.npmjs.org/node-swt/-/node-swt-0.1.1.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/node-swt/-/node-swt-0.1.1.tgz',
+verbose addRemoteTarball   'af0903825784be553b93dbae57d99d59060585dd' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/tmp.tgz
+http GET https://registry.npmjs.org/node-swt/-/node-swt-0.1.1.tgz
+http 200 https://registry.npmjs.org/xml2js
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"AXICDPA513EYZN187IRANYX16"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '25724' } ]
+silly name, range, hasData 2 [ 'xml2js', '>=0.1.7', true ]
+silly versions [ 'xml2js',
+silly versions   [ '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.1.9',
+silly versions     '0.1.10',
+silly versions     '0.1.11',
+silly versions     '0.1.12',
+silly versions     '0.1.13',
+silly versions     '0.1.14' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '5274e67f5a64c5f92974cd85139e0332adc6b90c',
+verbose bin dist     tarball: 'http://registry.npmjs.org/xml2js/-/xml2js-0.1.14.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/xml2js/-/xml2js-0.1.14.tgz',
+verbose addRemoteTarball   '5274e67f5a64c5f92974cd85139e0332adc6b90c' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/tmp.tgz
+http 200 https://registry.npmjs.org/openid
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"5RD5FMSKPW6YOSBZ6FUT0IGDC"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '14863' } ]
+http GET https://registry.npmjs.org/xml2js/-/xml2js-0.1.14.tgz
+silly name, range, hasData 2 [ 'openid', '>=0.2.0', true ]
+silly versions [ 'openid',
+silly versions   [ '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.1.6',
+silly versions     '0.1.7',
+silly versions     '0.1.8',
+silly versions     '0.2.0',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'c3d283db9d804d2c3abd8572d6d061e28f364967',
+verbose bin dist     tarball: 'http://registry.npmjs.org/openid/-/openid-0.4.2.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/openid/-/openid-0.4.2.tgz',
+verbose addRemoteTarball   'c3d283db9d804d2c3abd8572d6d061e28f364967' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/tmp.tgz
+http GET https://registry.npmjs.org/openid/-/openid-0.4.2.tgz
+http 200 https://registry.npmjs.org/tobi
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"AUACE2DD3A6ZXJRVGHWMVO0L1"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '8624' } ]
+silly name, range, hasData 2 [ 'tobi', '>=0.2.2', true ]
+silly versions [ 'tobi', [ '0.0.8', '0.1.0', '0.1.1', '0.3.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'b3e0cbaa10494c0b65d543dbde64201ac4974df5',
+verbose bin dist     tarball: 'http://registry.npmjs.org/tobi/-/tobi-0.3.2.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/tobi/-/tobi-0.3.2.tgz',
+verbose addRemoteTarball   'b3e0cbaa10494c0b65d543dbde64201ac4974df5' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/tmp.tgz
+http GET https://registry.npmjs.org/tobi/-/tobi-0.3.2.tgz
+http 200 https://registry.npmjs.org/expect.js
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"7W1JVUCYCT4VKDR7XYPSROMHX"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '7941' } ]
+silly name, range, hasData 2 [ 'expect.js', '>=0.1.2', true ]
+silly versions [ 'expect.js', [ '0.1.0', '0.1.1', '0.1.2' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '7352391e73b3ca372db251ccf1dcddf5b5b3d5c2',
+verbose bin dist     tarball: 'http://registry.npmjs.org/expect.js/-/expect.js-0.1.2.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/expect.js/-/expect.js-0.1.2.tgz',
+verbose addRemoteTarball   '7352391e73b3ca372db251ccf1dcddf5b5b3d5c2' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/tmp.tgz
+http GET https://registry.npmjs.org/expect.js/-/expect.js-0.1.2.tgz
+http 200 https://registry.npmjs.org/satisfy
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"3R3D7W15B1BEHMRS953SKGFH7"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '4244' } ]
+silly name, range, hasData 2 [ 'satisfy', '>=0.1.0', true ]
+silly versions [ 'satisfy', [ '0.1.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'ad98fcff3172d7d7275fbaca19509d70d0ffca36',
+verbose bin dist     tarball: 'http://registry.npmjs.org/satisfy/-/satisfy-0.1.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/satisfy/-/satisfy-0.1.0.tgz',
+verbose addRemoteTarball   'ad98fcff3172d7d7275fbaca19509d70d0ffca36' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/tmp.tgz
+http GET https://registry.npmjs.org/satisfy/-/satisfy-0.1.0.tgz
+http 304 https://registry.npmjs.org/connect
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"3D4UP735ORKU1E2C4IPOAKM18"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag connect from cache
+http 200 https://registry.npmjs.org/debug/0.5.0
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"BFOSJ9KS53REEQFPE5SOZ72ZE"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '655' } ]
+http 200 https://github.com/ciaranj/node-oauth/tarball/master
+silly name, range, hasData 2 [ 'connect', '>=1.0.0- <2.0.0-', true ]
+silly versions [ 'connect',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.2.5',
+silly versions     '0.2.6',
+silly versions     '0.2.7',
+silly versions     '0.3.0',
+silly versions     '0.4.0',
+silly versions     '0.5.0',
+silly versions     '0.5.1',
+silly versions     '0.5.2',
+silly versions     '0.5.3',
+silly versions     '0.5.4',
+silly versions     '0.5.5',
+silly versions     '0.5.6',
+silly versions     '0.5.7',
+silly versions     '0.5.8',
+silly versions     '0.5.9',
+silly versions     '0.5.10',
+silly versions     '1.0.0',
+silly versions     '1.0.1',
+silly versions     '1.7.2',
+silly versions     '1.7.3',
+silly versions     '1.8.0',
+silly versions     '1.8.1',
+silly versions     '1.8.2',
+silly versions     '1.8.3',
+silly versions     '1.8.4',
+silly versions     '1.8.5',
+silly versions     '2.0.0',
+silly versions     '2.0.1',
+silly versions     '2.0.2',
+silly versions     '2.0.3',
+silly versions     '1.8.6',
+silly versions     '2.1.0',
+silly versions     '2.1.1',
+silly versions     '2.1.2',
+silly versions     '1.8.7',
+silly versions     '2.1.3',
+silly versions     '2.2.0',
+silly versions     '2.2.1',
+silly versions     '2.2.2',
+silly versions     '2.3.0',
+silly versions     '2.3.1',
+silly versions     '2.3.2',
+silly versions     '2.3.3' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'b620281884d455fab94c693d2db748652d6c8c17',
+verbose bin dist     tarball: 'http://registry.npmjs.org/connect/-/connect-1.8.7.tgz' } ]
+http 200 https://registry.npmjs.org/request
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"BWZPCPFGB4B5B84WHGXXV5GQ4"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '109175' } ]
+http 200 https://registry.npmjs.org/mocha
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"4WD93Q26I1PTGIAGFB7NAR73U"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '47827' } ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '9d48c946fb7d7d59807ffe07822f515fd76d7a9e',
+verbose bin dist     tarball: 'http://registry.npmjs.org/debug/-/debug-0.5.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/debug/-/debug-0.5.0.tgz',
+verbose addRemoteTarball   '9d48c946fb7d7d59807ffe07822f515fd76d7a9e' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/tmp.tgz
+http 304 https://registry.npmjs.org/express
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"885Z09F9TP77WNACOP5AJ04SV"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag express from cache
+http 200 https://registry.npmjs.org/node-wsfederation/-/node-wsfederation-0.1.1.tgz
+http 200 https://registry.npmjs.org/node-swt/-/node-swt-0.1.1.tgz
+http 200 https://registry.npmjs.org/xml2js/-/xml2js-0.1.14.tgz
+http GET https://registry.npmjs.org/debug/-/debug-0.5.0.tgz
+verbose caching /Users/hank/.npm/connect/1.8.7/package/package.json
+verbose loadDefaults connect@1.8.7
+silly name, range, hasData 2 [ 'request', '>=2.9.0- <2.10.0-', true ]
+silly versions [ 'request',
+silly versions   [ '0.10.0',
+silly versions     '0.8.3',
+silly versions     '0.9.0',
+silly versions     '0.9.1',
+silly versions     '0.9.5',
+silly versions     '1.0.0',
+silly versions     '1.1.0',
+silly versions     '1.1.1',
+silly versions     '1.2.0',
+silly versions     '1.9.0',
+silly versions     '1.9.1',
+silly versions     '1.9.2',
+silly versions     '1.9.3',
+silly versions     '1.9.5',
+silly versions     '1.9.7',
+silly versions     '1.9.8',
+silly versions     '1.9.9',
+silly versions     '2.0.0',
+silly versions     '2.0.1',
+silly versions     '2.0.2',
+silly versions     '2.0.3',
+silly versions     '2.0.4',
+silly versions     '2.0.5',
+silly versions     '2.1.0',
+silly versions     '2.1.1',
+silly versions     '2.2.0',
+silly versions     '2.2.5',
+silly versions     '2.2.6',
+silly versions     '2.2.9',
+silly versions     '2.9.0',
+silly versions     '2.9.1',
+silly versions     '2.9.2',
+silly versions     '2.9.3',
+silly versions     '2.9.100',
+silly versions     '2.9.150',
+silly versions     '2.9.151',
+silly versions     '2.9.152',
+silly versions     '2.9.153',
+silly versions     '2.9.200',
+silly versions     '2.9.201',
+silly versions     '2.9.202' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'c61399cdfbbefda5dc48653b0e9bea517d9f8497',
+verbose bin dist     tarball: 'http://registry.npmjs.org/request/-/request-2.9.202.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/request/-/request-2.9.202.tgz',
+verbose addRemoteTarball   'c61399cdfbbefda5dc48653b0e9bea517d9f8497' ]
+silly name, range, hasData 2 [ 'mocha', '>=0.13.0', true ]
+silly versions [ 'mocha',
+silly versions   [ '0.0.1-alpha1',
+silly versions     '0.0.1-alpha2',
+silly versions     '0.0.1-alpha3',
+silly versions     '0.0.1-alpha4',
+silly versions     '0.0.1-alpha5',
+silly versions     '0.0.1-alpha6',
+silly versions     '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.0.8',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.3.3',
+silly versions     '0.3.4',
+silly versions     '0.3.6',
+silly versions     '0.4.0',
+silly versions     '0.5.0',
+silly versions     '0.6.0',
+silly versions     '0.7.0',
+silly versions     '0.7.1',
+silly versions     '0.8.0',
+silly versions     '0.8.1',
+silly versions     '0.9.0',
+silly versions     '0.10.0',
+silly versions     '0.10.1',
+silly versions     '0.10.2',
+silly versions     '0.11.0',
+silly versions     '0.12.0',
+silly versions     '0.12.1',
+silly versions     '0.13.0',
+silly versions     '0.14.0',
+silly versions     '0.14.1',
+silly versions     '1.0.0',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.3',
+silly versions     '1.1.0',
+silly versions     '1.2.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '9d0ef575d76b65d8b5948d47ab98c1de39522477',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mocha/-/mocha-1.2.0.tgz' } ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/tmp.tgz
+verbose addRemoteTarball [ 'https://registry.npmjs.org/mocha/-/mocha-1.2.0.tgz',
+verbose addRemoteTarball   '9d0ef575d76b65d8b5948d47ab98c1de39522477' ]
+silly name, range, hasData 2 [ 'express', '>=2.3.10', true ]
+silly versions [ 'express',
+silly versions   [ '0.14.0',
+silly versions     '0.14.1',
+silly versions     '1.0.0beta',
+silly versions     '1.0.0beta2',
+silly versions     '1.0.0rc',
+silly versions     '1.0.0rc2',
+silly versions     '1.0.0rc3',
+silly versions     '1.0.0rc4',
+silly versions     '1.0.0',
+silly versions     '1.0.1',
+silly versions     '1.0.2',
+silly versions     '1.0.3',
+silly versions     '1.0.4',
+silly versions     '1.0.5',
+silly versions     '1.0.6',
+silly versions     '1.0.7',
+silly versions     '2.5.0',
+silly versions     '2.5.1',
+silly versions     '2.5.2',
+silly versions     '2.5.3',
+silly versions     '2.5.4',
+silly versions     '2.5.5',
+silly versions     '2.5.6',
+silly versions     '2.5.7',
+silly versions     '2.5.8',
+silly versions     '2.5.9',
+silly versions     '3.0.0alpha1',
+silly versions     '3.0.0alpha2',
+silly versions     '3.0.0alpha3',
+silly versions     '3.0.0alpha4',
+silly versions     '3.0.0alpha5',
+silly versions     '3.0.0beta1',
+silly versions     '3.0.0beta2',
+silly versions     '3.0.0beta3',
+silly versions     '2.5.10' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'b1cdaf0c7e98e33125e6f8476800bdeb7f7efc8a',
+verbose bin dist     tarball: 'http://registry.npmjs.org/express/-/express-2.5.10.tgz' } ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/tmp.tgz
+http 200 https://registry.npmjs.org/openid/-/openid-0.4.2.tgz
+http GET https://registry.npmjs.org/request/-/request-2.9.202.tgz
+http GET https://registry.npmjs.org/mocha/-/mocha-1.2.0.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/tmp.tgz
+silly updated sha bytes 10240
+silly gunzTarPerm modes [ '755', '644' ]
+silly updated sha bytes 8692
+info shasum 9abf1dd3b20a3ab0a38f899c882c218d734e8a7b
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/tmp.tgz
+info shasum 5274e67f5a64c5f92974cd85139e0332adc6b90c
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/tmp.tgz
+silly updated sha bytes 10240
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+info shasum af0903825784be553b93dbae57d99d59060585dd
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/tmp.tgz
+verbose caching /Users/hank/.npm/express/2.5.10/package/package.json
+verbose loadDefaults express@2.5.10
+http 200 https://registry.npmjs.org/tobi/-/tobi-0.3.2.tgz
+http 200 https://registry.npmjs.org/satisfy/-/satisfy-0.1.0.tgz
+http 200 https://registry.npmjs.org/expect.js/-/expect.js-0.1.2.tgz
+silly extracting entry 
+silly modified mode [ '', 509, 493 ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry .gitignore
+silly extracting entry package.json
+silly updated sha bytes 20480
+info shasum c3d283db9d804d2c3abd8572d6d061e28f364967
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/tmp.tgz
+silly extracting entry .gitignore
+silly modified mode [ '.gitignore', 436, 420 ]
+silly extracting entry LICENSE
+silly modified mode [ 'LICENSE', 436, 420 ]
+http 200 https://registry.npmjs.org/jade
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"5UKVWVKM9UO5E92QY25HT17CP"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:30 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '60022' } ]
+silly extracting entry .gitignore
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry index.js
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry Makefile
+silly modified mode [ 'Makefile', 436, 420 ]
+silly extracting entry Readme.md
+silly modified mode [ 'Readme.md', 436, 420 ]
+silly extracting entry index.js
+silly extracting entry package.json
+silly extracting entry LICENSE
+silly name, range, hasData 2 [ 'jade', '>=0.12.1', true ]
+silly versions [ 'jade',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.3.0',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.5.0',
+silly versions     '0.5.1',
+silly versions     '0.5.2',
+silly versions     '0.5.3',
+silly versions     '0.5.4',
+silly versions     '0.5.5',
+silly versions     '0.5.6',
+silly versions     '0.5.7',
+silly versions     '0.6.0',
+silly versions     '0.6.1',
+silly versions     '0.6.3',
+silly versions     '0.7.0',
+silly versions     '0.7.1',
+silly versions     '0.8.0',
+silly versions     '0.8.1',
+silly versions     '0.8.2',
+silly versions     '0.8.3',
+silly versions     '0.8.4',
+silly versions     '0.8.5',
+silly versions     '0.8.6',
+silly versions     '0.8.7',
+silly versions     '0.8.8',
+silly versions     '0.8.9',
+silly versions     '0.9.0',
+silly versions     '0.9.1',
+silly versions     '0.9.2',
+silly versions     '0.9.3',
+silly versions     '0.10.0',
+silly versions     '0.10.1',
+silly versions     '0.10.2',
+silly versions     '0.10.3',
+silly versions     '0.10.4',
+silly versions     '0.10.5',
+silly versions     '0.10.6',
+silly versions     '0.10.7',
+silly versions     '0.11.0',
+silly versions     '0.11.1',
+silly versions     '0.12.0',
+silly versions     '0.12.1',
+silly versions     '0.12.2',
+silly versions     '0.12.3',
+silly versions     '0.12.4',
+silly versions     '0.13.0',
+silly versions     '0.14.0',
+silly versions     '0.14.1',
+silly versions     '0.14.2',
+silly versions     '0.15.0',
+silly versions     '0.15.1',
+silly versions     '0.15.2',
+silly versions     '0.15.3',
+silly versions     '0.15.4',
+silly versions     '0.16.0',
+silly versions     '0.16.1',
+silly versions     '0.16.2',
+silly versions     '0.16.3',
+silly versions     '0.16.4',
+silly versions     '0.17.0',
+silly versions     '0.18.0',
+silly versions     '0.19.0',
+silly versions     '0.20.0',
+silly versions     '0.20.1',
+silly versions     '0.20.2',
+silly versions     '0.20.3',
+silly versions     '0.21.0',
+silly versions     '0.22.0',
+silly versions     '0.22.1',
+silly versions     '0.23.0',
+silly versions     '0.24.0',
+silly versions     '0.25.0',
+silly versions     '0.26.0',
+silly versions     '0.26.1' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '0e9ad15b3ae07e3fb404a1fda4668aec10e96a17',
+verbose bin dist     tarball: 'http://registry.npmjs.org/jade/-/jade-0.26.1.tgz' } ]
+http 200 https://registry.npmjs.org/debug/-/debug-0.5.0.tgz
+http 200 https://registry.npmjs.org/request/-/request-2.9.202.tgz
+silly extracting entry openid.js
+silly extracting entry package.json
+silly extracting entry src/xml2js.coffee
+silly extracting entry test/xml2js.test.coffee
+silly extracting entry README
+silly extracting entry lib/wsfederation.js
+silly extracting entry examples/
+silly modified mode [ 'examples/', 509, 493 ]
+silly extracting entry examples/express-gdata/
+silly modified mode [ 'examples/express-gdata/', 509, 493 ]
+silly extracting entry README.md
+silly extracting entry README
+silly extracting entry lib/swt.js
+silly updated sha bytes 20480
+silly updated sha bytes 11925
+silly extracting entry examples/express-gdata/server.js
+silly modified mode [ 'examples/express-gdata/server.js', 436, 420 ]
+info shasum ad98fcff3172d7d7275fbaca19509d70d0ffca36
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/tmp.tgz
+info shasum 7352391e73b3ca372db251ccf1dcddf5b5b3d5c2
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/tmp.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry test/fixtures/sample.xml
+silly extracting entry lib/xml2js.js
+silly extracting entry sample.js
+silly extracting entry lib/base64.js
+silly extracting entry Cakefile
+silly extracting entry examples/express-gdata/views/
+silly modified mode [ 'examples/express-gdata/views/', 509, 493 ]
+silly extracting entry examples/express-gdata/views/google_calendars.ejs
+silly modified mode [ 'examples/express-gdata/views/google_calendars.ejs', 436, 420 ]
+silly extracting entry .gitignore
+silly extracting entry lib/convert.js
+silly extracting entry .npmignore
+silly extracting entry lib/xrds.js
+silly extracting entry test/openid_fast_tests.js
+silly extracting entry test/openid_integration_tests.js
+silly extracting entry History.md
+silly extracting entry Makefile
+silly extracting entry test/xrds_tests.js
+silly extracting entry expect.js
+silly extracting entry History.md
+http 200 https://registry.npmjs.org/mocha/-/mocha-1.2.0.tgz
+silly extracting entry examples/express-gdata/views/google_contacts.ejs
+silly modified mode [ 'examples/express-gdata/views/google_contacts.ejs', 436, 420 ]
+silly extracting entry examples/express-gdata/views/layout.ejs
+silly modified mode [ 'examples/express-gdata/views/layout.ejs', 436, 420 ]
+silly extracting entry examples/term.ie.oauth-HMAC-SHA1.js
+silly modified mode [ 'examples/term.ie.oauth-HMAC-SHA1.js', 436, 420 ]
+silly updated sha bytes 10240
+silly extracting entry examples/term.ie.oauth-PLAINTEXT.js
+silly modified mode [ 'examples/term.ie.oauth-PLAINTEXT.js', 436, 420 ]
+silly extracting entry package.json
+silly extracting entry README.md
+info shasum 9d48c946fb7d7d59807ffe07822f515fd76d7a9e
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/tmp.tgz
+silly extracting entry index.js
+silly modified mode [ 'index.js', 436, 420 ]
+verbose caching /Users/hank/.npm/jade/0.26.1/package/package.json
+verbose loadDefaults jade@0.26.1
+silly extracting entry package.json
+silly extracting entry README.md
+silly extracting entry lib/
+silly modified mode [ 'lib/', 509, 493 ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry lib/_utils.js
+silly modified mode [ 'lib/_utils.js', 436, 420 ]
+silly extracting entry lib/oauth.js
+silly modified mode [ 'lib/oauth.js', 436, 420 ]
+silly extracting entry lib/oauth2.js
+silly modified mode [ 'lib/oauth2.js', 436, 420 ]
+silly extracting entry lib/sha1.js
+silly modified mode [ 'lib/sha1.js', 436, 420 ]
+silly extracting entry support/sizzle.js
+silly extracting entry test/satisfy.js
+silly extracting entry .npmignore
+silly extracting entry .gitignore
+silly extracting entry debug.js
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/package/package.json
+verbose loadDefaults node-wsfederation@0.1.1
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/package/package.json
+silly extracting entry package.json
+silly modified mode [ 'package.json', 436, 420 ]
+silly extracting entry tests/
+silly modified mode [ 'tests/', 509, 493 ]
+verbose tar.pack [ '/Users/hank/.npm/node-wsfederation/0.1.1/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/package' ]
+verbose tarball /Users/hank/.npm/node-wsfederation/0.1.1/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090285-0.9251187327317894/package
+silly extracting entry lib/adaptor.js
+silly extracting entry lib/satisfaction.js
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/package/package.json
+verbose loadDefaults node-swt@0.1.1
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/node-swt/0.1.1/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/package' ]
+verbose tarball /Users/hank/.npm/node-swt/0.1.1/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090332-0.46316829114221036/package
+silly extracting entry tests/oauth.js
+silly modified mode [ 'tests/oauth.js', 436, 420 ]
+silly extracting entry tests/oauth2.js
+silly modified mode [ 'tests/oauth2.js', 436, 420 ]
+silly extracting entry History.md
+silly extracting entry index.js
+silly extracting entry lib/satisfy.js
+silly extracting entry lib/adaptors/index.js
+silly extracting entry tests/sha1.js
+silly modified mode [ 'tests/sha1.js', 436, 420 ]
+silly extracting entry lib/adaptors/soda.js
+silly updated sha bytes 32768
+silly extracting entry lib/adaptors/webkit-server.js
+silly updated sha bytes 36864
+silly updated sha bytes 4645
+silly extracting entry Makefile
+silly extracting entry package.json
+info shasum c61399cdfbbefda5dc48653b0e9bea517d9f8497
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/tmp.tgz
+silly extracting entry Readme.md
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry example/app.js
+silly extracting entry package.json
+silly extracting entry example/browser.html
+silly extracting entry example/wildcards.js
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry example/worker.js
+silly extracting entry lib/debug.js
+silly extracting entry main.js
+silly extracting entry mimetypes.js
+silly extracting entry oauth.js
+silly extracting entry uuid.js
+silly extracting entry tunnel.js
+silly extracting entry forever.js
+silly extracting entry tests/test-tunnel.js
+silly extracting entry tests/test-cookiejar.js
+silly extracting entry tests/test-defaults.js
+silly extracting entry tests/test-errors.js
+silly extracting entry tests/test-cookie.js
+silly extracting entry tests/run.js
+silly extracting entry tests/test-https-strict.js
+silly updated sha bytes 40960
+silly extracting entry tests/test-https.js
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly extracting entry tests/test-oauth.js
+silly updated sha bytes 1382
+silly updated sha bytes 40960
+silly extracting entry tests/test-params.js
+info shasum 9d0ef575d76b65d8b5948d47ab98c1de39522477
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/tmp.tgz
+silly updated sha bytes 20480
+silly extracting entry tests/test-body.js
+verbose unpack /Users/hank/.npm/node-wsfederation/0.1.1/package.tgz
+info shasum b3e0cbaa10494c0b65d543dbde64201ac4974df5
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/tmp.tgz
+silly extracting entry tests/test-pipes.js
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack /Users/hank/.npm/node-swt/0.1.1/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry tests/test-timeout.js
+silly extracting entry tests/test-proxy.js
+silly extracting entry package.json
+silly extracting entry .gitignore
+silly extracting entry tests/test-toJSON.js
+silly extracting entry tests/test-qs.js
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry package.json
+silly extracting entry tests/server.js
+silly extracting entry .npmignore
+silly extracting entry README
+silly extracting entry .gitmodules
+silly extracting entry .npmignore
+silly extracting entry tests/test-redirect.js
+silly extracting entry tests/test-headers.js
+silly extracting entry tests/test-httpModule.js
+silly extracting entry .npmignore
+silly extracting entry README
+silly extracting entry tests/ssl/ca/server.js
+silly extracting entry tests/ssl/ca/ca.srl
+silly extracting entry tests/ssl/ca/ca.crt
+silly extracting entry tests/ssl/ca/ca.csr
+silly extracting entry History.md
+silly extracting entry index.html
+silly extracting entry _mocha.js
+silly extracting entry index.js
+silly extracting entry tests/ssl/ca/ca.key
+silly extracting entry index.js
+silly extracting entry lib/wsfederation.js
+silly extracting entry tests/ssl/ca/ca.crl
+silly extracting entry tests/ssl/ca/server.cnf
+silly extracting entry tests/ssl/ca/server.crt
+silly extracting entry index.js
+silly extracting entry lib/swt.js
+silly extracting entry tests/ssl/ca/server.csr
+silly extracting entry tests/ssl/ca/ca.cnf
+silly extracting entry index.js
+silly extracting entry Makefile
+silly extracting entry mocha.js
+silly extracting entry images/error.png
+silly extracting entry images/ok.png
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/package/package.json
+verbose loadDefaults xml2js@0.1.14
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/package/package.json
+silly extracting entry tests/ssl/ca/server.key
+silly extracting entry tests/ssl/npm-ca.crt
+silly extracting entry package.json
+silly extracting entry Readme.md
+verbose tar.pack [ '/Users/hank/.npm/xml2js/0.1.14/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/package' ]
+verbose tarball /Users/hank/.npm/xml2js/0.1.14/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090399-0.2421623975969851/package
+silly extracting entry tests/ssl/test.crt
+silly extracting entry examples/app.js
+silly extracting entry examples/google.js
+silly extracting entry tests/ssl/test.key
+silly extracting entry tests/squid.conf
+silly extracting entry examples/login.js
+silly extracting entry tests/googledoodle.png
+silly extracting entry examples/multiple.js
+silly extracting entry support/compile.js
+silly extracting entry support/foot.js
+silly extracting entry support/head.js
+silly extracting entry vendor/cookie/index.js
+silly extracting entry vendor/cookie/jar.js
+silly extracting entry support/tail.js
+silly extracting entry support/template.html
+silly extracting entry .travis.yml
+silly extracting entry bin/_mocha
+silly extracting entry examples/wizard.js
+silly extracting entry test/assertions.test.js
+silly extracting entry bin/mocha
+silly extracting entry Makefile
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/package/package.json
+verbose loadDefaults expect.js@0.1.2
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/package/package.json
+silly extracting entry test/browser.context.test.js
+silly extracting entry mocha.css
+verbose tar.pack [ '/Users/hank/.npm/expect.js/0.1.2/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/package' ]
+verbose tarball /Users/hank/.npm/expect.js/0.1.2/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090515-0.13743186835199594/package
+silly extracting entry test/browser.external.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/info.plist
+silly extracting entry test/browser.navigation.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after each.tmSnippet
+silly extracting entry test/browser.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after.tmSnippet
+silly extracting entry test/cookie.jar.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before each.tmSnippet
+silly extracting entry test/jquery.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before.tmSnippet
+silly extracting entry test/cookie.test.js
+verbose caching /Users/hank/.npm/node-wsfederation/0.1.1/package/package.json
+verbose loadDefaults node-wsfederation@0.1.1
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - it.tmSnippet
+silly extracting entry test/scenarios.login.test.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/untitled.tmSnippet
+silly extracting entry test/tobi.test.js
+silly updated sha bytes 1054
+silly extracting entry History.md
+silly extracting entry lib/browser.js
+info shasum 7e4c8b443337e602418763faf754504011395e3d
+info shasum /Users/hank/.npm/node-wsfederation/0.1.1/package.tgz
+verbose from cache /Users/hank/.npm/node-wsfederation/0.1.1/package/package.json
+verbose chmod /Users/hank/.npm/node-wsfederation/0.1.1/package.tgz 644
+verbose chown [ '/Users/hank/.npm/node-wsfederation/0.1.1/package.tgz',
+verbose chown   501,
+verbose chown   20 ]
+silly extracting entry Readme.md
+silly extracting entry lib/tobi.js
+verbose caching /Users/hank/.npm/node-swt/0.1.1/package/package.json
+verbose loadDefaults node-swt@0.1.1
+silly extracting entry lib/utils.js
+silly extracting entry lib/assertions/should.js
+silly extracting entry lib/hook.js
+silly extracting entry lib/cookie/jar.js
+silly updated sha bytes 1324
+silly extracting entry lib/mocha.js
+silly extracting entry lib/cookie/index.js
+info shasum 3a8fe995ae04b363ad898d7bde21fcb2e8d20d85
+info shasum /Users/hank/.npm/node-swt/0.1.1/package.tgz
+verbose from cache /Users/hank/.npm/node-swt/0.1.1/package/package.json
+verbose chmod /Users/hank/.npm/node-swt/0.1.1/package.tgz 644
+verbose chown [ '/Users/hank/.npm/node-swt/0.1.1/package.tgz', 501, 20 ]
+silly extracting entry lib/context.js
+silly extracting entry lib/jquery/core.js
+silly extracting entry lib/runnable.js
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/package/package.json
+verbose loadDefaults debug@0.5.0
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/package/package.json
+silly extracting entry lib/runner.js
+silly extracting entry lib/suite.js
+verbose tar.pack [ '/Users/hank/.npm/debug/0.5.0/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/package' ]
+verbose tarball /Users/hank/.npm/debug/0.5.0/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090753-0.9105697830673307/package
+silly extracting entry lib/test.js
+silly extracting entry lib/browser/debug.js
+silly extracting entry lib/browser/diff.js
+silly extracting entry lib/browser/events.js
+silly extracting entry lib/browser/fs.js
+silly extracting entry lib/browser/path.js
+silly extracting entry lib/browser/progress.js
+silly extracting entry lib/browser/tty.js
+silly extracting entry lib/interfaces/bdd.js
+silly extracting entry lib/interfaces/exports.js
+silly extracting entry lib/interfaces/index.js
+silly extracting entry lib/interfaces/qunit.js
+silly extracting entry lib/jquery/fill.js
+silly extracting entry lib/interfaces/tdd.js
+silly extracting entry lib/jquery/index.js
+silly extracting entry lib/reporters/base.js
+silly extracting entry lib/reporters/json-cov.js
+silly extracting entry lib/reporters/json-stream.js
+silly extracting entry lib/reporters/json.js
+silly extracting entry lib/reporters/index.js
+silly extracting entry lib/reporters/doc.js
+silly extracting entry lib/reporters/markdown.js
+silly extracting entry lib/reporters/min.js
+silly extracting entry lib/reporters/nyan.js
+silly extracting entry lib/reporters/progress.js
+silly extracting entry lib/reporters/html.js
+silly extracting entry lib/reporters/spec.js
+silly extracting entry lib/reporters/html-cov.js
+silly extracting entry lib/reporters/tap.js
+silly extracting entry lib/reporters/dot.js
+silly extracting entry lib/reporters/teamcity.js
+silly extracting entry lib/reporters/landing.js
+silly extracting entry lib/reporters/xunit.js
+silly extracting entry lib/reporters/list.js
+silly extracting entry lib/reporters/templates/coverage.jade
+silly extracting entry lib/reporters/templates/menu.jade
+silly extracting entry lib/reporters/templates/script.html
+silly extracting entry lib/reporters/templates/style.html
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/package/package.json
+verbose loadDefaults satisfy@0.1.0
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/satisfy/0.1.0/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/package' ]
+verbose tarball /Users/hank/.npm/satisfy/0.1.0/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090606-0.7157397088594735/package
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/package/package.json
+verbose loadDefaults openid@0.4.2
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/openid/0.4.2/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/package' ]
+verbose tarball /Users/hank/.npm/openid/0.4.2/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090423-0.924290185328573/package
+verbose unpack /Users/hank/.npm/xml2js/0.1.14/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+verbose unpack /Users/hank/.npm/debug/0.5.0/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+verbose unpack /Users/hank/.npm/expect.js/0.1.2/package.tgz
+silly extracting entry package.json
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry .npmignore
+silly extracting entry debug.js
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry Cakefile
+silly extracting entry lib/xml2js.js
+silly extracting entry index.js
+silly extracting entry example/app.js
+silly extracting entry expect.js
+silly extracting entry History.md
+silly extracting entry src/xml2js.coffee
+silly extracting entry test/fixtures/sample.xml
+silly extracting entry example/wildcards.js
+silly extracting entry example/worker.js
+silly extracting entry test/xml2js.test.coffee
+silly extracting entry example/browser.html
+silly extracting entry History.md
+silly extracting entry lib/debug.js
+silly extracting entry Makefile
+silly extracting entry Readme.md
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/package/package.json
+verbose loadDefaults oauth@0.9.7
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/oauth/0.9.7/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/package' ]
+verbose tarball /Users/hank/.npm/oauth/0.9.7/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067088577-0.1044571753591299/package
+verbose caching /Users/hank/.npm/debug/0.5.0/package/package.json
+verbose loadDefaults debug@0.5.0
+silly updated sha bytes 4773
+info shasum ba6e86a29f71bbbd04b447c29d17b6e157ee77ec
+info shasum /Users/hank/.npm/debug/0.5.0/package.tgz
+verbose from cache /Users/hank/.npm/debug/0.5.0/package/package.json
+verbose chmod /Users/hank/.npm/debug/0.5.0/package.tgz 644
+verbose chown [ '/Users/hank/.npm/debug/0.5.0/package.tgz', 501, 20 ]
+verbose caching /Users/hank/.npm/expect.js/0.1.2/package/package.json
+verbose loadDefaults expect.js@0.1.2
+silly updated sha bytes 11919
+info shasum ffa50d303f97d7a90b9c8c9611a212d38eb67f32
+info shasum /Users/hank/.npm/expect.js/0.1.2/package.tgz
+verbose from cache /Users/hank/.npm/expect.js/0.1.2/package/package.json
+verbose chmod /Users/hank/.npm/expect.js/0.1.2/package.tgz 644
+verbose chown [ '/Users/hank/.npm/expect.js/0.1.2/package.tgz', 501, 20 ]
+verbose caching /Users/hank/.npm/xml2js/0.1.14/package/package.json
+verbose loadDefaults xml2js@0.1.14
+silly updated sha bytes 8643
+info shasum e24e785072bb8c4b342b07e6c25bd189ca103c2d
+info shasum /Users/hank/.npm/xml2js/0.1.14/package.tgz
+verbose from cache /Users/hank/.npm/xml2js/0.1.14/package/package.json
+verbose chmod /Users/hank/.npm/xml2js/0.1.14/package.tgz 644
+verbose chown [ '/Users/hank/.npm/xml2js/0.1.14/package.tgz', 501, 20 ]
+verbose unpack /Users/hank/.npm/satisfy/0.1.0/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry History.md
+silly extracting entry lib/adaptor.js
+silly extracting entry lib/satisfaction.js
+silly extracting entry lib/satisfy.js
+silly extracting entry lib/adaptors/index.js
+silly extracting entry lib/adaptors/soda.js
+silly extracting entry lib/adaptors/webkit-server.js
+silly extracting entry Makefile
+silly extracting entry support/sizzle.js
+silly extracting entry test/satisfy.js
+verbose unpack /Users/hank/.npm/openid/0.4.2/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry openid.js
+silly extracting entry sample.js
+silly extracting entry lib/base64.js
+silly extracting entry lib/convert.js
+silly extracting entry lib/xrds.js
+silly extracting entry test/openid_fast_tests.js
+silly extracting entry test/openid_integration_tests.js
+silly extracting entry test/xrds_tests.js
+verbose caching /Users/hank/.npm/satisfy/0.1.0/package/package.json
+verbose loadDefaults satisfy@0.1.0
+silly updated sha bytes 14998
+info shasum 2c98306529fad4a7d00d1c3b9ca7d8d5f1ed226e
+info shasum /Users/hank/.npm/satisfy/0.1.0/package.tgz
+verbose from cache /Users/hank/.npm/satisfy/0.1.0/package/package.json
+verbose chmod /Users/hank/.npm/satisfy/0.1.0/package.tgz 644
+verbose chown [ '/Users/hank/.npm/satisfy/0.1.0/package.tgz', 501, 20 ]
+verbose unpack /Users/hank/.npm/oauth/0.9.7/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry index.js
+silly extracting entry examples/term.ie.oauth-HMAC-SHA1.js
+silly extracting entry examples/term.ie.oauth-PLAINTEXT.js
+silly extracting entry examples/express-gdata/server.js
+silly extracting entry examples/express-gdata/views/google_calendars.ejs
+verbose caching /Users/hank/.npm/openid/0.4.2/package/package.json
+verbose loadDefaults openid@0.4.2
+silly updated sha bytes 19094
+info shasum 3670f1eb6a03f25e4e016806bd198eb0693e367d
+info shasum /Users/hank/.npm/openid/0.4.2/package.tgz
+verbose from cache /Users/hank/.npm/openid/0.4.2/package/package.json
+verbose chmod /Users/hank/.npm/openid/0.4.2/package.tgz 644
+verbose chown [ '/Users/hank/.npm/openid/0.4.2/package.tgz', 501, 20 ]
+silly extracting entry examples/express-gdata/views/google_contacts.ejs
+silly extracting entry examples/express-gdata/views/layout.ejs
+silly extracting entry lib/_utils.js
+silly extracting entry lib/oauth.js
+silly extracting entry lib/oauth2.js
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/package/package.json
+verbose loadDefaults request@2.9.202
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/request/2.9.202/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/package' ]
+verbose tarball /Users/hank/.npm/request/2.9.202/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090814-0.287093308288604/package
+silly extracting entry lib/sha1.js
+silly extracting entry Makefile
+silly extracting entry Readme.md
+silly extracting entry tests/oauth.js
+silly extracting entry tests/oauth2.js
+silly extracting entry tests/sha1.js
+verbose caching /Users/hank/.npm/oauth/0.9.7/package/package.json
+verbose loadDefaults oauth@0.9.7
+silly updated sha bytes 20638
+info shasum adcc9a868105825109a238b11d093e8b8a9fd616
+info shasum /Users/hank/.npm/oauth/0.9.7/package.tgz
+verbose from cache /Users/hank/.npm/oauth/0.9.7/package/package.json
+verbose chmod /Users/hank/.npm/oauth/0.9.7/package.tgz 644
+verbose chown [ '/Users/hank/.npm/oauth/0.9.7/package.tgz', 501, 20 ]
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/package/package.json
+verbose loadDefaults tobi@0.3.2
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/tobi/0.3.2/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/package' ]
+verbose tarball /Users/hank/.npm/tobi/0.3.2/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090509-0.1662144884467125/package
+verbose caching /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/package/package.json
+verbose loadDefaults mocha@1.2.0
+verbose from cache /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/package/package.json
+verbose tar.pack [ '/Users/hank/.npm/mocha/1.2.0/package.tgz',
+verbose tar.pack   '/var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/package' ]
+verbose tarball /Users/hank/.npm/mocha/1.2.0/package.tgz
+verbose folder /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067090819-0.5170268646907061/package
+verbose unpack /Users/hank/.npm/request/2.9.202/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry main.js
+silly extracting entry mimetypes.js
+silly extracting entry oauth.js
+silly extracting entry uuid.js
+silly extracting entry tunnel.js
+silly extracting entry forever.js
+silly extracting entry tests/test-tunnel.js
+silly extracting entry tests/test-cookiejar.js
+silly extracting entry tests/test-defaults.js
+silly extracting entry tests/test-errors.js
+silly extracting entry tests/test-cookie.js
+silly extracting entry tests/run.js
+silly extracting entry tests/test-https-strict.js
+silly extracting entry tests/test-https.js
+silly extracting entry tests/test-oauth.js
+silly extracting entry tests/test-params.js
+silly extracting entry tests/test-body.js
+silly extracting entry tests/test-pipes.js
+silly extracting entry tests/test-timeout.js
+silly extracting entry tests/test-proxy.js
+silly extracting entry tests/test-toJSON.js
+silly extracting entry tests/test-qs.js
+silly extracting entry tests/server.js
+silly extracting entry tests/test-redirect.js
+silly extracting entry tests/test-headers.js
+silly extracting entry tests/test-httpModule.js
+silly extracting entry tests/ssl/ca/server.js
+silly extracting entry tests/ssl/ca/ca.srl
+silly extracting entry tests/ssl/ca/ca.crt
+silly extracting entry tests/ssl/ca/ca.csr
+silly extracting entry tests/ssl/ca/ca.key
+silly extracting entry tests/ssl/ca/ca.crl
+silly extracting entry tests/ssl/ca/server.cnf
+silly extracting entry tests/ssl/ca/server.crt
+silly extracting entry tests/ssl/ca/server.csr
+silly extracting entry tests/ssl/ca/ca.cnf
+silly extracting entry tests/ssl/ca/server.key
+silly extracting entry tests/ssl/npm-ca.crt
+silly extracting entry tests/ssl/test.crt
+silly extracting entry tests/ssl/test.key
+silly extracting entry tests/squid.conf
+silly extracting entry tests/googledoodle.png
+silly extracting entry vendor/cookie/index.js
+silly extracting entry vendor/cookie/jar.js
+verbose caching /Users/hank/.npm/request/2.9.202/package/package.json
+verbose loadDefaults request@2.9.202
+silly updated sha bytes 32768
+silly updated sha bytes 40960
+silly updated sha bytes 549
+info shasum c61399cdfbbefda5dc48653b0e9bea517d9f8497
+info shasum /Users/hank/.npm/request/2.9.202/package.tgz
+verbose from cache /Users/hank/.npm/request/2.9.202/package/package.json
+verbose chmod /Users/hank/.npm/request/2.9.202/package.tgz 644
+verbose chown [ '/Users/hank/.npm/request/2.9.202/package.tgz', 501, 20 ]
+verbose unpack /Users/hank/.npm/tobi/0.3.2/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry index.js
+silly extracting entry .gitmodules
+silly extracting entry History.md
+silly extracting entry index.html
+silly extracting entry lib/browser.js
+silly extracting entry lib/tobi.js
+silly extracting entry lib/assertions/should.js
+silly extracting entry lib/cookie/index.js
+silly extracting entry lib/cookie/jar.js
+silly extracting entry lib/jquery/core.js
+silly extracting entry lib/jquery/fill.js
+silly extracting entry lib/jquery/index.js
+silly extracting entry Makefile
+silly extracting entry Readme.md
+verbose unpack /Users/hank/.npm/mocha/1.2.0/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry _mocha.js
+silly extracting entry index.js
+silly extracting entry mocha.js
+silly extracting entry images/error.png
+silly extracting entry images/ok.png
+silly extracting entry support/compile.js
+silly extracting entry support/foot.js
+silly extracting entry support/head.js
+silly extracting entry support/tail.js
+silly extracting entry support/template.html
+silly extracting entry .travis.yml
+silly extracting entry bin/_mocha
+silly extracting entry bin/mocha
+silly extracting entry Makefile
+silly extracting entry mocha.css
+silly extracting entry editors/JavaScript mocha.tmbundle/info.plist
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after each.tmSnippet
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after.tmSnippet
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before each.tmSnippet
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before.tmSnippet
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - it.tmSnippet
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/untitled.tmSnippet
+silly extracting entry History.md
+silly extracting entry Readme.md
+silly extracting entry lib/utils.js
+silly extracting entry lib/hook.js
+silly extracting entry lib/mocha.js
+silly extracting entry lib/context.js
+silly extracting entry lib/runnable.js
+silly extracting entry lib/runner.js
+silly extracting entry lib/suite.js
+silly extracting entry lib/test.js
+silly extracting entry lib/browser/debug.js
+silly extracting entry lib/browser/diff.js
+silly extracting entry lib/browser/events.js
+silly extracting entry lib/browser/fs.js
+silly extracting entry lib/browser/path.js
+silly extracting entry lib/browser/progress.js
+silly extracting entry lib/browser/tty.js
+silly extracting entry lib/interfaces/bdd.js
+silly extracting entry lib/interfaces/exports.js
+silly extracting entry lib/interfaces/index.js
+silly extracting entry lib/interfaces/qunit.js
+silly extracting entry lib/interfaces/tdd.js
+silly extracting entry lib/reporters/base.js
+silly extracting entry lib/reporters/json-cov.js
+silly extracting entry lib/reporters/json-stream.js
+silly extracting entry lib/reporters/json.js
+silly extracting entry lib/reporters/index.js
+silly extracting entry lib/reporters/doc.js
+silly extracting entry lib/reporters/markdown.js
+silly extracting entry lib/reporters/min.js
+silly extracting entry lib/reporters/nyan.js
+silly extracting entry lib/reporters/progress.js
+silly extracting entry lib/reporters/html.js
+silly extracting entry lib/reporters/spec.js
+silly extracting entry lib/reporters/html-cov.js
+silly extracting entry lib/reporters/tap.js
+silly extracting entry lib/reporters/dot.js
+silly extracting entry lib/reporters/teamcity.js
+silly extracting entry lib/reporters/landing.js
+silly extracting entry lib/reporters/xunit.js
+silly extracting entry lib/reporters/list.js
+silly extracting entry lib/reporters/templates/coverage.jade
+silly extracting entry lib/reporters/templates/menu.jade
+silly extracting entry lib/reporters/templates/script.html
+silly extracting entry lib/reporters/templates/style.html
+verbose caching /Users/hank/.npm/tobi/0.3.2/package/package.json
+verbose loadDefaults tobi@0.3.2
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 7111
+info shasum 1134c8a1216ea7d789f20d16b1239e188b563367
+info shasum /Users/hank/.npm/tobi/0.3.2/package.tgz
+verbose from cache /Users/hank/.npm/tobi/0.3.2/package/package.json
+verbose chmod /Users/hank/.npm/tobi/0.3.2/package.tgz 644
+verbose chown [ '/Users/hank/.npm/tobi/0.3.2/package.tgz', 501, 20 ]
+verbose caching /Users/hank/.npm/mocha/1.2.0/package/package.json
+verbose loadDefaults mocha@1.2.0
+silly updated sha bytes 40960
+silly updated sha bytes 40960
+silly updated sha bytes 1382
+info shasum 9d0ef575d76b65d8b5948d47ab98c1de39522477
+info shasum /Users/hank/.npm/mocha/1.2.0/package.tgz
+verbose from cache /Users/hank/.npm/mocha/1.2.0/package/package.json
+verbose chmod /Users/hank/.npm/mocha/1.2.0/package.tgz 644
+verbose chown [ '/Users/hank/.npm/mocha/1.2.0/package.tgz', 501, 20 ]
+silly resolved [ { name: 'connect',
+silly resolved     version: '1.8.7',
+silly resolved     description: 'High performance middleware framework',
+silly resolved     keywords: [ 'framework', 'web', 'middleware', 'connect', 'rack' ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/senchalabs/connect.git' },
+silly resolved     author: 
+silly resolved      { name: 'TJ Holowaychuk',
+silly resolved        email: 'tj@vision-media.ca',
+silly resolved        url: 'http://tjholowaychuk.com' },
+silly resolved     dependencies: { qs: '>= 0.4.0', mime: '>= 0.0.1', formidable: '1.0.x' },
+silly resolved     devDependencies: 
+silly resolved      { expresso: '0.9.2',
+silly resolved        koala: '0.1.2',
+silly resolved        less: '1.1.1',
+silly resolved        sass: '0.5.0',
+silly resolved        markdown: '0.2.1',
+silly resolved        ejs: '0.4.3',
+silly resolved        should: '0.3.2' },
+silly resolved     publishConfig: { tag: '1.8' },
+silly resolved     main: 'index',
+silly resolved     engines: { node: '>= 0.4.1 < 0.7.0' },
+silly resolved     _id: 'connect@1.8.7',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'connect@>=1 <2',
+silly resolved     scripts: {} },
+silly resolved   { name: 'express',
+silly resolved     description: 'Sinatra inspired web development framework',
+silly resolved     version: '2.5.10',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved        { name: 'Aaron Heckmann',
+silly resolved          email: 'aaron.heckmann+github@gmail.com' },
+silly resolved        { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly resolved        { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly resolved     dependencies: { connect: '1.x', mime: '1.2.4', qs: '0.4.x', mkdirp: '0.3.0' },
+silly resolved     devDependencies: 
+silly resolved      { 'connect-form': '0.2.1',
+silly resolved        ejs: '0.4.2',
+silly resolved        expresso: '0.9.2',
+silly resolved        hamljs: '0.6.x',
+silly resolved        jade: '0.16.2',
+silly resolved        stylus: '0.13.0',
+silly resolved        should: '0.3.2',
+silly resolved        'express-messages': '0.0.2',
+silly resolved        'node-markdown': '>= 0.0.1',
+silly resolved        'connect-redis': '>= 0.0.1' },
+silly resolved     keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/express.git' },
+silly resolved     main: 'index',
+silly resolved     bin: { express: './bin/express' },
+silly resolved     scripts: { test: 'make test', prepublish: 'npm prune' },
+silly resolved     _id: 'express@2.5.10',
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'express@>=2.3.10' },
+silly resolved   { name: 'jade',
+silly resolved     description: 'Jade template engine',
+silly resolved     version: '0.26.1',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/jade.git' },
+silly resolved     main: './index.js',
+silly resolved     bin: { jade: './bin/jade' },
+silly resolved     man: [ './jade.1' ],
+silly resolved     dependencies: { commander: '0.5.2', mkdirp: '0.3.0' },
+silly resolved     devDependencies: 
+silly resolved      { mocha: '*',
+silly resolved        markdown: '*',
+silly resolved        stylus: '*',
+silly resolved        uubench: '*',
+silly resolved        should: '*',
+silly resolved        less: '*',
+silly resolved        'uglify-js': '*' },
+silly resolved     component: { scripts: { jade: 'runtime.js' } },
+silly resolved     scripts: { prepublish: 'npm prune' },
+silly resolved     engines: { node: '>= 0.1.98' },
+silly resolved     _id: 'jade@0.26.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'jade@>=0.12.1' },
+silly resolved   { name: 'node-wsfederation',
+silly resolved     description: 'An ws-federation implementation for node.js',
+silly resolved     version: '0.1.1',
+silly resolved     author: 
+silly resolved      { name: 'Dario Renzulli',
+silly resolved        email: 'dario.renzulli@southworks.net',
+silly resolved        url: 'Southworks' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'Juan Pablo Garcia Dalolla',
+silly resolved          email: 'juanpablo.garcia@southworks.net',
+silly resolved          url: 'Southworks' },
+silly resolved        { name: 'Matias Woloski',
+silly resolved          email: 'matias.woloski@southworks.net',
+silly resolved          url: 'Southworks' } ],
+silly resolved     dependencies: { xml2js: '>=0.1.7' },
+silly resolved     devDependencies: { express: '>=2.3.10', jade: '>=0.12.1', should: '*', mocha: '*' },
+silly resolved     keywords: 
+silly resolved      [ 'ws-federation',
+silly resolved        'wsfederation',
+silly resolved        'security',
+silly resolved        'azure',
+silly resolved        'authentication' ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/darrenzully/node-wsfederation.git' },
+silly resolved     main: 'index.js',
+silly resolved     engines: { node: '>= 0.4.1' },
+silly resolved     _id: 'node-wsfederation@0.1.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '7e4c8b443337e602418763faf754504011395e3d' },
+silly resolved     _from: 'node-wsfederation@>=0.1.1',
+silly resolved     scripts: {} },
+silly resolved   { name: 'node-swt',
+silly resolved     description: 'A library to validate and parse swt tokens',
+silly resolved     version: '0.1.1',
+silly resolved     author: 
+silly resolved      { name: 'Dario Renzulli',
+silly resolved        email: 'dario.renzulli@southworks.net',
+silly resolved        url: 'Southworks' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'Juan Pablo Garcia Dalolla',
+silly resolved          email: 'juanpablo.garcia@southworks.net',
+silly resolved          url: 'Southworks' },
+silly resolved        { name: 'Matias Woloski',
+silly resolved          email: 'matias.woloski@southworks.net',
+silly resolved          url: 'Southworks' } ],
+silly resolved     dependencies: {},
+silly resolved     devDependencies: { express: '>=2.3.10', jade: '>=0.12.1', should: '*', mocha: '*' },
+silly resolved     keywords: [ 'swt', 'acs', 'security', 'azure' ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/darrenzully/node-swt.git' },
+silly resolved     main: 'index.js',
+silly resolved     engines: { node: '>= 0.4.1' },
+silly resolved     _id: 'node-swt@0.1.1',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '3a8fe995ae04b363ad898d7bde21fcb2e8d20d85' },
+silly resolved     _from: 'node-swt@>=0.1.1',
+silly resolved     scripts: {} },
+silly resolved   { name: 'debug',
+silly resolved     version: '0.5.0',
+silly resolved     description: 'small debugging utility',
+silly resolved     keywords: [ 'debug', 'log', 'debugger' ],
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     dependencies: {},
+silly resolved     devDependencies: { mocha: '*' },
+silly resolved     main: 'index',
+silly resolved     engines: { node: '*' },
+silly resolved     _id: 'debug@0.5.0',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'ba6e86a29f71bbbd04b447c29d17b6e157ee77ec' },
+silly resolved     _from: 'debug@0.5.0',
+silly resolved     scripts: {} },
+silly resolved   { name: 'expect.js',
+silly resolved     version: '0.1.2',
+silly resolved     description: 'BDD style assertions for node and the browser.',
+silly resolved     main: './expect',
+silly resolved     devDependencies: { mocha: '*', serve: '*' },
+silly resolved     _id: 'expect.js@0.1.2',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'ffa50d303f97d7a90b9c8c9611a212d38eb67f32' },
+silly resolved     _from: 'expect.js@>=0.1.2',
+silly resolved     scripts: {} },
+silly resolved   { name: 'xml2js',
+silly resolved     description: 'Simple XML to JavaScript object converter.',
+silly resolved     keywords: [ 'xml', 'json' ],
+silly resolved     homepage: 'https://github.com/Leonidas-from-XIV/node-xml2js',
+silly resolved     version: '0.1.14',
+silly resolved     author: 
+silly resolved      { name: 'Marek Kubica',
+silly resolved        email: 'marek@xivilization.net',
+silly resolved        url: 'http://xivilization.net' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'maqr',
+silly resolved          email: 'maqr.lollerskates@gmail.com',
+silly resolved          url: 'https://github.com/maqr' },
+silly resolved        { name: 'Ben Weaver', url: 'http://benweaver.com/' },
+silly resolved        { name: 'Jae Kwon', url: 'https://github.com/jaekwon' },
+silly resolved        { name: 'Jim Robert' },
+silly resolved        { name: 'Ștefan Rusu', url: 'http://www.saltwaterc.eu/' },
+silly resolved        { name: 'Carter Cole',
+silly resolved          email: 'carter.cole@cartercole.com',
+silly resolved          url: 'http://cartercole.com/' },
+silly resolved        { name: 'Kurt Raschke',
+silly resolved          email: 'kurt@kurtraschke.com',
+silly resolved          url: 'http://www.kurtraschke.com/' },
+silly resolved        { name: 'Contra',
+silly resolved          email: 'contra@australia.edu',
+silly resolved          url: 'https://github.com/Contra' },
+silly resolved        { name: 'Marcelo Diniz',
+silly resolved          email: 'marudiniz@gmail.com',
+silly resolved          url: 'https://github.com/mdiniz' },
+silly resolved        { name: 'Michael Hart', url: 'https://github.com/mhart' },
+silly resolved        { name: 'Zachary Scott',
+silly resolved          email: 'zachary@zacharyscott.net',
+silly resolved          url: 'http://zacharyscott.net/' },
+silly resolved        { name: 'Raoul Millais',
+silly resolved          url: 'https://github.com/raoulmillais' },
+silly resolved        { name: 'Salsita Software', url: 'http://www.salsitasoft.com/' } ],
+silly resolved     main: './lib/xml2js',
+silly resolved     directories: { lib: './lib' },
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/Leonidas-from-XIV/node-xml2js.git' },
+silly resolved     dependencies: { sax: '>=0.1.1' },
+silly resolved     devDependencies: { 'coffee-script': '>=1.0.1', zap: '>=0.2.3', docco: '>=0.3.0' },
+silly resolved     _id: 'xml2js@0.1.14',
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'e24e785072bb8c4b342b07e6c25bd189ca103c2d' },
+silly resolved     _from: 'xml2js@>=0.1.7',
+silly resolved     scripts: {} },
+silly resolved   { name: 'satisfy',
+silly resolved     version: '0.1.0',
+silly resolved     main: './lib/satisfy',
+silly resolved     dependencies: 
+silly resolved      { ms: '*',
+silly resolved        soda: '0.2.5',
+silly resolved        'webkit-server': '0.1.0',
+silly resolved        debug: '0.1.0' },
+silly resolved     devDependencies: { mocha: '*', 'expect.js': '*' },
+silly resolved     _id: 'satisfy@0.1.0',
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '2c98306529fad4a7d00d1c3b9ca7d8d5f1ed226e' },
+silly resolved     _from: 'satisfy@>=0.1.0',
+silly resolved     scripts: {} },
+silly resolved   { name: 'openid',
+silly resolved     description: 'OpenID 1.1/2.0 library for node.js',
+silly resolved     keywords: 
+silly resolved      [ 'openid',
+silly resolved        'auth',
+silly resolved        'authentication',
+silly resolved        'identity',
+silly resolved        'identifier',
+silly resolved        'relying',
+silly resolved        'party',
+silly resolved        '1.1',
+silly resolved        '2.0',
+silly resolved        'library' ],
+silly resolved     author: 
+silly resolved      { name: 'Håvard Stranden',
+silly resolved        email: 'havard.stranden@gmail.com',
+silly resolved        url: 'http://ox.no' },
+silly resolved     version: '0.4.2',
+silly resolved     repository: { type: 'git', url: 'git://github.com/havard/node-openid.git' },
+silly resolved     bugs: { name: 'http://github.com/havard/node-openid/issues' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'MIT',
+silly resolved          url: 'http://github.com/havard/node-openid/raw/master/LICENSE' } ],
+silly resolved     directories: { lib: './lib' },
+silly resolved     main: './openid.js',
+silly resolved     engines: [ 'node >= 0.6.0', node: ' >= 0.6.0' ],
+silly resolved     _id: 'openid@0.4.2',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '3670f1eb6a03f25e4e016806bd198eb0693e367d' },
+silly resolved     _from: 'openid@>=0.2.0',
+silly resolved     scripts: {} },
+silly resolved   { name: 'oauth',
+silly resolved     description: 'Library for interacting with OAuth 1.0, 1.0A, 2 and Echo.  Provides simplified client access and allows for construction of more complex apis and OAuth providers.',
+silly resolved     version: '0.9.7',
+silly resolved     directories: { lib: './lib' },
+silly resolved     main: 'index.js',
+silly resolved     author: { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/ciaranj/node-oauth.git' },
+silly resolved     devDependencies: { vows: '0.5.x' },
+silly resolved     scripts: { test: 'make test' },
+silly resolved     licenses: 
+silly resolved      [ { type: 'MIT',
+silly resolved          url: 'http://github.com/ciaranj/node-oauth/raw/master/LICENSE' } ],
+silly resolved     _id: 'oauth@0.9.7',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'adcc9a868105825109a238b11d093e8b8a9fd616' },
+silly resolved     _from: 'oauth@https://github.com/ciaranj/node-oauth/tarball/master' },
+silly resolved   { name: 'request',
+silly resolved     description: 'Simplified HTTP request client.',
+silly resolved     tags: [ 'http', 'simple', 'util', 'utility' ],
+silly resolved     version: '2.9.202',
+silly resolved     author: { name: 'Mikeal Rogers', email: 'mikeal.rogers@gmail.com' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/mikeal/request.git' },
+silly resolved     bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly resolved     engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly resolved     main: './main',
+silly resolved     scripts: { test: 'node tests/run.js' },
+silly resolved     _id: 'request@2.9.202',
+silly resolved     dependencies: {},
+silly resolved     devDependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: 'c61399cdfbbefda5dc48653b0e9bea517d9f8497' },
+silly resolved     _from: 'request@2.9.x' },
+silly resolved   { name: 'tobi',
+silly resolved     description: 'expressive server-side functional testing with jQuery and jsdom',
+silly resolved     version: '0.3.2',
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     keywords: [ 'test', 'testing', 'browser', 'jquery', 'css' ],
+silly resolved     dependencies: 
+silly resolved      { jsdom: '>= 0.1.21',
+silly resolved        htmlparser: '>= 1.7.3',
+silly resolved        should: '>= 0.0.4',
+silly resolved        qs: '>= 0.1.0' },
+silly resolved     devDependencies: 
+silly resolved      { express: '2.3.x',
+silly resolved        expresso: '>= 0.0.1',
+silly resolved        htmlparser: '>= 0.0.1',
+silly resolved        jsdom: '>= 0.0.1',
+silly resolved        qs: '>= 0.0.1',
+silly resolved        should: '>= 0.0.1',
+silly resolved        connect: '>= 0.0.1' },
+silly resolved     main: './index.js',
+silly resolved     engines: { node: '>= 0.4.x < 0.7.0' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/LearnBoost/tobi.git' },
+silly resolved     _id: 'tobi@0.3.2',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '1134c8a1216ea7d789f20d16b1239e188b563367' },
+silly resolved     _from: 'tobi@>=0.2.2',
+silly resolved     scripts: {} },
+silly resolved   { name: 'mocha',
+silly resolved     version: '1.2.0',
+silly resolved     description: 'simple, flexible, fun test framework',
+silly resolved     keywords: [ 'test', 'bdd', 'tdd', 'tap' ],
+silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly resolved     repository: { type: 'git', url: 'git://github.com/visionmedia/mocha.git' },
+silly resolved     main: './index',
+silly resolved     bin: { mocha: './bin/mocha', _mocha: './bin/_mocha' },
+silly resolved     engines: { node: '>= 0.4.x < 0.8.0' },
+silly resolved     scripts: { test: 'make test' },
+silly resolved     dependencies: 
+silly resolved      { commander: '0.5.x',
+silly resolved        growl: '1.5.x',
+silly resolved        jade: '0.20.3',
+silly resolved        diff: '1.0.2',
+silly resolved        debug: '*' },
+silly resolved     devDependencies: { should: '*', 'coffee-script': '1.2' },
+silly resolved     _id: 'mocha@1.2.0',
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '9d0ef575d76b65d8b5948d47ab98c1de39522477' },
+silly resolved     _from: 'mocha@>=0.13.0' } ]
+info into /Users/hank/node/everyauth connect@1.8.7
+info into /Users/hank/node/everyauth express@2.5.10
+info into /Users/hank/node/everyauth jade@0.26.1
+info into /Users/hank/node/everyauth node-wsfederation@0.1.1
+info into /Users/hank/node/everyauth node-swt@0.1.1
+info into /Users/hank/node/everyauth debug@0.5.0
+info into /Users/hank/node/everyauth expect.js@0.1.2
+info into /Users/hank/node/everyauth xml2js@0.1.14
+info into /Users/hank/node/everyauth satisfy@0.1.0
+info into /Users/hank/node/everyauth openid@0.4.2
+info into /Users/hank/node/everyauth oauth@0.9.7
+info into /Users/hank/node/everyauth request@2.9.202
+info into /Users/hank/node/everyauth tobi@0.3.2
+info into /Users/hank/node/everyauth mocha@1.2.0
+info installOne connect@1.8.7
+info installOne express@2.5.10
+info installOne jade@0.26.1
+info installOne node-wsfederation@0.1.1
+info installOne node-swt@0.1.1
+info installOne debug@0.5.0
+info installOne expect.js@0.1.2
+info installOne xml2js@0.1.14
+info installOne satisfy@0.1.0
+info installOne openid@0.4.2
+info installOne oauth@0.9.7
+info installOne request@2.9.202
+info installOne tobi@0.3.2
+info installOne mocha@1.2.0
+verbose from cache /Users/hank/.npm/connect/1.8.7/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/connect
+verbose from cache /Users/hank/.npm/express/2.5.10/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/express
+verbose from cache /Users/hank/.npm/jade/0.26.1/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/jade
+verbose from cache /Users/hank/.npm/node-wsfederation/0.1.1/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/node-wsfederation
+verbose from cache /Users/hank/.npm/node-swt/0.1.1/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/node-swt
+verbose from cache /Users/hank/.npm/debug/0.5.0/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/debug
+verbose from cache /Users/hank/.npm/expect.js/0.1.2/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/expect.js
+verbose from cache /Users/hank/.npm/xml2js/0.1.14/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/xml2js
+verbose from cache /Users/hank/.npm/satisfy/0.1.0/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/satisfy
+verbose from cache /Users/hank/.npm/openid/0.4.2/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/openid
+verbose from cache /Users/hank/.npm/oauth/0.9.7/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/oauth
+verbose from cache /Users/hank/.npm/request/2.9.202/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/request
+verbose from cache /Users/hank/.npm/tobi/0.3.2/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/tobi
+verbose from cache /Users/hank/.npm/mocha/1.2.0/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/mocha
+verbose unpack /Users/hank/.npm/connect/1.8.7/package.tgz
+verbose unpack /Users/hank/.npm/node-swt/0.1.1/package.tgz
+verbose unpack /Users/hank/.npm/debug/0.5.0/package.tgz
+verbose unpack /Users/hank/.npm/jade/0.26.1/package.tgz
+verbose unpack /Users/hank/.npm/express/2.5.10/package.tgz
+verbose unpack /Users/hank/.npm/node-wsfederation/0.1.1/package.tgz
+verbose unpack /Users/hank/.npm/expect.js/0.1.2/package.tgz
+verbose unpack /Users/hank/.npm/xml2js/0.1.14/package.tgz
+verbose unpack /Users/hank/.npm/satisfy/0.1.0/package.tgz
+verbose unpack /Users/hank/.npm/openid/0.4.2/package.tgz
+verbose unpack /Users/hank/.npm/oauth/0.9.7/package.tgz
+verbose unpack /Users/hank/.npm/request/2.9.202/package.tgz
+verbose unpack /Users/hank/.npm/tobi/0.3.2/package.tgz
+verbose unpack /Users/hank/.npm/mocha/1.2.0/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry .npmignore
+silly extracting entry README
+silly extracting entry .npmignore
+silly extracting entry debug.js
+silly extracting entry .npmignore
+silly extracting entry README
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry .npmignore
+silly extracting entry README.md
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry .npmignore
+silly extracting entry index.js
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry LICENSE
+silly extracting entry package.json
+silly extracting entry index.js
+silly extracting entry lib/swt.js
+silly extracting entry index.js
+silly extracting entry example/app.js
+silly extracting entry expect.js
+silly extracting entry History.md
+silly extracting entry History.md
+silly extracting entry lib/adaptor.js
+silly extracting entry main.js
+silly extracting entry mimetypes.js
+silly extracting entry index.js
+silly extracting entry lib/wsfederation.js
+silly extracting entry openid.js
+silly extracting entry sample.js
+silly extracting entry index.js
+silly extracting entry examples/term.ie.oauth-HMAC-SHA1.js
+silly extracting entry .gitmodules
+silly extracting entry History.md
+silly extracting entry _mocha.js
+silly extracting entry index.js
+silly extracting entry Cakefile
+silly extracting entry lib/xml2js.js
+silly extracting entry oauth.js
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry lib/base64.js
+silly extracting entry uuid.js
+silly extracting entry lib/convert.js
+silly extracting entry tunnel.js
+silly extracting entry lib/xrds.js
+silly extracting entry forever.js
+silly extracting entry package.json
+silly extracting entry test/openid_fast_tests.js
+silly extracting entry tests/test-tunnel.js
+silly extracting entry example/wildcards.js
+silly extracting entry example/worker.js
+silly extracting entry lib/satisfaction.js
+silly extracting entry lib/satisfy.js
+silly extracting entry test/openid_integration_tests.js
+silly extracting entry tests/test-cookiejar.js
+silly extracting entry test/xrds_tests.js
+silly extracting entry examples/term.ie.oauth-PLAINTEXT.js
+silly extracting entry examples/express-gdata/server.js
+silly extracting entry tests/test-defaults.js
+silly extracting entry index.html
+silly extracting entry lib/browser.js
+silly extracting entry mocha.js
+silly extracting entry images/error.png
+silly extracting entry example/browser.html
+silly extracting entry src/xml2js.coffee
+silly extracting entry test/fixtures/sample.xml
+silly extracting entry lib/adaptors/index.js
+silly extracting entry tests/test-errors.js
+silly extracting entry History.md
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry lib/adaptors/soda.js
+silly extracting entry examples/express-gdata/views/google_calendars.ejs
+silly extracting entry tests/test-cookie.js
+silly extracting entry index.js
+silly extracting entry lib/cache.js
+silly extracting entry images/ok.png
+silly extracting entry test/xml2js.test.coffee
+silly extracting entry lib/adaptors/webkit-server.js
+silly extracting entry tests/run.js
+silly extracting entry Makefile
+silly extracting entry tests/test-https-strict.js
+silly extracting entry support/sizzle.js
+silly extracting entry tests/test-https.js
+silly extracting entry tests/test-oauth.js
+silly extracting entry tests/test-params.js
+silly extracting entry lib/tobi.js
+silly extracting entry lib/assertions/should.js
+silly extracting entry tests/test-body.js
+silly extracting entry lib/debug.js
+silly extracting entry Makefile
+silly extracting entry package.json
+silly extracting entry examples/express-gdata/views/google_contacts.ejs
+silly extracting entry examples/express-gdata/views/layout.ejs
+silly extracting entry tests/test-pipes.js
+silly extracting entry lib/connect.js
+silly extracting entry lib/http.js
+silly extracting entry index.js
+silly extracting entry jade.js
+silly extracting entry support/compile.js
+silly extracting entry lib/https.js
+silly extracting entry support/foot.js
+silly extracting entry support/head.js
+silly extracting entry test/satisfy.js
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry support/tail.js
+silly extracting entry lib/cookie/index.js
+silly extracting entry lib/cookie/jar.js
+silly extracting entry support/template.html
+silly extracting entry Readme.md
+silly extracting entry index.js
+silly extracting entry lib/_utils.js
+silly extracting entry lib/oauth.js
+silly extracting entry .travis.yml
+silly extracting entry lib/jquery/core.js
+silly extracting entry tests/test-timeout.js
+silly extracting entry tests/test-proxy.js
+silly extracting entry bin/_mocha
+silly extracting entry jade.min.js
+silly extracting entry runtime.js
+silly extracting entry lib/oauth2.js
+silly extracting entry bin/mocha
+silly extracting entry tests/test-toJSON.js
+silly extracting entry lib/index.js
+silly extracting entry lib/patch.js
+silly extracting entry Makefile
+silly extracting entry runtime.min.js
+silly extracting entry tests/test-qs.js
+silly extracting entry mocha.css
+silly extracting entry tests/server.js
+silly extracting entry editors/JavaScript mocha.tmbundle/info.plist
+silly extracting entry tests/test-redirect.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after each.tmSnippet
+silly extracting entry test.js
+silly extracting entry bin/express
+silly extracting entry tests/test-headers.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - after.tmSnippet
+silly extracting entry tests/test-httpModule.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before each.tmSnippet
+silly extracting entry tests/ssl/ca/server.js
+silly extracting entry lib/utils.js
+silly extracting entry lib/middleware/basicAuth.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - before.tmSnippet
+verbose caching /Users/hank/node/everyauth/node_modules/node-wsfederation/package.json
+verbose loadDefaults node-wsfederation@0.1.1
+verbose caching /Users/hank/node/everyauth/node_modules/node-swt/package.json
+verbose loadDefaults node-swt@0.1.1
+silly extracting entry tests/ssl/ca/ca.srl
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/bdd - it.tmSnippet
+silly extracting entry testing/index.js
+silly extracting entry testing/user.js
+silly extracting entry lib/sha1.js
+silly extracting entry Makefile
+silly extracting entry tests/ssl/ca/ca.crt
+silly extracting entry lib/middleware/errorHandler.js
+silly extracting entry editors/JavaScript mocha.tmbundle/Snippets/untitled.tmSnippet
+silly extracting entry tests/ssl/ca/ca.csr
+silly extracting entry History.md
+info preinstall node-wsfederation@0.1.1
+info preinstall node-swt@0.1.1
+silly extracting entry Readme.md
+silly extracting entry tests/ssl/ca/ca.key
+silly extracting entry Readme.md
+silly extracting entry History.md
+silly extracting entry lib/express.js
+silly extracting entry lib/jquery/fill.js
+silly extracting entry tests/ssl/ca/ca.crl
+silly extracting entry lib/utils.js
+verbose from cache /Users/hank/node/everyauth/node_modules/node-wsfederation/package.json
+verbose from cache /Users/hank/node/everyauth/node_modules/node-swt/package.json
+silly extracting entry lib/jquery/index.js
+silly extracting entry tests/ssl/ca/server.cnf
+silly extracting entry lib/hook.js
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/node-wsfederation/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/node-swt/package.json
+silly extracting entry Makefile
+silly extracting entry lib/http.js
+silly extracting entry tests/ssl/ca/server.crt
+silly extracting entry lib/mocha.js
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/node-wsfederation
+info build /Users/hank/node/everyauth/node_modules/node-wsfederation
+verbose from cache /Users/hank/node/everyauth/node_modules/node-wsfederation/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff node-wsfederation@0.1.1
+verbose linkBins node-wsfederation@0.1.1
+verbose linkMans node-wsfederation@0.1.1
+verbose rebuildBundles node-wsfederation@0.1.1
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/node-swt
+info build /Users/hank/node/everyauth/node_modules/node-swt
+verbose from cache /Users/hank/node/everyauth/node_modules/node-swt/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff node-swt@0.1.1
+verbose linkBins node-swt@0.1.1
+verbose linkMans node-swt@0.1.1
+verbose rebuildBundles node-swt@0.1.1
+silly extracting entry Readme.md
+silly extracting entry tests/ssl/ca/server.csr
+silly extracting entry lib/context.js
+info install node-wsfederation@0.1.1
+info install node-swt@0.1.1
+silly extracting entry testing/head.jade
+silly extracting entry testing/index.jade
+silly extracting entry tests/ssl/ca/ca.cnf
+silly extracting entry lib/runnable.js
+silly extracting entry tests/oauth.js
+silly extracting entry tests/oauth2.js
+silly extracting entry lib/runner.js
+info postinstall node-wsfederation@0.1.1
+info postinstall node-swt@0.1.1
+silly extracting entry testing/layout.jade
+silly extracting entry lib/middleware/favicon.js
+silly extracting entry lib/middleware/limit.js
+silly extracting entry lib/suite.js
+silly extracting entry testing/user.jade
+silly extracting entry tests/sha1.js
+silly extracting entry lib/test.js
+silly extracting entry bin/jade
+silly extracting entry lib/middleware/directory.js
+silly extracting entry lib/browser/debug.js
+silly extracting entry jade.md
+silly extracting entry lib/https.js
+silly extracting entry lib/request.js
+silly extracting entry lib/middleware/bodyParser.js
+silly extracting entry lib/browser/diff.js
+silly extracting entry test.jade
+silly extracting entry lib/middleware/profiler.js
+silly extracting entry lib/browser/events.js
+silly extracting entry lib/compiler.js
+silly extracting entry tests/ssl/ca/server.key
+silly extracting entry tests/ssl/npm-ca.crt
+silly extracting entry lib/browser/fs.js
+silly extracting entry lib/filters.js
+silly extracting entry lib/browser/path.js
+silly extracting entry lib/inline-tags.js
+silly extracting entry tests/ssl/test.crt
+silly extracting entry lib/browser/progress.js
+silly extracting entry lib/jade.js
+silly extracting entry tests/ssl/test.key
+silly extracting entry lib/browser/tty.js
+silly extracting entry tests/squid.conf
+silly extracting entry lib/interfaces/bdd.js
+silly extracting entry lib/doctypes.js
+silly extracting entry lib/response.js
+silly extracting entry lib/utils.js
+silly extracting entry tests/googledoodle.png
+silly extracting entry lib/interfaces/exports.js
+silly extracting entry lib/self-closing.js
+silly extracting entry lib/parser.js
+silly extracting entry lib/middleware/query.js
+silly extracting entry lib/middleware/responseTime.js
+silly extracting entry lib/interfaces/index.js
+silly extracting entry lib/runtime.js
+silly extracting entry lib/interfaces/qunit.js
+silly extracting entry lib/utils.js
+silly extracting entry lib/middleware/router.js
+silly extracting entry lib/interfaces/tdd.js
+silly extracting entry lib/lexer.js
+silly extracting entry vendor/cookie/index.js
+silly extracting entry vendor/cookie/jar.js
+silly extracting entry lib/middleware/csrf.js
+silly extracting entry lib/reporters/base.js
+silly extracting entry lib/nodes/attrs.js
+silly extracting entry lib/middleware/staticCache.js
+silly extracting entry lib/reporters/json-cov.js
+silly extracting entry lib/nodes/code.js
+silly extracting entry lib/view.js
+silly extracting entry lib/router/collection.js
+silly extracting entry lib/middleware/cookieParser.js
+silly extracting entry lib/reporters/json-stream.js
+silly extracting entry lib/nodes/comment.js
+silly extracting entry lib/middleware/session.js
+silly extracting entry lib/reporters/json.js
+silly extracting entry lib/nodes/doctype.js
+silly extracting entry lib/router/index.js
+silly extracting entry lib/middleware/compiler.js
+silly extracting entry lib/reporters/index.js
+silly extracting entry lib/nodes/case.js
+silly extracting entry lib/router/methods.js
+silly extracting entry lib/middleware/static.js
+silly extracting entry lib/reporters/doc.js
+silly extracting entry lib/nodes/filter.js
+silly extracting entry lib/router/route.js
+silly extracting entry lib/middleware/logger.js
+silly extracting entry lib/reporters/markdown.js
+silly extracting entry lib/nodes/index.js
+silly extracting entry lib/view/partial.js
+silly extracting entry lib/middleware/vhost.js
+silly extracting entry lib/reporters/min.js
+silly extracting entry lib/nodes/literal.js
+silly extracting entry lib/view/view.js
+silly extracting entry lib/reporters/nyan.js
+silly extracting entry lib/nodes/mixin.js
+silly extracting entry Makefile
+silly extracting entry lib/reporters/progress.js
+silly extracting entry lib/nodes/node.js
+silly extracting entry Readme.md
+silly extracting entry lib/reporters/html.js
+silly extracting entry lib/nodes/block.js
+silly extracting entry lib/reporters/spec.js
+silly extracting entry lib/nodes/tag.js
+silly extracting entry lib/reporters/html-cov.js
+silly extracting entry lib/nodes/block-comment.js
+silly extracting entry lib/reporters/tap.js
+silly extracting entry lib/nodes/text.js
+silly extracting entry lib/middleware/methodOverride.js
+silly extracting entry lib/middleware/session/cookie.js
+silly extracting entry lib/reporters/dot.js
+silly extracting entry lib/nodes/each.js
+silly extracting entry lib/reporters/teamcity.js
+silly extracting entry lib/reporters/landing.js
+silly extracting entry lib/reporters/xunit.js
+silly extracting entry lib/reporters/list.js
+silly extracting entry lib/reporters/templates/coverage.jade
+silly extracting entry lib/reporters/templates/menu.jade
+silly extracting entry lib/reporters/templates/script.html
+silly extracting entry lib/middleware/session/memory.js
+silly extracting entry lib/middleware/session/session.js
+silly extracting entry lib/reporters/templates/style.html
+silly extracting entry lib/middleware/session/store.js
+silly extracting entry lib/public/directory.html
+silly extracting entry lib/public/error.html
+silly extracting entry lib/public/favicon.ico
+silly extracting entry lib/public/icons/page_white_edit.png
+silly extracting entry lib/public/icons/page.png
+verbose caching /Users/hank/node/everyauth/node_modules/debug/package.json
+verbose loadDefaults debug@0.5.0
+silly extracting entry lib/public/icons/page_attach.png
+silly extracting entry lib/public/icons/page_code.png
+info preinstall debug@0.5.0
+silly extracting entry lib/public/icons/page_copy.png
+verbose from cache /Users/hank/node/everyauth/node_modules/debug/package.json
+silly extracting entry lib/public/icons/page_delete.png
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/debug/package.json
+silly extracting entry lib/public/icons/page_edit.png
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/debug
+info build /Users/hank/node/everyauth/node_modules/debug
+verbose from cache /Users/hank/node/everyauth/node_modules/debug/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff debug@0.5.0
+verbose linkBins debug@0.5.0
+verbose linkMans debug@0.5.0
+verbose rebuildBundles debug@0.5.0
+silly extracting entry lib/public/icons/page_error.png
+info install debug@0.5.0
+silly extracting entry lib/public/icons/page_excel.png
+verbose caching /Users/hank/node/everyauth/node_modules/expect.js/package.json
+verbose loadDefaults expect.js@0.1.2
+silly extracting entry lib/public/icons/page_find.png
+info postinstall debug@0.5.0
+silly extracting entry lib/public/icons/page_gear.png
+silly extracting entry lib/public/icons/page_go.png
+info preinstall expect.js@0.1.2
+silly extracting entry lib/public/icons/page_green.png
+silly extracting entry lib/public/icons/page_key.png
+verbose from cache /Users/hank/node/everyauth/node_modules/expect.js/package.json
+silly extracting entry lib/public/icons/page_lightning.png
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/expect.js/package.json
+silly extracting entry lib/public/icons/page_link.png
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/expect.js
+info build /Users/hank/node/everyauth/node_modules/expect.js
+verbose from cache /Users/hank/node/everyauth/node_modules/expect.js/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff expect.js@0.1.2
+verbose linkBins expect.js@0.1.2
+verbose linkMans expect.js@0.1.2
+verbose rebuildBundles expect.js@0.1.2
+info install expect.js@0.1.2
+silly extracting entry lib/public/icons/page_paintbrush.png
+silly extracting entry lib/public/icons/page_paste.png
+silly extracting entry lib/public/icons/page_red.png
+info postinstall expect.js@0.1.2
+silly extracting entry lib/public/icons/page_refresh.png
+verbose caching /Users/hank/node/everyauth/node_modules/xml2js/package.json
+verbose loadDefaults xml2js@0.1.14
+silly extracting entry lib/public/icons/page_save.png
+silly extracting entry lib/public/icons/page_white.png
+info preinstall xml2js@0.1.14
+silly extracting entry lib/public/icons/page_white_acrobat.png
+verbose from cache /Users/hank/node/everyauth/node_modules/xml2js/package.json
+silly extracting entry lib/public/icons/page_white_actionscript.png
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/xml2js/package.json
+silly extracting entry lib/public/icons/page_white_add.png
+verbose readDependencies: using package.json deps
+verbose cache add [ 'sax@>=0.1.1', null ]
+silly cache add: name, spec, args [ undefined, 'sax@>=0.1.1', [ 'sax@>=0.1.1', null ] ]
+verbose parsed url { pathname: 'sax@', path: 'sax@', href: 'sax@' }
+silly cache add: name, spec, args [ 'sax', '>=0.1.1', [ 'sax', '>=0.1.1' ] ]
+verbose parsed url { pathname: '=0.1.1', path: '=0.1.1', href: '=0.1.1' }
+verbose addNamed [ 'sax', '>=0.1.1' ]
+verbose addNamed [ null, '>=0.1.1' ]
+silly name, range, hasData [ 'sax', '>=0.1.1', false ]
+verbose raw, before any munging sax
+verbose url resolving [ 'https://registry.npmjs.org/', './sax' ]
+verbose url resolved https://registry.npmjs.org/sax
+http GET https://registry.npmjs.org/sax
+silly extracting entry lib/public/icons/page_white_c.png
+silly extracting entry lib/public/icons/page_white_camera.png
+silly extracting entry lib/public/icons/page_white_cd.png
+silly extracting entry lib/public/icons/page_white_code.png
+silly extracting entry lib/public/icons/page_white_code_red.png
+silly extracting entry lib/public/icons/page_white_coldfusion.png
+silly extracting entry lib/public/icons/page_white_compressed.png
+silly extracting entry lib/public/icons/page_white_copy.png
+silly extracting entry lib/public/icons/page_white_cplusplus.png
+silly extracting entry lib/public/icons/page_white_csharp.png
+silly extracting entry lib/public/icons/page_white_cup.png
+silly extracting entry lib/public/icons/page_white_database.png
+silly extracting entry lib/public/icons/page_white_delete.png
+silly extracting entry lib/public/icons/page_white_dvd.png
+silly extracting entry lib/public/icons/page_add.png
+silly extracting entry lib/public/icons/page_white_error.png
+silly extracting entry lib/public/icons/page_white_excel.png
+silly extracting entry lib/public/icons/page_white_find.png
+silly extracting entry lib/public/icons/page_white_flash.png
+silly extracting entry lib/public/icons/page_white_freehand.png
+silly extracting entry lib/public/icons/page_white_gear.png
+silly extracting entry lib/public/icons/page_white_get.png
+silly extracting entry lib/public/icons/page_white_go.png
+silly extracting entry lib/public/icons/page_white_h.png
+silly extracting entry lib/public/icons/page_white_horizontal.png
+silly extracting entry lib/public/icons/page_white_key.png
+silly extracting entry lib/public/icons/page_white_lightning.png
+silly extracting entry lib/public/icons/page_white_link.png
+silly extracting entry lib/public/icons/page_white_magnify.png
+silly extracting entry lib/public/icons/page_white_medal.png
+verbose caching /Users/hank/node/everyauth/node_modules/satisfy/package.json
+verbose loadDefaults satisfy@0.1.0
+silly extracting entry lib/public/icons/page_white_office.png
+silly extracting entry lib/public/icons/page_white_paint.png
+silly extracting entry lib/public/icons/page_white_paintbrush.png
+info preinstall satisfy@0.1.0
+silly extracting entry lib/public/icons/page_white_paste.png
+verbose from cache /Users/hank/node/everyauth/node_modules/satisfy/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/satisfy/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'soda@0.2.5', null ]
+silly cache add: name, spec, args [ undefined, 'soda@0.2.5', [ 'soda@0.2.5', null ] ]
+verbose parsed url { pathname: 'soda@0.2.5',
+verbose parsed url   path: 'soda@0.2.5',
+verbose parsed url   href: 'soda@0.2.5' }
+silly cache add: name, spec, args [ 'soda', '0.2.5', [ 'soda', '0.2.5' ] ]
+verbose parsed url { pathname: '0.2.5', path: '0.2.5', href: '0.2.5' }
+verbose addNamed [ 'soda', '0.2.5' ]
+verbose addNamed [ '0.2.5', '0.2.5' ]
+verbose raw, before any munging soda/0.2.5
+verbose url resolving [ 'https://registry.npmjs.org/', './soda/0.2.5' ]
+verbose url resolved https://registry.npmjs.org/soda/0.2.5
+http GET https://registry.npmjs.org/soda/0.2.5
+verbose cache add [ 'webkit-server@0.1.0', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'webkit-server@0.1.0',
+silly cache add: name, spec, args   [ 'webkit-server@0.1.0', null ] ]
+verbose parsed url { pathname: 'webkit-server@0.1.0',
+verbose parsed url   path: 'webkit-server@0.1.0',
+verbose parsed url   href: 'webkit-server@0.1.0' }
+silly cache add: name, spec, args [ 'webkit-server', '0.1.0', [ 'webkit-server', '0.1.0' ] ]
+verbose parsed url { pathname: '0.1.0', path: '0.1.0', href: '0.1.0' }
+verbose addNamed [ 'webkit-server', '0.1.0' ]
+verbose addNamed [ '0.1.0', '0.1.0' ]
+verbose cache add [ 'debug@0.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'debug@0.1.0', [ 'debug@0.1.0', null ] ]
+verbose parsed url { pathname: 'debug@0.1.0',
+verbose parsed url   path: 'debug@0.1.0',
+verbose parsed url   href: 'debug@0.1.0' }
+silly cache add: name, spec, args [ 'debug', '0.1.0', [ 'debug', '0.1.0' ] ]
+verbose parsed url { pathname: '0.1.0', path: '0.1.0', href: '0.1.0' }
+verbose addNamed [ 'debug', '0.1.0' ]
+verbose addNamed [ '0.1.0', '0.1.0' ]
+verbose cache add [ 'ms@*', null ]
+silly cache add: name, spec, args [ undefined, 'ms@*', [ 'ms@*', null ] ]
+verbose parsed url { pathname: 'ms@*', path: 'ms@*', href: 'ms@*' }
+silly cache add: name, spec, args [ 'ms', '*', [ 'ms', '*' ] ]
+verbose parsed url { pathname: '*', path: '*', href: '*' }
+verbose addNamed [ 'ms', '*' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'ms', '', false ]
+silly extracting entry lib/public/icons/page_white_php.png
+silly extracting entry lib/public/icons/page_white_picture.png
+verbose raw, before any munging webkit-server/0.1.0
+verbose url resolving [ 'https://registry.npmjs.org/', './webkit-server/0.1.0' ]
+verbose url resolved https://registry.npmjs.org/webkit-server/0.1.0
+http GET https://registry.npmjs.org/webkit-server/0.1.0
+verbose raw, before any munging debug/0.1.0
+verbose url resolving [ 'https://registry.npmjs.org/', './debug/0.1.0' ]
+verbose url resolved https://registry.npmjs.org/debug/0.1.0
+http GET https://registry.npmjs.org/debug/0.1.0
+verbose raw, before any munging ms
+verbose url resolving [ 'https://registry.npmjs.org/', './ms' ]
+verbose url resolved https://registry.npmjs.org/ms
+http GET https://registry.npmjs.org/ms
+silly extracting entry lib/public/icons/page_white_powerpoint.png
+silly extracting entry lib/public/icons/page_white_put.png
+silly extracting entry lib/public/icons/page_white_ruby.png
+silly extracting entry lib/public/icons/page_white_stack.png
+silly extracting entry lib/public/icons/page_white_star.png
+silly extracting entry lib/public/icons/page_white_swoosh.png
+silly extracting entry lib/public/icons/page_white_text.png
+verbose caching /Users/hank/node/everyauth/node_modules/openid/package.json
+verbose loadDefaults openid@0.4.2
+info preinstall openid@0.4.2
+verbose from cache /Users/hank/node/everyauth/node_modules/openid/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/openid/package.json
+silly extracting entry lib/public/icons/page_white_text_width.png
+silly extracting entry lib/public/icons/page_white_tux.png
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/openid
+info build /Users/hank/node/everyauth/node_modules/openid
+verbose from cache /Users/hank/node/everyauth/node_modules/openid/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff openid@0.4.2
+verbose linkBins openid@0.4.2
+verbose linkMans openid@0.4.2
+verbose rebuildBundles openid@0.4.2
+info install openid@0.4.2
+silly extracting entry lib/public/icons/page_white_vector.png
+silly extracting entry lib/public/icons/page_white_visualstudio.png
+info postinstall openid@0.4.2
+silly extracting entry lib/public/icons/page_white_width.png
+silly extracting entry lib/public/icons/page_white_word.png
+silly extracting entry lib/public/icons/page_white_world.png
+silly extracting entry lib/public/icons/page_white_wrench.png
+silly extracting entry lib/public/icons/page_white_zip.png
+silly extracting entry lib/public/icons/page_word.png
+silly extracting entry lib/public/icons/page_world.png
+silly extracting entry lib/public/style.css
+verbose caching /Users/hank/node/everyauth/node_modules/oauth/package.json
+verbose loadDefaults oauth@0.9.7
+info preinstall oauth@0.9.7
+verbose from cache /Users/hank/node/everyauth/node_modules/oauth/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/oauth/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/oauth
+info build /Users/hank/node/everyauth/node_modules/oauth
+verbose from cache /Users/hank/node/everyauth/node_modules/oauth/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff oauth@0.9.7
+verbose linkBins oauth@0.9.7
+verbose linkMans oauth@0.9.7
+verbose rebuildBundles oauth@0.9.7
+info install oauth@0.9.7
+info postinstall oauth@0.9.7
+verbose caching /Users/hank/node/everyauth/node_modules/express/package.json
+verbose loadDefaults express@2.5.10
+info preinstall express@2.5.10
+verbose from cache /Users/hank/node/everyauth/node_modules/express/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/express/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'mime@1.2.4', null ]
+silly cache add: name, spec, args [ undefined, 'mime@1.2.4', [ 'mime@1.2.4', null ] ]
+verbose parsed url { pathname: 'mime@1.2.4',
+verbose parsed url   path: 'mime@1.2.4',
+verbose parsed url   href: 'mime@1.2.4' }
+silly cache add: name, spec, args [ 'mime', '1.2.4', [ 'mime', '1.2.4' ] ]
+verbose parsed url { pathname: '1.2.4', path: '1.2.4', href: '1.2.4' }
+verbose addNamed [ 'mime', '1.2.4' ]
+verbose addNamed [ '1.2.4', '1.2.4' ]
+verbose cache add [ 'qs@0.4.x', null ]
+silly cache add: name, spec, args [ undefined, 'qs@0.4.x', [ 'qs@0.4.x', null ] ]
+verbose parsed url { pathname: 'qs@0.4.x', path: 'qs@0.4.x', href: 'qs@0.4.x' }
+silly cache add: name, spec, args [ 'qs', '0.4.x', [ 'qs', '0.4.x' ] ]
+verbose parsed url { pathname: '0.4.x', path: '0.4.x', href: '0.4.x' }
+verbose addNamed [ 'qs', '0.4.x' ]
+verbose addNamed [ null, '>=0.4.0- <0.5.0-' ]
+silly name, range, hasData [ 'qs', '>=0.4.0- <0.5.0-', false ]
+verbose cache add [ 'mkdirp@0.3.0', null ]
+silly cache add: name, spec, args [ undefined, 'mkdirp@0.3.0', [ 'mkdirp@0.3.0', null ] ]
+verbose parsed url { pathname: 'mkdirp@0.3.0',
+verbose parsed url   path: 'mkdirp@0.3.0',
+verbose parsed url   href: 'mkdirp@0.3.0' }
+silly cache add: name, spec, args [ 'mkdirp', '0.3.0', [ 'mkdirp', '0.3.0' ] ]
+verbose parsed url { pathname: '0.3.0', path: '0.3.0', href: '0.3.0' }
+verbose addNamed [ 'mkdirp', '0.3.0' ]
+verbose addNamed [ '0.3.0', '0.3.0' ]
+verbose raw, before any munging mkdirp/0.3.0
+verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp/0.3.0' ]
+verbose url resolved https://registry.npmjs.org/mkdirp/0.3.0
+verbose etag "943S8JGCDF8KQMMG7IADE23VT"
+http GET https://registry.npmjs.org/mkdirp/0.3.0
+verbose raw, before any munging mime/1.2.4
+verbose url resolving [ 'https://registry.npmjs.org/', './mime/1.2.4' ]
+verbose url resolved https://registry.npmjs.org/mime/1.2.4
+verbose etag "4CXPYNDMLFWAUJJP7X0847KZH"
+http GET https://registry.npmjs.org/mime/1.2.4
+verbose raw, before any munging qs
+verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+verbose url resolved https://registry.npmjs.org/qs
+verbose etag "8S4MMGNKTX9EPPWJ0VFOTNQ52"
+http GET https://registry.npmjs.org/qs
+verbose caching /Users/hank/node/everyauth/node_modules/request/package.json
+verbose loadDefaults request@2.9.202
+info preinstall request@2.9.202
+verbose from cache /Users/hank/node/everyauth/node_modules/request/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/request/package.json
+verbose readDependencies: using package.json deps
+silly resolved []
+verbose about to build /Users/hank/node/everyauth/node_modules/request
+info build /Users/hank/node/everyauth/node_modules/request
+verbose from cache /Users/hank/node/everyauth/node_modules/request/package.json
+verbose linkStuff [ false, false, false, '/Users/hank/node/everyauth/node_modules' ]
+info linkStuff request@2.9.202
+verbose linkBins request@2.9.202
+verbose linkMans request@2.9.202
+verbose rebuildBundles request@2.9.202
+info install request@2.9.202
+info postinstall request@2.9.202
+http 200 https://registry.npmjs.org/webkit-server/0.1.0
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"9BPVVZT34KTCL1LMT2A9VUD32"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:33 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '998' } ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '11a4b0d1fe5b01112df6cb0dbca14b90aa855ac7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/webkit-server/-/webkit-server-0.1.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/webkit-server/-/webkit-server-0.1.0.tgz',
+verbose addRemoteTarball   '11a4b0d1fe5b01112df6cb0dbca14b90aa855ac7' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067093979-0.26604563323780894/tmp.tgz
+http GET https://registry.npmjs.org/webkit-server/-/webkit-server-0.1.0.tgz
+http 200 https://registry.npmjs.org/soda/0.2.5
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"6QAE7FX8TDTDRG5XQL0H1ZI0U"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:33 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '782' } ]
+verbose caching /Users/hank/node/everyauth/node_modules/jade/package.json
+verbose loadDefaults jade@0.26.1
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'a8b10f142d88a2c14cf20b2af9790d10a64d743a',
+verbose bin dist     tarball: 'http://registry.npmjs.org/soda/-/soda-0.2.5.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/soda/-/soda-0.2.5.tgz',
+verbose addRemoteTarball   'a8b10f142d88a2c14cf20b2af9790d10a64d743a' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094024-0.8034658289980143/tmp.tgz
+info preinstall jade@0.26.1
+http 200 https://registry.npmjs.org/debug/0.1.0
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"BFOSJ9KS53REEQFPE5SOZ72ZE"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:33 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '654' } ]
+verbose from cache /Users/hank/node/everyauth/node_modules/jade/package.json
+http GET https://registry.npmjs.org/soda/-/soda-0.2.5.tgz
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/jade/package.json
+verbose readDependencies: using package.json deps
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '3026f197b98b823cb51209f3758eb1498a66442c',
+verbose bin dist     tarball: 'http://registry.npmjs.org/debug/-/debug-0.1.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/debug/-/debug-0.1.0.tgz',
+verbose addRemoteTarball   '3026f197b98b823cb51209f3758eb1498a66442c' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094038-0.9576888564042747/tmp.tgz
+verbose cache add [ 'commander@0.5.2', null ]
+silly cache add: name, spec, args [ undefined, 'commander@0.5.2', [ 'commander@0.5.2', null ] ]
+verbose parsed url { pathname: 'commander@0.5.2',
+verbose parsed url   path: 'commander@0.5.2',
+verbose parsed url   href: 'commander@0.5.2' }
+silly cache add: name, spec, args [ 'commander', '0.5.2', [ 'commander', '0.5.2' ] ]
+verbose parsed url { pathname: '0.5.2', path: '0.5.2', href: '0.5.2' }
+verbose addNamed [ 'commander', '0.5.2' ]
+verbose addNamed [ '0.5.2', '0.5.2' ]
+verbose cache add [ 'mkdirp@0.3.0', null ]
+silly cache add: name, spec, args [ undefined, 'mkdirp@0.3.0', [ 'mkdirp@0.3.0', null ] ]
+verbose parsed url { pathname: 'mkdirp@0.3.0',
+verbose parsed url   path: 'mkdirp@0.3.0',
+verbose parsed url   href: 'mkdirp@0.3.0' }
+silly cache add: name, spec, args [ 'mkdirp', '0.3.0', [ 'mkdirp', '0.3.0' ] ]
+verbose parsed url { pathname: '0.3.0', path: '0.3.0', href: '0.3.0' }
+verbose addNamed [ 'mkdirp', '0.3.0' ]
+http 304 https://registry.npmjs.org/mkdirp/0.3.0
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"943S8JGCDF8KQMMG7IADE23VT"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:34 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mkdirp/0.3.0 from cache
+http 200 https://registry.npmjs.org/sax
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"4S80EJR34E562VBVDRTFS1N03"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:33 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '33953' } ]
+http 304 https://registry.npmjs.org/mime/1.2.4
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"4CXPYNDMLFWAUJJP7X0847KZH"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:34 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mime/1.2.4 from cache
+http 304 https://registry.npmjs.org/qs
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"8S4MMGNKTX9EPPWJ0VFOTNQ52"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:34 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag qs from cache
+http 200 https://registry.npmjs.org/ms
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"E8IEG6WB7N22RUZJAJNJ3L6CI"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:34 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '2949' } ]
+http GET https://registry.npmjs.org/debug/-/debug-0.1.0.tgz
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '1bbf5ab1ba827af23575143490426455f481fe1e',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mkdirp/-/mkdirp-0.3.0.tgz' } ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '11b5fdaf29c2509255176b80ad520294f5de92b7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mime/-/mime-1.2.4.tgz' } ]
+silly name, range, hasData 2 [ 'qs', '>=0.4.0- <0.5.0-', true ]
+silly versions [ 'qs',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.0.5',
+silly versions     '0.0.6',
+silly versions     '0.0.7',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2',
+silly versions     '0.5.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: '3cac4c861e371a8c9c4770ac23cda8de639b8e5f',
+verbose bin dist     tarball: 'http://registry.npmjs.org/qs/-/qs-0.4.2.tgz' } ]
+silly name, range, hasData 2 [ 'sax', '>=0.1.1', true ]
+silly versions [ 'sax',
+silly versions   [ '0.1.0',
+silly versions     '0.1.1',
+silly versions     '0.1.2',
+silly versions     '0.1.3',
+silly versions     '0.1.4',
+silly versions     '0.1.5',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.2.2',
+silly versions     '0.2.3',
+silly versions     '0.2.4',
+silly versions     '0.2.5',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.3.3',
+silly versions     '0.3.4',
+silly versions     '0.3.5',
+silly versions     '0.4.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'b0e5cb05f6ae34aeee7557525efa6d73ea2a3ff7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/sax/-/sax-0.4.0.tgz' } ]
+http 200 https://registry.npmjs.org/webkit-server/-/webkit-server-0.1.0.tgz
+http 200 https://registry.npmjs.org/soda/-/soda-0.2.5.tgz
+silly name, range, hasData 2 [ 'ms', '', true ]
+silly versions [ 'ms', [ '0.1.0' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'f21fac490daf1d7667fd180fe9077389cc9442b2',
+verbose bin dist     tarball: 'http://registry.npmjs.org/ms/-/ms-0.1.0.tgz' } ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/sax/-/sax-0.4.0.tgz',
+verbose addRemoteTarball   'b0e5cb05f6ae34aeee7557525efa6d73ea2a3ff7' ]
+verbose addRemoteTarball [ 'https://registry.npmjs.org/ms/-/ms-0.1.0.tgz',
+verbose addRemoteTarball   'f21fac490daf1d7667fd180fe9077389cc9442b2' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094405-0.5287351394072175/tmp.tgz
+verbose raw, before any munging commander/0.5.2
+verbose url resolving [ 'https://registry.npmjs.org/', './commander/0.5.2' ]
+verbose url resolved https://registry.npmjs.org/commander/0.5.2
+verbose etag "3LDQU0PK4PQ9IRH9AUFEGB4O8"
+http GET https://registry.npmjs.org/commander/0.5.2
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094406-0.4558921013958752/tmp.tgz
+http GET https://registry.npmjs.org/sax/-/sax-0.4.0.tgz
+http GET https://registry.npmjs.org/ms/-/ms-0.1.0.tgz
+verbose caching /Users/hank/.npm/mkdirp/0.3.0/package/package.json
+verbose loadDefaults mkdirp@0.3.0
+verbose caching /Users/hank/.npm/mime/1.2.4/package/package.json
+verbose loadDefaults mime@1.2.4
+verbose caching /Users/hank/node/everyauth/node_modules/tobi/package.json
+verbose loadDefaults tobi@0.3.2
+info preinstall tobi@0.3.2
+verbose from cache /Users/hank/node/everyauth/node_modules/tobi/package.json
+verbose readDependencies: using package.json deps
+verbose from cache /Users/hank/node/everyauth/node_modules/tobi/package.json
+verbose readDependencies: using package.json deps
+verbose cache add [ 'htmlparser@>= 1.7.3', null ]
+silly cache add: name, spec, args [ undefined,
+silly cache add: name, spec, args   'htmlparser@>= 1.7.3',
+silly cache add: name, spec, args   [ 'htmlparser@>= 1.7.3', null ] ]
+verbose parsed url { pathname: 'htmlparser@',
+verbose parsed url   path: 'htmlparser@',
+verbose parsed url   href: 'htmlparser@' }
+silly cache add: name, spec, args [ 'htmlparser', '>= 1.7.3', [ 'htmlparser', '>= 1.7.3' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'htmlparser', '>= 1.7.3' ]
+verbose addNamed [ null, '>=1.7.3' ]
+silly name, range, hasData [ 'htmlparser', '>=1.7.3', false ]
+verbose raw, before any munging htmlparser
+verbose url resolving [ 'https://registry.npmjs.org/', './htmlparser' ]
+verbose url resolved https://registry.npmjs.org/htmlparser
+http GET https://registry.npmjs.org/htmlparser
+verbose cache add [ 'should@>= 0.0.4', null ]
+silly cache add: name, spec, args [ undefined, 'should@>= 0.0.4', [ 'should@>= 0.0.4', null ] ]
+verbose parsed url { pathname: 'should@', path: 'should@', href: 'should@' }
+silly cache add: name, spec, args [ 'should', '>= 0.0.4', [ 'should', '>= 0.0.4' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'should', '>= 0.0.4' ]
+verbose addNamed [ null, '>=0.0.4' ]
+silly name, range, hasData [ 'should', '>=0.0.4', false ]
+verbose cache add [ 'qs@>= 0.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'qs@>= 0.1.0', [ 'qs@>= 0.1.0', null ] ]
+verbose parsed url { pathname: 'qs@', path: 'qs@', href: 'qs@' }
+silly cache add: name, spec, args [ 'qs', '>= 0.1.0', [ 'qs', '>= 0.1.0' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'qs', '>= 0.1.0' ]
+verbose addNamed [ null, '>=0.1.0' ]
+silly name, range, hasData [ 'qs', '>=0.1.0', false ]
+verbose cache add [ 'jsdom@>= 0.1.21', null ]
+silly cache add: name, spec, args [ undefined, 'jsdom@>= 0.1.21', [ 'jsdom@>= 0.1.21', null ] ]
+verbose parsed url { pathname: 'jsdom@', path: 'jsdom@', href: 'jsdom@' }
+silly cache add: name, spec, args [ 'jsdom', '>= 0.1.21', [ 'jsdom', '>= 0.1.21' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+verbose addNamed [ 'jsdom', '>= 0.1.21' ]
+verbose addNamed [ null, '>=0.1.21' ]
+silly name, range, hasData [ 'jsdom', '>=0.1.21', false ]
+silly updated sha bytes 20480
+verbose raw, before any munging should
+verbose url resolving [ 'https://registry.npmjs.org/', './should' ]
+verbose url resolved https://registry.npmjs.org/should
+http GET https://registry.npmjs.org/should
+verbose raw, before any munging jsdom
+verbose url resolving [ 'https://registry.npmjs.org/', './jsdom' ]
+verbose url resolved https://registry.npmjs.org/jsdom
+http GET https://registry.npmjs.org/jsdom
+silly updated sha bytes 17331
+info shasum a8b10f142d88a2c14cf20b2af9790d10a64d743a
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094024-0.8034658289980143/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094024-0.8034658289980143/tmp.tgz
+info shasum 11a4b0d1fe5b01112df6cb0dbca14b90aa855ac7
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067093979-0.26604563323780894/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067093979-0.26604563323780894/tmp.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+verbose raw, before any munging qs
+verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+verbose url resolved https://registry.npmjs.org/qs
+verbose etag "8S4MMGNKTX9EPPWJ0VFOTNQ52"
+http GET https://registry.npmjs.org/qs
+silly extracting entry .gitignore
+silly extracting entry .npmignore
+http 200 https://registry.npmjs.org/debug/-/debug-0.1.0.tgz
+verbose caching /Users/hank/.npm/qs/0.4.2/package/package.json
+verbose loadDefaults qs@0.4.2
+silly resolved [ { name: 'mkdirp',
+silly resolved     description: 'Recursively mkdir, like `mkdir -p`',
+silly resolved     version: '0.3.0',
+silly resolved     author: 
+silly resolved      { name: 'James Halliday',
+silly resolved        email: 'mail@substack.net',
+silly resolved        url: 'http://substack.net' },
+silly resolved     main: './index',
+silly resolved     keywords: [ 'mkdir', 'directory' ],
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/substack/node-mkdirp.git' },
+silly resolved     scripts: { test: 'tap test/*.js' },
+silly resolved     devDependencies: { tap: '0.0.x' },
+silly resolved     license: 'MIT/X11',
+silly resolved     engines: { node: '*' },
+silly resolved     _id: 'mkdirp@0.3.0',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'mkdirp@0.3.0' },
+silly resolved   { author: 
+silly resolved      { name: 'Robert Kieffer',
+silly resolved        email: 'robert@broofa.com',
+silly resolved        url: 'http://github.com/broofa' },
+silly resolved     contributors: 
+silly resolved      [ { name: 'Benjamin Thomas',
+silly resolved          email: 'benjamin@benjaminthomas.org',
+silly resolved          url: 'http://github.com/bentomas' } ],
+silly resolved     dependencies: {},
+silly resolved     description: 'A comprehensive library for mime-type mapping',
+silly resolved     devDependencies: { async_testing: '' },
+silly resolved     keywords: [ 'util', 'mime' ],
+silly resolved     main: 'mime.js',
+silly resolved     name: 'mime',
+silly resolved     repository: { url: 'git://github.com/bentomas/node-mime.git', type: 'git' },
+silly resolved     version: '1.2.4',
+silly resolved     _id: 'mime@1.2.4',
+silly resolved     optionalDependencies: {},
+silly resolved     engines: { node: '*' },
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'mime@1.2.4',
+silly resolved     scripts: {} },
+silly resolved   { name: 'qs',
+silly resolved     description: 'querystring parser',
+silly resolved     version: '0.4.2',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/visionmedia/node-querystring.git' },
+silly resolved     devDependencies: { mocha: '*', should: '*' },
+silly resolved     author: 
+silly resolved      { name: 'TJ Holowaychuk',
+silly resolved        email: 'tj@vision-media.ca',
+silly resolved        url: 'http://tjholowaychuk.com' },
+silly resolved     main: 'index',
+silly resolved     engines: { node: '*' },
+silly resolved     _id: 'qs@0.4.2',
+silly resolved     dependencies: {},
+silly resolved     optionalDependencies: {},
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.1.21',
+silly resolved     _nodeVersion: 'v0.6.17',
+silly resolved     _defaultsLoaded: true,
+silly resolved     _from: 'qs@0.4.x',
+silly resolved     scripts: {} } ]
+info into /Users/hank/node/everyauth/node_modules/express mkdirp@0.3.0
+info into /Users/hank/node/everyauth/node_modules/express mime@1.2.4
+info into /Users/hank/node/everyauth/node_modules/express qs@0.4.2
+info installOne mkdirp@0.3.0
+info installOne mime@1.2.4
+info installOne qs@0.4.2
+verbose from cache /Users/hank/.npm/mkdirp/0.3.0/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/express/node_modules/mkdirp
+verbose from cache /Users/hank/.npm/mime/1.2.4/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/express/node_modules/mime
+verbose from cache /Users/hank/.npm/qs/0.4.2/package/package.json
+info unbuild /Users/hank/node/everyauth/node_modules/express/node_modules/qs
+silly extracting entry .gitmodules
+silly extracting entry .npmignore
+silly extracting entry index.js
+silly extracting entry package.json
+verbose unpack /Users/hank/.npm/mkdirp/0.3.0/package.tgz
+verbose unpack /Users/hank/.npm/mime/1.2.4/package.tgz
+verbose unpack /Users/hank/.npm/qs/0.4.2/package.tgz
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry api.html
+silly extracting entry History.md
+silly extracting entry README.markdown
+silly extracting entry test.js
+silly extracting entry index.js
+silly extracting entry Makefile
+silly extracting entry lib/browser.js
+silly extracting entry lib/index.js
+silly extracting entry package.json
+silly extracting entry Readme.md
+silly extracting entry lib/node.js
+silly extracting entry lib/parser.js
+silly extracting entry examples/google.js
+silly extracting entry examples/google.nested.js
+silly extracting entry examples/learnboost.js
+silly extracting entry test/client.test.js
+silly extracting entry test/sauce.test.js
+silly extracting entry test/soda.test.js
+silly extracting entry lib/soda/client.js
+silly extracting entry script/install.js
+silly extracting entry vendor/webkit-server/.gitignore
+silly extracting entry lib/soda/index.js
+silly extracting entry lib/soda/sauce.js
+silly extracting entry vendor/webkit-server/build.sh
+silly extracting entry vendor/webkit-server/LICENSE
+silly extracting entry vendor/webkit-server/README.markdown
+silly extracting entry vendor/webkit-server/webkit_server.pro
+silly extracting entry vendor/webkit-server/bin/Info.plist
+silly extracting entry vendor/webkit-server/src/body.cpp
+silly extracting entry vendor/webkit-server/src/Body.h
+silly extracting entry package.json
+silly extracting entry vendor/webkit-server/src/ClearCookies.cpp
+silly extracting entry vendor/webkit-server/src/ClearCookies.h
+silly extracting entry .npmignore
+silly extracting entry LICENSE
+silly extracting entry vendor/webkit-server/src/Command.cpp
+silly extracting entry vendor/webkit-server/src/Command.h
+silly extracting entry index.js
+silly extracting entry .gitignore.orig
+silly extracting entry package.json
+silly extracting entry package.json
+silly extracting entry vendor/webkit-server/src/CommandFactory.cpp
+silly extracting entry vendor/webkit-server/src/CommandFactory.h
+silly extracting entry .gitignore.rej
+silly extracting entry examples/pow.js
+silly extracting entry .npmignore
+silly extracting entry benchmark.js
+silly extracting entry README.md
+silly extracting entry LICENSE
+silly extracting entry vendor/webkit-server/src/CommandParser.cpp
+silly extracting entry vendor/webkit-server/src/CommandParser.h
+silly extracting entry examples/pow.js.orig
+silly extracting entry examples.js
+silly extracting entry index.js
+silly extracting entry vendor/webkit-server/src/Connection.cpp
+silly extracting entry vendor/webkit-server/src/Connection.h
+silly extracting entry mime.js
+silly extracting entry test.js
+silly extracting entry examples/pow.js.rej
+silly extracting entry README.markdown
+silly extracting entry types/mime.types
+silly extracting entry test/chmod.js
+silly extracting entry types/node.types
+silly extracting entry test/clobber.js
+silly extracting entry test/mkdirp.js
+silly extracting entry History.md
+silly extracting entry .gitmodules
+silly extracting entry vendor/webkit-server/src/Evaluate.cpp
+silly extracting entry vendor/webkit-server/src/Evaluate.h
+silly updated sha bytes 10240
+silly extracting entry test/perm.js
+silly extracting entry test/perm_sync.js
+info shasum 3026f197b98b823cb51209f3758eb1498a66442c
+info shasum /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094038-0.9576888564042747/tmp.tgz
+verbose unpack /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067094038-0.9576888564042747/tmp.tgz
+silly extracting entry lib/querystring.js
+silly extracting entry Makefile
+silly gunzTarPerm modes [ '755', '644' ]
+silly extracting entry .travis.yml
+silly extracting entry test/race.js
+silly extracting entry test/rel.js
+silly extracting entry .gitignore
+silly extracting entry vendor/webkit-server/src/Execute.cpp
+silly extracting entry vendor/webkit-server/src/Execute.h
+silly extracting entry Readme.md
+silly extracting entry test/parse.js
+silly extracting entry .npmignore
+silly extracting entry History.md
+silly extracting entry test/sync.js
+silly extracting entry test/umask.js
+silly extracting entry test/stringify.js
+silly extracting entry test/mocha.opts
+silly extracting entry vendor/webkit-server/src/Find.cpp
+silly extracting entry vendor/webkit-server/src/Find.h
+silly extracting entry index.js
+silly extracting entry Makefile
+silly extracting entry vendor/webkit-server/src/find_command.h
+silly extracting entry test/umask_sync.js
+silly extracting entry package.json
+silly extracting entry Readme.md
+silly extracting entry vendor/webkit-server/src/FrameFocus.cpp
+silly extracting entry vendor/webkit-server/src/FrameFocus.h
+silly extracting entry example/app.js
+silly extracting entry example/worker.js
+silly extracting entry vendor/webkit-server/src/GetCookies.cpp
+silly extracting entry vendor/webkit-server/src/GetCookies.h
+silly extracting entry lib/debug.js
+silly extracting entry vendor/webkit-server/src/Header.cpp
+silly extracting entry vendor/webkit-server/src/Header.h
+silly extracting entry vendor/webkit-server/src/Headers.cpp
+silly extracting entry vendor/webkit-server/src/Headers.h
+silly extracting entry vendor/webkit-server/src/JavascriptInvocation.cpp
+silly extracting entry vendor/webkit-server/src/JavascriptInvocation.h
+http 200 https://registry.npmjs.org/should
+silly get cb [ 200,
+silly get cb   { vary: 'Accept',
+silly get cb     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+silly get cb     etag: '"D1LNETFI71OIUFRCKEA5YWEXP"',
+silly get cb     date: 'Tue, 19 Jun 2012 00:51:34 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '45568' } ]
+silly extracting entry vendor/webkit-server/src/main.cpp
+silly extracting entry vendor/webkit-server/src/NetworkAccessManager.cpp
+silly name, range, hasData 2 [ 'should', '>=0.0.4', true ]
+silly versions [ 'should',
+silly versions   [ '0.0.1',
+silly versions     '0.0.2',
+silly versions     '0.0.3',
+silly versions     '0.0.4',
+silly versions     '0.1.0',
+silly versions     '0.2.0',
+silly versions     '0.2.1',
+silly versions     '0.3.0',
+silly versions     '0.3.1',
+silly versions     '0.3.2',
+silly versions     '0.4.0',
+silly versions     '0.4.1',
+silly versions     '0.4.2',
+silly versions     '0.5.0',
+silly versions     '0.5.1',
+silly versions     '0.6.0',
+silly versions     '0.6.1',
+silly versions     '0.6.2',
+silly versions     '0.6.3' ] ]
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl1.0.1-v83.6.6.25-darwin-x64-11.3.0',
+verbose bin dist   { shasum: 'd4b55335c8908f3a6c47970b687f750372acdc73',
+verbose bin dist     tarball: 'http://registry.npmjs.org/should/-/should-0.6.3.tgz' } ]
+silly extracting entry vendor/webkit-server/src/NetworkAccessManager.h
+silly extracting entry vendor/webkit-server/src/NetworkCookieJar.cpp
+verbose addRemoteTarball [ 'https://registry.npmjs.org/should/-/should-0.6.3.tgz',
+verbose addRemoteTarball   'd4b55335c8908f3a6c47970b687f750372acdc73' ]
+verbose fetch to /var/folders/c7/xtgm_cp52r36sdnbx_6mq1hw0000gn/T/npm-1340067088577/1340067095135-0.6903506545349956/tmp.tgz
+http GET https://registry.npmjs.org/should/-/should-0.6.3.tgz
+silly extracting entry vendor/webkit-server/src/NetworkCookieJar.h
+silly extracting entry vendor/webkit-server/src/Node.cpp

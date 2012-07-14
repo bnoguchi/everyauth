@@ -1,5 +1,9 @@
 module.exports = {
-    fb: {
+    dc: {
+        appId: '7ab1a53d-9d0e-4eeb-af62-76a5e1a83af9',
+        appSecret: '88bee747-c1ef-4851-be60-84d53dd474ad-88495db2-5db0-47c8-ad77-9e92db7e308c',
+    }
+  , fb: {
         appId: '111565172259433'
       , appSecret: '85f7e0a0cc804886180b887c1f04a3c1'
     }
