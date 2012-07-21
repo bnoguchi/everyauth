@@ -1,4 +1,5 @@
 var connect = require('connect')
+  , express = require('express')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
@@ -16,99 +17,89 @@ everyauth.debug = false;
 //       , everyauth.middleware()
 //       , ...
 //     )
-everyauth.middleware = function () {
-  var oldUse = connect.HTTPServer.prototype.use;
-  connect.HTTPServer.prototype.use = function (route, handle) {
-    if (! (handle && handle.everyauth)) {
-      return oldUse.call(this, route, handle);
-    }
-    if (this.set) { /* If the context is an express app */
-      var parentApp = this;
-      // Then decorate the parent app as soon as we mount everyauth as middleware
-      // so that any views accessible from the parent app have dynamic helpers
-      // related to everyauth.
-      var helpers = {}
-        , userAlias = everyauth.expressHelperUserAlias || 'user';
-      helpers.everyauth = function (req, res) {
-        var sess = req.session
-          , auth = sess.auth
-          , ea = { loggedIn: !!(auth && auth.loggedIn) };
+everyauth.middleware = function (expressApp) {
+  if (expressApp) {
+    // Then decorate the parent app as soon as we mount everyauth as middleware
+    // so that any views accessible from the parent app have dynamic helpers
+    // related to everyauth.
+    var userAlias = everyauth.expressHelperUserAlias || 'user';
 
-        // Copy the session.auth properties over
-        for (var k in auth) {
-          ea[k] = auth[k];
-        }
+    expressApp.use( function (req, res, next) {
+      var sess = req.session
+        , auth = sess.auth
+        , ea = { loggedIn: !!(auth && auth.loggedIn) };
 
-        if (everyauth.enabled.password) {
-          // Add in access to loginFormFieldName() + passwordFormFieldName()
-          ea.password || (ea.password = {});
-          ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
-          ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
-        }
-
-        ea.user = req.user;
-
-        return ea;
-      };
-      helpers[userAlias] = function (req, res) {
-        return req.user;
-      };
-      parentApp.dynamicHelpers(helpers);
-    }
-    connect.HTTPServer.prototype.use = oldUse;
-    return this.use(route, handle);
-  };
-
-
-  var app = connect(
-      function registerReqGettersAndMethods (req, res, next) {
-        var methods = everyauth._req._methods
-          , getters = everyauth._req._getters;
-        for (var name in methods) {
-          req[name] = methods[name];
-        }
-        for (name in getters) {
-          Object.defineProperty(req, name, {
-            get: getters[name]
-          });
-        }
-        next();
+      // Copy the session.auth properties over
+      for (var k in auth) {
+        ea[k] = auth[k];
       }
-    , function fetchUserFromSession (req, res, next) {
-        var sess = req.session
-          , auth = sess && sess.auth;
-        if (!auth || !auth.userId) return next();
-        var everymodule = everyauth.everymodule;
-        var pause = __pause(req);
 
-        var findUserById_callback = function (err, user) {
-          if (err) {
-            pause.resume();
-            return next(err);
-          }
-          if (user) req.user = user;
-          else delete sess.auth;
-          next();
+      if (everyauth.enabled.password) {
+        // Add in access to loginFormFieldName() + passwordFormFieldName()
+        ea.password || (ea.password = {});
+        ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
+        ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
+      }
+      ea.user = req.user;
+
+      res.locals.everyauth = ea;
+      next();
+    });
+
+    expressApp.use( function (req, res, next) {
+      res.locals[userAlias] = req.user;
+      next();
+    });
+  }
+
+  var app = express();
+  app.use(function registerReqGettersAndMethods (req, res, next) {
+      var methods = everyauth._req._methods
+        , getters = everyauth._req._getters;
+      for (var name in methods) {
+        req[name] = methods[name];
+      }
+      for (name in getters) {
+        Object.defineProperty(req, name, {
+          get: getters[name]
+        });
+      }
+      next();
+    })
+    .use(function fetchUserFromSession (req, res, next) {
+      var sess = req.session
+        , auth = sess && sess.auth;
+      if (!auth || !auth.userId) return next();
+      var everymodule = everyauth.everymodule;
+      var pause = __pause(req);
+
+      var findUserById_callback = function (err, user) {
+        if (err) {
           pause.resume();
-        }; 
-
-        var findUserById_function = everymodule.findUserById();
-        
-        findUserById_function.length === 3
-          ? findUserById_function( req, auth.userId, findUserById_callback )
-          : findUserById_function(      auth.userId, findUserById_callback );
-
-      }
-    , connect.router(function (app) {
-        var modules = everyauth.enabled
-          , _module;
-        for (var _name in modules) {
-          _module = modules[_name];
-          _module.validateSequences();
-          _module.routeApp(app);
+          return next(err);
         }
-      })
-  );
+        if (user) req.user = user;
+        else delete sess.auth;
+        next();
+        pause.resume();
+      };
+
+      var findUserById_function = everymodule.findUserById();
+
+      findUserById_function.length === 3
+        ? findUserById_function( req, auth.userId, findUserById_callback )
+        : findUserById_function(      auth.userId, findUserById_callback );
+
+    })
+    .use(app.router)
+
+  var modules = everyauth.enabled
+    , _module;
+  for (var _name in modules) {
+    _module = modules[_name];
+    _module.validateSequences();
+    _module.routeApp(app);
+  }
 
   app.everyauth = true;
 
