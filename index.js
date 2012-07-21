@@ -24,7 +24,7 @@ everyauth.middleware = function (expressApp) {
     // related to everyauth.
     var userAlias = everyauth.expressHelperUserAlias || 'user';
 
-    expressApp.locals.use( function (req, res) {
+    expressApp.use( function (req, res) {
       var sess = req.session
         , auth = sess.auth
         , ea = { loggedIn: !!(auth && auth.loggedIn) };
@@ -45,7 +45,7 @@ everyauth.middleware = function (expressApp) {
       res.locals.everyauth = ea;
     });
 
-    expressApp.locals.use( function (req, res) {
+    expressApp.use( function (req, res) {
       res.locals[userAlias] = req.user;
     });
   }
