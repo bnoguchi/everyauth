@@ -93,6 +93,8 @@
       input(type='submit') Login
   #dailycred-login
     a(href='/auth/dailycred') Login with Dailycred
+  #weibo-login
+    a(href='/auth/weibo') Login with sina weibo
 - else
   h2 Authenticated
   - if (everyauth.facebook)
@@ -181,5 +183,7 @@
     p= JSON.stringify(everyauth.mendeley.user)
   - if (everyauth['dailycred'])
     p= JSON.stringify(everyauth.dailycred.user.email)
+  - if (everyauth['weibo'])
+    p= JSON.stringify(everyauth.weibo.user)
   h3
     a(href='/logout') Logout
