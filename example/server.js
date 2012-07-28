@@ -280,7 +280,7 @@ everyauth.vimeo
 	.consumerSecret(conf.vimeo.consumerSecret)
 	.findOrCreateUser( function (sess, accessToken, accessSecret, vimeoUser) {
 		return usersByVimeoId[vimeoUser.id] ||
-			(usersByVimeoId[vimeoUser.id] = vimeoUser);
+      (usersByVimeoId[vimeoUser.id] = addUser('vimeo', vimeoUser));
 	})
 	.redirectPath('/')
 
