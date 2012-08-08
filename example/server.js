@@ -54,6 +54,7 @@ var usersByMendeleyId = {};
 var usersByDcId = {};
 var usersByWeiboId = {};
 var usersByRunKeeperId = {};
+var usersByMeetupId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -439,6 +440,14 @@ everyauth
         (usersByWeiboId[weiboUser.uid] = addUser('weibo', weiboUser));
     })
     .redirectPath("/");
+
+everyauth.meetup
+  .appId(conf.meetup.appId)
+  .appSecret(conf.meetup.appSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersByMeetupId[user.id] || (usersByMeetupId[user.id] = addUser('meetup', user));
+  })
+  .redirectPath('/');
 
 var app = express.createServer(
     express.bodyParser()

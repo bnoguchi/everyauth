@@ -50,6 +50,9 @@ So far, `everyauth` enables you to login via:
        <td> <a href="https://github.com/ufssf">ufssf</a>
     <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
       <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
+    <tr> <td> <img src="http://github.com/bnoguchi/everyauth/raw/master/media/meetup.ico" style="vertical-align:middle"> Meetup
+      <td> <a href="http://github.com/jonathana">Jonathan Altman</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
        <td> <a href="https://github.com/edy-b">Eduard Baun</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer
