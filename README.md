@@ -85,7 +85,14 @@ So far, `everyauth` enables you to login via:
 
 
 ## Installation
+
+If you are using Connect 1.x or Express 2.x, install via:
+
     $ npm install everyauth
+
+If you are using Express 3.x, install via:
+
+    $ npm install git://github.com/bnoguchi/everyauth.git#express3
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
