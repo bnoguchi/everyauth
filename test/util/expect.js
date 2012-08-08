@@ -10,7 +10,7 @@ var expect = require('expect.js');
 var Assertion = expect.Assertion
   , statusCodes = require('http').STATUS_CODES
   , j = function(elem){ return '[jQuery ' + i(elem.selector.replace(/^ *\* */, '')) + ']'; }
-  , i = require('sys').inspect;
+  , i = require('util').inspect;
 
 /**
  * Number strings.
