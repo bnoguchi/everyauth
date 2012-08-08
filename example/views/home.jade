@@ -86,6 +86,9 @@
   #mendeley-login
     a(href='/auth/mendeley', style='border: 0px') 
       img(src='http://d1rktifm8krpj.cloudfront.net/graphics/commonnew/logo-mendeley_1248201417297118.png', title='Login with Mendeley')
+  #runkeeper-login
+    a(href='/auth/runkeeper', style='border: 0px')
+      img(src='http://d2b4ufapzmnxpw.cloudfront.net/build/3572/static/kronos/images/logo.png', title='Login with Runkeeper')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -185,5 +188,8 @@
     p= JSON.stringify(everyauth.dailycred.user.email)
   - if (everyauth['weibo'])
     p= JSON.stringify(everyauth.weibo.user)
+  - if (everyauth.runkeeper)
+    h3 Runkeeper User Data
+    p= JSON.stringify(everyauth.runkeeper.user)
   h3
     a(href='/logout') Logout

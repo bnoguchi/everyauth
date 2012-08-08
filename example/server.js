@@ -53,6 +53,7 @@ var usersMailruId = {};
 var usersByMendeleyId = {};
 var usersByDcId = {};
 var usersByWeiboId = {};
+var usersByRunKeeperId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -386,6 +387,14 @@ everyauth.mendeley
   .consumerSecret(conf.mendeley.consumerSecret)
   .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
     return usersByMendeleyId[user.main.profile_id] || (usersByMendeleyId[user.main.profile_id] = addUser('mendeley', user));
+  })
+  .redirectPath('/');
+
+everyauth.runkeeper
+  .appId(conf.runkeeper.appId)
+  .appSecret(conf.runkeeper.appSecret)
+  .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
+    return usersByRunKeeperId[user.userID] || (usersByRunKeeperId[user.userID] = addUser('runkeeper', user));
   })
   .redirectPath('/');
 

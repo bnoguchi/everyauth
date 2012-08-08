@@ -119,9 +119,13 @@ module.exports = {
   , mendeley: {
       consumerKey: 'Enter your consumer key here'
     , consumerSecret: 'Enter your consumer secret here'
-  }  
-   , weibo: {
-        appId: '3350967939'
-      , appSecret: 'ef7f0a836d0ef315dca53e8d73816cc0'
-    }
+  }
+  , weibo: {
+      appId: '3350967939'
+    , appSecret: 'ef7f0a836d0ef315dca53e8d73816cc0'
+  }
+  , runkeeper: {
+      appId: 'Enter your client/app id here'
+    , appSecret: 'Enter your client/app secret here'
+  }
 };
