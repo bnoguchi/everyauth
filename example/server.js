@@ -52,6 +52,7 @@ var usersByMailchimpId = {};
 var usersMailruId = {};
 var usersByMendeleyId = {};
 var usersByDcId = {};
+var usersByWeiboId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -417,6 +418,16 @@ everyauth
     .findOrCreateUser( function (session, accessToken, accessTokenExtra, mailchimpUser){
       return usersByMailchimpId[mailchimpUser.id] ||
         (usersByMailchimpId[mailchimpUser.user_id] = addUser('mailchimp', mailchimpUser));
+    })
+    .redirectPath("/");
+    
+everyauth
+  .weibo
+    .appId(conf.weibo.appId)
+    .appSecret(conf.weibo.appSecret)
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUser){
+      return usersByWeiboId[weiboUser.uid] ||
+        (usersByWeiboId[weiboUser.uid] = addUser('weibo', weiboUser));
     })
     .redirectPath("/");
 
