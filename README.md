@@ -61,6 +61,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
     <tr><td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred                            <td> <a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a>
+    <tr><td><img src='http://www.sinaimg.cn/blog/developer/wiki/LOGO_16x16.png' style="vertical-align:middle">Sina Weibo<td> <a href='https://github.com/justan'>justan</a>
   </tbody>
 </table>
 
