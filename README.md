@@ -454,6 +454,28 @@ everyauth.facebook
   // rest of configuration
 ```
 
+### Facebook Canvas Pages
+For apps that can be embedded in Facebook via the canvas page, you can use the
+facebookCanvas submodule:
+
+```javascript
+everyauth.facebookCanvas
+  .canvasPath('CANVAS URL MINUS HOSTNAME') // Default is '/auth/facebook/canvas'
+  .canvasPage('CANVAS PAGE'); // Generally http://apps.facebook.com/APP-NAME
+```
+
+Note that you must also configure the usual Facebook configurations described
+above in order for this to work.
+
+You can tell if the user logged in via the canvas interface using the following test:
+
+```javascript
+if (everyauth.facebookCanvas) {
+  // Do something different
+}
+```
+
+
 ## Twitter OAuth
 
 ```javascript
