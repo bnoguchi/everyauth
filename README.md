@@ -2453,6 +2453,32 @@ everyauth.dailycred
   .redirectPath('/');
 ```
 
+### Sina Weibo OAuth2
+
+You will first need to register for the appKey and appSecret [here](http://open.weibo.com/). 
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth
+  .weibo
+    .appId('YOUR APP KEY HERE')
+    .appSecret('YOUR APP SECRET HERE')
+    .findOrCreateUser( function (session, accessToken, accessTokenExtra, weiboUser){
+      // find or create user logic goes here
+      // Return a user or Promise that promises a user
+    })
+    .redirectPath("/");
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+).listen(3000);    
+```
+
 ## Configuring a Module
 
 everyauth was built with powerful configuration needs in mind.
