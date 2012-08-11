@@ -2503,38 +2503,39 @@ Other introspection tools to describe (explanations coming soon):
 
 ### Debugging - Logging Module Steps
 
-To turn on debugging:
+To turn on debugging set `DEBUG=everyauth:*` environment variable.
+See `debug` package at [npm](https://npmjs.org/package/debug) or [github](https://github.com/visionmedia/debug)
 
-```javascript
-everyauth.debug = true;
+```
+$ DEBUG=everyauth:* node server.js
 ```
 
-Each everyauth auth strategy module is composed of steps. As each step begins and ends, everyauth will print out to the console the beginning and end of each step. So by turning on the debug flag, you get insight into what step everyauth is executing at any time.
+Each everyauth auth strategy module is composed of steps. As each step begins and ends, everyauth will print out to the console the beginning and end of each step. So by setting up `DEBUG=everyauth:*` environment variable, you get insight into what step everyauth is executing at any time.
 
 For example, here is some example debugging information output to the console
 during a Facebook Connect authorization:
 
 ```
-starting step - getAuthUri
-...finished step
-starting step - requestAuthUri
-...finished step
-starting step - getCode
-...finished step
-starting step - getAccessToken
-...finished step
-starting step - fetchOAuthUser
-...finished step
-starting step - getSession
-...finished step
-starting step - findOrCreateUser
-...finished step
-starting step - compile
-...finished step
-starting step - addToSession
-...finished step
-starting step - sendResponse
-...finished step
+  everyauth:step starting step - getAuthUri +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - requestAuthUri +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - getCode +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - getAccessToken +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - fetchOAuthUser +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - getSession +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - findOrCreateUser +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - compile +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - addToSession +XXms
+  everyauth:step ...finished step +XXms
+  everyauth:step starting step - sendResponse +XXms
+  everyauth:step ...finished step +XXms
 ```
 
 ### Debugging - Configuring Error Handling

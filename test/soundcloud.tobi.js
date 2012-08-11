@@ -12,7 +12,6 @@ describe('SoundCloud', function () {
     app = require('./app')
     tobi.Browser.browsers = {};
     var everyauth = require('../index');
-    everyauth.debug = false;
     browser = tobi.createBrowser(3000, 'local.host');
     browser.userAgent = 'Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30';
   });
