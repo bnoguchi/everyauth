@@ -2,11 +2,7 @@ var connect = require('connect')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
-
-everyauth.helpExpress = function () {
-  console.warn('everyauth.helpExpress is being deprecated. helpExpress is now automatically invoked when it detects express. So remove everyauth.helpExpress from your code');
-  return this;
-}
+everyauth.helpExpress = require('./lib/expressHelper');
 
 everyauth.debug = false;
 
@@ -17,49 +13,6 @@ everyauth.debug = false;
 //       , ...
 //     )
 everyauth.middleware = function () {
-  var oldUse = connect.HTTPServer.prototype.use;
-  connect.HTTPServer.prototype.use = function (route, handle) {
-    if (! (handle && handle.everyauth)) {
-      return oldUse.call(this, route, handle);
-    }
-    if (this.set) { /* If the context is an express app */
-      var parentApp = this;
-      // Then decorate the parent app as soon as we mount everyauth as middleware
-      // so that any views accessible from the parent app have dynamic helpers
-      // related to everyauth.
-      var helpers = {}
-        , userAlias = everyauth.expressHelperUserAlias || 'user';
-      helpers.everyauth = function (req, res) {
-        var sess = req.session
-          , auth = sess.auth
-          , ea = { loggedIn: !!(auth && auth.loggedIn) };
-
-        // Copy the session.auth properties over
-        for (var k in auth) {
-          ea[k] = auth[k];
-        }
-
-        if (everyauth.enabled.password) {
-          // Add in access to loginFormFieldName() + passwordFormFieldName()
-          ea.password || (ea.password = {});
-          ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
-          ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
-        }
-
-        ea.user = req.user;
-
-        return ea;
-      };
-      helpers[userAlias] = function (req, res) {
-        return req.user;
-      };
-      parentApp.dynamicHelpers(helpers);
-    }
-    connect.HTTPServer.prototype.use = oldUse;
-    return this.use(route, handle);
-  };
-
-
   var app = connect(
       function registerReqGettersAndMethods (req, res, next) {
         var methods = everyauth._req._methods
@@ -109,9 +62,6 @@ everyauth.middleware = function () {
         }
       })
   );
-
-  app.everyauth = true;
-
   return app;
 };
 
