@@ -3,7 +3,7 @@ var express = require('express')
   , conf = require('./conf')
   , everyauthRoot = __dirname + '/..';
 
-everyauth.debug = true;
+// for debugging use DEBUG environment variable, see package debug at npm
 
 var usersById = {};
 var nextUserId = 0;

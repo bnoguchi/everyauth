@@ -33,7 +33,7 @@
     "xml2js": ">=0.1.7",
     "node-swt": ">=0.1.1",
     "node-wsfederation": ">=0.1.1",
-    "debug": "0.5.0"
+    "debug": "~0.7.0"
   },
   "devDependencies": {
     "express": "3.x",

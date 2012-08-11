@@ -9,7 +9,15 @@ everyauth.helpExpress = function () {
   return this;
 }
 
-everyauth.debug = false;
+
+everyauth.__defineGetter__('debug', function() {
+  console.warn('everyauth.debug is deprecated. Use DEBUG=everyauth:* environment variable and debug package at npm');
+  return debug.enabled;
+});
+everyauth.__defineSetter__('debug', function(value) {
+  console.warn('everyauth.debug is deprecated. Use DEBUG=everyauth:* environment variable (see debug package at npm)');
+});
+
 
 // The connect middleware. e.g.,
 //     connect(
