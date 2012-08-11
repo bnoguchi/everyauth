@@ -2504,7 +2504,7 @@ Other introspection tools to describe (explanations coming soon):
 ### Debugging - Logging Module Steps
 
 To turn on debugging set `DEBUG=everyauth:*` environment variable.
-See [https://npmjs.org/package/debug](debug) package at npm
+See [debug](https://npmjs.org/package/debug) package at npm
 
 ```
 $ DEBUG=everyauth:* node server.js
