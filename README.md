@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/bnoguchi/everyauth.png)](http://travis-ci.org/bnoguchi/everyauth)
 everyauth
 ==========
 
