@@ -2453,6 +2453,67 @@ everyauth.dailycred
   .redirectPath('/');
 ```
 
+### Flickr OAuth (1.0)
+
+You will first need to [request an API key](http://www.flickr.com/services/apps/create/apply) to get the consumer key and secret.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth
+  .flickr
+  .consumerKey('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+### Douban OAuth (2.0)
+
+You will first need to Take a look at [douban's developer wiki](http://developers.douban.com/wiki) to apply a AppKey and AppSecret.
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth
+  .douban
+  .appId('YOUR API Key')
+  .appSecret('YOUR API Secret')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+  })
+  .scope('email')                        // Defaults to douban_basic_common
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
 ## Configuring a Module
 
 everyauth was built with powerful configuration needs in mind.
