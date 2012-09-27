@@ -2,9 +2,15 @@ var connect = require('connect')
   , __pause = connect.utils.pause
   , everyauth = module.exports = {};
 
+everyauth.logger = {
+  warn: function () { console.warn.apply(console, arguments); },
+  error: function (error) { console.apply(console, arguments); },
+  info: function (info) { console.apply(console, arguments); },
+  debug: function (debug) { console.apply(console, arguments); }
+};
 
 everyauth.helpExpress = function () {
-  console.warn('everyauth.helpExpress is being deprecated. helpExpress is now automatically invoked when it detects express. So remove everyauth.helpExpress from your code');
+  everyauth.logger.warn('everyauth.helpExpress is being deprecated. helpExpress is now automatically invoked when it detects express. So remove everyauth.helpExpress from your code');
   return this;
 }
 
