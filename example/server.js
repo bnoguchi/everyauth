@@ -55,6 +55,7 @@ var usersByDcId = {};
 var usersByWeiboId = {};
 var usersByRunKeeperId = {};
 var usersByMeetupId = {};
+var usersByViadeoId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -446,6 +447,14 @@ everyauth.meetup
   .appSecret(conf.meetup.appSecret)
   .findOrCreateUser(function(sess, accessToken, accessSecret, user) {
     return usersByMeetupId[user.id] || (usersByMeetupId[user.id] = addUser('meetup', user));
+  })
+  .redirectPath('/');
+
+everyauth.viadeo
+  .appId(conf.viadeo.clientId)
+  .appSecret(conf.viadeo.clientSecret)
+  .findOrCreateUser( function (sess, accessToken, accessTokenExtra, viadeoUser) {
+    return usersByViadeoId[viadeoUser.id] || (usersByViadeoId[viadeoUser.id] = addUser('viadeo', viadeoUser));
   })
   .redirectPath('/');
 

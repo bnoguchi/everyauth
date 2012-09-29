@@ -127,8 +127,13 @@ module.exports = {
   , runkeeper: {
       appId: 'Enter your client/app id here'
     , appSecret: 'Enter your client/app secret here'
+  }
   , meetup: {
       appId: 'nurgg46uqquq3eqa957ivnddv9'
     , appSecret: '6spfeab72gc8f89l735i391rr3'
+  }
+  , viadeo: {
+      clientId : 'testlocalMDXgRa'
+    , clientSecret : 'XIoyozN2gz4Kj'
   }
 };
