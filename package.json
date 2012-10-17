@@ -33,10 +33,10 @@
     "xml2js": ">=0.1.7",
     "node-swt": ">=0.1.1",
     "node-wsfederation": ">=0.1.1",
-    "debug": "0.5.0"
+    "debug": "0.5.0",
+    "express": "3.x"
   },
   "devDependencies": {
-    "express": "3.x",
     "jade": ">=0.12.1",
     "tobi": ">=0.2.2",
     "expect.js": ">=0.1.2",
