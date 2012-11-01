@@ -18,7 +18,7 @@ everyauth.debug = false;
 //       , ...
 //     )
 everyauth.middleware = function () {
-  var userAlias = everyauth.expressHelperUserAlias || 'user';
+  var userAlias = everyauth.expressHelperUserAlias || 'user'
     , app = express();
 
   app.use(function registerReqGettersAndMethods (req, res, next) {
