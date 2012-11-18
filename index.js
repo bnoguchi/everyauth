@@ -17,42 +17,10 @@ everyauth.debug = false;
 //       , everyauth.middleware()
 //       , ...
 //     )
-everyauth.middleware = function (expressApp) {
-  if (expressApp) {
-    // Then decorate the parent app as soon as we mount everyauth as middleware
-    // so that any views accessible from the parent app have dynamic helpers
-    // related to everyauth.
-    var userAlias = everyauth.expressHelperUserAlias || 'user';
+everyauth.middleware = function () {
+  var userAlias = everyauth.expressHelperUserAlias || 'user'
+    , app = express();
 
-    expressApp.use( function (req, res, next) {
-      var sess = req.session
-        , auth = sess.auth
-        , ea = { loggedIn: !!(auth && auth.loggedIn) };
-
-      // Copy the session.auth properties over
-      for (var k in auth) {
-        ea[k] = auth[k];
-      }
-
-      if (everyauth.enabled.password) {
-        // Add in access to loginFormFieldName() + passwordFormFieldName()
-        ea.password || (ea.password = {});
-        ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
-        ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
-      }
-      ea.user = req.user;
-
-      res.locals.everyauth = ea;
-      next();
-    });
-
-    expressApp.use( function (req, res, next) {
-      res.locals[userAlias] = req.user;
-      next();
-    });
-  }
-
-  var app = express();
   app.use(function registerReqGettersAndMethods (req, res, next) {
       var methods = everyauth._req._methods
         , getters = everyauth._req._getters;
@@ -90,6 +58,28 @@ everyauth.middleware = function (expressApp) {
         ? findUserById_function( req, auth.userId, findUserById_callback )
         : findUserById_function(      auth.userId, findUserById_callback );
 
+    })
+    .use(function decorateResLocals (req, res, next) {
+      var sess = req.session
+        , auth = sess.auth
+        , ea = { loggedIn: !!(auth && auth.loggedIn) };
+
+      // Copy the session.auth properties over
+      for (var k in auth) {
+        ea[k] = auth[k];
+      }
+
+      if (everyauth.enabled.password) {
+        // Add in access to loginFormFieldName() + passwordFormFieldName()
+        ea.password || (ea.password = {});
+        ea.password.loginFormFieldName = everyauth.password.loginFormFieldName();
+        ea.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
+      }
+      ea.user = req.user;
+
+      res.locals.everyauth = ea;
+      res.locals[userAlias] = req.user;
+      next();
     })
     .use(app.router)
 
