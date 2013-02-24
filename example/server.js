@@ -51,6 +51,7 @@ var usersBySoundCloudId = {};
 var usersByMailchimpId = {};
 var usersMailruId = {};
 var usersByMendeleyId = {};
+var usersByShopifyId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -410,6 +411,20 @@ everyauth
         (usersByMailchimpId[mailchimpUser.user_id] = addUser('mailchimp', mailchimpUser));
     })
     .redirectPath("/");
+
+everyauth
+  .shopify
+    .apiHost('https://SHOP-NAME.myshopify.com') 
+    .oauthHost('https://SHOP-NAME.myshopify.com') 
+    .appId(conf.shopify.appId)
+    .appSecret(conf.shopify.appSecret)
+    .scope(conf.shopify.scope)
+    .findOrCreateUser( function (sess, accessToken, accessSecret, shopifyUser) {
+      return usersByShopifyId[shopifyUser.id] ||
+        (usersByShopifyId[shopifyUser.id] = addUser('shopify', shopifyUser));
+    })
+    .redirectPath("/");
+    
 
 var app = express();
 app.use(express.static(__dirname + '/public'))
