@@ -86,6 +86,9 @@
   #mendeley-login
     a(href='/auth/mendeley', style='border: 0px') 
       img(src='http://d1rktifm8krpj.cloudfront.net/graphics/commonnew/logo-mendeley_1248201417297118.png', title='Login with Mendeley')
+  #shopify-login
+    a(href='/auth/shopify', style='border: 0px') 
+      img(src='http://wiki.shopify.com/upload/b/b6/Shopify_Green_32x32.png', title='Login with Shopify')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -177,5 +180,8 @@
   - if (everyauth.mendeley)
     h3 Mendeley User Data
     p= JSON.stringify(everyauth.mendeley.user)
+  - if (everyauth.shopify)
+    h3 Shopify User Data
+    p= JSON.stringify(everyauth.shopify.user)
   h3
     a(href='/logout') Logout
