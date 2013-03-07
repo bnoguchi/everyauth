@@ -89,9 +89,13 @@ If you are using Connect 1.x or Express 2.x, install via:
 
     $ npm install everyauth
 
-If you are using Express 3.x, install via:
+If you are using Express 3.x, either install via:
 
     $ npm install git://github.com/bnoguchi/everyauth.git#express3
+    
+Or if the git protocol is blocked, install via:
+
+    $ npm install https://github.com/bnoguchi/everyauth/archive/express3.tar.gz
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
