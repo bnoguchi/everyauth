@@ -58,6 +58,7 @@ So far, `everyauth` enables you to login via:
        <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper
        <td> <a href="https://github.com/akinsella">Alexis Kinsella</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/eyeem.ico" style="vertical-align:middle"> EyeEm    <td> <a href="https://github.com/nathankleyn">Nathan Kleyn</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -2852,6 +2853,8 @@ Thanks to the following contributors for the following modules:
   - Evernote
 - [Chris Leishman](https://github.com/chrisleishman)
   - SoundCloud
+- [Nathan Kleyn](https://github.com/nathankleyn)
+  - EyeEm
 
 ## MIT License
 Copyright (c) 2011 by Brian Noguchi
