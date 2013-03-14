@@ -3,10 +3,9 @@ everyauth
 
 Authentication and authorization (password, facebook, & more) for your node.js Connect and Express apps.
 
-There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
+There is a [NodeTuts screencast about `everyauth`](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video).
 
-There is also a Google Groups (recently created)
-[here](http://groups.google.com/group/everyauth) to post questions and discuss
+There is also a [`everyauth` Google Group](http://groups.google.com/group/everyauth) to post questions and discuss
 potential ideas and extensions to the library.
 
 So far, `everyauth` enables you to login via:
@@ -14,74 +13,184 @@ So far, `everyauth` enables you to login via:
 <table style="text-align:left">
   <thead>
     <tr>
-         <th> Authenticate Via                                                                                                             <th> Credits
+      <th>Authenticate Via</th>
+      <th>Credits</th>
     </tr>
   </thead>
   <tbody>
-    <tr> <td> Password                                                                                                                     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook       <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter         <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google           <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid    <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn       <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox         <td> <a href="https://github.com/torgeir">Torgeir</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr           <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/evernote.ico" style="vertical-align:middle"> Evernote         <td> <a href="https://github.com/dannyamey">Danny Amey</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github           <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare   <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!            <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> <a href="https://github.com/slickplaid">slickplaid</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> <a href="https://github.com/slickplaid">slickplaid</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
-                                                                                              (Basecamp, Highrise, Backpack, Campfire)     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> <a href="https://github.com/alfrednerstu">Alfred Nerstu</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle" width="16px" height="16px"> AngelList     <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla           <td> <a href="https://github.com/nanek">Kenan Shifflett</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle"> OpenStreetMap       <td> <a href="https://github.com/christophlsa">Christoph Giesel</a>
-    <tr> <td> <img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network) <td> <a href="https://github.com/meritt">Alexey Simonenko</a>
-    <tr> <td> <img src="https://github.com/biggora/everyauth/raw/master/media/mailru.ico" style="vertical-align:middle"> Mail.ru (Russian Social Network) <td> <a href="https://github.com/biggora">Alexey Gordeyev</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock         <td> <a href="https://github.com/srod">Rodolphe Stoclin</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla         <td> <a href="https://github.com/andykram">Andrew Kramolisch</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt           <td> <a href="https://github.com/pirxpilot">Damian Krzeminski</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px             <td> <a href="https://github.com/dannyamey">Danny Amey</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/soundcloud.ico" style="vertical-align:middle"> SoundCloud   <td> <a href="https://github.com/chrisleishman">Chris Leishman</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi
-       <td> <a href="https://github.com/ufssf">ufssf</a>
-    <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
-      <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
-    <tr> <td> <img src="http://github.com/bnoguchi/everyauth/raw/master/media/meetup.ico" style="vertical-align:middle"> Meetup
-      <td> <a href="http://github.com/jonathana">Jonathan Altman</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
-       <td> <a href="https://github.com/edy-b">Eduard Baun</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer
-       <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper
-       <td> <a href="https://github.com/akinsella">Alexis Kinsella</a>
+    <tr>
+      <td>Password
+      <td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/facebook.ico" style="vertical-align:middle"> Facebook</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/twitter.ico" style="vertical-align:middle"> Twitter</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/google.ico" style="vertical-align:middle"> Google Hybrid</td>
+      <td><a href="https://github.com/rocketlabsdev">RocketLabs Development</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/linkedin.ico" style="vertical-align:middle"> LinkedIn</td+>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/dropbox.ico" style="vertical-align:middle"> Dropbox</td>
+      <td><a href="https://github.com/torgeir">Torgeir</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/tumblr.jpg" style="vertical-align:middle"> Tumblr</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/evernote.ico" style="vertical-align:middle"> Evernote</td>
+      <td><a href="https://github.com/dannyamey">Danny Amey</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/github.ico" style="vertical-align:middle"> Github</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/instagram.ico" style="vertical-align:middle"> Instagram</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/foursquare.ico" style="vertical-align:middle"> Foursquare</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv</td>
+      <td><a href="https://github.com/slickplaid">slickplaid</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo</td>
+      <td><a href="https://github.com/slickplaid">slickplaid</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals (Basecamp, Highrise, Backpack, Campfire)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability</td>
+      <td><a href="https://github.com/alfrednerstu">Alfred Nerstu</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle" width="16px" height="16px"> AngelList</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/dwolla.ico" style="vertical-align:middle"> Dwolla</td>
+      <td><a href="https://github.com/nanek">Kenan Shifflett</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/osm.ico" style="vertical-align:middle"> OpenStreetMap</td>
+      <td><a href="https://github.com/christophlsa">Christoph Giesel</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/meritt/everyauth/raw/vkontakte/media/vkontakte.ico" style="vertical-align:middle"> VKontakte (Russian Social Network)</td>
+      <td><a href="https://github.com/meritt">Alexey Simonenko</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/biggora/everyauth/raw/master/media/mailru.ico" style="vertical-align:middle"> Mail.ru (Russian Social Network)</td>
+      <td><a href="https://github.com/biggora">Alexey Gordeyev</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/skyrock.ico" style="vertical-align:middle" width="16px" height="16px"> Skyrock</td>
+      <td><a href="https://github.com/srod">Rodolphe Stoclin</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/gowalla.ico" style="vertical-align:middle"> Gowalla</td>
+      <td><a href="https://github.com/andykram">Andrew Kramolisch</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/tripit.png" style="vertical-align:middle"> TripIt</td>
+      <td><a href="https://github.com/pirxpilot">Damian Krzeminski</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/500px.ico" style="vertical-align:middle"> 500px</td>
+      <td><a href="https://github.com/dannyamey">Danny Amey</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/soundcloud.ico" style="vertical-align:middle"> SoundCloud</td>
+      <td><a href="https://github.com/chrisleishman">Chris Leishman</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/mixi.ico" style="vertical-align:middle"> mixi</td>
+      <td><a href="https://github.com/ufssf">ufssf</a></td>
+    </tr>
+    <tr>
+      <td><img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp</td>
+      <td><a href="http://github.com/wnadeau">Winfred Nadeau</a></td>
+    </tr>
+    <tr>
+      <td><img src="http://github.com/bnoguchi/everyauth/raw/master/media/meetup.ico" style="vertical-align:middle"> Meetup</td>
+      <td><a href="http://github.com/jonathana">Jonathan Altman</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley</td>
+      <td><a href="https://github.com/edy-b">Eduard Baun</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer</td>
+      <td><a href="https://github.com/kaizenpack">kaizenpack</a></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper</td>
+      <td><a href="https://github.com/akinsella">Alexis Kinsella</a></td>
+    </tr>
   </tbody>
-  <tbody id=misc>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
-    <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
-    <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
-    <tr><td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred                            <td> <a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a>
-    <tr><td><img src='http://www.sinaimg.cn/blog/developer/wiki/LOGO_16x16.png' style="vertical-align:middle">Sina Weibo<td> <a href='https://github.com/justan'>justan</a>
+  <tbody id="misc">
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId</td>
+      <td><a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a></td>
+    </tr>
+    <tr>
+      <td>LDAP (experimental; not production-tested)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Windows Azure Access Control Service (ACS)</td>
+      <td><a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a></td>
+    </tr>
+    <tr>
+      <td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred</td>
+      <td><a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a></td>
+    </tr>
+    <tr>
+      <td><img src='http://www.sinaimg.cn/blog/developer/wiki/LOGO_16x16.png' style="vertical-align:middle">Sina Weibo</td>
+      <td><a href='https://github.com/justan'>justan</a></td>
+    </tr>
   </tbody>
 </table>
 
 `everyauth` is:
 
-- **Modular** - We have you covered with Facebook and Twitter 
-  OAuth logins, basic login/password support, and modules 
+- **Modular** - We have you covered with Facebook and Twitter
+  OAuth logins, basic login/password support, and modules
   coming soon for beta invitation support and more.
 - **Easily Configurable** - everyauth was built with powerful
-  configuration needs in mind. Configure an authorization strategy 
-  in a straightforward, easy-to-read & easy-to-write approach, 
-  with as much granularity as you want over the steps and 
+  configuration needs in mind. Configure an authorization strategy
+  in a straightforward, easy-to-read & easy-to-write approach,
+  with as much granularity as you want over the steps and
   logic of your authorization strategy.
 - **Idiomatic** - The syntax for configuring and extending your authorization strategies are
   idiomatic and chainable.
-
 
 ## Installation
 
@@ -92,12 +201,13 @@ If you are using Connect 1.x or Express 2.x, install via:
 If you are using Express 3.x, either install via:
 
     $ npm install git://github.com/bnoguchi/everyauth.git#express3
-    
+
 Or if the git protocol is blocked, install via:
 
     $ npm install https://github.com/bnoguchi/everyauth/archive/express3.tar.gz
 
 ## Quick Start
+
 Using everyauth comes down to just 2 simple steps if using Connect
 or 3 simple steps if using Express:
 
@@ -147,7 +257,7 @@ To run it:
     $ node server.js
 
 **Important** - Some OAuth Providers do not allow callbacks to localhost, so you will need to create a `localhost`
-alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also 
+alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also
 associated with 'local.host'. So inside your /etc/hosts file, one of the lines will look like:
 
     127.0.0.1	localhost local.host
@@ -165,7 +275,7 @@ login to each 3rd party service.
 
 ## Accessing the User
 
-If you are using `express` or `connect`, then `everyauth` 
+If you are using `express` or `connect`, then `everyauth`
 provides an easy way to access the user as:
 
 - `req.user` from your app server
@@ -240,12 +350,12 @@ attached to the helper, `everyauth`:
 
 - `everyauth.loggedIn`
 - `everyauth.user` - the User document associated with the session
-- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
+- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`,
   so you can do things like ...
 - `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
 - `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
   for authorized API calls on behalf of the user.
-- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
+- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`,
   `everyauth.github.user`, etc.
 
 You also get access to the view helper
@@ -281,7 +391,7 @@ of helpers given previously, the alternative leveraging userAlias would look lik
       .label User Facebook Id
       .value #{everyauth.facebook.user.id}
 
-`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
+`everyauth` also provides convenience methods on the `ServerRequest` instance `req`.
 From any scope that has access to `req`, you get the following convenience getters and methods:
 
 - `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
@@ -312,11 +422,11 @@ To over-write the logout handler:
 ```javascript
 everyauth.everymodule.handleLogout( function (req, res) {
   // Put you extra logic here
-  
+
   req.logout(); // The logout method is added for you by everyauth, too
-  
+
   // And/or put your extra logic here
-  
+
   this.redirect(res, this.logoutRedirectPath());
 });
 ```
@@ -330,7 +440,7 @@ everyauth.password
   .respondToLoginSucceed( function (res, user, data) {
     if (user) {
       this.redirect(res, data.session.redirectTo)
-    }   
+    }
   })
   .respondToRegistrationSucceed( function (res, user, data) {
     this.redirect(res, data.session.redirectTo)
@@ -416,10 +526,10 @@ everyauth.facebook.configurable();
 
 ### Dynamic Facebook Connect Scope
 
-Facebook provides many different 
+Facebook provides many different
 [permissions](http://developers.facebook.com/docs/authentication/permissions/)
 for which your app can ask your user. This is bundled up in the `scope` query
-paremter sent with the oauth request to Facebook. While your app may require 
+paremter sent with the oauth request to Facebook. While your app may require
 several different permissions from Facebook, Facebook recommends that you only
 ask for these permissions incrementally, as you need them. For example, you might
 want to only ask for the "email" scope upon registration. At the same time, for
@@ -576,7 +686,7 @@ everyauth.password
     // Or, we return a Promise that can fulfill to promise.fulfill(user) or promise.fulfill(errors)
     // `errors` is an array of error message strings
     //
-    // e.g., 
+    // e.g.,
     // Example 1 - Sync Example
     // if (usersByLogin[login] && usersByLogin[login].password === password) {
     //   return usersByLogin[login];
@@ -593,7 +703,7 @@ everyauth.password
     // return promise;
   })
   .loginSuccessRedirect('/') // Where to redirect to after a login
-  
+
     // If login fails, we render the errors via the login view template,
     // so just make sure your loginView() template incorporates an `errors` local.
     // See './example/views/login.jade'
@@ -634,7 +744,7 @@ everyauth.password
     // });
     // return promise;
     //
-    // Note: Index and db-driven validations are the only validations that occur 
+    // Note: Index and db-driven validations are the only validations that occur
     // here; all other validations occur in the `validateRegistration` step documented above.
   })
   .registerSuccessRedirect('/'); // Where to redirect to after a successful registration
@@ -757,14 +867,14 @@ will only cover `loginLocals` here to illustrate how to use both.
 You can configure this parameter in one of *3* ways. Why 3? Because there are 3 types of ways that you can retrieve your locals.
 
 1. Static local vars that never change values:
-   
+
        ```javascript
        everyauth.password.loginLocals({
          title: 'Login'
        });
        ```
 2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
-   
+
        ```javascript
        everyauth.password.loginLocals( function (req, res) {
          var sess = req.session;
@@ -774,7 +884,7 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
        });
        ```
 3. Dynamic asynchronous local vars
-   
+
        ```javascript
        everyauth.password.loginLocals( function (req, res, done) {
          asyncCall( function ( err, data) {
@@ -790,7 +900,7 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
 
 By default, `everyauth.password` automatically
 
-- validates that the login (or email or phone, depending on what you authenticate with -- see Password Recipe 2) is present in the login http request, 
+- validates that the login (or email or phone, depending on what you authenticate with -- see Password Recipe 2) is present in the login http request,
 - validates that the password is present
 - validates that an email login is a correctly formatted email
 - validates that a phone login is a valid phone number
@@ -914,7 +1024,7 @@ connect(
 
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
-  
+
 ```javascript
 everyauth.github
   .entryPath('/auth/github')
@@ -1630,7 +1740,7 @@ everyauth.dropbox.configurable();
 ```javascript
 var everyauth = require('everyauth')
   , connect = require('connect');
-  
+
 everyauth.justintv
   .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
@@ -1641,7 +1751,7 @@ everyauth.justintv
     // return usersByJustintvId[justintvUser.id] || (usersByJustintvId[justintvUser.id] = justintvUser);
   })
   .redirectPath('/');
-  
+
 var routes = function (app) {
   // Define your routes here
 };
@@ -2105,7 +2215,7 @@ everyauth.mailchimp
     // Return a user or Promise that promises a user
     // Promises are created via
     //     var promise = this.Promise();
-    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey. 
+    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey.
     // You'll want to work with mailchimpUserData.user_id for queries
     // and mailchimpUserData.apikey for your API wrapper
   })
@@ -2370,7 +2480,7 @@ everyauth.ldap
   .host('your.ldap.host')
   .port(389)
 
-  // The `ldap` module inherits from the `password` module, so 
+  // The `ldap` module inherits from the `password` module, so
   // refer to the `password` module instructions several sections above
   // in this README.
   // You do not need to configure the `authenticate` step as instructed
@@ -2523,8 +2633,8 @@ connect(
 everyauth was built with powerful configuration needs in mind.
 
 Every module comes with a set of parameters that you can configure
-directly. To see a list of those parameters on a per module basis, 
-with descriptions about what they do, enter the following into the 
+directly. To see a list of those parameters on a per module basis,
+with descriptions about what they do, enter the following into the
 node REPL (to access the REPL, just type `node` at the command line)
 
     > var ea = require('everyauth');
@@ -2546,10 +2656,10 @@ ea.facebook
 ```
 
 Configuration parameters can be scalars. But they can be anything. For
-example, they can also be functions, too. The facebook module has a 
-configurable step named `findOrCreateUser` that is described as 
+example, they can also be functions, too. The facebook module has a
+configurable step named `findOrCreateUser` that is described as
 "STEP FN [findOrCreateUser] function encapsulating the logic for the step
-`fetchOAuthUser`.". What this means is that this configures the 
+`fetchOAuthUser`.". What this means is that this configures the
 function (i.e., "FN") that encapsulates the logic of this step.
 
 ```javascript
@@ -2560,7 +2670,7 @@ ea.facebook
 ```
 
 How do we know what arguments the function takes?
-We elaborate more about step function configuration in our 
+We elaborate more about step function configuration in our
 `Introspection` section below.
 
 ### For coffee-script lovers
@@ -2604,7 +2714,7 @@ everyauth.facebook.routes;
 Show the steps initiated by a given route:
 
 ```javascript
-everyauth.facebook.route.get.entryPath.steps; 
+everyauth.facebook.route.get.entryPath.steps;
 everyauth.facebook.route.get.callbackPath.steps;
 ```
 
@@ -2622,7 +2732,7 @@ everyauth.facebook.route.get.callbackPath.steps.incomplete;
 ```
 
 This tells you that you must define the function that defines the
-logic for the `findOrCreateUser` step. To see what the function 
+logic for the `findOrCreateUser` step. To see what the function
 signature looks like for this step:
 
 ```javascript
@@ -2688,7 +2798,7 @@ everyauth.oauth2.submodules;
 Other introspection tools to describe (explanations coming soon):
 
 - *Invalid Steps*
-    
+
     ```javascript
     everyauth.facebook.routes.get.callbackPath.steps.invalid
     ```
