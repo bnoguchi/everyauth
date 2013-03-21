@@ -478,6 +478,6 @@ app.get('/', function (req, res) {
 
 app.listen(3000);
 
-console.log('Go to http://local.host:3000');
+console.log('Go to http://localhost:3000');
 
 module.exports = app;
