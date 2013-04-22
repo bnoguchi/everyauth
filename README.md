@@ -145,6 +145,8 @@ To run it:
 
     $ cd example
     $ node server.js
+    
+<a href="https://runnable.com/everyauth" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
 
 **Important** - Some OAuth Providers do not allow callbacks to localhost, so you will need to create a `localhost`
 alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also 
