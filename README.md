@@ -789,7 +789,7 @@ everyauth.password
 
     return promise;
   })
-  .authenticate( function (login, password) {
+  .authenticate( function (login, password, req) {
     var promise
       , errors = [];
     if (!login) errors.push('Missing login.');
@@ -815,7 +815,10 @@ everyauth.password
           errors.push('Wrong password.');
           return promise.fulfill(errors);
         }
-        if (didSucceed) return promise.fulfill(user);
+        if (didSucceed) {
+          // save some log or call function to insert database with 'req'
+          return promise.fulfill(user);
+        }
         errors.push('Wrong password.');
         return promise.fulfill(errors);
       });
