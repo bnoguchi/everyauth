@@ -3,9 +3,7 @@ everyauth
 
 Authentication and authorization (password, facebook, & more) for your node.js Connect and Express apps.
 
-There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
-
-There is also a Google Groups (recently created)
+There is a Google Groups (recently created)
 [here](http://groups.google.com/group/everyauth) to post questions and discuss
 potential ideas and extensions to the library.
 
