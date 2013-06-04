@@ -58,6 +58,7 @@ So far, `everyauth` enables you to login via:
        <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper
        <td> <a href="https://github.com/akinsella">Alexis Kinsella</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/eyeem.ico" style="vertical-align:middle"> EyeEm    <td> <a href="https://github.com/nathankleyn">Nathan Kleyn</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
@@ -89,9 +90,13 @@ If you are using Connect 1.x or Express 2.x, install via:
 
     $ npm install everyauth
 
-If you are using Express 3.x, install via:
+If you are using Express 3.x, either install via:
 
     $ npm install git://github.com/bnoguchi/everyauth.git#express3
+    
+Or if the git protocol is blocked, install via:
+
+    $ npm install https://github.com/bnoguchi/everyauth/archive/express3.tar.gz
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
@@ -379,7 +384,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -505,7 +510,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -644,7 +649,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -904,7 +909,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -958,7 +963,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1014,7 +1019,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1065,7 +1070,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1128,7 +1133,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1189,7 +1194,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1252,7 +1257,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1307,7 +1312,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1387,7 +1392,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1420,7 +1425,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1456,7 +1461,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1483,7 +1488,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1537,7 +1542,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1591,7 +1596,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1647,7 +1652,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1728,7 +1733,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1786,7 +1791,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1842,7 +1847,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1900,7 +1905,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1956,7 +1961,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -1988,7 +1993,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2029,7 +2034,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2116,7 +2121,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2145,7 +2150,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2174,7 +2179,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2223,7 +2228,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2257,7 +2262,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2290,7 +2295,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2320,7 +2325,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2387,7 +2392,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2423,7 +2428,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2479,7 +2484,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2510,7 +2515,7 @@ connect(
   , connect.cookieParser()
   , connect.session({secret: 'whodunnit'})
   , everyauth.middleware()
-  , connect.router(routes);
+  , connect.router(routes)
 ).listen(3000);
 ```
 
@@ -2848,6 +2853,8 @@ Thanks to the following contributors for the following modules:
   - Evernote
 - [Chris Leishman](https://github.com/chrisleishman)
   - SoundCloud
+- [Nathan Kleyn](https://github.com/nathankleyn)
+  - EyeEm
 
 ## MIT License
 Copyright (c) 2011 by Brian Noguchi
