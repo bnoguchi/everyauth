@@ -304,7 +304,7 @@ everyauth.tumblr
   .redirectPath('/');
 
 everyauth.box
-  .apiKey(conf.box.apiKey)
+  .appId(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
     return usersByBoxId[boxUser.user_id] ||
       (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
