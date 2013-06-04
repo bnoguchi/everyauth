@@ -1,3 +1,4 @@
+var path = require('path');
 var connect = require('connect');
 var express = require('express');
 var __pause = connect.utils.pause;
@@ -139,7 +140,7 @@ everyauth.enabled = {};
 var fs = require('fs');
 var files = fs.readdirSync(__dirname + '/lib/modules');
 var includeModules = files.map( function (fname) {
-  return fname.substring(0, fname.length - 3);
+  return path.basename(fname, '.js');
 });
 for (var i = 0, l = includeModules.length; i < l; i++) {
   var name = includeModules[i];
