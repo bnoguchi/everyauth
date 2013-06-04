@@ -33,6 +33,7 @@ var usersByInstagramId = {};
 var usersByFoursquareId = {};
 var usersByGowallaId = {};
 var usersByLinkedinId = {};
+var usersByWindowsLiveId = {};
 var usersByGoogleId = {};
 var usersByAngelListId = {};
 var usersByYahooId = {};
@@ -219,6 +220,14 @@ everyauth.linkedin
   .consumerSecret(conf.linkedin.apiSecret)
   .findOrCreateUser( function (sess, accessToken, accessSecret, linkedinUser) {
     return usersByLinkedinId[linkedinUser.id] || (usersByLinkedinId[linkedinUser.id] = addUser('linkedin', linkedinUser));
+  })
+  .redirectPath('/');
+  
+  everyauth.windowsLive
+  .appId(conf.windowsLive.apiKey)
+  .appSecret(conf.windowsLive.apiSecret)
+  .findOrCreateUser( function (sess, accessToken, accessSecret, windowsLiveUser) {
+    return usersByWindowsLiveId[windowsLiveUser.id] || (usersByWindowsLiveId[windowsLiveUser.id] = addUser('windowsLive', windowsLiveUser));
   })
   .redirectPath('/');
 
@@ -479,5 +488,6 @@ app.get('/', function (req, res) {
 app.listen(3000);
 
 console.log('Go to http://local.host:3000');
+console.log('For Windows Live Go to http://local.hosti:3000');
 
 module.exports = app;

@@ -31,6 +31,10 @@ module.exports = {
         apiKey: 'pv6AWspODUeHIPNZfA531OYcFyB1v23u3y-KIADJdpyw54BXh-ciiQnduWf6FNRH'
       , apiSecret: 'Pdx7DCoJRdAk0ai3joXsslZvK1DPCQwsLn-T17Opkae22ZYDP5R7gmAoFes9TNHy'
     }
+  , windowsLive: {
+        apiKey: '0000000048088A51'
+      , apiSecret: 'z5zxAbjIgFMlT4lyeuu5HFJodwku5XGs'
+    }
   , google: {
         clientId: '3335216477.apps.googleusercontent.com'
       , clientSecret: 'PJMW_uP39nogdu0WpBuqMhtB'
