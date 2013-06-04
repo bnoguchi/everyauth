@@ -21,28 +21,33 @@ everyauth.debug = false;
 //       , everyauth.middleware()
 //       , ...
 //     )
-everyauth.middleware = function () {
+everyauth.middleware = function (opts) {
+  opts = merge({
+    autoSetupRoutes: true
+  }, opts);
   var userAlias = everyauth.expressHelperUserAlias || 'user';
   var pseudoApp = function (req, res, next) {
     addRequestLocals(req, res, userAlias);
     registerReqGettersAndMethods(req);
     fetchUserFromSession(req, next);
   };
-  pseudoApp.set = true;
-  pseudoApp.handle = pseudoApp;
-  // An express "app" will emit the app that is mounting it on the "mount"
-  // event. This is how we will get a variable that is bound to the app that is
-  // using this middleware.
-  pseudoApp.emit = function (event, app) {
-    if (event === 'mount') {
-      var modules = everyauth.enabled;
-      for (var _name in modules) {
-        var _module = modules[_name];
-        _module.validateSequences();
-        _module.routeApp(app);
+  if (opts.autoSetupRoutes) {
+    pseudoApp.set = true;
+    pseudoApp.handle = pseudoApp;
+    // An express "app" will emit the app that is mounting it on the "mount"
+    // event. This is how we will get a variable that is bound to the app that is
+    // using this middleware.
+    pseudoApp.emit = function (event, app) {
+      if (event === 'mount') {
+        var modules = everyauth.enabled;
+        for (var _name in modules) {
+          var _module = modules[_name];
+          _module.validateSequences();
+          _module.routeApp(app);
+        }
       }
-    }
-  };
+    };
+  }
   return pseudoApp;
 };
 

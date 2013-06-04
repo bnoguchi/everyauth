@@ -424,7 +424,6 @@ everyauth
         (usersByShopifyId[shopifyUser.id] = addUser('shopify', shopifyUser));
     })
     .redirectPath("/");
-    
 
 var app = express();
 app.use(express.static(__dirname + '/public'))
