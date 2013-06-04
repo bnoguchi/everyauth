@@ -2324,6 +2324,40 @@ object whose parameter name keys map to description values:
 everyauth.box.configurable();
 ```
 
+### Shopify
+
+```javascript
+var everyauth = require('../index') //require('everyauth')
+  , express = require('express');
+
+everyauth
+  .shopify
+    .apiHost('https://SHOPNAME.myshopify.com') 
+    .oauthHost('https://SHOPNAME.myshopify.com') 
+    .appId('YOUR APP API KEY')
+    .appSecret('YOUR APP SHARED SECRET')
+
+    //Shopify requires scope, even if you only want to use default scope
+    .scope('read_products,write_themes') 
+    .findOrCreateUser( function (sess, accessToken, accessSecret, shopifyUser) {
+      // find or create user logic goes here
+    })
+    .redirectPath("/");
+
+var app = express();
+
+app.use(express.bodyParser())
+  .use(express.cookieParser('whodunnit'))
+  .use(express.session())
+  .use(everyauth.middleware(app));
+
+app.get('/', function (req, res) {
+
+});
+
+app.listen(3000);
+```
+
 ## Configuring a Module
 
 everyauth was built with powerful configuration needs in mind.
