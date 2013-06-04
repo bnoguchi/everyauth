@@ -432,7 +432,7 @@ app.use(express.static(__dirname + '/public'))
   .use(express.bodyParser())
   .use(express.cookieParser('htuayreve'))
   .use(express.session())
-  .use(everyauth.middleware(app));
+  .use(everyauth.middleware());
 
 app.configure( function () {
   app.set('view engine', 'jade');

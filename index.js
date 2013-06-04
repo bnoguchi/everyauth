@@ -1,7 +1,10 @@
 var path = require('path');
+var EventEmitter = require('events').EventEmitter;
 var connect = require('connect');
 var express = require('express');
 var __pause = connect.utils.pause;
+var merge = require('./lib/utils').merge;
+
 var everyauth = module.exports = {};
 
 
@@ -18,7 +21,91 @@ everyauth.debug = false;
 //       , everyauth.middleware()
 //       , ...
 //     )
-everyauth.middleware = function (expressApp) {
+everyauth.middleware = function () {
+  var userAlias = everyauth.expressHelperUserAlias || 'user';
+  var pseudoApp = function (req, res, next) {
+    addRequestLocals(req, res, userAlias);
+    registerReqGettersAndMethods(req);
+    fetchUserFromSession(req, next);
+  };
+  pseudoApp.set = true;
+  pseudoApp.handle = pseudoApp;
+  // An express "app" will emit the app that is mounting it on the "mount"
+  // event. This is how we will get a variable that is bound to the app that is
+  // using this middleware.
+  pseudoApp.emit = function (event, app) {
+    if (event === 'mount') {
+      var modules = everyauth.enabled;
+      for (var _name in modules) {
+        var _module = modules[_name];
+        _module.validateSequences();
+        _module.routeApp(app);
+      }
+    }
+  };
+  return pseudoApp;
+};
+
+function addRequestLocals (req, res, userAlias) {
+  if (res.locals) {
+    var session = req.session;
+    var auth = session && session.auth;
+    var everyauthLocal = merge(auth, {
+      loggedIn: !! (auth && auth.loggedIn)
+    , user: req.user
+    });
+
+    if (everyauth.enabled.password) {
+      // Add in access to loginFormFieldName() + passwordFormFieldName()
+      everyauthLocal.password || (everyauthLocal.password = {});
+      everyauthLocal.password.loginFormFieldName = everyauth.password.loginFormFieldName();
+      everyauthLocal.password.passwordFormFieldName = everyauth.password.passwordFormFieldName();
+    }
+    res.locals.everyauth = everyauthLocal;
+    res.locals[userAlias] = req.user;
+  }
+}
+
+function registerReqGettersAndMethods (req) {
+  var methods = everyauth._req._methods
+  var getters = everyauth._req._getters;
+  for (var name in methods) {
+    req[name] = methods[name];
+  }
+  for (name in getters) {
+    Object.defineProperty(req, name, {
+      get: getters[name]
+    });
+  }
+}
+
+function fetchUserFromSession (req, callback) {
+  var session = req.session
+  var auth = session && session.auth;
+  if (!auth || !auth.userId) return callback();
+  var everymodule = everyauth.everymodule;
+  var pause = __pause(req);
+
+  var findUserById_function = everymodule.findUserById();
+
+  findUserById_function.length === 3
+    ? findUserById_function( req, auth.userId, findUserById_callback )
+    : findUserById_function(      auth.userId, findUserById_callback );
+
+  function findUserById_callback (err, user) {
+    if (err) {
+      pause.resume();
+      return callback(err);
+    }
+    if (user) req.user = user;
+    else delete sess.auth;
+    callback();
+    pause.resume();
+  }
+}
+
+// TODO Remove this implementation
+everyauth.oldMiddleware = function (expressApp) {
   if (expressApp) {
     // Then decorate the parent app as soon as we mount everyauth as middleware
     // so that any views accessible from the parent app have dynamic helpers
@@ -94,10 +181,9 @@ everyauth.middleware = function (expressApp) {
     })
     .use(app.router)
 
-  var modules = everyauth.enabled
-    , _module;
+  var modules = everyauth.enabled;
   for (var _name in modules) {
-    _module = modules[_name];
+    var _module = modules[_name];
     _module.validateSequences();
     _module.routeApp(app);
   }
