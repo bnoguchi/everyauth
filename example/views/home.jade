@@ -89,6 +89,12 @@
   #shopify-login
     a(href='/auth/shopify', style='border: 0px') 
       img(src='http://wiki.shopify.com/upload/b/b6/Shopify_Green_32x32.png', title='Login with Shopify')
+  #stripe-login
+    a(href='/auth/stripe', style='border: 0px') 
+      img(src='https://stripe.com/img/documentation/connect-button-blue.png', title='Login with Stripe')
+  #salesforce-login
+    a(href='/auth/salesforce', style='border: 0px') 
+      img(src='http://upload.wikimedia.org/wikipedia/commons/7/71/Salesforce_Logo_2009.JPG', title='Login with Salesforce')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -183,5 +189,11 @@
   - if (everyauth.shopify)
     h3 Shopify User Data
     p= JSON.stringify(everyauth.shopify.user)
+  - if (everyauth.stripe)
+    h3 Stripe User Data
+    p= JSON.stringify(everyauth.stripe.user)
+  - if (everyauth.salesforce)
+    h3 Salesforce User Data
+    p= JSON.stringify(everyauth.salesforce.user)
   h3
     a(href='/logout') Logout

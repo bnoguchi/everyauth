@@ -52,6 +52,8 @@ var usersByMailchimpId = {};
 var usersMailruId = {};
 var usersByMendeleyId = {};
 var usersByShopifyId = {};
+var usersByStripeId = {};
+var usersBySalesforceId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -424,7 +426,30 @@ everyauth
         (usersByShopifyId[shopifyUser.id] = addUser('shopify', shopifyUser));
     })
     .redirectPath("/");
-    
+
+everyauth
+  .stripe
+    .appId(conf.stripe.appId)
+    .appSecret(conf.stripe.appSecret)
+    .scope(conf.stripe.scope)
+    .landing(conf.stripe.landing)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, stripeUser) {
+      return usersByStripeId[stripeUser.id] ||
+        (usersByStripeId[stripeUser.id] = addUser('stripe', stripeUser));
+    })
+    .redirectPath("/");
+
+everyauth
+  .salesforce
+    .appId(conf.salesforce.appId)
+    .appSecret(conf.salesforce.appSecret)
+    .scope(conf.salesforce.scope)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, salesforceUser) {
+      return usersBySalesforceId[salesforceUser.id] ||
+        (usersBySalesforceId[salesforceUser.id] = addUser('salesforce', salesforceUser));
+    })
+    .redirectPath("/");
+
 
 var app = express();
 app.use(express.static(__dirname + '/public'))
