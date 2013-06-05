@@ -52,8 +52,8 @@ So far, `everyauth` enables you to login via:
       <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
        <td> <a href="https://github.com/edy-b">Eduard Baun</a>
-    <tr> <td> <img src="https://github.com/Datahero/everyauth/raw/express3/media/stripe.ico" style="vertical-align:middle"> Stripe
-       <td> <a href="https://github.com/jzabel">Jeff Zabel</a> <a href="http://www.datahero.com"> Datahero </a>
+    <tr> <td> <img src="https://github.com/Datahero/everyauth/raw/express3/media/stripe.ico" style="vertical-align:middle; width: 16px;"> Stripe
+       <td> <a href="https://github.com/jzabel">Jeff Zabel</a> from <a href="http://www.datahero.com"> Datahero </a>
     <tr> <td> <img src="https://github.com/Datahero/everyauth/raw/express3/media/salesforce.ico" style="vertical-align:middle"> Salesforce
        <td> <a href="https://github.com/jzabel">Jeff Zabel</a> from <a href="http://www.datahero.com"> Datahero </a>
   </tbody>
@@ -64,7 +64,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
   </tbody>
 </table>
-https://github.com/Datahero/everyauth/blob/express3/media/37signals.ico?raw=true
+
 `everyauth` is:
 
 - **Modular** - We have you covered with Facebook and Twitter 
