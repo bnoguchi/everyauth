@@ -40,16 +40,15 @@ everyauth.middleware = function (opts) {
   }
 
   return function (req, res, next) {
-    addRequestLocals(req, res, userAlias);
-    registerReqGettersAndMethods(req);
-    if (! router) {
-      fetchUserFromSession(req, next);
-    } else {
-      fetchUserFromSession(req, function (err) {
-        if (err) return next(err);
+    fetchUserFromSession(req, function (err) {
+      addRequestLocals(req, res, userAlias);
+      registerReqGettersAndMethods(req);
+      if (router) {
         router._dispatch(req, res, next);
-      });
-    }
+      } else {
+        next();
+      }
+    });
   }
 };
 
