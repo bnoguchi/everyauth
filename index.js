@@ -2,6 +2,7 @@ var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 var connect = require('connect');
 var express = require('express');
+var ExpressRouter = require('express/lib/router');
 var __pause = connect.utils.pause;
 var merge = require('./lib/utils').merge;
 
@@ -26,29 +27,30 @@ everyauth.middleware = function (opts) {
     autoSetupRoutes: true
   }, opts);
   var userAlias = everyauth.expressHelperUserAlias || 'user';
-  var pseudoApp = function (req, res, next) {
+  var router = new ExpressRouter;
+
+  if (opts.autoSetupRoutes) {
+    var router = new ExpressRouter();
+    var modules = everyauth.enabled;
+    for (var _name in modules) {
+      var _module = modules[_name];
+      _module.validateSequences();
+      _module.routeApp(router);
+    }
+  }
+
+  return function (req, res, next) {
     addRequestLocals(req, res, userAlias);
     registerReqGettersAndMethods(req);
-    fetchUserFromSession(req, next);
-  };
-  if (opts.autoSetupRoutes) {
-    pseudoApp.set = true;
-    pseudoApp.handle = pseudoApp;
-    // An express "app" will emit the app that is mounting it on the "mount"
-    // event. This is how we will get a variable that is bound to the app that is
-    // using this middleware.
-    pseudoApp.emit = function (event, app) {
-      if (event === 'mount') {
-        var modules = everyauth.enabled;
-        for (var _name in modules) {
-          var _module = modules[_name];
-          _module.validateSequences();
-          _module.routeApp(app);
-        }
-      }
-    };
+    if (! router) {
+      fetchUserFromSession(req, next);
+    } else {
+      fetchUserFromSession(req, function (err) {
+        if (err) return next(err);
+        router._dispatch(req, res, next);
+      });
+    }
   }
-  return pseudoApp;
 };
 
 function addRequestLocals (req, res, userAlias) {
