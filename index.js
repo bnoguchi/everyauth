@@ -103,7 +103,7 @@ function fetchUserFromSession (req, callback) {
       return callback(err);
     }
     if (user) req.user = user;
-    else delete sess.auth;
+    else delete session.auth;
     callback();
     pause.resume();
   }
