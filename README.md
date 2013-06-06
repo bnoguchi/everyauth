@@ -2425,6 +2425,7 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.stripe.configurable();
+```
 
 ### Salesforce
 
@@ -2488,6 +2489,7 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.salesforce.configurable();
+```
 
 ## Configuring a Module
 
