@@ -2425,6 +2425,7 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.stripe.configurable();
+```
 
 ### Salesforce
 
