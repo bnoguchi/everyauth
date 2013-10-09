@@ -254,7 +254,7 @@ From any scope that has access to `req`, you get the following convenience gette
 
 - `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
 - `req.user`     - the User document associated with the session
-- `req.logout()` - clears the sesion of your auth data
+- `req.logout()` - clears the session of your auth data
 
 ## Logging Out
 
