@@ -141,7 +141,7 @@ everyauth.enabled = {};
 // Grab all filenames in ./modules -- They correspond to the modules of the same name
 // as the filename (minus '.js')
 var fs = require('fs');
-var files = fs.readdirSync(__dirname + '/lib/modules');
+var files = fs.readdirSync(__dirname + '/lib/modules').filter(function(file) {return path.extname(file).match(/\.js/);});
 var includeModules = files.map( function (fname) {
   return path.basename(fname, '.js');
 });
