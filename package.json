@@ -28,7 +28,7 @@
   "dependencies": {
     "oauth": "https://github.com/ciaranj/node-oauth/tarball/master",
     "request": "2.9.x",
-    "connect": "2.3.x",
+    "connect": ">=2.8.1",
     "openid": ">=0.2.0",
     "xml2js": ">=0.1.7",
     "node-swt": ">=0.1.1",
