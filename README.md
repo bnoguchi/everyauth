@@ -60,7 +60,7 @@ So far, `everyauth` enables you to login via:
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
-    <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
+    <tr> <td>                                                                                                                              <td> <a href="https://github.com/marek-obuchowicz">Marek Obuchowicz</a> from <h href="https://www.korekontrol.eu/">Korekontrol</a>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
   </tbody>
 </table>
@@ -2237,21 +2237,25 @@ everyauth.box.configurable();
 
 ### LDAP
 
-The LDAP module is still in development. Do not use it in production yet.
+The LDAP module is not tested throughly yet, however it is used in production by some organizations already. Feedback is very welcome.
 
 Install OpenLDAP client libraries:
 
-    $ apt-get install slapd ldap-utils
+    $ sudo apt-get install ldap-utils
 
-Install [node-ldapauth](https://github.com/joewalnes/node-ldapauth):
+Install [node-ldapauth](https://github.com/marek-obuchowicz/node-ldapauth):
 
 ```javascript
 var everyauth = require('everyauth')
   , connect = require('connect');
 
 everyauth.ldap
-  .host('your.ldap.host')
-  .port(389)
+  .ldapUrl('ldap(s)://your.ldap.host')
+  .adminDn('DN for bind')
+  .adminPassword('Password for bind user')
+  .searchBase('e.g. ou=users,dc=example,dc=com')
+  .searchFilter('e.g. (uid={{username}})')
+  .requireGroupDn('e.g. cn=Administrators,ou=Groups,dc=example,dc=com')
 
   // The `ldap` module inherits from the `password` module, so 
   // refer to the `password` module instructions several sections above
