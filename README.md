@@ -60,7 +60,7 @@ So far, `everyauth` enables you to login via:
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
-    <tr> <td>                                                                                                                              <td> <a href="https://github.com/marek-obuchowicz">Marek Obuchowicz</a> from <h href="https://www.korekontrol.eu/">Korekontrol</a>
+    <tr> <td> LDAP / ActiveDirectory                                                                                                       <td> <a href="https://github.com/marek-obuchowicz">Marek Obuchowicz</a> from <a href="https://www.korekontrol.eu/">Korekontrol</a>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
   </tbody>
 </table>
