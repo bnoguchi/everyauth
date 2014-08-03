@@ -1,0 +1,29 @@
+{
+  "name": "everyauth-example",
+  "version": "0.0.0",
+  "description": "Example application demonstrating everyauth's auth capabilities",
+  "main": "server.js",
+  "dependencies": {
+    "everyauth": "*",
+    "everyauth-facebook": "*",
+    "express": "4.x",
+    "serve-favicon": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express-session": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "everyauth",
+    "auth",
+    "oauth",
+    "oauth2",
+    "facebook",
+    "twitter"
+  ],
+  "author": "Brian N Noguchi",
+  "license": "MIT"
+}
