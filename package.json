@@ -18,7 +18,6 @@
     "dropbox",
     "authorization",
     "authentication",
-    "connect",
     "express"
   ],
   "main": "./index.js",
@@ -28,13 +27,12 @@
   "dependencies": {
     "oauth": "https://github.com/ciaranj/node-oauth/tarball/master",
     "request": "2.9.x",
-    "connect": "2.3.x",
     "openid": ">=0.2.0",
     "xml2js": ">=0.1.7",
     "node-swt": ">=0.1.1",
     "node-wsfederation": ">=0.1.1",
     "debug": "0.5.0",
-    "express": "3.x"
+    "express": "4.x"
   },
   "devDependencies": {
     "jade": ">=0.12.1",
