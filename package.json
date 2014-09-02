@@ -28,7 +28,6 @@
     "express": "4.x"
   },
   "devDependencies": {
-    "jade": ">=0.12.1",
     "tobi": ">=0.2.2",
     "expect.js": ">=0.1.2",
     "mocha": ">=0.13.0",
