@@ -1,7 +1,5 @@
 var path = require('path');
 var EventEmitter = require('events').EventEmitter;
-var express = require('express');
-var ExpressRouter = require('express/lib/router');
 var merge = require('./lib/utils').merge;
 var EveryModule = require('./lib/everymodule');
 
