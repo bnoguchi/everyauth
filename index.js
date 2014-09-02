@@ -3,7 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var express = require('express');
 var ExpressRouter = require('express/lib/router');
 var merge = require('./lib/utils').merge;
-var EveryModule = require('./lib/modules/everymodule');
+var EveryModule = require('./lib/everymodule');
 
 function EveryAuth () {
   this.everymodule = new EveryModule(this);
