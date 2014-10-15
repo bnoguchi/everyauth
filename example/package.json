@@ -6,6 +6,7 @@
   "dependencies": {
     "everyauth": "*",
     "everyauth-facebook": "*",
+    "everyauth-twitter": "*",
     "express": "4.x",
     "jade": "1.x",
     "serve-favicon": "2.x",

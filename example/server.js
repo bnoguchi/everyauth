@@ -33,6 +33,16 @@ everyauth.facebook
     (usersByFbId[fbUserMetadata.id] = addUser('facebook', fbUserMetadata));
 });
 
+everyauth.use(require("everyauth-twitter"));
+var usersByTwitId = {};
+everyauth.twitter
+.consumerKey(conf.twit.consumerKey)
+.consumerSecret(conf.twit.consumerSecret)
+.callbackPath('/auth/twitter/callback')
+.findOrCreateUser( function (sess, accessToken, accessSecret, twitUser) {
+  return usersByTwitId[twitUser.id] || (usersByTwitId[twitUser.id] = addUser('twitter', twitUser));
+});
+
 var express = require('express');
 var app = express();
 app.use(express.static(__dirname + '/public'))
@@ -65,6 +75,27 @@ app.get('/auth/facebook'
     });
 app.get('/auth/facebook/callback'
   , everyauth.facebook.middleware('callbackPath')
+  , function (req, res, next) {
+      res.redirect("/");
+    }
+  , function (err, req, res, next) {
+      console.log(err.stack);
+      res.render('auth-fail.jade', {
+        error: err.toString()
+      });
+    });
+
+app.get('/auth/twitter'
+  , everyauth.twitter.middleware('entryPath')
+  , function (err, req, res, next) {
+      console.log(err.stack);
+      res.render('auth-fail.jade', {
+        error: err.toString()
+      });
+    });
+
+app.get('/auth/twitter/callback'
+  , everyauth.twitter.middleware('callbackPath')
   , function (req, res, next) {
       res.redirect("/");
     }
