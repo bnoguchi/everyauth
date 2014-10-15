@@ -7,6 +7,7 @@
     "everyauth": "*",
     "everyauth-facebook": "*",
     "express": "4.x",
+    "jade": "1.x",
     "serve-favicon": "2.x",
     "body-parser": "1.x",
     "cookie-parser": "1.x",
