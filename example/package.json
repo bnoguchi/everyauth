@@ -7,10 +7,10 @@
     "everyauth": "*",
     "everyauth-facebook": "*",
     "express": "4.x",
-    "serve-favicon": "*",
-    "body-parser": "*",
-    "cookie-parser": "*",
-    "express-session": "*"
+    "serve-favicon": "2.x",
+    "body-parser": "1.x",
+    "cookie-parser": "1.x",
+    "express-session": "1.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
