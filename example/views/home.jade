@@ -99,7 +99,7 @@
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
       input(type='text', name='openid_identifier')
-      input(type='submit') Login
+      input(type='submit', value='Login') 
 - else
   h2 Authenticated
   - if (everyauth.facebook)
