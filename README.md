@@ -840,7 +840,7 @@ var everyauth = require('everyauth')
 everyauth.github
   .appId('YOUR CLIENT ID HERE')
   .appSecret('YOUR CLIENT SECRET HERE')
-  .findOrCreateUser( function (session, accessToken, , accessTokenExtra, githubUserMetadata) {
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, githubUserMetadata) {
     // find or create user logic goes here
   })
   .redirectPath('/');
