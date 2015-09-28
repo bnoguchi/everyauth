@@ -364,6 +364,7 @@ everyauth.facebook
   .callbackPath('/auth/facebook/callback')
   .scope('email')                        // Defaults to undefined
   .fields('id,name,email,picture')       // Controls the returned fields. Defaults to undefined
+  .returnSSLResources(true)              // Return url resources with https prefix. Defaults to undefined (false)
 ```
 
 If you want to see what the current value of a
@@ -372,6 +373,7 @@ configured parameter is, you can do so via:
 ```javascript
 everyauth.facebook.scope(); // undefined
 everyauth.facebook.fields(); // undefined
+everyauth.facebook.returnSSLResources(); // undefined
 everyauth.facebook.entryPath(); // '/auth/facebook'
 ```
 
