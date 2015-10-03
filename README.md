@@ -306,7 +306,7 @@ everyauth.password
 ```
 
 If you are using express and want your redirects to be subject to [express
-redirect mapping](http://expressjs.com/guide.html#res.redirect\(\)), you can
+redirect mapping](http://expressjs.com/4x/api.html#res.redirect), you can
 overwrite redirect method employed by everyauth.
 
 ```javascript
