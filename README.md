@@ -62,6 +62,8 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
     <tr> <td> LDAP / ActiveDirectory                                                                                                       <td> <a href="https://github.com/marek-obuchowicz">Marek Obuchowicz</a> from <a href="https://www.korekontrol.eu/">Korekontrol</a>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
+    <tr> <td> LDAP / ActiveDirectory <br> (using [ldapauth-fork](https://github.com/vesse/node-ldapauth-fork))
+    <td> [Aaron Calderon](https://github.com/aaroncalderon) from Planet Earth
   </tbody>
 </table>
 
@@ -2281,6 +2283,169 @@ connect(
   , connect.router(routes);
 ).listen(3000);
 ```
+
+### LDAPFORK
+
+The `ldapfork` module is not tested throughly yet, however it inherits all the qualities from the `ldap` module plus some enhansements. Feedback is very welcome.
+
+I was not requiered to do this on windows. 
+Install OpenLDAP client libraries:
+
+    $ sudo apt-get install ldap-utils
+
+We are installing a different `ldapauth`
+Install [node-ldapauth-fork](https://github.com/vesse/node-ldapauth-fork):
+
+This is where things change a little bit.
+
+#### Option 1
+
+Pretty much you can use the same setup as with `ldap`
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.ldapfork
+  .ldapUrl('ldap(s)://your.ldap.host') // check if you need ldap or ldaps
+  .adminDn('DN for bind')
+  .adminPassword('Password for bind user')
+  .searchBase('e.g. ou=users,dc=example,dc=com')
+  .searchFilter('e.g. (uid={{username}})')
+  .requireGroupDn('e.g. cn=Administrators,ou=Groups,dc=example,dc=com')
+
+ // The `ldap` module inherits from the `password` module, so 
+  // refer to the `password` module instructions several sections above
+  // in this README.
+  // You do --not-- need to configure the `authenticate` step as instructed
+  // by `password` because the `ldap` module --already-- does [not] that for you.
+  // in this _fork_ of this module, I have chossen to allow the authenticate step
+  // to be __optional__. So, you cah use the the default, or clone it if you need
+  // special handling of the authentication. See below... [USERID] 
+  // Moreover, all the registration related steps and configurable parameters
+  // are no longer valid
+  .getLoginPath(...)
+  .postLoginPath(...)
+  .loginView(...)
+  .loginSuccessRedirect(...);
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+#### Option 2
+
+You can override the authenticate method:
+ 
+```javascript
+everyauth.ldapfork
+  .ldapUrl('ldap://your.ldap.host:andport')
+  .adminDn('DN for bind')
+  .adminPassword('Password for bind user')
+  .searchBase('e.g. ou=users,dc=example,dc=com')
+  .searchFilter('e.g. (uid={{username}})')
+  .requireGroupDn('e.g. cn=Administrators,ou=Groups,dc=example,dc=com')
+
+  // The `ldap` module inherits from the `password` module, so 
+  // refer to the `password` module instructions several sections above
+  // in this README.
+  // You can to configure the `authenticate` step as instructed
+  // by `password` because the `ldapfork` module lets you customize it.
+  // in this _fork_ of this module, I have chossen to allow the authenticate step
+  // to be __optional__. So, you can use the the default, or override it if you need
+  // special handling of the authentication. See below... [USERID] 
+  // Moreover, all the registration related steps and configurable parameters
+  // are no longer valid
+  .loginWith('email')
+  .loginFormFieldName('login')       // Defaults to 'login' 
+  .passwordFormFieldName('password') // Defaults to 'password' 
+  .getLoginPath('/login')
+  .postLoginPath('/login')
+  .loginView('login.jade')
+  .loginLocals( function (req, res, done) {
+    setTimeout( function () {
+      done(null, {
+        title: 'Async login',
+        everyauth: everyauth
+      });
+    }, 200);
+  })
+  .loginSuccessRedirect('/')
+  .authenticate( function (login, password, req, res) {
+    var promise = this.Promise();
+    var ldapauth = this.ldapAuth;
+   
+    ldapauth.authenticate(login, password, function (err, result) {
+      var user, errors;
+      if (err) {
+        // return promise.fail(err);
+        // debug
+        
+        if (typeof err == 'string') {
+          return promise.fulfill(['LDAP Error: ' + err]);
+        } else {
+          return promise.fulfill(['LDAP Error: ' + err.message]);        
+        }
+      }
+      if (result === false) {
+        errors = ['Login failed.'];
+        return promise.fulfill(errors);
+      } else if (typeof result == 'object') {
+        // RESULT.UID
+        // in my case I was not able to use the comparison `result.uid == login`
+        // since in my organization, there is no `uid` assigned to the users
+        // instead I used the `mail` and I used the `.toLowerCase()` to make
+        // sure my app is abit more flexible, sice emails are saved with Camel
+        // case, but it is not for sure that the user will use a cammel case
+        // email address, ussualy they use lowercase.
+        if (result.uid == login || result.mail.toLowerCase() == login.toLowerCase()) {
+          user = {};
+          user['id'] = login;
+          console.log("LDAP: positive authorization for user " + login + "")
+          userAttributes = {
+            name: result.name,
+            eID: result.employeeID,
+            permissions: result.memberOf,
+            dpt: result.description
+          }
+          // lets add the user
+          // I am not sure if this is supposed to happen here or not
+          // but for my testing it worked ok so far, so I left it there
+          user[login] = addUser(login, userAttributes);
+          
+          return promise.fulfill(user);
+        } else {
+          return promise.fulfill(['LDAP Error: result does not match username', result])
+        }
+      } else {
+        console.log('ldapauth returned an unknown result:');
+        console.log(result);
+        return promise.fulfill(['Unknown ldapauth response']);        
+      }
+    });
+    return promise;
+  });
+  
+  var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```  
 
 ### Windows Azure Access Control Service (ACS)
 
