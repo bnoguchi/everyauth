@@ -387,7 +387,7 @@ everyauth.facebook.configurable();
 Facebook provides many different 
 [permissions](http://developers.facebook.com/docs/authentication/permissions/)
 for which your app can ask your user. This is bundled up in the `scope` query
-paremter sent with the oauth request to Facebook. While your app may require 
+parameter sent with the oauth request to Facebook. While your app may require 
 several different permissions from Facebook, Facebook recommends that you only
 ask for these permissions incrementally, as you need them. For example, you might
 want to only ask for the "email" scope upon registration. At the same time, for
