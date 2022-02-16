@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: everyauth
+  annotations:
+    github.com/project-slug: marvin-corea-cvshealth/everyauth
+spec:
+  type: other
+  lifecycle: unknown
+  owner: marvin-corea-cvshealth
